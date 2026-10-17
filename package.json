@@ -1,0 +1,58 @@
+{
+  "name": "@bladecp/cli",
+  "version": "0.1.0",
+  "description": "BladeCP CLI: sign in, list your servers and migrate cPanel backups to BladeCP from the terminal.",
+  "keywords": [
+    "bladecp",
+    "cli",
+    "migration",
+    "cpanel",
+    "hosting"
+  ],
+  "homepage": "https://developers.bladecp.com/cli",
+  "bugs": {
+    "url": "https://github.com/bladecp/bladecp-cli/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bladecp/bladecp-cli.git"
+  },
+  "author": "BladeCP",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "bladecp": "dist/bin.js"
+  },
+  "files": [
+    "dist",
+    "!dist/**/*.map",
+    "!dist/reference.js",
+    "README.md",
+    "README.pt-BR.md",
+    "README.es.md",
+    "CHANGELOG.md"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "packageManager": "pnpm@12.8.1",
+  "scripts": {
+    "build": "node scripts/clean.mjs && tsc -p tsconfig.build.json && node scripts/postbuild.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "biome check .",
+    "format": "biome format --write .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "export:reference": "pnpm run build && node scripts/export-reference.mjs",
+    "prepack": "pnpm run build"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.5.15",
+    "@types/node": "^20.19.43",
+    "typescript": "^7.0.2",
+    "vitest": "4.1.11"
+  }
+}

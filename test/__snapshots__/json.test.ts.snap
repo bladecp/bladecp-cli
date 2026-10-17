@@ -1,0 +1,255 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`--json output is stable > destinations list 1`] = `
+{
+  "body": {
+    "data": {
+      "destinations": [
+        {
+          "diskGb": 20,
+          "locations": [
+            {
+              "city": "Sao Paulo",
+              "countryCode": "BR",
+              "locationId": 3,
+              "name": "Sao Paulo",
+              "region": "sa-east",
+            },
+          ],
+          "partnerName": "BladeCP",
+          "partnerPlanId": 12,
+          "partnerUuid": "01970000-0000-7000-8000-0000000000p1",
+          "planName": "Stack Container S",
+          "prices": [
+            {
+              "currency": "BRL",
+              "priceMonthly": 49,
+            },
+            {
+              "currency": "USD",
+              "priceMonthly": 9,
+            },
+          ],
+        },
+      ],
+    },
+    "ok": true,
+  },
+  "code": 0,
+}
+`;
+
+exports[`--json output is stable > error envelope 1`] = `
+{
+  "body": {
+    "error": {
+      "code": "not_found",
+      "exitCode": 5,
+      "message": "Not found. Check the ID and that it belongs to your account.",
+      "status": 404,
+    },
+    "ok": false,
+  },
+  "code": 5,
+}
+`;
+
+exports[`--json output is stable > migrations approve 1`] = `
+{
+  "body": {
+    "data": {
+      "migrationUuid": "01970000-0000-7000-8000-00000000m001",
+      "phase": "syncing",
+    },
+    "ok": true,
+  },
+  "code": 0,
+}
+`;
+
+exports[`--json output is stable > migrations list 1`] = `
+{
+  "body": {
+    "data": [
+      {
+        "backupReady": false,
+        "components": [
+          {
+            "name": "files",
+            "status": "completed",
+          },
+          {
+            "name": "database",
+            "status": "completed",
+          },
+        ],
+        "createdAt": "2026-10-10T10:00:00.000Z",
+        "message": null,
+        "phase": "awaiting_approval",
+        "primaryDomain": "example.com",
+        "reason": null,
+        "requestedPrimaryDomain": null,
+        "retry": {
+          "allowed": false,
+          "migrationUuid": null,
+          "published": false,
+          "reason": "not_failed",
+        },
+        "sourcePanel": "cpanel",
+        "sourcePrimaryDomain": "example.com",
+        "stagingUrl": "https://01970000-0000-7000-8000-00000000m001.preview.example.net/",
+        "timing": null,
+        "updatedAt": "2026-10-10T10:00:00.000Z",
+        "uuid": "01970000-0000-7000-8000-00000000m001",
+      },
+    ],
+    "ok": true,
+  },
+  "code": 0,
+}
+`;
+
+exports[`--json output is stable > migrations status 1`] = `
+{
+  "body": {
+    "data": {
+      "backupReady": false,
+      "components": [
+        {
+          "name": "files",
+          "status": "completed",
+        },
+        {
+          "name": "database",
+          "status": "completed",
+        },
+      ],
+      "createdAt": "2026-10-10T10:00:00.000Z",
+      "message": null,
+      "phase": "awaiting_approval",
+      "primaryDomain": "example.com",
+      "reason": null,
+      "requestedPrimaryDomain": null,
+      "retry": {
+        "allowed": false,
+        "migrationUuid": null,
+        "published": false,
+        "reason": "not_failed",
+      },
+      "sourcePanel": "cpanel",
+      "sourcePrimaryDomain": "example.com",
+      "stagingUrl": "https://01970000-0000-7000-8000-00000000m001.preview.example.net/",
+      "timing": null,
+      "updatedAt": "2026-10-10T10:00:00.000Z",
+      "uuid": "01970000-0000-7000-8000-00000000m001",
+    },
+    "ok": true,
+  },
+  "code": 0,
+}
+`;
+
+exports[`--json output is stable > servers list 1`] = `
+{
+  "body": {
+    "data": [
+      {
+        "activation_mode": "auto",
+        "primary_domain": "example.com",
+        "product_type": "stack-container",
+        "status": "active",
+        "uuid": "01970000-0000-7000-8000-00000000s001",
+      },
+      {
+        "activation_mode": "auto",
+        "primary_domain": "shop.example.org",
+        "product_type": "edge-cloud",
+        "status": "pending",
+        "uuid": "01970000-0000-7000-8000-00000000s002",
+      },
+    ],
+    "ok": true,
+  },
+  "code": 0,
+}
+`;
+
+exports[`--json output is stable > servers show 1`] = `
+{
+  "body": {
+    "data": {
+      "server": {
+        "activation_mode": "auto",
+        "primary_domain": "example.com",
+        "product_type": "stack-container",
+        "status": "active",
+        "uuid": "01970000-0000-7000-8000-00000000s001",
+      },
+      "usage": {
+        "asOf": "2026-10-01T12:00:00.000Z",
+        "plan": {
+          "bandwidthGbMonth": null,
+          "diskGb": 20,
+          "emailAccounts": 10,
+          "sqlDatabases": 5,
+        },
+        "provisionUuid": "01970000-0000-7000-8000-00000000s001",
+        "status": "healthy",
+        "usage": {
+          "bandwidthGbMonth": 12.5,
+          "diskGb": 3.25,
+          "emailAccounts": 2,
+          "sqlDatabases": 1,
+        },
+      },
+    },
+    "ok": true,
+  },
+  "code": 0,
+}
+`;
+
+exports[`--json output is stable > usage error envelope 1`] = `
+{
+  "body": {
+    "error": {
+      "code": "usage",
+      "exitCode": 2,
+      "hint": "Usage: bladecp servers show <uuid>",
+      "message": "Missing argument <uuid>.",
+    },
+    "ok": false,
+  },
+  "code": 2,
+}
+`;
+
+exports[`--json output is stable > whoami 1`] = `
+{
+  "body": {
+    "data": {
+      "apiUrl": "http://127.0.0.1:PORT",
+      "customer": {
+        "email": "owner@example.com",
+        "uuid": "01970000-0000-7000-8000-000000000001",
+      },
+      "expiresAt": null,
+      "keyUuid": "01970000-0000-7000-8000-0000000000aa",
+      "rateLimit": {
+        "limitPerMinute": 60,
+        "tier": "default",
+      },
+      "scopes": [
+        "customer:read",
+        "provisions:read",
+        "migrations:read",
+        "migrations:write",
+      ],
+      "source": "env",
+      "tier": "default",
+    },
+    "ok": true,
+  },
+  "code": 0,
+}
+`;

@@ -1,0 +1,1382 @@
+{
+  "format": 1,
+  "name": "BladeCP CLI",
+  "binary": "bladecp",
+  "version": "0.1.0",
+  "languages": [
+    "en",
+    "pt-BR",
+    "es"
+  ],
+  "commands": [
+    {
+      "id": "login",
+      "command": "login",
+      "usage": "bladecp login [--token <key>] [--no-browser]",
+      "arguments": [],
+      "options": [
+        "token",
+        "no-browser"
+      ],
+      "signInRequired": false,
+      "summary": {
+        "en": "Sign in with your browser or an API key",
+        "pt-BR": "Entrar pelo navegador ou com uma chave de API",
+        "es": "Iniciar sesión con el navegador o con una clave de API"
+      }
+    },
+    {
+      "id": "logout",
+      "command": "logout",
+      "usage": "bladecp logout",
+      "arguments": [],
+      "options": [],
+      "signInRequired": false,
+      "summary": {
+        "en": "Remove the saved sign-in from this computer",
+        "pt-BR": "Remover o login salvo neste computador",
+        "es": "Quitar el inicio de sesión guardado en esta computadora"
+      }
+    },
+    {
+      "id": "whoami",
+      "command": "whoami",
+      "usage": "bladecp whoami",
+      "arguments": [],
+      "options": [],
+      "signInRequired": true,
+      "summary": {
+        "en": "Show the account and key in use",
+        "pt-BR": "Mostrar a conta e a chave em uso",
+        "es": "Mostrar la cuenta y la clave en uso"
+      }
+    },
+    {
+      "id": "servers.list",
+      "command": "servers list",
+      "usage": "bladecp servers list",
+      "arguments": [],
+      "options": [],
+      "signInRequired": true,
+      "summary": {
+        "en": "List your servers",
+        "pt-BR": "Listar seus servidores",
+        "es": "Listar tus servidores"
+      }
+    },
+    {
+      "id": "servers.show",
+      "command": "servers show",
+      "usage": "bladecp servers show <uuid>",
+      "arguments": [
+        "<uuid>"
+      ],
+      "options": [],
+      "signInRequired": true,
+      "summary": {
+        "en": "Show a server and its resource usage",
+        "pt-BR": "Mostrar um servidor e o uso de recursos",
+        "es": "Mostrar un servidor y su uso de recursos"
+      }
+    },
+    {
+      "id": "destinations.list",
+      "command": "destinations list",
+      "usage": "bladecp destinations list [--currency <code>]",
+      "arguments": [],
+      "options": [
+        "currency"
+      ],
+      "signInRequired": true,
+      "summary": {
+        "en": "List the plans and locations available for migrations",
+        "pt-BR": "Listar os planos e locais disponíveis para migração",
+        "es": "Listar los planes y ubicaciones disponibles para migraciones"
+      }
+    },
+    {
+      "id": "migrate",
+      "command": "migrate",
+      "usage": "bladecp migrate <backup.tar.gz> [--plan <id> --location <id>] [--domain <host>] [--yes] [--no-wait]",
+      "arguments": [
+        "<backup.tar.gz>"
+      ],
+      "options": [
+        "plan",
+        "location",
+        "domain",
+        "yes",
+        "no-wait"
+      ],
+      "signInRequired": true,
+      "summary": {
+        "en": "Upload a cPanel backup and migrate the site to BladeCP",
+        "pt-BR": "Enviar um backup do cPanel e migrar o site para a BladeCP",
+        "es": "Subir un respaldo de cPanel y migrar el sitio a BladeCP"
+      }
+    },
+    {
+      "id": "migrations.list",
+      "command": "migrations list",
+      "usage": "bladecp migrations list",
+      "arguments": [],
+      "options": [],
+      "signInRequired": true,
+      "summary": {
+        "en": "List your migrations",
+        "pt-BR": "Listar suas migrações",
+        "es": "Listar tus migraciones"
+      }
+    },
+    {
+      "id": "migrations.status",
+      "command": "migrations status",
+      "usage": "bladecp migrations status <uuid> [--watch]",
+      "arguments": [
+        "<uuid>"
+      ],
+      "options": [
+        "watch"
+      ],
+      "signInRequired": true,
+      "summary": {
+        "en": "Show a migration (add --watch to follow it)",
+        "pt-BR": "Mostrar uma migração (use --watch para acompanhar)",
+        "es": "Mostrar una migración (usa --watch para seguirla)"
+      }
+    },
+    {
+      "id": "migrations.review",
+      "command": "migrations review",
+      "usage": "bladecp migrations review <uuid> --domain <host>",
+      "arguments": [
+        "<uuid>"
+      ],
+      "options": [
+        "domain"
+      ],
+      "signInRequired": true,
+      "summary": {
+        "en": "Confirm which domain a migration uses",
+        "pt-BR": "Confirmar o domínio de uma migração",
+        "es": "Confirmar el dominio de una migración"
+      }
+    },
+    {
+      "id": "migrations.approve",
+      "command": "migrations approve",
+      "usage": "bladecp migrations approve <uuid>",
+      "arguments": [
+        "<uuid>"
+      ],
+      "options": [],
+      "signInRequired": true,
+      "summary": {
+        "en": "Approve a migration after checking the preview",
+        "pt-BR": "Aprovar uma migração depois de conferir a prévia",
+        "es": "Aprobar una migración después de revisar la vista previa"
+      }
+    },
+    {
+      "id": "migrations.cancel",
+      "command": "migrations cancel",
+      "usage": "bladecp migrations cancel <uuid> [--reason <text>]",
+      "arguments": [
+        "<uuid>"
+      ],
+      "options": [
+        "reason"
+      ],
+      "signInRequired": true,
+      "summary": {
+        "en": "Cancel a migration",
+        "pt-BR": "Cancelar uma migração",
+        "es": "Cancelar una migración"
+      }
+    },
+    {
+      "id": "migrations.retry",
+      "command": "migrations retry",
+      "usage": "bladecp migrations retry <uuid>",
+      "arguments": [
+        "<uuid>"
+      ],
+      "options": [],
+      "signInRequired": true,
+      "summary": {
+        "en": "Try a failed migration again",
+        "pt-BR": "Tentar de novo uma migração que falhou",
+        "es": "Reintentar una migración que falló"
+      }
+    }
+  ],
+  "options": [
+    {
+      "name": "json",
+      "flag": "--json",
+      "short": null,
+      "syntax": "--json",
+      "value": null,
+      "type": "boolean",
+      "global": true,
+      "commands": [],
+      "description": {
+        "en": "Print machine-readable JSON (no colors, no prompts)",
+        "pt-BR": "Imprimir JSON para máquinas (sem cores e sem perguntas)",
+        "es": "Imprimir JSON para máquinas (sin colores ni preguntas)"
+      }
+    },
+    {
+      "name": "api-url",
+      "flag": "--api-url",
+      "short": null,
+      "syntax": "--api-url <url>",
+      "value": "<url>",
+      "type": "string",
+      "global": true,
+      "commands": [],
+      "description": {
+        "en": "API address (default https://api.bladecp.com)",
+        "pt-BR": "Endereço da API (padrão https://api.bladecp.com)",
+        "es": "Dirección de la API (predeterminada https://api.bladecp.com)"
+      }
+    },
+    {
+      "name": "lang",
+      "flag": "--lang",
+      "short": null,
+      "syntax": "--lang <en|pt-BR|es>",
+      "value": "<en|pt-BR|es>",
+      "type": "string",
+      "global": true,
+      "commands": [],
+      "description": {
+        "en": "Language for messages",
+        "pt-BR": "Idioma das mensagens",
+        "es": "Idioma de los mensajes"
+      }
+    },
+    {
+      "name": "help",
+      "flag": "--help",
+      "short": "-h",
+      "syntax": "-h, --help",
+      "value": null,
+      "type": "boolean",
+      "global": true,
+      "commands": [],
+      "description": {
+        "en": "Show help",
+        "pt-BR": "Mostrar a ajuda",
+        "es": "Mostrar la ayuda"
+      }
+    },
+    {
+      "name": "version",
+      "flag": "--version",
+      "short": "-v",
+      "syntax": "-v, --version",
+      "value": null,
+      "type": "boolean",
+      "global": true,
+      "commands": [],
+      "description": {
+        "en": "Show the version",
+        "pt-BR": "Mostrar a versão",
+        "es": "Mostrar la versión"
+      }
+    },
+    {
+      "name": "token",
+      "flag": "--token",
+      "short": null,
+      "syntax": "--token <key>",
+      "value": "<key>",
+      "type": "string",
+      "global": false,
+      "commands": [
+        "login"
+      ],
+      "description": {
+        "en": "Save this API key instead of signing in with the browser (\"-\" reads it from stdin)",
+        "pt-BR": "Salvar esta chave de API em vez de entrar pelo navegador (\"-\" lê da entrada padrão)",
+        "es": "Guardar esta clave de API en lugar de iniciar sesión con el navegador (\"-\" la lee de la entrada estándar)"
+      }
+    },
+    {
+      "name": "no-browser",
+      "flag": "--no-browser",
+      "short": null,
+      "syntax": "--no-browser",
+      "value": null,
+      "type": "boolean",
+      "global": false,
+      "commands": [
+        "login"
+      ],
+      "description": {
+        "en": "Do not open the browser; print the sign-in address instead",
+        "pt-BR": "Não abrir o navegador; mostrar o endereço de login",
+        "es": "No abrir el navegador; mostrar la dirección de inicio de sesión"
+      }
+    },
+    {
+      "name": "plan",
+      "flag": "--plan",
+      "short": null,
+      "syntax": "--plan <id>",
+      "value": "<id>",
+      "type": "string",
+      "global": false,
+      "commands": [
+        "migrate"
+      ],
+      "description": {
+        "en": "Destination plan ID (see \"bladecp destinations list\")",
+        "pt-BR": "ID do plano de destino (veja \"bladecp destinations list\")",
+        "es": "ID del plan de destino (consulta \"bladecp destinations list\")"
+      }
+    },
+    {
+      "name": "location",
+      "flag": "--location",
+      "short": null,
+      "syntax": "--location <id>",
+      "value": "<id>",
+      "type": "string",
+      "global": false,
+      "commands": [
+        "migrate"
+      ],
+      "description": {
+        "en": "Destination location ID (see \"bladecp destinations list\")",
+        "pt-BR": "ID do local de destino (veja \"bladecp destinations list\")",
+        "es": "ID de la ubicación de destino (consulta \"bladecp destinations list\")"
+      }
+    },
+    {
+      "name": "domain",
+      "flag": "--domain",
+      "short": null,
+      "syntax": "--domain <host>",
+      "value": "<host>",
+      "type": "string",
+      "global": false,
+      "commands": [
+        "migrate",
+        "migrations.review"
+      ],
+      "description": {
+        "en": "Domain the migrated site will use",
+        "pt-BR": "Domínio que o site migrado vai usar",
+        "es": "Dominio que usará el sitio migrado"
+      }
+    },
+    {
+      "name": "yes",
+      "flag": "--yes",
+      "short": "-y",
+      "syntax": "-y, --yes",
+      "value": null,
+      "type": "boolean",
+      "global": false,
+      "commands": [
+        "migrate"
+      ],
+      "description": {
+        "en": "Do not ask for confirmation; accept the domain found in the backup and, when it is the only one, the destination",
+        "pt-BR": "Não pedir confirmação; aceitar o domínio encontrado no backup e, quando for o único, o destino",
+        "es": "No pedir confirmación; aceptar el dominio encontrado en el respaldo y, cuando es el único, el destino"
+      }
+    },
+    {
+      "name": "no-wait",
+      "flag": "--no-wait",
+      "short": null,
+      "syntax": "--no-wait",
+      "value": null,
+      "type": "boolean",
+      "global": false,
+      "commands": [
+        "migrate"
+      ],
+      "description": {
+        "en": "Stop after the backup is received instead of following the migration",
+        "pt-BR": "Parar depois que o backup for recebido, sem acompanhar a migração",
+        "es": "Terminar cuando el respaldo se reciba, sin seguir la migración"
+      }
+    },
+    {
+      "name": "watch",
+      "flag": "--watch",
+      "short": "-w",
+      "syntax": "-w, --watch",
+      "value": null,
+      "type": "boolean",
+      "global": false,
+      "commands": [
+        "migrations.status"
+      ],
+      "description": {
+        "en": "Keep following the migration until it needs you or finishes",
+        "pt-BR": "Acompanhar a migração até ela precisar de você ou terminar",
+        "es": "Seguir la migración hasta que te necesite o termine"
+      }
+    },
+    {
+      "name": "reason",
+      "flag": "--reason",
+      "short": null,
+      "syntax": "--reason <text>",
+      "value": "<text>",
+      "type": "string",
+      "global": false,
+      "commands": [
+        "migrations.cancel"
+      ],
+      "description": {
+        "en": "Optional note about why you are cancelling",
+        "pt-BR": "Observação opcional sobre o motivo do cancelamento",
+        "es": "Nota opcional sobre el motivo de la cancelación"
+      }
+    },
+    {
+      "name": "currency",
+      "flag": "--currency",
+      "short": null,
+      "syntax": "--currency <code>",
+      "value": "<code>",
+      "type": "string",
+      "global": false,
+      "commands": [
+        "destinations.list"
+      ],
+      "description": {
+        "en": "Show plans and prices in one currency (for example USD or BRL)",
+        "pt-BR": "Mostrar planos e preços em uma moeda (por exemplo USD ou BRL)",
+        "es": "Mostrar planes y precios en una moneda (por ejemplo USD o BRL)"
+      }
+    }
+  ],
+  "globalOptions": [
+    "json",
+    "api-url",
+    "lang",
+    "help",
+    "version"
+  ],
+  "aliases": [
+    {
+      "kind": "short-option",
+      "alias": "-h",
+      "target": "--help"
+    },
+    {
+      "kind": "short-option",
+      "alias": "-v",
+      "target": "--version"
+    },
+    {
+      "kind": "short-option",
+      "alias": "-y",
+      "target": "--yes"
+    },
+    {
+      "kind": "short-option",
+      "alias": "-w",
+      "target": "--watch"
+    },
+    {
+      "kind": "help-command",
+      "alias": "bladecp help <command>",
+      "target": "bladecp <command> --help"
+    },
+    {
+      "kind": "group-default",
+      "alias": "bladecp servers",
+      "target": "bladecp servers list"
+    },
+    {
+      "kind": "group-default",
+      "alias": "bladecp destinations",
+      "target": "bladecp destinations list"
+    },
+    {
+      "kind": "group-default",
+      "alias": "bladecp migrations",
+      "target": "bladecp migrations list"
+    }
+  ],
+  "exitCodes": [
+    {
+      "code": 0,
+      "name": "OK",
+      "description": {
+        "en": "ok",
+        "pt-BR": "ok",
+        "es": "ok"
+      }
+    },
+    {
+      "code": 1,
+      "name": "GENERAL",
+      "description": {
+        "en": "unexpected error",
+        "pt-BR": "erro inesperado",
+        "es": "error inesperado"
+      }
+    },
+    {
+      "code": 2,
+      "name": "USAGE",
+      "description": {
+        "en": "invalid usage",
+        "pt-BR": "uso inválido",
+        "es": "uso no válido"
+      }
+    },
+    {
+      "code": 3,
+      "name": "AUTH",
+      "description": {
+        "en": "sign-in needed",
+        "pt-BR": "login necessário",
+        "es": "inicio de sesión necesario"
+      }
+    },
+    {
+      "code": 4,
+      "name": "FORBIDDEN",
+      "description": {
+        "en": "permission denied",
+        "pt-BR": "sem permissão",
+        "es": "sin permiso"
+      }
+    },
+    {
+      "code": 5,
+      "name": "NOT_FOUND",
+      "description": {
+        "en": "not found",
+        "pt-BR": "não encontrado",
+        "es": "no encontrado"
+      }
+    },
+    {
+      "code": 6,
+      "name": "REJECTED",
+      "description": {
+        "en": "rejected by the API",
+        "pt-BR": "recusado pela API",
+        "es": "rechazado por la API"
+      }
+    },
+    {
+      "code": 7,
+      "name": "RATE_LIMITED",
+      "description": {
+        "en": "rate limited",
+        "pt-BR": "limite de requisições",
+        "es": "límite de solicitudes"
+      }
+    },
+    {
+      "code": 8,
+      "name": "NETWORK",
+      "description": {
+        "en": "network or server error",
+        "pt-BR": "erro de rede ou do servidor",
+        "es": "error de red o del servidor"
+      }
+    },
+    {
+      "code": 9,
+      "name": "MIGRATION_FAILED",
+      "description": {
+        "en": "migration failed or cancelled",
+        "pt-BR": "migração com falha ou cancelada",
+        "es": "migración fallida o cancelada"
+      }
+    },
+    {
+      "code": 10,
+      "name": "ACTION_REQUIRED",
+      "description": {
+        "en": "waiting for your action",
+        "pt-BR": "aguardando uma ação sua",
+        "es": "esperando una acción tuya"
+      }
+    },
+    {
+      "code": 130,
+      "name": "INTERRUPTED",
+      "description": {
+        "en": "interrupted",
+        "pt-BR": "interrompido",
+        "es": "interrumpido"
+      }
+    }
+  ],
+  "errors": [
+    {
+      "code": "unexpected",
+      "origin": "cli",
+      "exitCodes": [
+        1
+      ],
+      "message": {
+        "en": "Something went wrong: {message}",
+        "pt-BR": "Algo deu errado: {message}",
+        "es": "Algo salió mal: {message}"
+      },
+      "hint": null
+    },
+    {
+      "code": "config_invalid",
+      "origin": "cli",
+      "exitCodes": [
+        1
+      ],
+      "message": {
+        "en": "The configuration file {path} is damaged. Run \"bladecp logout\" and sign in again.",
+        "pt-BR": "O arquivo de configuração {path} está corrompido. Rode \"bladecp logout\" e entre de novo.",
+        "es": "El archivo de configuración {path} está dañado. Ejecuta \"bladecp logout\" e inicia sesión de nuevo."
+      },
+      "hint": null
+    },
+    {
+      "code": "invalid_response",
+      "origin": "cli",
+      "exitCodes": [
+        1
+      ],
+      "message": {
+        "en": "BladeCP returned an unexpected key. Try \"bladecp login\" again.",
+        "pt-BR": "A BladeCP retornou uma chave inesperada. Tente \"bladecp login\" de novo.",
+        "es": "BladeCP devolvió una clave inesperada. Intenta \"bladecp login\" de nuevo."
+      },
+      "hint": null
+    },
+    {
+      "code": "http_error",
+      "origin": "api",
+      "exitCodes": [
+        1
+      ],
+      "message": {
+        "en": "The BladeCP API returned an error (HTTP {status}). Try again in a few minutes.",
+        "pt-BR": "A API da BladeCP retornou um erro (HTTP {status}). Tente de novo em alguns minutos.",
+        "es": "La API de BladeCP devolvió un error (HTTP {status}). Inténtalo de nuevo en unos minutos."
+      },
+      "hint": null
+    },
+    {
+      "code": "usage",
+      "origin": "cli",
+      "exitCodes": [
+        2
+      ],
+      "message": {
+        "en": "Invalid arguments. Run \"bladecp --help\".",
+        "pt-BR": "Argumentos inválidos. Rode \"bladecp --help\".",
+        "es": "Argumentos no válidos. Ejecuta \"bladecp --help\"."
+      },
+      "hint": null
+    },
+    {
+      "code": "invalid_api_url",
+      "origin": "cli",
+      "exitCodes": [
+        2
+      ],
+      "message": {
+        "en": "Invalid API address: {address}",
+        "pt-BR": "Endereço de API inválido: {address}",
+        "es": "Dirección de API no válida: {address}"
+      },
+      "hint": null
+    },
+    {
+      "code": "insecure_api_url",
+      "origin": "cli",
+      "exitCodes": [
+        2
+      ],
+      "message": {
+        "en": "Refusing to send your key over plain HTTP to {address}. Use an https:// address.",
+        "pt-BR": "Sua chave não será enviada por HTTP sem criptografia para {address}. Use um endereço https://.",
+        "es": "Tu clave no se enviará por HTTP sin cifrar a {address}. Usa una dirección https://."
+      },
+      "hint": null
+    },
+    {
+      "code": "invalid_key_format",
+      "origin": "cli",
+      "exitCodes": [
+        2,
+        3
+      ],
+      "message": {
+        "en": "This does not look like a BladeCP API key. Keys start with \"bcp_live_\".",
+        "pt-BR": "Isto não parece uma chave de API da BladeCP. As chaves começam com \"bcp_live_\".",
+        "es": "Esto no parece una clave de API de BladeCP. Las claves empiezan con \"bcp_live_\"."
+      },
+      "hint": {
+        "en": "Run \"bladecp login\" to sign in, or set BLADECP_API_KEY.",
+        "pt-BR": "Rode \"bladecp login\" para entrar, ou defina BLADECP_API_KEY.",
+        "es": "Ejecuta \"bladecp login\" para iniciar sesión, o define BLADECP_API_KEY."
+      }
+    },
+    {
+      "code": "file_not_found",
+      "origin": "cli",
+      "exitCodes": [
+        2
+      ],
+      "message": {
+        "en": "File not found: {path}",
+        "pt-BR": "Arquivo não encontrado: {path}",
+        "es": "Archivo no encontrado: {path}"
+      },
+      "hint": null
+    },
+    {
+      "code": "not_a_file",
+      "origin": "cli",
+      "exitCodes": [
+        2
+      ],
+      "message": {
+        "en": "Not a file: {path}",
+        "pt-BR": "Não é um arquivo: {path}",
+        "es": "No es un archivo: {path}"
+      },
+      "hint": null
+    },
+    {
+      "code": "empty_file",
+      "origin": "cli",
+      "exitCodes": [
+        2
+      ],
+      "message": {
+        "en": "The file is empty: {path}",
+        "pt-BR": "O arquivo está vazio: {path}",
+        "es": "El archivo está vacío: {path}"
+      },
+      "hint": null
+    },
+    {
+      "code": "file_too_large",
+      "origin": "cli",
+      "exitCodes": [
+        2
+      ],
+      "message": {
+        "en": "The backup is larger than 50 GB: {path}",
+        "pt-BR": "O backup tem mais de 50 GB: {path}",
+        "es": "El respaldo supera los 50 GB: {path}"
+      },
+      "hint": null
+    },
+    {
+      "code": "file_unreadable",
+      "origin": "cli",
+      "exitCodes": [
+        2
+      ],
+      "message": {
+        "en": "Could not read {path}. Check the file permissions.",
+        "pt-BR": "Não foi possível ler {path}. Confira as permissões do arquivo.",
+        "es": "No se pudo leer {path}. Revisa los permisos del archivo."
+      },
+      "hint": null
+    },
+    {
+      "code": "not_gzip",
+      "origin": "cli",
+      "exitCodes": [
+        2
+      ],
+      "message": {
+        "en": "This is not a .tar.gz backup: {path}. Use the full backup file generated by cPanel (for example cpmove-user.tar.gz).",
+        "pt-BR": "Este não é um backup .tar.gz: {path}. Use o arquivo de backup completo gerado pelo cPanel (por exemplo cpmove-usuario.tar.gz).",
+        "es": "Esto no es un respaldo .tar.gz: {path}. Usa el archivo de respaldo completo generado por cPanel (por ejemplo cpmove-usuario.tar.gz)."
+      },
+      "hint": null
+    },
+    {
+      "code": "destination_required",
+      "origin": "cli",
+      "exitCodes": [
+        2
+      ],
+      "message": {
+        "en": "Choose the destination with --plan and --location.",
+        "pt-BR": "Escolha o destino com --plan e --location.",
+        "es": "Elige el destino con --plan y --location."
+      },
+      "hint": {
+        "en": "Run \"bladecp destinations list\" and pass --plan and --location, for example: bladecp migrate backup.tar.gz --plan 12 --location 3. When your account has a single destination, --yes also selects it.",
+        "pt-BR": "Rode \"bladecp destinations list\" e informe --plan e --location, por exemplo: bladecp migrate backup.tar.gz --plan 12 --location 3. Quando sua conta tem um único destino, --yes também o escolhe.",
+        "es": "Ejecuta \"bladecp destinations list\" e indica --plan y --location, por ejemplo: bladecp migrate backup.tar.gz --plan 12 --location 3. Cuando tu cuenta tiene un solo destino, --yes también lo elige."
+      }
+    },
+    {
+      "code": "invalid_domain",
+      "origin": "cli",
+      "exitCodes": [
+        2
+      ],
+      "message": {
+        "en": "Type a valid domain, for example example.com.",
+        "pt-BR": "Digite um domínio válido, por exemplo example.com.",
+        "es": "Escribe un dominio válido, por ejemplo example.com."
+      },
+      "hint": null
+    },
+    {
+      "code": "not_signed_in",
+      "origin": "cli",
+      "exitCodes": [
+        3
+      ],
+      "message": {
+        "en": "You are not signed in.",
+        "pt-BR": "Você não está conectado.",
+        "es": "No iniciaste sesión."
+      },
+      "hint": {
+        "en": "Run \"bladecp login\" to sign in, or set BLADECP_API_KEY.",
+        "pt-BR": "Rode \"bladecp login\" para entrar, ou defina BLADECP_API_KEY.",
+        "es": "Ejecuta \"bladecp login\" para iniciar sesión, o define BLADECP_API_KEY."
+      }
+    },
+    {
+      "code": "unauthorized",
+      "origin": "api",
+      "exitCodes": [
+        3
+      ],
+      "message": {
+        "en": "Your API key was not accepted. It may have expired or been revoked.",
+        "pt-BR": "Sua chave de API não foi aceita. Ela pode ter expirado ou sido revogada.",
+        "es": "Tu clave de API no fue aceptada. Puede haber vencido o haber sido revocada."
+      },
+      "hint": {
+        "en": "Run \"bladecp login\" to get a new key, or create one at {url}.",
+        "pt-BR": "Rode \"bladecp login\" para obter uma nova chave, ou crie uma em {url}.",
+        "es": "Ejecuta \"bladecp login\" para obtener una clave nueva, o crea una en {url}."
+      }
+    },
+    {
+      "code": "api_key_expired",
+      "origin": "api",
+      "exitCodes": [
+        3
+      ],
+      "message": {
+        "en": "Your API key has expired.",
+        "pt-BR": "Sua chave de API expirou.",
+        "es": "Tu clave de API venció."
+      },
+      "hint": {
+        "en": "Run \"bladecp login\" to get a new key, or create one at {url}.",
+        "pt-BR": "Rode \"bladecp login\" para obter uma nova chave, ou crie uma em {url}.",
+        "es": "Ejecuta \"bladecp login\" para obtener una clave nueva, o crea una en {url}."
+      }
+    },
+    {
+      "code": "api_key_cap_reached",
+      "origin": "api",
+      "exitCodes": [
+        3
+      ],
+      "message": {
+        "en": "Your account already has the maximum number of active API keys. Revoke one at {url} and run \"bladecp login\" again.",
+        "pt-BR": "Sua conta já tem o número máximo de chaves de API ativas. Revogue uma em {url} e rode \"bladecp login\" de novo.",
+        "es": "Tu cuenta ya tiene el número máximo de claves de API activas. Revoca una en {url} y ejecuta \"bladecp login\" de nuevo."
+      },
+      "hint": null
+    },
+    {
+      "code": "invalid_grant",
+      "origin": "api",
+      "exitCodes": [
+        3
+      ],
+      "message": {
+        "en": "The sign-in code was not accepted (it may have expired). Run \"bladecp login\" again.",
+        "pt-BR": "O código de login não foi aceito (pode ter expirado). Rode \"bladecp login\" de novo.",
+        "es": "El código de inicio de sesión no fue aceptado (puede haber vencido). Ejecuta \"bladecp login\" de nuevo."
+      },
+      "hint": null
+    },
+    {
+      "code": "state_mismatch",
+      "origin": "cli",
+      "exitCodes": [
+        3
+      ],
+      "message": {
+        "en": "The browser answered with a sign-in that this terminal did not start, so it was ignored. Run \"bladecp login\" again.",
+        "pt-BR": "O navegador respondeu com um login que este terminal não iniciou, então ele foi ignorado. Rode \"bladecp login\" de novo.",
+        "es": "El navegador respondió con un inicio de sesión que esta terminal no inició, así que se ignoró. Ejecuta \"bladecp login\" de nuevo."
+      },
+      "hint": null
+    },
+    {
+      "code": "access_denied",
+      "origin": "cli",
+      "exitCodes": [
+        3
+      ],
+      "message": {
+        "en": "Sign-in was cancelled in the browser. Nothing was saved.",
+        "pt-BR": "O login foi cancelado no navegador. Nada foi salvo.",
+        "es": "El inicio de sesión se canceló en el navegador. No se guardó nada."
+      },
+      "hint": null
+    },
+    {
+      "code": "invalid_callback",
+      "origin": "cli",
+      "exitCodes": [
+        3
+      ],
+      "message": {
+        "en": "The browser did not send a sign-in code. Run \"bladecp login\" again.",
+        "pt-BR": "O navegador não enviou o código de login. Rode \"bladecp login\" de novo.",
+        "es": "El navegador no envió el código de inicio de sesión. Ejecuta \"bladecp login\" de nuevo."
+      },
+      "hint": null
+    },
+    {
+      "code": "login_timeout",
+      "origin": "cli",
+      "exitCodes": [
+        3
+      ],
+      "message": {
+        "en": "Sign-in timed out. Run \"bladecp login\" again when you are ready.",
+        "pt-BR": "O tempo para entrar acabou. Rode \"bladecp login\" de novo quando estiver pronto.",
+        "es": "Se agotó el tiempo para iniciar sesión. Ejecuta \"bladecp login\" de nuevo cuando quieras."
+      },
+      "hint": null
+    },
+    {
+      "code": "commerce_restricted",
+      "origin": "api",
+      "exitCodes": [
+        4
+      ],
+      "message": {
+        "en": "Migrations are not open to your account yet. Your data is safe and nothing was changed.",
+        "pt-BR": "As migrações ainda não estão liberadas para a sua conta. Seus dados estão seguros e nada foi alterado.",
+        "es": "Las migraciones todavía no están habilitadas para tu cuenta. Tus datos están seguros y no se cambió nada."
+      },
+      "hint": null
+    },
+    {
+      "code": "insufficient_scope",
+      "origin": "api",
+      "exitCodes": [
+        4
+      ],
+      "message": {
+        "en": "Your API key does not have the permission needed for this command.",
+        "pt-BR": "Sua chave de API não tem a permissão necessária para este comando.",
+        "es": "Tu clave de API no tiene el permiso necesario para este comando."
+      },
+      "hint": {
+        "en": "Run \"bladecp login\" to get a new key, or create one at {url}.",
+        "pt-BR": "Rode \"bladecp login\" para obter uma nova chave, ou crie uma em {url}.",
+        "es": "Ejecuta \"bladecp login\" para obtener una clave nueva, o crea una en {url}."
+      }
+    },
+    {
+      "code": "key_bound_to_migration",
+      "origin": "api",
+      "exitCodes": [
+        4
+      ],
+      "message": {
+        "en": "This API key belongs to a single migration and cannot be used for this command.",
+        "pt-BR": "Esta chave de API pertence a uma única migração e não pode ser usada neste comando.",
+        "es": "Esta clave de API pertenece a una sola migración y no sirve para este comando."
+      },
+      "hint": {
+        "en": "Run \"bladecp login\" to get a new key, or create one at {url}.",
+        "pt-BR": "Rode \"bladecp login\" para obter uma nova chave, ou crie uma em {url}.",
+        "es": "Ejecuta \"bladecp login\" para obtener una clave nueva, o crea una en {url}."
+      }
+    },
+    {
+      "code": "environment_mismatch",
+      "origin": "api",
+      "exitCodes": [
+        4
+      ],
+      "message": {
+        "en": "This API key does not belong to the API at this address. Check --api-url or use a key created for it.",
+        "pt-BR": "Esta chave de API não pertence à API deste endereço. Confira o --api-url ou use uma chave criada para ela.",
+        "es": "Esta clave de API no pertenece a la API de esta dirección. Revisa --api-url o usa una clave creada para ella."
+      },
+      "hint": null
+    },
+    {
+      "code": "forbidden",
+      "origin": "api",
+      "exitCodes": [
+        4
+      ],
+      "message": {
+        "en": "Your API key is not allowed to do this.",
+        "pt-BR": "Sua chave de API não tem permissão para fazer isso.",
+        "es": "Tu clave de API no tiene permiso para hacer esto."
+      },
+      "hint": null
+    },
+    {
+      "code": "not_found",
+      "origin": "api",
+      "exitCodes": [
+        5
+      ],
+      "message": {
+        "en": "Not found. Check the ID and that it belongs to your account.",
+        "pt-BR": "Não encontrado. Confira o ID e se ele pertence à sua conta.",
+        "es": "No encontrado. Revisa el ID y que pertenezca a tu cuenta."
+      },
+      "hint": null
+    },
+    {
+      "code": "destination_unavailable",
+      "origin": "api",
+      "exitCodes": [
+        6
+      ],
+      "message": {
+        "en": "That plan and location are not available for migrations on your account.",
+        "pt-BR": "Esse plano e esse local não estão disponíveis para migração na sua conta.",
+        "es": "Ese plan y esa ubicación no están disponibles para migraciones en tu cuenta."
+      },
+      "hint": {
+        "en": "Run \"bladecp destinations list\" and pass --plan and --location, for example: bladecp migrate backup.tar.gz --plan 12 --location 3. When your account has a single destination, --yes also selects it.",
+        "pt-BR": "Rode \"bladecp destinations list\" e informe --plan e --location, por exemplo: bladecp migrate backup.tar.gz --plan 12 --location 3. Quando sua conta tem um único destino, --yes também o escolhe.",
+        "es": "Ejecuta \"bladecp destinations list\" e indica --plan y --location, por ejemplo: bladecp migrate backup.tar.gz --plan 12 --location 3. Cuando tu cuenta tiene un solo destino, --yes también lo elige."
+      }
+    },
+    {
+      "code": "no_destinations",
+      "origin": "cli",
+      "exitCodes": [
+        6
+      ],
+      "message": {
+        "en": "No migration destination is available for your account right now.",
+        "pt-BR": "Nenhum destino de migração está disponível para sua conta no momento.",
+        "es": "No hay destinos de migración disponibles para tu cuenta en este momento."
+      },
+      "hint": null
+    },
+    {
+      "code": "domain_unavailable",
+      "origin": "api",
+      "exitCodes": [
+        6
+      ],
+      "message": {
+        "en": "That domain is already in use on BladeCP. Choose another one.",
+        "pt-BR": "Esse domínio já está em uso na BladeCP. Escolha outro.",
+        "es": "Ese dominio ya está en uso en BladeCP. Elige otro."
+      },
+      "hint": null
+    },
+    {
+      "code": "upload_not_allowed",
+      "origin": "api",
+      "exitCodes": [
+        6
+      ],
+      "message": {
+        "en": "This migration no longer accepts a backup upload.",
+        "pt-BR": "Esta migração não aceita mais o envio de backup.",
+        "es": "Esta migración ya no acepta la subida del respaldo."
+      },
+      "hint": null
+    },
+    {
+      "code": "review_unavailable",
+      "origin": "api",
+      "exitCodes": [
+        6
+      ],
+      "message": {
+        "en": "This migration is not waiting for a domain confirmation.",
+        "pt-BR": "Esta migração não está aguardando a confirmação de domínio.",
+        "es": "Esta migración no está esperando la confirmación del dominio."
+      },
+      "hint": null
+    },
+    {
+      "code": "review_conflict",
+      "origin": "api",
+      "exitCodes": [
+        6
+      ],
+      "message": {
+        "en": "A different domain was already confirmed for this migration.",
+        "pt-BR": "Outro domínio já foi confirmado para esta migração.",
+        "es": "Ya se confirmó otro dominio para esta migración."
+      },
+      "hint": null
+    },
+    {
+      "code": "retry_unavailable",
+      "origin": "api",
+      "exitCodes": [
+        6
+      ],
+      "message": {
+        "en": "This migration cannot be retried.",
+        "pt-BR": "Esta migração não pode ser tentada de novo.",
+        "es": "Esta migración no se puede reintentar."
+      },
+      "hint": null
+    },
+    {
+      "code": "backup_unavailable",
+      "origin": "api",
+      "exitCodes": [
+        6
+      ],
+      "message": {
+        "en": "The backup of this migration is no longer available. Start a new migration.",
+        "pt-BR": "O backup desta migração não está mais disponível. Comece uma nova migração.",
+        "es": "El respaldo de esta migración ya no está disponible. Comienza una nueva migración."
+      },
+      "hint": null
+    },
+    {
+      "code": "idempotency_conflict",
+      "origin": "api",
+      "exitCodes": [
+        6
+      ],
+      "message": {
+        "en": "BladeCP already received a different request for this upload. Run the command again.",
+        "pt-BR": "A BladeCP já recebeu um pedido diferente para este envio. Rode o comando de novo.",
+        "es": "BladeCP ya recibió una solicitud diferente para esta subida. Ejecuta el comando de nuevo."
+      },
+      "hint": null
+    },
+    {
+      "code": "phase_conflict",
+      "origin": "api",
+      "exitCodes": [
+        6
+      ],
+      "message": {
+        "en": "This action is not available while the migration is in phase \"{phase}\".",
+        "pt-BR": "Esta ação não está disponível enquanto a migração está na etapa \"{phase}\".",
+        "es": "Esta acción no está disponible mientras la migración está en la etapa \"{phase}\"."
+      },
+      "hint": null
+    },
+    {
+      "code": "conflict",
+      "origin": "api",
+      "exitCodes": [
+        6
+      ],
+      "message": {
+        "en": "The API rejected the request (HTTP {status}): {message}",
+        "pt-BR": "A API recusou o pedido (HTTP {status}): {message}",
+        "es": "La API rechazó la solicitud (HTTP {status}): {message}"
+      },
+      "hint": null
+    },
+    {
+      "code": "unprocessable",
+      "origin": "api",
+      "exitCodes": [
+        6
+      ],
+      "message": {
+        "en": "The API rejected the request (HTTP {status}): {message}",
+        "pt-BR": "A API recusou o pedido (HTTP {status}): {message}",
+        "es": "La API rechazó la solicitud (HTTP {status}): {message}"
+      },
+      "hint": null
+    },
+    {
+      "code": "invalid_request",
+      "origin": "api",
+      "exitCodes": [
+        6
+      ],
+      "message": {
+        "en": "The API rejected the request (HTTP {status}): {message}",
+        "pt-BR": "A API recusou o pedido (HTTP {status}): {message}",
+        "es": "La API rechazó la solicitud (HTTP {status}): {message}"
+      },
+      "hint": null
+    },
+    {
+      "code": "rate_limited",
+      "origin": "api",
+      "exitCodes": [
+        7
+      ],
+      "message": {
+        "en": "Too many requests. Try again in {seconds} seconds.",
+        "pt-BR": "Requisições demais. Tente de novo em {seconds} segundos.",
+        "es": "Demasiadas solicitudes. Inténtalo de nuevo en {seconds} segundos."
+      },
+      "hint": null
+    },
+    {
+      "code": "daily_quota_exceeded",
+      "origin": "api",
+      "exitCodes": [
+        7
+      ],
+      "message": {
+        "en": "The daily request limit for this key was reached. Try again tomorrow.",
+        "pt-BR": "O limite diário de requisições desta chave foi atingido. Tente de novo amanhã.",
+        "es": "Se alcanzó el límite diario de solicitudes de esta clave. Inténtalo de nuevo mañana."
+      },
+      "hint": null
+    },
+    {
+      "code": "network_error",
+      "origin": "cli",
+      "exitCodes": [
+        8
+      ],
+      "message": {
+        "en": "Could not reach {host}. Check your internet connection and try again.",
+        "pt-BR": "Não foi possível acessar {host}. Verifique sua conexão com a internet e tente de novo.",
+        "es": "No se pudo conectar con {host}. Revisa tu conexión a internet e inténtalo de nuevo."
+      },
+      "hint": null
+    },
+    {
+      "code": "server_error",
+      "origin": "api",
+      "exitCodes": [
+        8
+      ],
+      "message": {
+        "en": "The BladeCP API returned an error (HTTP {status}). Try again in a few minutes.",
+        "pt-BR": "A API da BladeCP retornou um erro (HTTP {status}). Tente de novo em alguns minutos.",
+        "es": "La API de BladeCP devolvió un error (HTTP {status}). Inténtalo de nuevo en unos minutos."
+      },
+      "hint": null
+    },
+    {
+      "code": "try_again",
+      "origin": "api",
+      "exitCodes": [
+        8
+      ],
+      "message": {
+        "en": "BladeCP is still processing the previous step. Try again in a minute.",
+        "pt-BR": "A BladeCP ainda está processando a etapa anterior. Tente de novo em um minuto.",
+        "es": "BladeCP todavía está procesando el paso anterior. Inténtalo de nuevo en un minuto."
+      },
+      "hint": null
+    },
+    {
+      "code": "upload_failed",
+      "origin": "cli",
+      "exitCodes": [
+        8
+      ],
+      "message": {
+        "en": "Part {part} could not be uploaded after {attempts} attempts ({reason}).",
+        "pt-BR": "Não foi possível enviar a parte {part} depois de {attempts} tentativas ({reason}).",
+        "es": "No se pudo subir la parte {part} después de {attempts} intentos ({reason})."
+      },
+      "hint": {
+        "en": "Run the same command again to continue where it stopped.",
+        "pt-BR": "Rode o mesmo comando de novo para continuar de onde parou.",
+        "es": "Ejecuta el mismo comando otra vez para continuar donde se detuvo."
+      }
+    },
+    {
+      "code": "upload_restarted",
+      "origin": "cli",
+      "exitCodes": [
+        8
+      ],
+      "message": {
+        "en": "The upload was restarted too many times. Try again in a few minutes.",
+        "pt-BR": "O envio foi reiniciado vezes demais. Tente de novo em alguns minutos.",
+        "es": "La subida se reinició demasiadas veces. Inténtalo de nuevo en unos minutos."
+      },
+      "hint": null
+    },
+    {
+      "code": "upload_plan_inconsistent",
+      "origin": "cli",
+      "exitCodes": [
+        8
+      ],
+      "message": {
+        "en": "BladeCP returned an incomplete upload plan. Try again in a few minutes.",
+        "pt-BR": "A BladeCP retornou um plano de envio incompleto. Tente de novo em alguns minutos.",
+        "es": "BladeCP devolvió un plan de subida incompleto. Inténtalo de nuevo en unos minutos."
+      },
+      "hint": null
+    },
+    {
+      "code": "upload_complete_failed",
+      "origin": "cli",
+      "exitCodes": [
+        8
+      ],
+      "message": {
+        "en": "BladeCP could not assemble the backup: {message}",
+        "pt-BR": "A BladeCP não conseguiu montar o backup: {message}",
+        "es": "BladeCP no pudo armar el respaldo: {message}"
+      },
+      "hint": {
+        "en": "Run the same command again to continue where it stopped.",
+        "pt-BR": "Rode o mesmo comando de novo para continuar de onde parou.",
+        "es": "Ejecuta el mismo comando otra vez para continuar donde se detuvo."
+      }
+    },
+    {
+      "code": "upload_size_mismatch",
+      "origin": "cli",
+      "exitCodes": [
+        8
+      ],
+      "message": {
+        "en": "The stored backup has {received} bytes, expected {expected}.",
+        "pt-BR": "O backup armazenado tem {received} bytes, o esperado era {expected}.",
+        "es": "El respaldo guardado tiene {received} bytes, se esperaban {expected}."
+      },
+      "hint": {
+        "en": "Run the same command again to continue where it stopped.",
+        "pt-BR": "Rode o mesmo comando de novo para continuar de onde parou.",
+        "es": "Ejecuta el mismo comando otra vez para continuar donde se detuvo."
+      }
+    },
+    {
+      "code": "interrupted",
+      "origin": "cli",
+      "exitCodes": [
+        130
+      ],
+      "message": {
+        "en": "Interrupted.",
+        "pt-BR": "Interrompido.",
+        "es": "Interrumpido."
+      },
+      "hint": null
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+name: Bug report
+description: Report a reproducible problem with the BladeCP CLI.
+title: "Bug: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for helping improve the CLI. Please remove API keys, customer data, backup file names and other sensitive information before submitting. Report security vulnerabilities privately to dev@bladecp.com instead.
+  - type: textarea
+    id: summary
+    attributes:
+      label: What happened?
+      description: Describe the observed behavior and its impact.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: List the commands you ran, in order. Replace keys and private values with placeholders.
+      render: shell
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: Explain what you expected to happen instead.
+    validations:
+      required: true
+  - type: input
+    id: cli-version
+    attributes:
+      label: CLI version
+      description: Output of `bladecp --version`.
+    validations:
+      required: true
+  - type: input
+    id: node-version
+    attributes:
+      label: Node.js version
+      description: Output of `node --version`.
+    validations:
+      required: true
+  - type: input
+    id: os
+    attributes:
+      label: Operating system
+      description: For example macOS 15, Ubuntu 24.04 or Windows 11.
+    validations:
+      required: true
+  - type: input
+    id: error-code
+    attributes:
+      label: Error code and exit code
+      description: The `error.code` from `--json` output, and the exit code, if any.
+    validations:
+      required: false
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Relevant output
+      description: Paste sanitized output. The CLI never prints your key, but check for other private values.
+      render: text
+    validations:
+      required: false
