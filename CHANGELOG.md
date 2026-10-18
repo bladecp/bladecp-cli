@@ -4,6 +4,12 @@ All notable changes to the BladeCP CLI are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project uses
 [Semantic Versioning](https://semver.org/).
 
+## [0.3.2] - 2026-10-18
+
+### Changed
+
+- `bladecp analyze` treats every site as one that moves to BladeCP, WordPress or not. A backup whose main site has no WordPress is analyzed like any other: its sites, files, databases, mailboxes, DNS zone and cron jobs are listed as coming to BladeCP, instead of being refused.
+
 ## [0.3.1] - 2026-10-18
 
 ### Fixed

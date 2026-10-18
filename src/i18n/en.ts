@@ -773,7 +773,7 @@ export const en = {
   'analyze.fix.unrecognized_layout':
     'Use the full backup made by cPanel, the cpmove-user.tar.gz file.',
   'analyze.block.not_wordpress':
-    'The main site is not WordPress: there is no public_html/wp-config.php in the backup. The migration takes WordPress sites for now.',
+    'The main site is not WordPress: there is no public_html/wp-config.php in the backup. This only blocks when the migration is set to take WordPress sites only; today every site moves.',
   'analyze.fix.not_wordpress':
     'If the site is WordPress, check that wp-config.php is in public_html and make the backup again.',
   'analyze.block.multisite_unsupported':

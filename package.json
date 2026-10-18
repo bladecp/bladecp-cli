@@ -1,6 +1,6 @@
 {
   "name": "@bladecp/cli",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "BladeCP CLI: sign in, list your servers, analyze and migrate cPanel backups to BladeCP from the terminal.",
   "keywords": [
     "bladecp",

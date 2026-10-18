@@ -786,7 +786,7 @@ export const es: Record<keyof typeof en, string> = {
   'analyze.fix.unrecognized_layout':
     'Usa el respaldo completo hecho por cPanel, el archivo cpmove-usuario.tar.gz.',
   'analyze.block.not_wordpress':
-    'El sitio principal no es WordPress: no hay public_html/wp-config.php en el respaldo. La migración acepta sitios WordPress por ahora.',
+    'El sitio principal no es WordPress: no hay public_html/wp-config.php en el respaldo. Esto solo bloquea cuando la migración está configurada para aceptar solo WordPress; hoy se migra cualquier sitio.',
   'analyze.fix.not_wordpress':
     'Si el sitio es WordPress, revisa que wp-config.php esté en public_html y genera el respaldo de nuevo.',
   'analyze.block.multisite_unsupported':

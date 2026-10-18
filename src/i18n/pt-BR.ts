@@ -776,7 +776,7 @@ export const ptBR: Record<keyof typeof en, string> = {
   'analyze.fix.unrecognized_layout':
     'Use o backup completo feito pelo cPanel, o arquivo cpmove-usuario.tar.gz.',
   'analyze.block.not_wordpress':
-    'O site principal não é WordPress: não há public_html/wp-config.php no backup. A migração aceita sites WordPress por enquanto.',
+    'O site principal não é WordPress: não há public_html/wp-config.php no backup. Isso só bloqueia quando a migração está configurada para aceitar apenas WordPress; hoje todo site é migrado.',
   'analyze.fix.not_wordpress':
     'Se o site é WordPress, confira se o wp-config.php está em public_html e gere o backup de novo.',
   'analyze.block.multisite_unsupported':

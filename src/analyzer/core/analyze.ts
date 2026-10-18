@@ -279,7 +279,9 @@ export function buildReport(input: BuildInput): Report {
   const archiveError = error !== null && !input.complete;
   const recognized = collector.user !== '';
 
-  if (error) {
+  // A primary site without WordPress is the engine's gate of today; when the
+  // capabilities say any site moves, it is not a refusal.
+  if (error && !(error.code === 'not_wordpress' && caps.sites.anyApp)) {
     blockers.push({
       code: error.code,
       ...(error.reason ? { reason: error.reason } : {}),

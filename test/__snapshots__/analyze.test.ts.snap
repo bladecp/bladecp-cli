@@ -240,7 +240,7 @@ exports[`bladecp analyze > the --json contract (bladecp.analyze.v1) > test/fixtu
         "sites": 3,
       },
       "rules": {
-        "capabilities": "2026-10-17",
+        "capabilities": "2026-10-18",
         "parserRevision": "7ce27af",
         "readOn": "2026-10-17",
       },
@@ -380,7 +380,7 @@ exports[`bladecp analyze > the --json contract (bladecp.analyze.v1) > test/fixtu
         "sites": 1,
       },
       "rules": {
-        "capabilities": "2026-10-17",
+        "capabilities": "2026-10-18",
         "parserRevision": "7ce27af",
         "readOn": "2026-10-17",
       },
@@ -547,7 +547,7 @@ exports[`bladecp analyze > the --json contract (bladecp.analyze.v1) > test/fixtu
         "sites": 1,
       },
       "rules": {
-        "capabilities": "2026-10-17",
+        "capabilities": "2026-10-18",
         "parserRevision": "7ce27af",
         "readOn": "2026-10-17",
       },

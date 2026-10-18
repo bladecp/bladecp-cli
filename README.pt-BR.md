@@ -11,11 +11,11 @@
 </p>
 
 <p align="center">
-  <a href="CHANGELOG.md"><img src="https://img.shields.io/badge/vers%C3%A3o-0.3.1-4f46e5?style=flat-square&amp;labelColor=1e1b4b" alt="Versão 0.3.1"></a>
+  <a href="CHANGELOG.md"><img src="https://img.shields.io/badge/vers%C3%A3o-0.3.2-4f46e5?style=flat-square&amp;labelColor=1e1b4b" alt="Versão 0.3.2"></a>
   <a href="https://www.npmjs.com/package/@bladecp/cli"><img src="https://img.shields.io/badge/npm-%40bladecp%2Fcli-6366f1?style=flat-square&amp;labelColor=1e1b4b&amp;logo=npm&amp;logoColor=white" alt="Pacote npm @bladecp/cli"></a>
   <a href="#instalacao"><img src="https://img.shields.io/badge/Node.js-20%2B-4f46e5?style=flat-square&amp;labelColor=1e1b4b&amp;logo=nodedotjs&amp;logoColor=white" alt="Node.js 20 ou superior"></a>
   <a href="#primeiros-passos"><img src="https://img.shields.io/badge/idiomas-EN%20%C2%B7%20PT--BR%20%C2%B7%20ES-7c3aed?style=flat-square&amp;labelColor=1e1b4b" alt="Inglês, português (Brasil) e espanhol"></a><br>
-  <a href="#qualidade"><img src="https://img.shields.io/badge/testes-1148%20aprovados-8b5cf6?style=flat-square&amp;labelColor=1e1b4b" alt="1148 testes automatizados aprovados na versão 0.3.1"></a>
+  <a href="#qualidade"><img src="https://img.shields.io/badge/testes-1148%20aprovados-8b5cf6?style=flat-square&amp;labelColor=1e1b4b" alt="1148 testes automatizados aprovados na versão 0.3.2"></a>
   <a href="#qualidade"><img src="https://img.shields.io/badge/depend%C3%AAncias%20de%20runtime-0-6d28d9?style=flat-square&amp;labelColor=1e1b4b" alt="Sem dependências de runtime"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/licen%C3%A7a-MIT-4338ca?style=flat-square&amp;labelColor=1e1b4b" alt="Licença MIT"></a>
   <a href="https://github.com/bladecp/bladecp-cli/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/bladecp/bladecp-cli/ci.yml?branch=main&amp;style=flat-square&amp;labelColor=1e1b4b&amp;label=CI%20p%C3%BAblico" alt="Estado do CI público"></a>
@@ -26,9 +26,9 @@
   <br>
   <a href="https://www.npmjs.com/package/@bladecp/cli"><strong>Instalar pelo npm</strong></a>
   &nbsp;·&nbsp;
-  <a href="https://github.com/bladecp/bladecp-cli/releases/tag/v0.3.1">Notas da versão</a>
+  <a href="https://github.com/bladecp/bladecp-cli/releases/tag/v0.3.2">Notas da versão</a>
   &nbsp;·&nbsp;
-  <a href="https://github.com/bladecp/bladecp-cli/releases/download/v0.3.1/SHA256SUMS">Checksum SHA-256</a>
+  <a href="https://github.com/bladecp/bladecp-cli/releases/download/v0.3.2/SHA256SUMS">Checksum SHA-256</a>
 </p>
 
 <p align="center">
@@ -45,7 +45,7 @@
 </p>
 
 > [!NOTE]
-> **Versão `0.3.1`.** `bladecp analyze` mostra o que um backup do cPanel tem e
+> **Versão `0.3.2`.** `bladecp analyze` mostra o que um backup do cPanel tem e
 > o que vem para a BladeCP antes de migrar, no seu computador e sem enviar
 > nada, e o analisador também é uma biblioteca (`@bladecp/cli/analyzer`). Os
 > códigos de saída, o envelope `--json` e os códigos de erro são um contrato
@@ -196,13 +196,13 @@ arquivo publicado no npm.
 
 | Arquivo | Para que serve |
 | --- | --- |
-| [**bladecp-cli-0.3.1.tgz**](https://github.com/bladecp/bladecp-cli/releases/download/v0.3.1/bladecp-cli-0.3.1.tgz) | O pacote npm: `dist/`, READMEs, changelog, licença e `package.json` |
-| [**SHA256SUMS**](https://github.com/bladecp/bladecp-cli/releases/download/v0.3.1/SHA256SUMS) | Checksum para conferir o tarball |
-| [**RELEASE_NOTES.md**](https://github.com/bladecp/bladecp-cli/releases/download/v0.3.1/RELEASE_NOTES.md) | Notas desta versão |
+| [**bladecp-cli-0.3.2.tgz**](https://github.com/bladecp/bladecp-cli/releases/download/v0.3.2/bladecp-cli-0.3.2.tgz) | O pacote npm: `dist/`, READMEs, changelog, licença e `package.json` |
+| [**SHA256SUMS**](https://github.com/bladecp/bladecp-cli/releases/download/v0.3.2/SHA256SUMS) | Checksum para conferir o tarball |
+| [**RELEASE_NOTES.md**](https://github.com/bladecp/bladecp-cli/releases/download/v0.3.2/RELEASE_NOTES.md) | Notas desta versão |
 
 ```sh
 shasum -a 256 -c SHA256SUMS          # no Linux: sha256sum -c SHA256SUMS
-npm install -g ./bladecp-cli-0.3.1.tgz
+npm install -g ./bladecp-cli-0.3.2.tgz
 ```
 
 ### Atualizar e desinstalar
@@ -434,7 +434,7 @@ Nunca inclua uma chave de API numa issue pública.
 
 ## Qualidade e validação
 
-A versão `0.3.1` foi validada pelos mantenedores com **1148 testes
+A versão `0.3.2` foi validada pelos mantenedores com **1148 testes
 automatizados** em 19 arquivos, rodados com Vitest contra uma Customer
 API simulada (`test/helpers/mock-api.ts`) e um registro npm simulado, nunca
 reais. Eles cobrem todos os comandos, a migração e suas etapas, o login pelo

@@ -65,7 +65,8 @@ const FIELDS = [
 const VERDICTS: Record<string, [string, string[]]> = {
   'f01-original.tar.gz': ['supported', []],
   'f02-plain-gnu.tar': ['blocked', ['plain_tar']],
-  'f03-no-wpconfig.tar.gz': ['blocked', ['not_wordpress']],
+  // Any site moves (capabilities, owner 2026-10-18): no WordPress is not a refusal.
+  'f03-no-wpconfig.tar.gz': ['supported', []],
   'f04-dotslash-root.tar.gz': ['blocked', ['dot_slash_root']],
   'f05-wp-allow-multisite.tar.gz': ['blocked', ['multisite_unsupported']],
   'f06-commented-multisite.tar.gz': ['blocked', ['multisite_unsupported']],

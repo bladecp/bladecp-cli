@@ -4,14 +4,22 @@
 // here and the CLI, the JSON report and the site follow.
 //
 // What the parser itself refuses (an invalid or truncated archive, an active
-// WordPress Multisite, a backup without WordPress, the limits) is not decided
-// here: those stay refusals or warnings in the report.
+// WordPress Multisite, the limits) is not decided here: those stay refusals or
+// warnings in the report. Whether a site has to be WordPress is decided here,
+// by `sites.anyApp`.
 
 export interface Capabilities {
   /** The day this list was decided. */
   decidedOn: string;
   /** Sites of the account that move, by role. */
-  sites: { primary: boolean; addon: boolean; subdomain: boolean; parkedAliases: boolean };
+  sites: {
+    primary: boolean;
+    addon: boolean;
+    subdomain: boolean;
+    parkedAliases: boolean;
+    /** Any site moves (WordPress or not); false keeps the engine's WordPress-only gate. */
+    anyApp: boolean;
+  };
   /** The files of the account (the document roots of every site). */
   files: boolean;
   /** Database engines that move; every database of these engines comes along. */
@@ -35,8 +43,9 @@ export interface Capabilities {
 }
 
 export const CAPABILITIES: Capabilities = {
-  decidedOn: '2026-10-17',
-  sites: { primary: true, addon: true, subdomain: true, parkedAliases: true },
+  decidedOn: '2026-10-18',
+  // Owner, 2026-10-18: every site comes along, WordPress or not.
+  sites: { primary: true, addon: true, subdomain: true, parkedAliases: true, anyApp: true },
   files: true,
   databaseEngines: ['mysql', 'mariadb'],
   phpPerSite: true,

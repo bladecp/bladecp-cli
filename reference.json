@@ -2,7 +2,7 @@
   "format": 1,
   "name": "BladeCP CLI",
   "binary": "bladecp",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "languages": [
     "en",
     "pt-BR",
@@ -1755,9 +1755,9 @@
         {
           "code": "not_wordpress",
           "message": {
-            "en": "The main site is not WordPress: there is no public_html/wp-config.php in the backup. The migration takes WordPress sites for now.",
-            "pt-BR": "O site principal não é WordPress: não há public_html/wp-config.php no backup. A migração aceita sites WordPress por enquanto.",
-            "es": "El sitio principal no es WordPress: no hay public_html/wp-config.php en el respaldo. La migración acepta sitios WordPress por ahora."
+            "en": "The main site is not WordPress: there is no public_html/wp-config.php in the backup. This only blocks when the migration is set to take WordPress sites only; today every site moves.",
+            "pt-BR": "O site principal não é WordPress: não há public_html/wp-config.php no backup. Isso só bloqueia quando a migração está configurada para aceitar apenas WordPress; hoje todo site é migrado.",
+            "es": "El sitio principal no es WordPress: no hay public_html/wp-config.php en el respaldo. Esto solo bloquea cuando la migración está configurada para aceptar solo WordPress; hoy se migra cualquier sitio."
           },
           "fix": {
             "en": "If the site is WordPress, check that wp-config.php is in public_html and make the backup again.",

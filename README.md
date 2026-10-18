@@ -11,11 +11,11 @@
 </p>
 
 <p align="center">
-  <a href="CHANGELOG.md"><img src="https://img.shields.io/badge/version-0.3.1-4f46e5?style=flat-square&amp;labelColor=1e1b4b" alt="Version 0.3.1"></a>
+  <a href="CHANGELOG.md"><img src="https://img.shields.io/badge/version-0.3.2-4f46e5?style=flat-square&amp;labelColor=1e1b4b" alt="Version 0.3.2"></a>
   <a href="https://www.npmjs.com/package/@bladecp/cli"><img src="https://img.shields.io/badge/npm-%40bladecp%2Fcli-6366f1?style=flat-square&amp;labelColor=1e1b4b&amp;logo=npm&amp;logoColor=white" alt="npm package @bladecp/cli"></a>
   <a href="#installation"><img src="https://img.shields.io/badge/Node.js-20%2B-4f46e5?style=flat-square&amp;labelColor=1e1b4b&amp;logo=nodedotjs&amp;logoColor=white" alt="Node.js 20 or newer"></a>
   <a href="#first-steps"><img src="https://img.shields.io/badge/languages-EN%20%C2%B7%20PT--BR%20%C2%B7%20ES-7c3aed?style=flat-square&amp;labelColor=1e1b4b" alt="English, Portuguese (Brazil) and Spanish"></a><br>
-  <a href="#quality"><img src="https://img.shields.io/badge/tests-1148%20passing-8b5cf6?style=flat-square&amp;labelColor=1e1b4b" alt="1148 automated tests passing on version 0.3.1"></a>
+  <a href="#quality"><img src="https://img.shields.io/badge/tests-1148%20passing-8b5cf6?style=flat-square&amp;labelColor=1e1b4b" alt="1148 automated tests passing on version 0.3.2"></a>
   <a href="#quality"><img src="https://img.shields.io/badge/runtime%20dependencies-0-6d28d9?style=flat-square&amp;labelColor=1e1b4b" alt="No runtime dependencies"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-4338ca?style=flat-square&amp;labelColor=1e1b4b" alt="MIT license"></a>
   <a href="https://github.com/bladecp/bladecp-cli/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/bladecp/bladecp-cli/ci.yml?branch=main&amp;style=flat-square&amp;labelColor=1e1b4b&amp;label=public%20CI" alt="Public CI status"></a>
@@ -26,9 +26,9 @@
   <br>
   <a href="https://www.npmjs.com/package/@bladecp/cli"><strong>Install from npm</strong></a>
   &nbsp;·&nbsp;
-  <a href="https://github.com/bladecp/bladecp-cli/releases/tag/v0.3.1">Release notes</a>
+  <a href="https://github.com/bladecp/bladecp-cli/releases/tag/v0.3.2">Release notes</a>
   &nbsp;·&nbsp;
-  <a href="https://github.com/bladecp/bladecp-cli/releases/download/v0.3.1/SHA256SUMS">SHA-256 checksum</a>
+  <a href="https://github.com/bladecp/bladecp-cli/releases/download/v0.3.2/SHA256SUMS">SHA-256 checksum</a>
 </p>
 
 <p align="center">
@@ -45,7 +45,7 @@
 </p>
 
 > [!NOTE]
-> **Version `0.3.1`.** `bladecp analyze` shows what a cPanel backup holds and
+> **Version `0.3.2`.** `bladecp analyze` shows what a cPanel backup holds and
 > what comes to BladeCP before you migrate, on your computer and without
 > sending anything, and the analyzer is also a library
 > (`@bladecp/cli/analyzer`). Exit codes, the `--json` envelope and error codes
@@ -195,13 +195,13 @@ same file published to npm.
 
 | File | Purpose |
 | --- | --- |
-| [**bladecp-cli-0.3.1.tgz**](https://github.com/bladecp/bladecp-cli/releases/download/v0.3.1/bladecp-cli-0.3.1.tgz) | The npm package: `dist/`, READMEs, changelog, license and `package.json` |
-| [**SHA256SUMS**](https://github.com/bladecp/bladecp-cli/releases/download/v0.3.1/SHA256SUMS) | Checksum to verify the tarball |
-| [**RELEASE_NOTES.md**](https://github.com/bladecp/bladecp-cli/releases/download/v0.3.1/RELEASE_NOTES.md) | Notes for this version |
+| [**bladecp-cli-0.3.2.tgz**](https://github.com/bladecp/bladecp-cli/releases/download/v0.3.2/bladecp-cli-0.3.2.tgz) | The npm package: `dist/`, READMEs, changelog, license and `package.json` |
+| [**SHA256SUMS**](https://github.com/bladecp/bladecp-cli/releases/download/v0.3.2/SHA256SUMS) | Checksum to verify the tarball |
+| [**RELEASE_NOTES.md**](https://github.com/bladecp/bladecp-cli/releases/download/v0.3.2/RELEASE_NOTES.md) | Notes for this version |
 
 ```sh
 shasum -a 256 -c SHA256SUMS          # on Linux: sha256sum -c SHA256SUMS
-npm install -g ./bladecp-cli-0.3.1.tgz
+npm install -g ./bladecp-cli-0.3.2.tgz
 ```
 
 ### Update and uninstall
@@ -426,7 +426,7 @@ include an API key in a public issue.
 
 ## Quality and validation
 
-Version `0.3.1` was validated by the maintainers with **1148 automated
+Version `0.3.2` was validated by the maintainers with **1148 automated
 tests** in 19 files, run with Vitest against a simulated Customer API
 (`test/helpers/mock-api.ts`) and a simulated npm registry, never real ones.
 They cover every command, migration and its phases, browser sign-in and the
