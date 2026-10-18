@@ -1,11 +1,13 @@
 import { readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { gzipSync } from 'node:zlib';
+import * as zlib from 'node:zlib';
+import { gzipSync, inflateRawSync } from 'node:zlib';
 
 import { describe, expect, it } from 'vitest';
 
 import { binary, fromText } from '../src/analyzer/core/binary.js';
 import { atoi, fields, parseInt64, toLowerAscii, trimSpace } from '../src/analyzer/core/go.js';
+import { classifyGzipError, crc32, gunzip } from '../src/analyzer/core/gzip.js';
 import { countCron, countZone } from '../src/analyzer/core/inventory.js';
 import { DumpScanner } from '../src/analyzer/core/networkscan.js';
 import {
@@ -16,11 +18,13 @@ import {
   requirements,
 } from '../src/analyzer/index.js';
 import { analyzeBlob } from '../src/analyzer/web.js';
-import { analyzeBytes, engineProjection, jitter } from './helpers/analyze.js';
+import { analyzeBytes, chunked, engineProjection, jitter } from './helpers/analyze.js';
 import { buildBackup, cases, demoBackups } from './helpers/backup.js';
 
 const root = new URL('..', import.meta.url).pathname;
 const caseSpec = (id: string) => cases().find((c) => c.id === id)!.spec;
+const zlibCrc32 = (data: Uint8Array) =>
+  (zlib as unknown as { crc32: (d: Uint8Array) => number }).crc32(data);
 
 describe('Go semantics', () => {
   it('TrimSpace trims Unicode spaces but not U+FEFF', () => {
@@ -99,28 +103,193 @@ describe('the tar reader reads the same at any chunk boundary', () => {
   }
 });
 
-describe('the web entry (Blob and DecompressionStream)', () => {
-  it('reads gzip, several gzip members and plain tar like the Node entry', async () => {
-    for (const id of [
-      's01-basic',
-      's51-gzip-multi',
-      's14-cut-in-padding',
-      's37-multisite-network',
-    ]) {
-      const data = buildBackup(caseSpec(id));
-      const web = await analyzeBlob(new Blob([data]));
+describe('the web entry does not depend on the DecompressionStream of the runtime', () => {
+  const golden = new Map(
+    (
+      JSON.parse(
+        readFileSync(join(root, 'test/fixtures/analyzer/engine-synthetic.json'), 'utf8'),
+      ) as Record<string, unknown>[]
+    ).map((g) => [g.fixture as string, g]),
+  );
+  const all = cases();
+  const fileOf = (id: string, gzip: unknown) => `${id}${gzip ? '.tar.gz' : '.tar'}`;
+
+  /**
+   * A DecompressionStream like the one of some runtimes (Node 24.19, some
+   * browsers): it decodes the first gzip member and stops, silently or with an
+   * error about the bytes that follow.
+   */
+  function firstMemberOnly(onRest: 'ignore' | 'throw') {
+    return class extends TransformStream<Uint8Array, Uint8Array> {
+      constructor() {
+        const parts: Uint8Array[] = [];
+        super({
+          transform(chunk) {
+            parts.push(chunk);
+          },
+          flush(controller) {
+            const data = Buffer.concat(parts);
+            const r = inflateRawSync(data.subarray(10), { info: true }) as unknown as {
+              buffer: Buffer;
+              engine: { bytesWritten: number };
+            };
+            controller.enqueue(new Uint8Array(r.buffer));
+            const rest = data.length - (10 + r.engine.bytesWritten + 8);
+            if (rest > 0 && onRest === 'throw') {
+              throw new TypeError('Trailing junk found after the end of the compressed stream');
+            }
+          },
+        });
+      }
+    };
+  }
+
+  it('the stand-in really stops at the first member', async () => {
+    const two = Buffer.concat([gzipSync(Buffer.from('first ')), gzipSync(Buffer.from('second'))]);
+    const Stub = firstMemberOnly('ignore');
+    const out = new Blob([two])
+      .stream()
+      .pipeThrough(new Stub() as unknown as TransformStream<Uint8Array, Uint8Array>);
+    expect(Buffer.from(await new Response(out).arrayBuffer()).toString()).toBe('first ');
+  });
+
+  for (const runtime of ['native', 'stops silently', 'stops with an error'] as const) {
+    it(`every synthetic case as the engine reads it (${runtime} DecompressionStream)`, async () => {
+      const original = globalThis.DecompressionStream;
+      if (runtime !== 'native') {
+        (globalThis as { DecompressionStream: unknown }).DecompressionStream = firstMemberOnly(
+          runtime === 'stops silently' ? 'ignore' : 'throw',
+        );
+      }
+      try {
+        for (const c of all) {
+          const name = fileOf(c.id, c.spec.gzip);
+          const { fixture: _fixture, ...want } = golden.get(name)!;
+          const report = await analyzeBlob(new Blob([buildBackup(c.spec)]));
+          expect(engineProjection(report), `${runtime} ${c.id}`).toEqual(want);
+        }
+      } finally {
+        (globalThis as { DecompressionStream: unknown }).DecompressionStream = original;
+      }
+    });
+  }
+
+  it('the Node and the web entries give the same report', async () => {
+    for (const c of all) {
+      const data = buildBackup(c.spec);
+      const web = await analyzeBlob(new Blob([data]), {});
       const node = await analyzeBytes(data);
-      expect(engineProjection(web), id).toEqual(engineProjection(node));
-      expect(web.verdict, id).toBe(node.verdict);
+      expect({ ...web, file: { ...web.file, name: '' } }, c.id).toEqual({
+        ...node,
+        file: { ...node.file, name: '' },
+      });
+    }
+  });
+});
+
+describe('the gzip reader', () => {
+  const read = async (data: Uint8Array, chunk: number | (() => number)) => {
+    const parts: Uint8Array[] = [];
+    try {
+      for await (const part of gunzip(chunked(data, chunk))) parts.push(part);
+      return { ok: true as const, data: Buffer.concat(parts) };
+    } catch (error) {
+      return {
+        ok: false as const,
+        kind: classifyGzipError(error),
+        got: Buffer.concat(parts).length,
+      };
+    }
+  };
+  const words = Buffer.from(
+    Array.from({ length: 30000 }, (_, i) => `palavra${i % 911} ${(i * 37) % 1000}\n`).join(''),
+  );
+  const inputs = [
+    Buffer.alloc(0),
+    Buffer.from('a'),
+    Buffer.alloc(200_000),
+    Buffer.from(Array.from({ length: 150_000 }, (_, i) => (i * 7919) % 251)),
+    words,
+  ];
+
+  it('decodes what zlib writes: every level and strategy, at any chunk boundary', async () => {
+    for (const [i, input] of inputs.entries()) {
+      for (const level of [0, 1, 6, 9]) {
+        for (const strategy of [0, 1, 2, 3, 4]) {
+          const gz = gzipSync(input, { level, strategy });
+          for (const chunk of [1, 13, 65536]) {
+            const r = await read(gz, chunk);
+            expect(
+              r.ok && Buffer.compare(r.data, input) === 0,
+              `${i} ${level} ${strategy} ${chunk}`,
+            ).toBe(true);
+          }
+        }
+      }
     }
   });
 
-  it('a cut gzip stream is a refusal, not a crash', async () => {
-    const data = buildBackup(caseSpec('s01-basic'));
-    const cut = data.subarray(0, Math.floor(data.length * 0.6));
-    const report = await analyzeBlob(new Blob([cut]));
-    expect(report.verdict).toBe('blocked');
-    expect(['archive_truncated', 'archive_invalid']).toContain(report.blockers[0]?.code);
+  it('reads every member, and stops like Go after the last one', async () => {
+    const a = words.subarray(0, 70_000);
+    const b = words.subarray(70_000);
+    const two = Buffer.concat([gzipSync(a), gzipSync(b)]);
+    expect((await read(two, jitter(5, 3000))).ok).toBe(true);
+    const cases: [string, Uint8Array, string][] = [
+      [
+        'junk after the last member',
+        Buffer.concat([gzipSync(a), Buffer.from('not a gzip header')]),
+        'invalid',
+      ],
+      ['a few bytes after it', Buffer.concat([gzipSync(a), Buffer.from('xyz')]), 'truncated'],
+      ['a cut trailer', gzipSync(a).subarray(0, gzipSync(a).length - 3), 'truncated'],
+      ['a cut stream', gzipSync(a).subarray(0, 40), 'truncated'],
+      [
+        'a wrong checksum',
+        (() => {
+          const g = gzipSync(a);
+          g[g.length - 8]! ^= 1;
+          return g;
+        })(),
+        'invalid',
+      ],
+      [
+        'a wrong size',
+        (() => {
+          const g = gzipSync(a);
+          g[g.length - 1]! ^= 1;
+          return g;
+        })(),
+        'invalid',
+      ],
+      [
+        'zeros between members',
+        Buffer.concat([gzipSync(a), Buffer.alloc(32), gzipSync(b)]),
+        'invalid',
+      ],
+      ['not deflate', Buffer.from([0x1f, 0x8b, 7, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3]), 'invalid'],
+    ];
+    for (const [name, data, kind] of cases) {
+      const r = await read(data, 4096);
+      expect(r.ok ? 'ok' : r.kind, name).toBe(kind);
+      // The output before the error is all delivered (Go returns it too).
+      if (!r.ok && name !== 'a cut stream' && name !== 'not deflate')
+        expect(r.got, name).toBe(a.length);
+    }
+  });
+
+  it('never reads past what the consumer asks for: the trailer is checked lazily', async () => {
+    const a = words.subarray(0, 50_000);
+    const bad = Buffer.concat([gzipSync(a), Buffer.from('junk after the end')]);
+    const it = gunzip(chunked(bad, 1 << 20))[Symbol.asyncIterator]();
+    let got = 0;
+    while (got < a.length) got += (await it.next()).value!.length;
+    expect(got).toBe(a.length);
+    await it.return?.(undefined);
+  });
+
+  it('the CRC-32 is the one of zlib', () => {
+    for (const input of inputs) expect(crc32(0, input)).toBe(zlibCrc32(input));
+    expect(crc32(crc32(0, words.subarray(0, 1000)), words.subarray(1000))).toBe(zlibCrc32(words));
   });
 });
 

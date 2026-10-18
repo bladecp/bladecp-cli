@@ -1,8 +1,10 @@
 // @bladecp/cli/analyzer/web: analyze a backup in a browser (a File from a
 // drop or an <input>, ideally in a Web Worker). The file is read as a stream
-// and decompressed with DecompressionStream; nothing is uploaded.
+// and decompressed by the core gzip reader, member by member; nothing is
+// uploaded.
 
 import { type AnalyzeOptions, analyze } from './core/analyze.js';
+import { classifyGzipError, gunzip } from './core/gzip.js';
 import type { Report } from './core/report.js';
 import type { StreamFailure } from './core/source.js';
 
@@ -22,36 +24,18 @@ async function* chunks(stream: ReadableStream<Uint8Array>): AsyncGenerator<Uint8
   }
 }
 
-/** An async iterable as a web ReadableStream (pull based, so it never runs ahead). */
-function streamOf(source: AsyncIterable<Uint8Array>): ReadableStream<Uint8Array> {
-  const it = source[Symbol.asyncIterator]();
-  return new ReadableStream<Uint8Array>({
-    async pull(controller) {
-      const { value, done } = await it.next();
-      if (done) controller.close();
-      else controller.enqueue(value);
-    },
-    async cancel() {
-      await it.return?.();
-    },
-  });
-}
-
-/** DecompressionStream reports a short or corrupt stream with a TypeError; tell them apart by the text. */
+/** Errors of the gzip reader: cut short, or corrupt. */
 export function classifyWebError(error: unknown): StreamFailure | null {
-  if (!(error instanceof Error)) return 'invalid';
-  if (error.name === 'AbortError') return null;
-  return /end of|truncat|unexpected|incomplete|premature/i.test(error.message)
-    ? 'truncated'
-    : 'invalid';
+  return classifyGzipError(error);
 }
 
+/**
+ * Decompresses every gzip member with the core reader. No DecompressionStream:
+ * browsers and Node versions differ on files of several gzip members and on
+ * bytes after the end, and the analysis must read them as the migration does.
+ */
 export function gunzipWeb(raw: AsyncIterable<Uint8Array>): AsyncIterable<Uint8Array> {
-  return chunks(
-    streamOf(raw).pipeThrough(
-      new DecompressionStream('gzip') as unknown as TransformStream<Uint8Array, Uint8Array>,
-    ),
-  );
+  return gunzip(raw);
 }
 
 export async function analyzeBlob(

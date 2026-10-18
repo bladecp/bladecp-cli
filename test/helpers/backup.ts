@@ -4,7 +4,8 @@
 // deterministic and fictitious (example domains, documentation addresses).
 // No relative imports: tools can load this file with Node's type stripping.
 
-import { gzipSync } from 'node:zlib';
+import * as zlib from 'node:zlib';
+import { deflateRawSync, gzipSync } from 'node:zlib';
 
 export type Format = 'ustar' | 'gnu' | 'pax' | 'v7' | 'star';
 
@@ -31,8 +32,23 @@ export interface Entry {
   raw?: Uint8Array;
 }
 
+/** How the gzip members are laid out (see gzipMembers). */
+export type GzipVariant =
+  | 'junk-after'
+  | 'short-junk-after'
+  | 'zeros-after'
+  | 'junk-between'
+  | 'zeros-between'
+  | 'bad-crc-last'
+  | 'bad-crc-first'
+  | 'header-fields'
+  | 'bad-header-crc'
+  | 'many-members';
+
 export interface BackupSpec {
   entries: Entry[];
+  /** A gzip layout other than one plain member. */
+  gzipVariant?: GzipVariant;
   format?: Format;
   gzip?: boolean | 'multi';
   /** How the archive ends. */
@@ -191,6 +207,7 @@ export function buildBackup(spec: BackupSpec): Uint8Array {
   if (spec.end === 'garbage') parts.push(enc.encode('trailing bytes that are not a tar'));
   let tar = Buffer.concat(parts);
   if (spec.truncateAt !== undefined) tar = tar.subarray(0, spec.truncateAt);
+  if (spec.gzipVariant) return gzipMembers(tar, spec.gzipVariant);
   if (!spec.gzip) return new Uint8Array(tar);
   if (spec.gzip === 'multi') {
     const half = Math.floor(tar.length / 2 / 512) * 512;
@@ -199,6 +216,89 @@ export function buildBackup(spec: BackupSpec): Uint8Array {
     );
   }
   return new Uint8Array(gzipSync(tar, { level: 6 }));
+}
+
+const crc32 = (data: Uint8Array) =>
+  (zlib as unknown as { crc32: (d: Uint8Array) => number }).crc32(data);
+
+function le32(n: number): Buffer {
+  const b = Buffer.alloc(4);
+  b.writeUInt32LE(n >>> 0);
+  return b;
+}
+
+/** One gzip member written by hand, with the optional header fields of RFC 1952. */
+function member(
+  data: Uint8Array,
+  fields: { name?: string; comment?: string; extra?: Uint8Array; headerCrc?: 'good' | 'bad' } = {},
+): Buffer {
+  let flags = 0;
+  if (fields.headerCrc) flags |= 2;
+  if (fields.extra) flags |= 4;
+  if (fields.name !== undefined) flags |= 8;
+  if (fields.comment !== undefined) flags |= 16;
+  const head: Buffer[] = [Buffer.from([0x1f, 0x8b, 8, flags, 0, 0, 0, 0, 0, 255])];
+  if (fields.extra) {
+    const len = Buffer.alloc(2);
+    len.writeUInt16LE(fields.extra.length);
+    head.push(len, Buffer.from(fields.extra));
+  }
+  if (fields.name !== undefined) head.push(Buffer.from(`${fields.name}\0`, 'latin1'));
+  if (fields.comment !== undefined) head.push(Buffer.from(`${fields.comment}\0`, 'latin1'));
+  if (fields.headerCrc) {
+    const crc = crc32(Buffer.concat(head)) & 0xffff;
+    const field = Buffer.alloc(2);
+    field.writeUInt16LE(fields.headerCrc === 'good' ? crc : crc ^ 1);
+    head.push(field);
+  }
+  return Buffer.concat([...head, deflateRawSync(data), le32(crc32(data)), le32(data.length)]);
+}
+
+/** The tar as gzip members laid out as the variant says. */
+function gzipMembers(tar: Buffer, variant: GzipVariant): Uint8Array {
+  const half = Math.floor(tar.length / 2 / 512) * 512;
+  const first = gzipSync(tar.subarray(0, half));
+  const second = gzipSync(tar.subarray(half));
+  const badCrc = (g: Buffer) => {
+    const copy = Buffer.from(g);
+    copy[copy.length - 8] = copy[copy.length - 8]! ^ 1;
+    return copy;
+  };
+  const junk = Buffer.from('bytes that are not gzip at all');
+  switch (variant) {
+    case 'junk-after':
+      return Buffer.concat([gzipSync(tar), junk]);
+    case 'short-junk-after':
+      return Buffer.concat([gzipSync(tar), Buffer.from('xyz')]);
+    case 'zeros-after':
+      return Buffer.concat([gzipSync(tar), Buffer.alloc(1024)]);
+    case 'junk-between':
+      return Buffer.concat([first, junk, second]);
+    case 'zeros-between':
+      return Buffer.concat([first, Buffer.alloc(64), second]);
+    case 'bad-crc-last':
+      return Buffer.concat([first, badCrc(second)]);
+    case 'bad-crc-first':
+      return Buffer.concat([badCrc(first), second]);
+    case 'header-fields':
+      return Buffer.concat([
+        member(tar.subarray(0, half), {
+          name: 'cpmove-demo.tar',
+          comment: 'Backup, conta demo',
+          extra: Buffer.from('BC\x02\x00ab', 'latin1'),
+          headerCrc: 'good',
+        }),
+        member(tar.subarray(half), { name: 'parte-2' }),
+      ]);
+    case 'bad-header-crc':
+      return Buffer.concat([first, member(tar.subarray(half), { headerCrc: 'bad' })]);
+    case 'many-members': {
+      const members: Buffer[] = [];
+      for (let at = 0; at < tar.length; at += 3000)
+        members.push(gzipSync(tar.subarray(at, at + 3000)));
+      return Buffer.concat(members);
+    }
+  }
 }
 
 // ------------------------------------------------------------------ cases
@@ -690,6 +790,21 @@ export function cases(): Case[] {
     ],
     gzip: true,
   });
+  for (const [id, variant, end] of [
+    ['s57-gzip-junk-after', 'junk-after', undefined],
+    ['s58-gzip-zeros-after', 'zeros-after', undefined],
+    ['s59-gzip-junk-between', 'junk-between', undefined],
+    ['s60-gzip-zeros-between', 'zeros-between', undefined],
+    ['s61-gzip-bad-crc-last', 'bad-crc-last', undefined],
+    ['s62-gzip-bad-crc-first', 'bad-crc-first', undefined],
+    ['s63-gzip-header-fields', 'header-fields', undefined],
+    ['s64-gzip-bad-header-crc', 'bad-header-crc', undefined],
+    ['s65-gzip-no-end-junk', 'junk-after', 'none'],
+    ['s66-gzip-no-end-short-junk', 'short-junk-after', 'none'],
+    ['s67-gzip-many-members', 'many-members', undefined],
+  ] as const) {
+    add(id, { entries: baseEntries(), gzip: true, gzipVariant: variant, ...(end ? { end } : {}) });
+  }
   add('s56-sites', {
     entries: [
       ...baseEntries({

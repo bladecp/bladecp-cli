@@ -17,6 +17,13 @@ export {
 } from './core/analyze.js';
 export type { EngineErrorCode } from './core/errors.js';
 export {
+  classifyGzipError,
+  crc32,
+  type GunzipOptions,
+  GzipError,
+  gunzip,
+} from './core/gzip.js';
+export {
   type DestinationLike,
   preferredPrice,
   recommend,

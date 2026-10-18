@@ -4,6 +4,19 @@ All notable changes to the BladeCP CLI are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project uses
 [Semantic Versioning](https://semver.org/).
 
+## [0.3.1] - 2026-10-18
+
+### Fixed
+
+- `bladecp analyze` and the analyzer library read a backup compressed as
+  several gzip blocks (members) the same way everywhere. In some browsers and
+  Node versions the web entry stopped at the end of the first block and
+  reported a cut file. Both entries now share one gzip reader, with no
+  `DecompressionStream` and no zlib stream: it reads every block in turn and,
+  like the migration, looks at what follows the last block only when the
+  backup needs more data, so bytes added after the end of a complete backup no
+  longer refuse it, while a damaged block in the middle still does.
+
 ## [0.3.0] - 2026-10-17
 
 Know what a cPanel backup holds before you migrate it. The `--json` output,

@@ -1,20 +1,24 @@
 // @bladecp/cli/analyzer/node: analyze a backup file from Node, streaming it
-// from disk through zlib. Nothing is sent anywhere.
+// from disk. Nothing is sent anywhere. The gzip reader is the one of the core
+// (the behavior of Go's reader, the same as in a browser); zlib only lends its
+// faster CRC-32 when this Node has one.
 
 import { createReadStream } from 'node:fs';
 import { stat } from 'node:fs/promises';
 import { basename } from 'node:path';
-import { pipeline, Readable } from 'node:stream';
-import { createGunzip } from 'node:zlib';
+import * as zlib from 'node:zlib';
 
 import { type AnalyzeOptions, analyze } from './core/analyze.js';
+import { classifyGzipError, gunzip } from './core/gzip.js';
 import type { Report } from './core/report.js';
 import type { StreamFailure } from './core/source.js';
 
 export * from './index.js';
 
-/** zlib errors of a gzip stream: cut short, or corrupt. */
+/** Errors of the gzip reader (and of zlib, for streams made with it): cut short, or corrupt. */
 export function classifyZlibError(error: unknown): StreamFailure | null {
+  const kind = classifyGzipError(error);
+  if (kind) return kind;
   const code = (error as { code?: unknown })?.code;
   if (code === 'Z_BUF_ERROR') return 'truncated';
   if (code === 'Z_DATA_ERROR' || code === 'Z_STREAM_ERROR' || code === 'Z_NEED_DICT')
@@ -22,13 +26,14 @@ export function classifyZlibError(error: unknown): StreamFailure | null {
   return null;
 }
 
-/** Decompresses every gzip member (as Go's reader does), in large chunks. */
+const nativeCrc32 = (zlib as { crc32?: (data: Uint8Array, value?: number) => number }).crc32;
+
+/** Decompresses every gzip member, one by one, with the core reader. */
 export function gunzipNode(raw: AsyncIterable<Uint8Array>): AsyncIterable<Uint8Array> {
-  const gunzip = createGunzip({ chunkSize: 256 * 1024 });
-  pipeline(Readable.from(raw, { objectMode: false }), gunzip, () => {
-    // Errors reach the reader through the gunzip stream itself.
-  });
-  return gunzip;
+  return gunzip(
+    raw,
+    nativeCrc32 ? { crc32: (crc: number, data: Uint8Array) => nativeCrc32(data, crc) } : {},
+  );
 }
 
 export async function analyzeFile(path: string, options: AnalyzeOptions = {}): Promise<Report> {

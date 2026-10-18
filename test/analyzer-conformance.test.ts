@@ -10,12 +10,13 @@
 //
 // Refusals are compared by code (the engine's sentences stay with the engine).
 
-import { existsSync, readFileSync } from 'node:fs';
+import { existsSync, openAsBlob, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
 import { describe, expect, it } from 'vitest';
 
 import { analyzeFile } from '../src/analyzer/node.js';
+import { analyzeBlob } from '../src/analyzer/web.js';
 import { analyzeBytes, engineProjection } from './helpers/analyze.js';
 import { buildBackup, cases } from './helpers/backup.js';
 
@@ -99,6 +100,9 @@ describe.skipIf(!SAMPLES || !existsSync(SAMPLES))(
         const [verdict, blockers] = VERDICTS[name]!;
         expect(report.verdict).toBe(verdict);
         expect(report.blockers.map((b) => b.code)).toEqual(blockers);
+        // The web entry reads the same file (streamed from disk) to the same report.
+        const web = await analyzeBlob(await openAsBlob(join(SAMPLES!, name)));
+        expect({ ...web, file: { ...web.file, name } }).toEqual(report);
       });
     }
   },

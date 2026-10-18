@@ -13295,7 +13295,7 @@ exports[`screen: 'help migrations' > pt-BR 120 plain 1`] = `
 `;
 
 exports[`screen: 'help' > en 40 color 1`] = `
-"  B L A D E C P   CLI  v0.3.0
+"  B L A D E C P   CLI  v0.3.1
  ━━━━━━━━━━━━━━━───────────────────────
   Migrate, manage and ship on BladeCP
   from your terminal.
@@ -13554,7 +13554,7 @@ exports[`screen: 'help' > en 40 color 1`] = `
 `;
 
 exports[`screen: 'help' > en 40 plain 1`] = `
-"  B L A D E C P   CLI  v0.3.0
+"  B L A D E C P   CLI  v0.3.1
  ──────────────────────────────────────
   Migrate, manage and ship on BladeCP
   from your terminal.
@@ -13705,7 +13705,7 @@ exports[`screen: 'help' > en 40 plain 1`] = `
 `;
 
 exports[`screen: 'help' > en 80 color 1`] = `
-"  B L A D E C P   CLI  v0.3.0
+"  B L A D E C P   CLI  v0.3.1
  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━────────────────────────────────────────────────
   Migrate, manage and ship on BladeCP from your terminal.
 
@@ -13872,7 +13872,7 @@ exports[`screen: 'help' > en 80 color 1`] = `
 `;
 
 exports[`screen: 'help' > en 80 plain 1`] = `
-"  B L A D E C P   CLI  v0.3.0
+"  B L A D E C P   CLI  v0.3.1
  ──────────────────────────────────────────────────────────────────────────────
   Migrate, manage and ship on BladeCP from your terminal.
 
@@ -13963,7 +13963,7 @@ exports[`screen: 'help' > en 80 plain 1`] = `
 `;
 
 exports[`screen: 'help' > en 120 color 1`] = `
-"  B L A D E C P   CLI  v0.3.0
+"  B L A D E C P   CLI  v0.3.1
  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━────────────────────────────────────────────────
   Migrate, manage and ship on BladeCP from your terminal.
 
@@ -14116,7 +14116,7 @@ exports[`screen: 'help' > en 120 color 1`] = `
 `;
 
 exports[`screen: 'help' > en 120 plain 1`] = `
-"  B L A D E C P   CLI  v0.3.0
+"  B L A D E C P   CLI  v0.3.1
  ──────────────────────────────────────────────────────────────────────────────
   Migrate, manage and ship on BladeCP from your terminal.
 
@@ -14199,7 +14199,7 @@ exports[`screen: 'help' > en 120 plain 1`] = `
 `;
 
 exports[`screen: 'help' > es 40 color 1`] = `
-"  B L A D E C P   CLI  v0.3.0
+"  B L A D E C P   CLI  v0.3.1
  ━━━━━━━━━━━━━━━───────────────────────
   Migra, gestiona y publica en BladeCP
   desde tu terminal.
@@ -14464,7 +14464,7 @@ exports[`screen: 'help' > es 40 color 1`] = `
 `;
 
 exports[`screen: 'help' > es 40 plain 1`] = `
-"  B L A D E C P   CLI  v0.3.0
+"  B L A D E C P   CLI  v0.3.1
  ──────────────────────────────────────
   Migra, gestiona y publica en BladeCP
   desde tu terminal.
@@ -14618,7 +14618,7 @@ exports[`screen: 'help' > es 40 plain 1`] = `
 `;
 
 exports[`screen: 'help' > es 80 color 1`] = `
-"  B L A D E C P   CLI  v0.3.0
+"  B L A D E C P   CLI  v0.3.1
  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━────────────────────────────────────────────────
   Migra, gestiona y publica en BladeCP desde tu terminal.
 
@@ -14790,7 +14790,7 @@ exports[`screen: 'help' > es 80 color 1`] = `
 `;
 
 exports[`screen: 'help' > es 80 plain 1`] = `
-"  B L A D E C P   CLI  v0.3.0
+"  B L A D E C P   CLI  v0.3.1
  ──────────────────────────────────────────────────────────────────────────────
   Migra, gestiona y publica en BladeCP desde tu terminal.
 
@@ -14885,7 +14885,7 @@ exports[`screen: 'help' > es 80 plain 1`] = `
 `;
 
 exports[`screen: 'help' > es 120 color 1`] = `
-"  B L A D E C P   CLI  v0.3.0
+"  B L A D E C P   CLI  v0.3.1
  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━────────────────────────────────────────────────
   Migra, gestiona y publica en BladeCP desde tu terminal.
 
@@ -15040,7 +15040,7 @@ exports[`screen: 'help' > es 120 color 1`] = `
 `;
 
 exports[`screen: 'help' > es 120 plain 1`] = `
-"  B L A D E C P   CLI  v0.3.0
+"  B L A D E C P   CLI  v0.3.1
  ──────────────────────────────────────────────────────────────────────────────
   Migra, gestiona y publica en BladeCP desde tu terminal.
 
@@ -15124,7 +15124,7 @@ exports[`screen: 'help' > es 120 plain 1`] = `
 `;
 
 exports[`screen: 'help' > pt-BR 40 color 1`] = `
-"  B L A D E C P   CLI  v0.3.0
+"  B L A D E C P   CLI  v0.3.1
  ━━━━━━━━━━━━━━━───────────────────────
   Migre, gerencie e publique na BladeCP
   direto do terminal.
@@ -15383,7 +15383,7 @@ exports[`screen: 'help' > pt-BR 40 color 1`] = `
 `;
 
 exports[`screen: 'help' > pt-BR 40 plain 1`] = `
-"  B L A D E C P   CLI  v0.3.0
+"  B L A D E C P   CLI  v0.3.1
  ──────────────────────────────────────
   Migre, gerencie e publique na BladeCP
   direto do terminal.
@@ -15534,7 +15534,7 @@ exports[`screen: 'help' > pt-BR 40 plain 1`] = `
 `;
 
 exports[`screen: 'help' > pt-BR 80 color 1`] = `
-"  B L A D E C P   CLI  v0.3.0
+"  B L A D E C P   CLI  v0.3.1
  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━────────────────────────────────────────────────
   Migre, gerencie e publique na BladeCP direto do terminal.
 
@@ -15702,7 +15702,7 @@ exports[`screen: 'help' > pt-BR 80 color 1`] = `
 `;
 
 exports[`screen: 'help' > pt-BR 80 plain 1`] = `
-"  B L A D E C P   CLI  v0.3.0
+"  B L A D E C P   CLI  v0.3.1
  ──────────────────────────────────────────────────────────────────────────────
   Migre, gerencie e publique na BladeCP direto do terminal.
 
@@ -15794,7 +15794,7 @@ exports[`screen: 'help' > pt-BR 80 plain 1`] = `
 `;
 
 exports[`screen: 'help' > pt-BR 120 color 1`] = `
-"  B L A D E C P   CLI  v0.3.0
+"  B L A D E C P   CLI  v0.3.1
  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━────────────────────────────────────────────────
   Migre, gerencie e publique na BladeCP direto do terminal.
 
@@ -15945,7 +15945,7 @@ exports[`screen: 'help' > pt-BR 120 color 1`] = `
 `;
 
 exports[`screen: 'help' > pt-BR 120 plain 1`] = `
-"  B L A D E C P   CLI  v0.3.0
+"  B L A D E C P   CLI  v0.3.1
  ──────────────────────────────────────────────────────────────────────────────
   Migre, gerencie e publique na BladeCP direto do terminal.
 
@@ -16028,7 +16028,7 @@ exports[`screen: 'help' > pt-BR 120 plain 1`] = `
 
 exports[`screen: 'home signed out' > en 40 color 1`] = `
 "
-  B L A D E C P   CLI  v0.3.0
+  B L A D E C P   CLI  v0.3.1
   Not signed in.
  ━━━━━━━━━━━━━━━───────────────────────
 
@@ -16076,7 +16076,7 @@ exports[`screen: 'home signed out' > en 40 color 1`] = `
 
 exports[`screen: 'home signed out' > en 40 plain 1`] = `
 "
-  B L A D E C P   CLI  v0.3.0
+  B L A D E C P   CLI  v0.3.1
   Not signed in.
  ──────────────────────────────────────
 
@@ -16104,7 +16104,7 @@ exports[`screen: 'home signed out' > en 40 plain 1`] = `
 
 exports[`screen: 'home signed out' > en 80 color 1`] = `
 "
-  B L A D E C P   CLI  v0.3.0
+  B L A D E C P   CLI  v0.3.1
   Not signed in.
  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━───────────────────────────────────────────────
 
@@ -16141,7 +16141,7 @@ exports[`screen: 'home signed out' > en 80 color 1`] = `
 
 exports[`screen: 'home signed out' > en 80 plain 1`] = `
 "
-  B L A D E C P   CLI  v0.3.0
+  B L A D E C P   CLI  v0.3.1
   Not signed in.
  ──────────────────────────────────────────────────────────────────────────────
 
@@ -16163,7 +16163,7 @@ exports[`screen: 'home signed out' > en 80 plain 1`] = `
 
 exports[`screen: 'home signed out' > en 120 color 1`] = `
 "
-  B L A D E C P   CLI  v0.3.0
+  B L A D E C P   CLI  v0.3.1
   Not signed in.
  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━───────────────────────────────────────────────
 
@@ -16200,7 +16200,7 @@ exports[`screen: 'home signed out' > en 120 color 1`] = `
 
 exports[`screen: 'home signed out' > en 120 plain 1`] = `
 "
-  B L A D E C P   CLI  v0.3.0
+  B L A D E C P   CLI  v0.3.1
   Not signed in.
  ──────────────────────────────────────────────────────────────────────────────
 
@@ -16222,7 +16222,7 @@ exports[`screen: 'home signed out' > en 120 plain 1`] = `
 
 exports[`screen: 'home signed out' > es 40 color 1`] = `
 "
-  B L A D E C P   CLI  v0.3.0
+  B L A D E C P   CLI  v0.3.1
   No iniciaste sesión.
  ━━━━━━━━━━━━━━━───────────────────────
 
@@ -16270,7 +16270,7 @@ exports[`screen: 'home signed out' > es 40 color 1`] = `
 
 exports[`screen: 'home signed out' > es 40 plain 1`] = `
 "
-  B L A D E C P   CLI  v0.3.0
+  B L A D E C P   CLI  v0.3.1
   No iniciaste sesión.
  ──────────────────────────────────────
 
@@ -16298,7 +16298,7 @@ exports[`screen: 'home signed out' > es 40 plain 1`] = `
 
 exports[`screen: 'home signed out' > es 80 color 1`] = `
 "
-  B L A D E C P   CLI  v0.3.0
+  B L A D E C P   CLI  v0.3.1
   No iniciaste sesión.
  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━───────────────────────────────────────────────
 
@@ -16335,7 +16335,7 @@ exports[`screen: 'home signed out' > es 80 color 1`] = `
 
 exports[`screen: 'home signed out' > es 80 plain 1`] = `
 "
-  B L A D E C P   CLI  v0.3.0
+  B L A D E C P   CLI  v0.3.1
   No iniciaste sesión.
  ──────────────────────────────────────────────────────────────────────────────
 
@@ -16357,7 +16357,7 @@ exports[`screen: 'home signed out' > es 80 plain 1`] = `
 
 exports[`screen: 'home signed out' > es 120 color 1`] = `
 "
-  B L A D E C P   CLI  v0.3.0
+  B L A D E C P   CLI  v0.3.1
   No iniciaste sesión.
  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━───────────────────────────────────────────────
 
@@ -16394,7 +16394,7 @@ exports[`screen: 'home signed out' > es 120 color 1`] = `
 
 exports[`screen: 'home signed out' > es 120 plain 1`] = `
 "
-  B L A D E C P   CLI  v0.3.0
+  B L A D E C P   CLI  v0.3.1
   No iniciaste sesión.
  ──────────────────────────────────────────────────────────────────────────────
 
@@ -16416,7 +16416,7 @@ exports[`screen: 'home signed out' > es 120 plain 1`] = `
 
 exports[`screen: 'home signed out' > pt-BR 40 color 1`] = `
 "
-  B L A D E C P   CLI  v0.3.0
+  B L A D E C P   CLI  v0.3.1
   Você não está conectado.
  ━━━━━━━━━━━━━━━───────────────────────
 
@@ -16464,7 +16464,7 @@ exports[`screen: 'home signed out' > pt-BR 40 color 1`] = `
 
 exports[`screen: 'home signed out' > pt-BR 40 plain 1`] = `
 "
-  B L A D E C P   CLI  v0.3.0
+  B L A D E C P   CLI  v0.3.1
   Você não está conectado.
  ──────────────────────────────────────
 
@@ -16492,7 +16492,7 @@ exports[`screen: 'home signed out' > pt-BR 40 plain 1`] = `
 
 exports[`screen: 'home signed out' > pt-BR 80 color 1`] = `
 "
-  B L A D E C P   CLI  v0.3.0
+  B L A D E C P   CLI  v0.3.1
   Você não está conectado.
  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━───────────────────────────────────────────────
 
@@ -16529,7 +16529,7 @@ exports[`screen: 'home signed out' > pt-BR 80 color 1`] = `
 
 exports[`screen: 'home signed out' > pt-BR 80 plain 1`] = `
 "
-  B L A D E C P   CLI  v0.3.0
+  B L A D E C P   CLI  v0.3.1
   Você não está conectado.
  ──────────────────────────────────────────────────────────────────────────────
 
@@ -16551,7 +16551,7 @@ exports[`screen: 'home signed out' > pt-BR 80 plain 1`] = `
 
 exports[`screen: 'home signed out' > pt-BR 120 color 1`] = `
 "
-  B L A D E C P   CLI  v0.3.0
+  B L A D E C P   CLI  v0.3.1
   Você não está conectado.
  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━───────────────────────────────────────────────
 
@@ -16588,7 +16588,7 @@ exports[`screen: 'home signed out' > pt-BR 120 color 1`] = `
 
 exports[`screen: 'home signed out' > pt-BR 120 plain 1`] = `
 "
-  B L A D E C P   CLI  v0.3.0
+  B L A D E C P   CLI  v0.3.1
   Você não está conectado.
  ──────────────────────────────────────────────────────────────────────────────
 
@@ -16610,7 +16610,7 @@ exports[`screen: 'home signed out' > pt-BR 120 plain 1`] = `
 
 exports[`screen: 'home' > en 40 color 1`] = `
 "
-  B L A D E C P   CLI  v0.3.0
+  B L A D E C P   CLI  v0.3.1
   owner@example.com · api.bladecp.com
  ━━━━━━━━━━━━━━━───────────────────────
 
@@ -16661,7 +16661,7 @@ exports[`screen: 'home' > en 40 color 1`] = `
 
 exports[`screen: 'home' > en 40 plain 1`] = `
 "
-  B L A D E C P   CLI  v0.3.0
+  B L A D E C P   CLI  v0.3.1
   owner@example.com · api.bladecp.com
  ──────────────────────────────────────
 
@@ -16691,7 +16691,7 @@ exports[`screen: 'home' > en 40 plain 1`] = `
 
 exports[`screen: 'home' > en 80 color 1`] = `
 "
-  B L A D E C P   CLI  v0.3.0
+  B L A D E C P   CLI  v0.3.1
   owner@example.com · api.bladecp.com
  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━───────────────────────────────────────────────
 
@@ -16730,7 +16730,7 @@ exports[`screen: 'home' > en 80 color 1`] = `
 
 exports[`screen: 'home' > en 80 plain 1`] = `
 "
-  B L A D E C P   CLI  v0.3.0
+  B L A D E C P   CLI  v0.3.1
   owner@example.com · api.bladecp.com
  ──────────────────────────────────────────────────────────────────────────────
 
@@ -16753,7 +16753,7 @@ exports[`screen: 'home' > en 80 plain 1`] = `
 
 exports[`screen: 'home' > en 120 color 1`] = `
 "
-  B L A D E C P   CLI  v0.3.0
+  B L A D E C P   CLI  v0.3.1
   owner@example.com · api.bladecp.com
  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━───────────────────────────────────────────────
 
@@ -16792,7 +16792,7 @@ exports[`screen: 'home' > en 120 color 1`] = `
 
 exports[`screen: 'home' > en 120 plain 1`] = `
 "
-  B L A D E C P   CLI  v0.3.0
+  B L A D E C P   CLI  v0.3.1
   owner@example.com · api.bladecp.com
  ──────────────────────────────────────────────────────────────────────────────
 
@@ -16815,7 +16815,7 @@ exports[`screen: 'home' > en 120 plain 1`] = `
 
 exports[`screen: 'home' > es 40 color 1`] = `
 "
-  B L A D E C P   CLI  v0.3.0
+  B L A D E C P   CLI  v0.3.1
   owner@example.com · api.bladecp.com
  ━━━━━━━━━━━━━━━───────────────────────
 
@@ -16867,7 +16867,7 @@ exports[`screen: 'home' > es 40 color 1`] = `
 
 exports[`screen: 'home' > es 40 plain 1`] = `
 "
-  B L A D E C P   CLI  v0.3.0
+  B L A D E C P   CLI  v0.3.1
   owner@example.com · api.bladecp.com
  ──────────────────────────────────────
 
@@ -16898,7 +16898,7 @@ exports[`screen: 'home' > es 40 plain 1`] = `
 
 exports[`screen: 'home' > es 80 color 1`] = `
 "
-  B L A D E C P   CLI  v0.3.0
+  B L A D E C P   CLI  v0.3.1
   owner@example.com · api.bladecp.com
  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━───────────────────────────────────────────────
 
@@ -16937,7 +16937,7 @@ exports[`screen: 'home' > es 80 color 1`] = `
 
 exports[`screen: 'home' > es 80 plain 1`] = `
 "
-  B L A D E C P   CLI  v0.3.0
+  B L A D E C P   CLI  v0.3.1
   owner@example.com · api.bladecp.com
  ──────────────────────────────────────────────────────────────────────────────
 
@@ -16960,7 +16960,7 @@ exports[`screen: 'home' > es 80 plain 1`] = `
 
 exports[`screen: 'home' > es 120 color 1`] = `
 "
-  B L A D E C P   CLI  v0.3.0
+  B L A D E C P   CLI  v0.3.1
   owner@example.com · api.bladecp.com
  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━───────────────────────────────────────────────
 
@@ -16999,7 +16999,7 @@ exports[`screen: 'home' > es 120 color 1`] = `
 
 exports[`screen: 'home' > es 120 plain 1`] = `
 "
-  B L A D E C P   CLI  v0.3.0
+  B L A D E C P   CLI  v0.3.1
   owner@example.com · api.bladecp.com
  ──────────────────────────────────────────────────────────────────────────────
 
@@ -17022,7 +17022,7 @@ exports[`screen: 'home' > es 120 plain 1`] = `
 
 exports[`screen: 'home' > pt-BR 40 color 1`] = `
 "
-  B L A D E C P   CLI  v0.3.0
+  B L A D E C P   CLI  v0.3.1
   owner@example.com · api.bladecp.com
  ━━━━━━━━━━━━━━━───────────────────────
 
@@ -17073,7 +17073,7 @@ exports[`screen: 'home' > pt-BR 40 color 1`] = `
 
 exports[`screen: 'home' > pt-BR 40 plain 1`] = `
 "
-  B L A D E C P   CLI  v0.3.0
+  B L A D E C P   CLI  v0.3.1
   owner@example.com · api.bladecp.com
  ──────────────────────────────────────
 
@@ -17103,7 +17103,7 @@ exports[`screen: 'home' > pt-BR 40 plain 1`] = `
 
 exports[`screen: 'home' > pt-BR 80 color 1`] = `
 "
-  B L A D E C P   CLI  v0.3.0
+  B L A D E C P   CLI  v0.3.1
   owner@example.com · api.bladecp.com
  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━───────────────────────────────────────────────
 
@@ -17142,7 +17142,7 @@ exports[`screen: 'home' > pt-BR 80 color 1`] = `
 
 exports[`screen: 'home' > pt-BR 80 plain 1`] = `
 "
-  B L A D E C P   CLI  v0.3.0
+  B L A D E C P   CLI  v0.3.1
   owner@example.com · api.bladecp.com
  ──────────────────────────────────────────────────────────────────────────────
 
@@ -17165,7 +17165,7 @@ exports[`screen: 'home' > pt-BR 80 plain 1`] = `
 
 exports[`screen: 'home' > pt-BR 120 color 1`] = `
 "
-  B L A D E C P   CLI  v0.3.0
+  B L A D E C P   CLI  v0.3.1
   owner@example.com · api.bladecp.com
  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━───────────────────────────────────────────────
 
@@ -17204,7 +17204,7 @@ exports[`screen: 'home' > pt-BR 120 color 1`] = `
 
 exports[`screen: 'home' > pt-BR 120 plain 1`] = `
 "
-  B L A D E C P   CLI  v0.3.0
+  B L A D E C P   CLI  v0.3.1
   owner@example.com · api.bladecp.com
  ──────────────────────────────────────────────────────────────────────────────
 
@@ -17237,7 +17237,7 @@ exports[`screen: 'login token' > en 40 color 1`] = `
 
  ─────────━━━━━━━━━━━━━━━━━━━━─────────
  ──────────────────────────────────────
-      B L A D E C P   CLI  v0.3.0
+      B L A D E C P   CLI  v0.3.1
  Migrate, manage and ship on BladeCP f…
 
   ┌  Connect this CLI to your account
@@ -17305,7 +17305,7 @@ exports[`screen: 'login token' > en 40 plain 1`] = `
             +++++++++++++=
 
  ──────────────────────────────────────
-      B L A D E C P   CLI  v0.3.0
+      B L A D E C P   CLI  v0.3.1
  Migrate, manage and ship on BladeCP f…
 
   ┌  Connect this CLI to your account
@@ -17357,7 +17357,7 @@ exports[`screen: 'login token' > en 80 color 1`] = `
 
  ─────────────────━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━─────────────────
  ──────────────────────────────────────────────────────────────────────────────
-                          B L A D E C P   CLI  v0.3.0
+                          B L A D E C P   CLI  v0.3.1
             Migrate, manage and ship on BladeCP from your terminal.
 
   ┌  Connect this CLI to your account
@@ -17441,7 +17441,7 @@ exports[`screen: 'login token' > en 80 plain 1`] = `
                      ::::::::::------------=====---:
 
  ──────────────────────────────────────────────────────────────────────────────
-                          B L A D E C P   CLI  v0.3.0
+                          B L A D E C P   CLI  v0.3.1
             Migrate, manage and ship on BladeCP from your terminal.
 
   ┌  Connect this CLI to your account
@@ -17490,7 +17490,7 @@ exports[`screen: 'login token' > en 120 color 1`] = `
 
  ─────────────────────────━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━─────────────────────────
  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-                                           B L A D E C P   CLI  v0.3.0
+                                           B L A D E C P   CLI  v0.3.1
                              Migrate, manage and ship on BladeCP from your terminal.
 
   ┌  Connect this CLI to your account
@@ -17581,7 +17581,7 @@ exports[`screen: 'login token' > en 120 plain 1`] = `
 
                             ⠂
  ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-                                              B L A D E C P   CLI  v0.3.0
+                                              B L A D E C P   CLI  v0.3.1
                                 Migrate, manage and ship on BladeCP from your terminal.
 
   ┌  Connect this CLI to your account
@@ -17614,7 +17614,7 @@ exports[`screen: 'login token' > es 40 color 1`] = `
 
  ─────────━━━━━━━━━━━━━━━━━━━━─────────
  ──────────────────────────────────────
-      B L A D E C P   CLI  v0.3.0
+      B L A D E C P   CLI  v0.3.1
  Migra, gestiona y publica en BladeCP …
 
   ┌  Conectar esta CLI a tu cuenta
@@ -17680,7 +17680,7 @@ exports[`screen: 'login token' > es 40 plain 1`] = `
             +++++++++++++=
 
  ──────────────────────────────────────
-      B L A D E C P   CLI  v0.3.0
+      B L A D E C P   CLI  v0.3.1
  Migra, gestiona y publica en BladeCP …
 
   ┌  Conectar esta CLI a tu cuenta
@@ -17731,7 +17731,7 @@ exports[`screen: 'login token' > es 80 color 1`] = `
 
  ─────────────────━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━─────────────────
  ──────────────────────────────────────────────────────────────────────────────
-                          B L A D E C P   CLI  v0.3.0
+                          B L A D E C P   CLI  v0.3.1
             Migra, gestiona y publica en BladeCP desde tu terminal.
 
   ┌  Conectar esta CLI a tu cuenta
@@ -17815,7 +17815,7 @@ exports[`screen: 'login token' > es 80 plain 1`] = `
                      ::::::::::------------=====---:
 
  ──────────────────────────────────────────────────────────────────────────────
-                          B L A D E C P   CLI  v0.3.0
+                          B L A D E C P   CLI  v0.3.1
             Migra, gestiona y publica en BladeCP desde tu terminal.
 
   ┌  Conectar esta CLI a tu cuenta
@@ -17864,7 +17864,7 @@ exports[`screen: 'login token' > es 120 color 1`] = `
 
  ─────────────────────────━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━─────────────────────────
  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-                                           B L A D E C P   CLI  v0.3.0
+                                           B L A D E C P   CLI  v0.3.1
                              Migra, gestiona y publica en BladeCP desde tu terminal.
 
   ┌  Conectar esta CLI a tu cuenta
@@ -17955,7 +17955,7 @@ exports[`screen: 'login token' > es 120 plain 1`] = `
 
                             ⠂
  ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-                                              B L A D E C P   CLI  v0.3.0
+                                              B L A D E C P   CLI  v0.3.1
                                 Migra, gestiona y publica en BladeCP desde tu terminal.
 
   ┌  Conectar esta CLI a tu cuenta
@@ -17988,7 +17988,7 @@ exports[`screen: 'login token' > pt-BR 40 color 1`] = `
 
  ─────────━━━━━━━━━━━━━━━━━━━━─────────
  ──────────────────────────────────────
-      B L A D E C P   CLI  v0.3.0
+      B L A D E C P   CLI  v0.3.1
  Migre, gerencie e publique na BladeCP…
 
   ┌  Conectar esta CLI à sua conta
@@ -18054,7 +18054,7 @@ exports[`screen: 'login token' > pt-BR 40 plain 1`] = `
             +++++++++++++=
 
  ──────────────────────────────────────
-      B L A D E C P   CLI  v0.3.0
+      B L A D E C P   CLI  v0.3.1
  Migre, gerencie e publique na BladeCP…
 
   ┌  Conectar esta CLI à sua conta
@@ -18105,7 +18105,7 @@ exports[`screen: 'login token' > pt-BR 80 color 1`] = `
 
  ─────────────────━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━─────────────────
  ──────────────────────────────────────────────────────────────────────────────
-                          B L A D E C P   CLI  v0.3.0
+                          B L A D E C P   CLI  v0.3.1
            Migre, gerencie e publique na BladeCP direto do terminal.
 
   ┌  Conectar esta CLI à sua conta
@@ -18189,7 +18189,7 @@ exports[`screen: 'login token' > pt-BR 80 plain 1`] = `
                      ::::::::::------------=====---:
 
  ──────────────────────────────────────────────────────────────────────────────
-                          B L A D E C P   CLI  v0.3.0
+                          B L A D E C P   CLI  v0.3.1
            Migre, gerencie e publique na BladeCP direto do terminal.
 
   ┌  Conectar esta CLI à sua conta
@@ -18238,7 +18238,7 @@ exports[`screen: 'login token' > pt-BR 120 color 1`] = `
 
  ─────────────────────────━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━─────────────────────────
  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-                                           B L A D E C P   CLI  v0.3.0
+                                           B L A D E C P   CLI  v0.3.1
                             Migre, gerencie e publique na BladeCP direto do terminal.
 
   ┌  Conectar esta CLI à sua conta
@@ -18329,7 +18329,7 @@ exports[`screen: 'login token' > pt-BR 120 plain 1`] = `
 
                             ⠂
  ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-                                              B L A D E C P   CLI  v0.3.0
+                                              B L A D E C P   CLI  v0.3.1
                                Migre, gerencie e publique na BladeCP direto do terminal.
 
   ┌  Conectar esta CLI à sua conta
@@ -18362,7 +18362,7 @@ exports[`screen: 'login' > en 40 color 1`] = `
 
  ─────────━━━━━━━━━━━━━━━━━━━━─────────
  ──────────────────────────────────────
-      B L A D E C P   CLI  v0.3.0
+      B L A D E C P   CLI  v0.3.1
  Migrate, manage and ship on BladeCP f…
 
   ┌  Connect this CLI to your account
@@ -18449,7 +18449,7 @@ exports[`screen: 'login' > en 40 plain 1`] = `
             +++++++++++++=
 
  ──────────────────────────────────────
-      B L A D E C P   CLI  v0.3.0
+      B L A D E C P   CLI  v0.3.1
  Migrate, manage and ship on BladeCP f…
 
   ┌  Connect this CLI to your account
@@ -18516,7 +18516,7 @@ exports[`screen: 'login' > en 80 color 1`] = `
 
  ─────────────────━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━─────────────────
  ──────────────────────────────────────────────────────────────────────────────
-                          B L A D E C P   CLI  v0.3.0
+                          B L A D E C P   CLI  v0.3.1
             Migrate, manage and ship on BladeCP from your terminal.
 
   ┌  Connect this CLI to your account
@@ -18614,7 +18614,7 @@ exports[`screen: 'login' > en 80 plain 1`] = `
                      ::::::::::------------=====---:
 
  ──────────────────────────────────────────────────────────────────────────────
-                          B L A D E C P   CLI  v0.3.0
+                          B L A D E C P   CLI  v0.3.1
             Migrate, manage and ship on BladeCP from your terminal.
 
   ┌  Connect this CLI to your account
@@ -18673,7 +18673,7 @@ exports[`screen: 'login' > en 120 color 1`] = `
 
  ─────────────────────────━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━─────────────────────────
  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-                                           B L A D E C P   CLI  v0.3.0
+                                           B L A D E C P   CLI  v0.3.1
                              Migrate, manage and ship on BladeCP from your terminal.
 
   ┌  Connect this CLI to your account
@@ -18775,7 +18775,7 @@ exports[`screen: 'login' > en 120 plain 1`] = `
 
 
  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-                                           B L A D E C P   CLI  v0.3.0
+                                           B L A D E C P   CLI  v0.3.1
                              Migrate, manage and ship on BladeCP from your terminal.
 
   ┌  Connect this CLI to your account
@@ -18817,7 +18817,7 @@ exports[`screen: 'login' > es 40 color 1`] = `
 
  ─────────━━━━━━━━━━━━━━━━━━━━─────────
  ──────────────────────────────────────
-      B L A D E C P   CLI  v0.3.0
+      B L A D E C P   CLI  v0.3.1
  Migra, gestiona y publica en BladeCP …
 
   ┌  Conectar esta CLI a tu cuenta
@@ -18904,7 +18904,7 @@ exports[`screen: 'login' > es 40 plain 1`] = `
             +++++++++++++=
 
  ──────────────────────────────────────
-      B L A D E C P   CLI  v0.3.0
+      B L A D E C P   CLI  v0.3.1
  Migra, gestiona y publica en BladeCP …
 
   ┌  Conectar esta CLI a tu cuenta
@@ -18971,7 +18971,7 @@ exports[`screen: 'login' > es 80 color 1`] = `
 
  ─────────────────━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━─────────────────
  ──────────────────────────────────────────────────────────────────────────────
-                          B L A D E C P   CLI  v0.3.0
+                          B L A D E C P   CLI  v0.3.1
             Migra, gestiona y publica en BladeCP desde tu terminal.
 
   ┌  Conectar esta CLI a tu cuenta
@@ -19069,7 +19069,7 @@ exports[`screen: 'login' > es 80 plain 1`] = `
                      ::::::::::------------=====---:
 
  ──────────────────────────────────────────────────────────────────────────────
-                          B L A D E C P   CLI  v0.3.0
+                          B L A D E C P   CLI  v0.3.1
             Migra, gestiona y publica en BladeCP desde tu terminal.
 
   ┌  Conectar esta CLI a tu cuenta
@@ -19128,7 +19128,7 @@ exports[`screen: 'login' > es 120 color 1`] = `
 
  ─────────────────────────━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━─────────────────────────
  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-                                           B L A D E C P   CLI  v0.3.0
+                                           B L A D E C P   CLI  v0.3.1
                              Migra, gestiona y publica en BladeCP desde tu terminal.
 
   ┌  Conectar esta CLI a tu cuenta
@@ -19230,7 +19230,7 @@ exports[`screen: 'login' > es 120 plain 1`] = `
 
 
  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-                                           B L A D E C P   CLI  v0.3.0
+                                           B L A D E C P   CLI  v0.3.1
                              Migra, gestiona y publica en BladeCP desde tu terminal.
 
   ┌  Conectar esta CLI a tu cuenta
@@ -19272,7 +19272,7 @@ exports[`screen: 'login' > pt-BR 40 color 1`] = `
 
  ─────────━━━━━━━━━━━━━━━━━━━━─────────
  ──────────────────────────────────────
-      B L A D E C P   CLI  v0.3.0
+      B L A D E C P   CLI  v0.3.1
  Migre, gerencie e publique na BladeCP…
 
   ┌  Conectar esta CLI à sua conta
@@ -19358,7 +19358,7 @@ exports[`screen: 'login' > pt-BR 40 plain 1`] = `
             +++++++++++++=
 
  ──────────────────────────────────────
-      B L A D E C P   CLI  v0.3.0
+      B L A D E C P   CLI  v0.3.1
  Migre, gerencie e publique na BladeCP…
 
   ┌  Conectar esta CLI à sua conta
@@ -19425,7 +19425,7 @@ exports[`screen: 'login' > pt-BR 80 color 1`] = `
 
  ─────────────────━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━─────────────────
  ──────────────────────────────────────────────────────────────────────────────
-                          B L A D E C P   CLI  v0.3.0
+                          B L A D E C P   CLI  v0.3.1
            Migre, gerencie e publique na BladeCP direto do terminal.
 
   ┌  Conectar esta CLI à sua conta
@@ -19523,7 +19523,7 @@ exports[`screen: 'login' > pt-BR 80 plain 1`] = `
                      ::::::::::------------=====---:
 
  ──────────────────────────────────────────────────────────────────────────────
-                          B L A D E C P   CLI  v0.3.0
+                          B L A D E C P   CLI  v0.3.1
            Migre, gerencie e publique na BladeCP direto do terminal.
 
   ┌  Conectar esta CLI à sua conta
@@ -19582,7 +19582,7 @@ exports[`screen: 'login' > pt-BR 120 color 1`] = `
 
  ─────────────────────────━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━─────────────────────────
  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-                                           B L A D E C P   CLI  v0.3.0
+                                           B L A D E C P   CLI  v0.3.1
                             Migre, gerencie e publique na BladeCP direto do terminal.
 
   ┌  Conectar esta CLI à sua conta
@@ -19684,7 +19684,7 @@ exports[`screen: 'login' > pt-BR 120 plain 1`] = `
 
 
  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-                                           B L A D E C P   CLI  v0.3.0
+                                           B L A D E C P   CLI  v0.3.1
                             Migre, gerencie e publique na BladeCP direto do terminal.
 
   ┌  Conectar esta CLI à sua conta
@@ -25515,7 +25515,7 @@ exports[`screen: 'update check' > en 40 color 1`] = `
 "
   ┌  BladeCP CLI update
   │
-  ◇  Installed: 0.3.0 · npm, global
+  ◇  Installed: 0.3.1 · npm, global
   ◆  Latest: 0.4.0
   │
   └  Update with:
@@ -25535,7 +25535,7 @@ exports[`screen: 'update check' > en 40 plain 1`] = `
 "
   ┌  BladeCP CLI update
   │
-  ◇  Installed: 0.3.0 · npm, global
+  ◇  Installed: 0.3.1 · npm, global
   ◆  Latest: 0.4.0
   │
   └  Update with:
@@ -25546,7 +25546,7 @@ exports[`screen: 'update check' > en 80 color 1`] = `
 "
   ┌  BladeCP CLI update
   │
-  ◇  Installed: 0.3.0 · npm, global
+  ◇  Installed: 0.3.1 · npm, global
   ◆  Latest: 0.4.0
   │
   └  Update with:
@@ -25566,7 +25566,7 @@ exports[`screen: 'update check' > en 80 plain 1`] = `
 "
   ┌  BladeCP CLI update
   │
-  ◇  Installed: 0.3.0 · npm, global
+  ◇  Installed: 0.3.1 · npm, global
   ◆  Latest: 0.4.0
   │
   └  Update with:
@@ -25577,7 +25577,7 @@ exports[`screen: 'update check' > en 120 color 1`] = `
 "
   ┌  BladeCP CLI update
   │
-  ◇  Installed: 0.3.0 · npm, global
+  ◇  Installed: 0.3.1 · npm, global
   ◆  Latest: 0.4.0
   │
   └  Update with:
@@ -25597,7 +25597,7 @@ exports[`screen: 'update check' > en 120 plain 1`] = `
 "
   ┌  BladeCP CLI update
   │
-  ◇  Installed: 0.3.0 · npm, global
+  ◇  Installed: 0.3.1 · npm, global
   ◆  Latest: 0.4.0
   │
   └  Update with:
@@ -25608,7 +25608,7 @@ exports[`screen: 'update check' > es 40 color 1`] = `
 "
   ┌  Actualización de la BladeCP CLI
   │
-  ◇  Instalada: 0.3.0 · npm, global
+  ◇  Instalada: 0.3.1 · npm, global
   ◆  Más reciente: 0.4.0
   │
   └  Actualiza con:
@@ -25628,7 +25628,7 @@ exports[`screen: 'update check' > es 40 plain 1`] = `
 "
   ┌  Actualización de la BladeCP CLI
   │
-  ◇  Instalada: 0.3.0 · npm, global
+  ◇  Instalada: 0.3.1 · npm, global
   ◆  Más reciente: 0.4.0
   │
   └  Actualiza con:
@@ -25639,7 +25639,7 @@ exports[`screen: 'update check' > es 80 color 1`] = `
 "
   ┌  Actualización de la BladeCP CLI
   │
-  ◇  Instalada: 0.3.0 · npm, global
+  ◇  Instalada: 0.3.1 · npm, global
   ◆  Más reciente: 0.4.0
   │
   └  Actualiza con:
@@ -25659,7 +25659,7 @@ exports[`screen: 'update check' > es 80 plain 1`] = `
 "
   ┌  Actualización de la BladeCP CLI
   │
-  ◇  Instalada: 0.3.0 · npm, global
+  ◇  Instalada: 0.3.1 · npm, global
   ◆  Más reciente: 0.4.0
   │
   └  Actualiza con:
@@ -25670,7 +25670,7 @@ exports[`screen: 'update check' > es 120 color 1`] = `
 "
   ┌  Actualización de la BladeCP CLI
   │
-  ◇  Instalada: 0.3.0 · npm, global
+  ◇  Instalada: 0.3.1 · npm, global
   ◆  Más reciente: 0.4.0
   │
   └  Actualiza con:
@@ -25690,7 +25690,7 @@ exports[`screen: 'update check' > es 120 plain 1`] = `
 "
   ┌  Actualización de la BladeCP CLI
   │
-  ◇  Instalada: 0.3.0 · npm, global
+  ◇  Instalada: 0.3.1 · npm, global
   ◆  Más reciente: 0.4.0
   │
   └  Actualiza con:
@@ -25701,7 +25701,7 @@ exports[`screen: 'update check' > pt-BR 40 color 1`] = `
 "
   ┌  Atualização da BladeCP CLI
   │
-  ◇  Instalada: 0.3.0 · npm, global
+  ◇  Instalada: 0.3.1 · npm, global
   ◆  Mais recente: 0.4.0
   │
   └  Atualize com:
@@ -25721,7 +25721,7 @@ exports[`screen: 'update check' > pt-BR 40 plain 1`] = `
 "
   ┌  Atualização da BladeCP CLI
   │
-  ◇  Instalada: 0.3.0 · npm, global
+  ◇  Instalada: 0.3.1 · npm, global
   ◆  Mais recente: 0.4.0
   │
   └  Atualize com:
@@ -25732,7 +25732,7 @@ exports[`screen: 'update check' > pt-BR 80 color 1`] = `
 "
   ┌  Atualização da BladeCP CLI
   │
-  ◇  Instalada: 0.3.0 · npm, global
+  ◇  Instalada: 0.3.1 · npm, global
   ◆  Mais recente: 0.4.0
   │
   └  Atualize com:
@@ -25752,7 +25752,7 @@ exports[`screen: 'update check' > pt-BR 80 plain 1`] = `
 "
   ┌  Atualização da BladeCP CLI
   │
-  ◇  Instalada: 0.3.0 · npm, global
+  ◇  Instalada: 0.3.1 · npm, global
   ◆  Mais recente: 0.4.0
   │
   └  Atualize com:
@@ -25763,7 +25763,7 @@ exports[`screen: 'update check' > pt-BR 120 color 1`] = `
 "
   ┌  Atualização da BladeCP CLI
   │
-  ◇  Instalada: 0.3.0 · npm, global
+  ◇  Instalada: 0.3.1 · npm, global
   ◆  Mais recente: 0.4.0
   │
   └  Atualize com:
@@ -25783,7 +25783,7 @@ exports[`screen: 'update check' > pt-BR 120 plain 1`] = `
 "
   ┌  Atualização da BladeCP CLI
   │
-  ◇  Instalada: 0.3.0 · npm, global
+  ◇  Instalada: 0.3.1 · npm, global
   ◆  Mais recente: 0.4.0
   │
   └  Atualize com:
@@ -25811,7 +25811,7 @@ exports[`screen: 'update notice' > en 40 color 1`] = `
   API          https://api.bladecp.com
 
   ◆  New version 0.4.0 available (you
-     have 0.3.0) · run bladecp update
+     have 0.3.1) · run bladecp update
 
 --- styles ---
 1: 2-2 f22c55e | 17-33 B
@@ -25865,7 +25865,7 @@ exports[`screen: 'update notice' > en 80 color 1`] = `
   Valid until  no date
   API          https://api.bladecp.com
 
-  ◆  New version 0.4.0 available (you have 0.3.0) · run bladecp update
+  ◆  New version 0.4.0 available (you have 0.3.1) · run bladecp update
 
 --- styles ---
 1: 2-2 f22c55e | 17-33 B
@@ -25912,7 +25912,7 @@ exports[`screen: 'update notice' > en 120 color 1`] = `
   Valid until  no date
   API          https://api.bladecp.com
 
-  ◆  New version 0.4.0 available (you have 0.3.0) · run bladecp update
+  ◆  New version 0.4.0 available (you have 0.3.1) · run bladecp update
 
 --- styles ---
 1: 2-2 f22c55e | 17-33 B
@@ -25969,7 +25969,7 @@ exports[`screen: 'update notice' > es 40 color 1`] = `
     https://api.bladecp.com
 
   ◆  Nueva versión 0.4.0 disponible
-     (tienes la 0.3.0) · ejecuta bladecp
+     (tienes la 0.3.1) · ejecuta bladecp
      update
 
 --- styles ---
@@ -26030,7 +26030,7 @@ exports[`screen: 'update notice' > es 80 color 1`] = `
   Válida hasta           sin fecha
   API                    https://api.bladecp.com
 
-  ◆  Nueva versión 0.4.0 disponible (tienes la 0.3.0) · ejecuta bladecp update
+  ◆  Nueva versión 0.4.0 disponible (tienes la 0.3.1) · ejecuta bladecp update
 
 --- styles ---
 1: 2-2 f22c55e | 25-41 B
@@ -26077,7 +26077,7 @@ exports[`screen: 'update notice' > es 120 color 1`] = `
   Válida hasta           sin fecha
   API                    https://api.bladecp.com
 
-  ◆  Nueva versión 0.4.0 disponible (tienes la 0.3.0) · ejecuta bladecp update
+  ◆  Nueva versión 0.4.0 disponible (tienes la 0.3.1) · ejecuta bladecp update
 
 --- styles ---
 1: 2-2 f22c55e | 25-41 B
@@ -26133,7 +26133,7 @@ exports[`screen: 'update notice' > pt-BR 40 color 1`] = `
     https://api.bladecp.com
 
   ◆  Nova versão 0.4.0 disponível (você
-     está na 0.3.0) · rode bladecp
+     está na 0.3.1) · rode bladecp
      update
 
 --- styles ---
@@ -26192,7 +26192,7 @@ exports[`screen: 'update notice' > pt-BR 80 color 1`] = `
   Validade               sem data
   API                    https://api.bladecp.com
 
-  ◆  Nova versão 0.4.0 disponível (você está na 0.3.0) · rode bladecp update
+  ◆  Nova versão 0.4.0 disponível (você está na 0.3.1) · rode bladecp update
 
 --- styles ---
 1: 2-2 f22c55e | 19-35 B
@@ -26239,7 +26239,7 @@ exports[`screen: 'update notice' > pt-BR 120 color 1`] = `
   Validade               sem data
   API                    https://api.bladecp.com
 
-  ◆  Nova versão 0.4.0 disponível (você está na 0.3.0) · rode bladecp update
+  ◆  Nova versão 0.4.0 disponível (você está na 0.3.1) · rode bladecp update
 
 --- styles ---
 1: 2-2 f22c55e | 19-35 B
@@ -26275,7 +26275,7 @@ exports[`screen: 'update permission' > en 40 color 1`] = `
 "
   ┌  BladeCP CLI update
   │
-  ◇  Installed: 0.3.0 · npm, global
+  ◇  Installed: 0.3.1 · npm, global
   ◆  Latest: 0.4.0
   │
   │  What is new:
@@ -26345,7 +26345,7 @@ exports[`screen: 'update permission' > en 40 plain 1`] = `
 "
   ┌  BladeCP CLI update
   │
-  ◇  Installed: 0.3.0 · npm, global
+  ◇  Installed: 0.3.1 · npm, global
   ◆  Latest: 0.4.0
   │
   │  What is new:
@@ -26388,7 +26388,7 @@ exports[`screen: 'update permission' > en 80 color 1`] = `
 "
   ┌  BladeCP CLI update
   │
-  ◇  Installed: 0.3.0 · npm, global
+  ◇  Installed: 0.3.1 · npm, global
   ◆  Latest: 0.4.0
   │
   │  What is new:
@@ -26437,7 +26437,7 @@ exports[`screen: 'update permission' > en 80 plain 1`] = `
 "
   ┌  BladeCP CLI update
   │
-  ◇  Installed: 0.3.0 · npm, global
+  ◇  Installed: 0.3.1 · npm, global
   ◆  Latest: 0.4.0
   │
   │  What is new:
@@ -26465,7 +26465,7 @@ exports[`screen: 'update permission' > en 120 color 1`] = `
 "
   ┌  BladeCP CLI update
   │
-  ◇  Installed: 0.3.0 · npm, global
+  ◇  Installed: 0.3.1 · npm, global
   ◆  Latest: 0.4.0
   │
   │  What is new:
@@ -26514,7 +26514,7 @@ exports[`screen: 'update permission' > en 120 plain 1`] = `
 "
   ┌  BladeCP CLI update
   │
-  ◇  Installed: 0.3.0 · npm, global
+  ◇  Installed: 0.3.1 · npm, global
   ◆  Latest: 0.4.0
   │
   │  What is new:
@@ -26542,7 +26542,7 @@ exports[`screen: 'update permission' > es 40 color 1`] = `
 "
   ┌  Actualización de la BladeCP CLI
   │
-  ◇  Instalada: 0.3.0 · npm, global
+  ◇  Instalada: 0.3.1 · npm, global
   ◆  Más reciente: 0.4.0
   │
   │  Novedades:
@@ -26611,7 +26611,7 @@ exports[`screen: 'update permission' > es 40 plain 1`] = `
 "
   ┌  Actualización de la BladeCP CLI
   │
-  ◇  Instalada: 0.3.0 · npm, global
+  ◇  Instalada: 0.3.1 · npm, global
   ◆  Más reciente: 0.4.0
   │
   │  Novedades:
@@ -26653,7 +26653,7 @@ exports[`screen: 'update permission' > es 80 color 1`] = `
 "
   ┌  Actualización de la BladeCP CLI
   │
-  ◇  Instalada: 0.3.0 · npm, global
+  ◇  Instalada: 0.3.1 · npm, global
   ◆  Más reciente: 0.4.0
   │
   │  Novedades:
@@ -26702,7 +26702,7 @@ exports[`screen: 'update permission' > es 80 plain 1`] = `
 "
   ┌  Actualización de la BladeCP CLI
   │
-  ◇  Instalada: 0.3.0 · npm, global
+  ◇  Instalada: 0.3.1 · npm, global
   ◆  Más reciente: 0.4.0
   │
   │  Novedades:
@@ -26730,7 +26730,7 @@ exports[`screen: 'update permission' > es 120 color 1`] = `
 "
   ┌  Actualización de la BladeCP CLI
   │
-  ◇  Instalada: 0.3.0 · npm, global
+  ◇  Instalada: 0.3.1 · npm, global
   ◆  Más reciente: 0.4.0
   │
   │  Novedades:
@@ -26779,7 +26779,7 @@ exports[`screen: 'update permission' > es 120 plain 1`] = `
 "
   ┌  Actualización de la BladeCP CLI
   │
-  ◇  Instalada: 0.3.0 · npm, global
+  ◇  Instalada: 0.3.1 · npm, global
   ◆  Más reciente: 0.4.0
   │
   │  Novedades:
@@ -26807,7 +26807,7 @@ exports[`screen: 'update permission' > pt-BR 40 color 1`] = `
 "
   ┌  Atualização da BladeCP CLI
   │
-  ◇  Instalada: 0.3.0 · npm, global
+  ◇  Instalada: 0.3.1 · npm, global
   ◆  Mais recente: 0.4.0
   │
   │  Novidades:
@@ -26878,7 +26878,7 @@ exports[`screen: 'update permission' > pt-BR 40 plain 1`] = `
 "
   ┌  Atualização da BladeCP CLI
   │
-  ◇  Instalada: 0.3.0 · npm, global
+  ◇  Instalada: 0.3.1 · npm, global
   ◆  Mais recente: 0.4.0
   │
   │  Novidades:
@@ -26922,7 +26922,7 @@ exports[`screen: 'update permission' > pt-BR 80 color 1`] = `
 "
   ┌  Atualização da BladeCP CLI
   │
-  ◇  Instalada: 0.3.0 · npm, global
+  ◇  Instalada: 0.3.1 · npm, global
   ◆  Mais recente: 0.4.0
   │
   │  Novidades:
@@ -26971,7 +26971,7 @@ exports[`screen: 'update permission' > pt-BR 80 plain 1`] = `
 "
   ┌  Atualização da BladeCP CLI
   │
-  ◇  Instalada: 0.3.0 · npm, global
+  ◇  Instalada: 0.3.1 · npm, global
   ◆  Mais recente: 0.4.0
   │
   │  Novidades:
@@ -26999,7 +26999,7 @@ exports[`screen: 'update permission' > pt-BR 120 color 1`] = `
 "
   ┌  Atualização da BladeCP CLI
   │
-  ◇  Instalada: 0.3.0 · npm, global
+  ◇  Instalada: 0.3.1 · npm, global
   ◆  Mais recente: 0.4.0
   │
   │  Novidades:
@@ -27048,7 +27048,7 @@ exports[`screen: 'update permission' > pt-BR 120 plain 1`] = `
 "
   ┌  Atualização da BladeCP CLI
   │
-  ◇  Instalada: 0.3.0 · npm, global
+  ◇  Instalada: 0.3.1 · npm, global
   ◆  Mais recente: 0.4.0
   │
   │  Novidades:
@@ -27076,7 +27076,7 @@ exports[`screen: 'update' > en 40 color 1`] = `
 "
   ┌  BladeCP CLI update
   │
-  ◇  Installed: 0.3.0 · npm, global
+  ◇  Installed: 0.3.1 · npm, global
   ◆  Latest: 0.4.0
   │
   │  What is new:
@@ -27119,7 +27119,7 @@ exports[`screen: 'update' > en 40 plain 1`] = `
 "
   ┌  BladeCP CLI update
   │
-  ◇  Installed: 0.3.0 · npm, global
+  ◇  Installed: 0.3.1 · npm, global
   ◆  Latest: 0.4.0
   │
   │  What is new:
@@ -27142,7 +27142,7 @@ exports[`screen: 'update' > en 80 color 1`] = `
 "
   ┌  BladeCP CLI update
   │
-  ◇  Installed: 0.3.0 · npm, global
+  ◇  Installed: 0.3.1 · npm, global
   ◆  Latest: 0.4.0
   │
   │  What is new:
@@ -27178,7 +27178,7 @@ exports[`screen: 'update' > en 80 plain 1`] = `
 "
   ┌  BladeCP CLI update
   │
-  ◇  Installed: 0.3.0 · npm, global
+  ◇  Installed: 0.3.1 · npm, global
   ◆  Latest: 0.4.0
   │
   │  What is new:
@@ -27197,7 +27197,7 @@ exports[`screen: 'update' > en 120 color 1`] = `
 "
   ┌  BladeCP CLI update
   │
-  ◇  Installed: 0.3.0 · npm, global
+  ◇  Installed: 0.3.1 · npm, global
   ◆  Latest: 0.4.0
   │
   │  What is new:
@@ -27233,7 +27233,7 @@ exports[`screen: 'update' > en 120 plain 1`] = `
 "
   ┌  BladeCP CLI update
   │
-  ◇  Installed: 0.3.0 · npm, global
+  ◇  Installed: 0.3.1 · npm, global
   ◆  Latest: 0.4.0
   │
   │  What is new:
@@ -27252,7 +27252,7 @@ exports[`screen: 'update' > es 40 color 1`] = `
 "
   ┌  Actualización de la BladeCP CLI
   │
-  ◇  Instalada: 0.3.0 · npm, global
+  ◇  Instalada: 0.3.1 · npm, global
   ◆  Más reciente: 0.4.0
   │
   │  Novedades:
@@ -27295,7 +27295,7 @@ exports[`screen: 'update' > es 40 plain 1`] = `
 "
   ┌  Actualización de la BladeCP CLI
   │
-  ◇  Instalada: 0.3.0 · npm, global
+  ◇  Instalada: 0.3.1 · npm, global
   ◆  Más reciente: 0.4.0
   │
   │  Novedades:
@@ -27318,7 +27318,7 @@ exports[`screen: 'update' > es 80 color 1`] = `
 "
   ┌  Actualización de la BladeCP CLI
   │
-  ◇  Instalada: 0.3.0 · npm, global
+  ◇  Instalada: 0.3.1 · npm, global
   ◆  Más reciente: 0.4.0
   │
   │  Novedades:
@@ -27354,7 +27354,7 @@ exports[`screen: 'update' > es 80 plain 1`] = `
 "
   ┌  Actualización de la BladeCP CLI
   │
-  ◇  Instalada: 0.3.0 · npm, global
+  ◇  Instalada: 0.3.1 · npm, global
   ◆  Más reciente: 0.4.0
   │
   │  Novedades:
@@ -27373,7 +27373,7 @@ exports[`screen: 'update' > es 120 color 1`] = `
 "
   ┌  Actualización de la BladeCP CLI
   │
-  ◇  Instalada: 0.3.0 · npm, global
+  ◇  Instalada: 0.3.1 · npm, global
   ◆  Más reciente: 0.4.0
   │
   │  Novedades:
@@ -27409,7 +27409,7 @@ exports[`screen: 'update' > es 120 plain 1`] = `
 "
   ┌  Actualización de la BladeCP CLI
   │
-  ◇  Instalada: 0.3.0 · npm, global
+  ◇  Instalada: 0.3.1 · npm, global
   ◆  Más reciente: 0.4.0
   │
   │  Novedades:
@@ -27428,7 +27428,7 @@ exports[`screen: 'update' > pt-BR 40 color 1`] = `
 "
   ┌  Atualização da BladeCP CLI
   │
-  ◇  Instalada: 0.3.0 · npm, global
+  ◇  Instalada: 0.3.1 · npm, global
   ◆  Mais recente: 0.4.0
   │
   │  Novidades:
@@ -27471,7 +27471,7 @@ exports[`screen: 'update' > pt-BR 40 plain 1`] = `
 "
   ┌  Atualização da BladeCP CLI
   │
-  ◇  Instalada: 0.3.0 · npm, global
+  ◇  Instalada: 0.3.1 · npm, global
   ◆  Mais recente: 0.4.0
   │
   │  Novidades:
@@ -27494,7 +27494,7 @@ exports[`screen: 'update' > pt-BR 80 color 1`] = `
 "
   ┌  Atualização da BladeCP CLI
   │
-  ◇  Instalada: 0.3.0 · npm, global
+  ◇  Instalada: 0.3.1 · npm, global
   ◆  Mais recente: 0.4.0
   │
   │  Novidades:
@@ -27530,7 +27530,7 @@ exports[`screen: 'update' > pt-BR 80 plain 1`] = `
 "
   ┌  Atualização da BladeCP CLI
   │
-  ◇  Instalada: 0.3.0 · npm, global
+  ◇  Instalada: 0.3.1 · npm, global
   ◆  Mais recente: 0.4.0
   │
   │  Novidades:
@@ -27549,7 +27549,7 @@ exports[`screen: 'update' > pt-BR 120 color 1`] = `
 "
   ┌  Atualização da BladeCP CLI
   │
-  ◇  Instalada: 0.3.0 · npm, global
+  ◇  Instalada: 0.3.1 · npm, global
   ◆  Mais recente: 0.4.0
   │
   │  Novidades:
@@ -27585,7 +27585,7 @@ exports[`screen: 'update' > pt-BR 120 plain 1`] = `
 "
   ┌  Atualização da BladeCP CLI
   │
-  ◇  Instalada: 0.3.0 · npm, global
+  ◇  Instalada: 0.3.1 · npm, global
   ◆  Mais recente: 0.4.0
   │
   │  Novidades:
