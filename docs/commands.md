@@ -82,6 +82,35 @@ monthly prices. `bladecp destinations` does the same.
 
 ## Migrations
 
+### `bladecp analyze <backup.tar.gz> [--prices [--currency <code>]]`
+
+See what a full cPanel backup holds and what comes to BladeCP, before you
+migrate. The backup is read on your computer, once and as a stream (up to
+50 GB, without loading it into memory); nothing is sent and no sign-in is
+needed.
+
+| Option | Effect |
+|---|---|
+| `--prices` | Also show the cheapest plan of your account that fits the backup, with the price of now and the `--plan` and `--location` to migrate to it. Needs sign-in; the only request is the list of plans, with the currency. |
+| `--currency <code>` | Prices in one currency, for example `USD` or `BRL` (with `--prices`). |
+
+The report shows the account, the sites (main, addon domains and subdomains,
+with WordPress and the PHP version of each), the databases with engine and
+version, email, DNS zones, cron jobs and files; what comes to BladeCP and what
+stays behind; the notes; and the minimum plan (disk and databases). When the
+migration would refuse the backup as it is, it says why and what to do.
+
+| Exit code | Meaning |
+|---|---|
+| 0 | The backup migrates (maybe with notes) |
+| 2 | The file is missing, empty or not a file |
+| 6 | The backup does not migrate as it is |
+
+With `--json` the report follows the `bladecp.analyze.v1` schema and the
+envelope is always `{ "ok": true, "data": ... }`, also with exit code `6`.
+`reference.json` lists every `verdict`, blocker and warning code. Passwords,
+keys and the text of `wp-config.php` never appear in the report.
+
 ### `bladecp migrate <backup.tar.gz> [--plan <id> --location <id>] [--domain <host>] [--yes] [--no-wait]`
 
 Upload a cPanel backup and migrate the site to BladeCP.
@@ -202,7 +231,7 @@ alone lists them.
 | 3 | Not signed in, key not accepted, or sign-in failed |
 | 4 | Permission denied |
 | 5 | Not found |
-| 6 | Rejected by the API (for example, an action not available in the current phase) |
+| 6 | Rejected by the API (for example, an action not available in the current phase), or a backup that does not migrate as it is (`analyze`) |
 | 7 | Rate limited |
 | 8 | Network or server error, or upload failure |
 | 9 | Migration failed or was cancelled |

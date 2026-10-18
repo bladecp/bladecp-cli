@@ -4,6 +4,45 @@ All notable changes to the BladeCP CLI are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project uses
 [Semantic Versioning](https://semver.org/).
 
+## [0.3.0] - 2026-10-17
+
+Know what a cPanel backup holds before you migrate it. The `--json` output,
+the exit codes and the error codes of 0.2.0 keep their meaning; this release
+only adds to them.
+
+### Added
+
+- `bladecp analyze <backup.tar.gz>` reads a full cPanel backup on your computer
+  and shows what it holds (sites, WordPress, databases with engine and version,
+  email, DNS, cron, PHP versions, files and size), what comes to BladeCP, what
+  stays behind, the notes that matter and the smallest plan it needs (disk and
+  databases). It ends with the `bladecp migrate` command ready to run. It needs
+  no sign-in and no network: nothing from the backup leaves the computer.
+- The analysis reads the backup the same way the migration does, once and as a
+  stream (gzip, plain tar, GNU and PAX long names, sparse files), so it never
+  loads the file into memory, even at 50 GB. Large files show a progress bar.
+  When the migration would refuse the backup (a damaged or cut file, a site
+  that is not WordPress, an active WordPress Multisite, a domain or a value of
+  `wp-config.php` it does not accept, a backup with no database dump), it says
+  why and what to do, and exits with `6`.
+- `--prices` (with `--currency`) adds the cheapest plan of your account that
+  fits the backup, with the price of now and the `--plan` and `--location` to
+  migrate to it. Without a sign-in it explains how to sign in; if the plans do
+  not load, the analysis still stands. The only request is the list of plans,
+  with the currency.
+- `bladecp analyze --json` prints the report in the `bladecp.analyze.v1`
+  schema, with `ok: true` even when the backup does not migrate, so scripts
+  and agents decide on `verdict`, `blockers` and `warnings`. Passwords, hashes,
+  keys, email addresses and the text of `wp-config.php` never appear in the
+  report or on the screen.
+- The analyzer is also a library in the same package, with no dependencies:
+  `@bladecp/cli/analyzer` (the core, for Node and browsers),
+  `@bladecp/cli/analyzer/node` (a file path) and `@bladecp/cli/analyzer/web`
+  (a `File` or `Blob`, with `DecompressionStream`).
+- `reference.json` describes the `analyze` contract: the verdicts with their
+  exit codes and every blocker and warning code with its message in the three
+  languages.
+
 ## [0.2.0] - 2026-10-17
 
 A new look for every screen and a CLI that keeps itself current. The `--json`

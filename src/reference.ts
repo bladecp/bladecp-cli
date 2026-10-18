@@ -4,6 +4,8 @@
 // from the binary. `pnpm run export:reference` writes it to reference.json,
 // which the BladeCP Developers site syncs (`pnpm run cli:sync`). This module is
 // not part of the npm package (see "files" in package.json).
+
+import { BLOCKER_CODES, REPORT_SCHEMA, WARNING_CODES } from './analyzer/index.js';
 import {
   argumentSyntax,
   COMMANDS,
@@ -13,6 +15,7 @@ import {
   OPTIONS,
   type OptionName,
 } from './args.js';
+import { BLOCK_KEYS, WARN_KEYS } from './commands/analyze.js';
 import { ExitCode, type ExitCodeValue } from './errors.js';
 import { EXIT_NAMES, exitCodeDescriptions } from './exits.js';
 import { catalogs, LANGS, type Lang, type MessageKey } from './i18n/index.js';
@@ -409,6 +412,24 @@ export function buildReference() {
         message: localized(spec.message),
         hint: spec.hint ? localized(spec.hint) : null,
       })),
+    contracts: {
+      analyze: {
+        command: 'analyze',
+        schema: REPORT_SCHEMA,
+        envelope: 'ok',
+        verdicts: [
+          { verdict: 'supported', exitCode: ExitCode.OK },
+          { verdict: 'supported_with_warnings', exitCode: ExitCode.OK },
+          { verdict: 'blocked', exitCode: ExitCode.REJECTED },
+        ],
+        blockers: BLOCKER_CODES.map((code) => ({
+          code,
+          message: localized(BLOCK_KEYS[code].what),
+          fix: BLOCK_KEYS[code].fix ? localized(BLOCK_KEYS[code].fix!) : null,
+        })),
+        warnings: WARNING_CODES.map((code) => ({ code, message: localized(WARN_KEYS[code]) })),
+      },
+    },
   };
 }
 

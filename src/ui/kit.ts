@@ -56,6 +56,8 @@ export interface Kit {
     square: string;
     arrow: string;
     hline: string;
+    /** A note that needs attention (a warning in a list). */
+    warning: string;
   };
   spin: readonly string[];
   accent(text: string): string;
@@ -133,6 +135,7 @@ export function kit(out: Output, stream: 'out' | 'err' = 'out'): Kit {
         square: '■',
         arrow: '›',
         hline: '─',
+        warning: '▲',
       }
     : {
         active: '*',
@@ -149,6 +152,7 @@ export function kit(out: Output, stream: 'out' | 'err' = 'out'): Kit {
         square: '#',
         arrow: '>',
         hline: '-',
+        warning: '!',
       };
 
   const k: Kit = {

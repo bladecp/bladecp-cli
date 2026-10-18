@@ -650,4 +650,193 @@ export const ptBR: Record<keyof typeof en, string> = {
   'slow.later': 'Acompanhe depois com:',
   'slow.support': 'Se continuar assim, fale com o suporte: {url}',
   'cause.notSignedIn': 'Não há chave salva neste computador e BLADECP_API_KEY não está definida.',
+  // bladecp analyze
+  'help.analyze': 'Ver o que um backup do cPanel tem e o que vem para a BladeCP, neste computador',
+  'help.ex.analyze': 'conferir um backup antes de migrar, sem internet',
+  'option.prices': 'Mostrar também os planos que cabem e os preços de agora (pede login)',
+  'ahelp.desc':
+    'Lê um backup completo do cPanel neste computador e mostra o que ele tem, o que vem para a BladeCP, o que fica e o menor plano necessário. Nada é enviado: o arquivo não sai deste computador. Com --prices, também pede à BladeCP os planos da sua conta, enviando só a moeda.',
+  'ahelp.backupArg': 'backup completo feito pelo cPanel (cpmove-usuario.tar.gz), até 50 GB',
+  'ahelp.ex1': 'o que migra e o plano mínimo, sem internet',
+  'ahelp.ex2': 'o plano mais barato que cabe, com o preço de agora',
+  'ahelp.ex3': 'o relatório para scripts (esquema bladecp.analyze.v1)',
+  'ahelp.exit0': 'o backup migra (talvez com avisos)',
+  'ahelp.exit2': 'o arquivo não existe, está vazio ou não é um arquivo',
+  'ahelp.exit6': 'o backup não migra como está',
+  'ahelp.note':
+    'A análise roda aqui e lê o backup uma vez, em fluxo. Senhas, chaves e o texto do wp-config.php nunca aparecem nem entram no relatório.',
+  'analyze.currencyNeedsPrices': '--currency funciona junto com --prices.',
+  'analyze.title': 'Análise do backup',
+  'analyze.kind.gzip': 'backup do cPanel (.tar.gz)',
+  'analyze.kind.tar': 'tar sem compressão',
+  'analyze.uncompressed': '{size} descompactados',
+  'analyze.entriesOne': '1 entrada',
+  'analyze.entries': '{count} entradas',
+  'analyze.verdict.supported': 'Migra para a BladeCP',
+  'analyze.verdict.warnings': 'Migra para a BladeCP, com avisos',
+  'analyze.verdict.blocked': 'Não migra para a BladeCP como está',
+  'analyze.local': 'Nada do backup saiu deste computador.',
+  'analyze.again': 'Depois de corrigir, analise de novo:',
+  'analyze.next': 'Para migrar:',
+  'analyze.reading': 'Lendo {file}',
+  'analyze.readingNote': 'nada sai deste computador',
+  'analyze.progress': '{read} de {total}',
+  'analyze.section.contents': 'O que há no backup',
+  'analyze.section.comes': 'Vem para a BladeCP',
+  'analyze.section.stays': 'Fica de fora',
+  'analyze.section.warnings': 'Avisos',
+  'analyze.section.plan': 'Plano mínimo',
+  'analyze.section.recommended': 'Plano recomendado',
+  'analyze.label.account': 'Conta',
+  'analyze.label.domain': 'Domínio',
+  'analyze.label.sites': 'Sites',
+  'analyze.label.databases': 'Bancos',
+  'analyze.label.email': 'E-mail',
+  'analyze.label.dns': 'DNS',
+  'analyze.label.cron': 'Cron',
+  'analyze.label.files': 'Arquivos',
+  'analyze.value.account': '{user} · cPanel',
+  'analyze.value.none': 'nenhum',
+  'analyze.value.sitesMixed': '{sites}, {wordpress} com WordPress',
+  'analyze.value.mail': '{domains}, {boxes}',
+  'analyze.value.mailDomainsOne': '1 domínio',
+  'analyze.value.mailDomains': '{count} domínios',
+  'analyze.value.mailboxesOne': '1 caixa',
+  'analyze.value.mailboxesNone': 'nenhuma caixa',
+  'analyze.value.mailboxes': '{count} caixas',
+  'analyze.value.dns': '{zones}, {records}',
+  'analyze.value.zonesOne': '1 zona',
+  'analyze.value.zones': '{count} zonas',
+  'analyze.value.recordsOne': '1 registro',
+  'analyze.value.records': '{count} registros',
+  'analyze.value.cronOne': '1 tarefa',
+  'analyze.value.cron': '{count} tarefas',
+  'analyze.value.filesOne': '{size} em 1 arquivo',
+  'analyze.value.files': '{size} em {count} arquivos',
+  'analyze.count.wpSitesOne': '1 site WordPress',
+  'analyze.count.wpSites': '{count} sites WordPress',
+  'analyze.count.sitesOne': '1 site',
+  'analyze.count.sites': '{count} sites',
+  'analyze.count.databaseOne': '1 banco {engine}',
+  'analyze.count.databases': '{count} bancos',
+  'analyze.count.mailboxesOne': '1 caixa de e-mail',
+  'analyze.count.mailboxes': '{count} caixas de e-mail',
+  'analyze.count.zone': 'a zona DNS',
+  'analyze.count.zones': '{count} zonas DNS',
+  'analyze.count.cronOne': '1 tarefa cron',
+  'analyze.count.cron': '{count} tarefas cron',
+  'analyze.count.nothing': 'nada para levar',
+  'analyze.item.sitePrimary': 'Site principal {domain}',
+  'analyze.item.siteAddon': 'Domínio adicional {domain}',
+  'analyze.item.siteSub': 'Subdomínio {domain}',
+  'analyze.item.database': 'Banco {name}',
+  'analyze.item.mailDomain': 'E-mail de {domain}',
+  'analyze.item.dnsZone': 'Zona DNS {domain}',
+  'analyze.item.cron': 'Tarefas cron',
+  'analyze.detail.phpDefault': 'PHP padrão',
+  'analyze.detail.otherApp': 'arquivos do site',
+  'analyze.detail.aliases': 'também {domains}',
+  'analyze.detail.mx': 'MX preservado',
+  'analyze.stay.notYet': 'não faz parte da migração',
+  'analyze.stay.ssl': 'Certificados SSL ({count})',
+  'analyze.stay.sslWhy': 'um novo é emitido quando o domínio apontar para a BladeCP',
+  'analyze.stay.password': 'Senha do cPanel',
+  'analyze.stay.passwordWhy': 'o acesso à BladeCP é pelo seu e-mail',
+  'analyze.stay.ftp': 'Contas FTP ({count})',
+  'analyze.stay.ftpWhy': 'a BladeCP cria um acesso novo',
+  'analyze.stay.postgres': 'Bancos PostgreSQL ({count})',
+  'analyze.stay.postgresWhy': 'a BladeCP migra MySQL e MariaDB',
+  'analyze.plan.disk': 'Disco necessário',
+  'analyze.plan.databases': 'Bancos',
+  'analyze.plan.databasesValue': '{count} ({engine})',
+  'analyze.plan.prices': 'Preços',
+  'analyze.plan.pricesHint': 'use --prices para ver os planos que cabem (pede login)',
+  'analyze.plan.signIn': 'entre com bladecp login e rode de novo com --prices',
+  'analyze.plan.unavailable': 'os planos não carregaram agora; o mínimo acima continua valendo',
+  'analyze.plan.none': 'nenhum plano da sua conta comporta este backup',
+  'analyze.plan.alsoFits': 'Também cabem',
+  'analyze.plan.pricesNow': 'Cobrança',
+  'analyze.plan.priceNote': 'o plano que você escolher no migrate, pelo preço de agora',
+  'analyze.plan.diskUnknown': 'disco não informado',
+  'analyze.privacy.keys': 'Este backup tem senhas e chaves privadas: guarde-o com cuidado.',
+  'analyze.privacy.passwords': 'Este backup tem senhas: guarde-o com cuidado.',
+  'analyze.block.archive_invalid':
+    'O arquivo não é um backup do cPanel legível: o pacote (gzip ou tar) está danificado ou é de outro tipo.',
+  'analyze.fix.archive_invalid':
+    'Baixe de novo o backup completo no cPanel (Backup, Baixar um backup completo da conta) e analise o arquivo novo.',
+  'analyze.block.archive_truncated': 'O backup termina antes da hora: o arquivo está incompleto.',
+  'analyze.fix.archive_truncated':
+    'O download ou a cópia provavelmente foi interrompido. Baixe o backup de novo e compare os tamanhos.',
+  'analyze.block.parse_cap_exceeded':
+    'O backup passa de um limite da migração (domínios, caixas de e-mail, bancos ou dados lidos dele).',
+  'analyze.fix.parse_cap_exceeded':
+    'Fale com o suporte com este relatório; um backup assim pode precisar de uma migração assistida.',
+  'analyze.block.unrecognized_layout':
+    'Este arquivo não parece um backup de conta do cPanel (não há uma pasta cpmove-usuario dentro).',
+  'analyze.fix.unrecognized_layout':
+    'Use o backup completo feito pelo cPanel, o arquivo cpmove-usuario.tar.gz.',
+  'analyze.block.not_wordpress':
+    'O site principal não é WordPress: não há public_html/wp-config.php no backup. A migração aceita sites WordPress por enquanto.',
+  'analyze.fix.not_wordpress':
+    'Se o site é WordPress, confira se o wp-config.php está em public_html e gere o backup de novo.',
+  'analyze.block.multisite_unsupported':
+    'O wp-config.php ativa o WordPress Multisite ({constant}), e a migração aceita hoje só sites simples.',
+  'analyze.block.multisite_disabled':
+    'O backup é uma rede WordPress Multisite ({sites} sites), e a migração aceita hoje só sites simples.',
+  'analyze.fix.multisite':
+    'Se o site não usa uma rede, remova a linha {constant} do wp-config.php, gere o backup de novo e rode a análise outra vez.',
+  'analyze.block.no_primary_domain': 'O backup não diz qual é o domínio principal.',
+  'analyze.fix.regenerate':
+    'Gere o backup de novo no cPanel (Backup, Baixar um backup completo da conta), sem reempacotar.',
+  'analyze.block.invalid_primary_domain':
+    'O domínio principal {domain} não pode ser usado: a migração aceita domínios em minúsculas com até 63 caracteres.',
+  'analyze.block.invalid_database_name':
+    'O nome do banco no wp-config.php tem caracteres que a migração não aceita.',
+  'analyze.block.invalid_table_prefix':
+    'O prefixo das tabelas no wp-config.php tem caracteres que a migração não aceita.',
+  'analyze.block.invalid_db_charset':
+    'O DB_CHARSET do wp-config.php tem caracteres que a migração não aceita.',
+  'analyze.block.invalid_db_collation':
+    'O DB_COLLATE do wp-config.php tem caracteres que a migração não aceita.',
+  'analyze.fix.wpconfig':
+    'Corrija esse valor no wp-config.php (só letras, números e _, até 64), gere o backup de novo e analise.',
+  'analyze.block.invalid_email_local_part':
+    'Uma conta de e-mail de {domain} tem um nome que a migração não aceita.',
+  'analyze.fix.email_local_part':
+    'Os nomes aceitam letras, números e . _ % + - (até 64). Renomeie ou remova essa conta no cPanel e gere o backup de novo.',
+  'analyze.block.backup_too_large':
+    'O backup tem {size}, mais que os {limit} que uma migração aceita.',
+  'analyze.fix.backup_too_large':
+    'Tire da conta o que não precisa vir (backups antigos, logs, caches) e gere o backup de novo.',
+  'analyze.block.no_sql_dump':
+    'O backup não tem dump de banco (mysql/*.sql), e o site WordPress precisa do banco dele.',
+  'analyze.block.plain_tar':
+    'O backup é um tar sem compressão, e a migração aceita o .tar.gz feito pelo cPanel.',
+  'analyze.fix.plain_tar': 'Compacte com gzip, ou baixe de novo o backup .tar.gz no cPanel.',
+  'analyze.block.dot_slash_root':
+    'O backup foi reempacotado: as entradas começam com ./, e o import procura a pasta cpmove-usuario no topo.',
+  'analyze.block.archive_root_mismatch':
+    'A primeira entrada do backup não é a pasta da conta, e o import procura essa pasta no topo.',
+  'analyze.block.not_an_archive':
+    'Este arquivo não é um backup do cPanel: não é um pacote tar nem tar.gz.',
+  'analyze.block.other': 'O backup não migra ({code}).',
+  'analyze.warn.php_version_not_mapped':
+    '{domain} usa PHP {version}, que a migração não mantém: o site vem com o PHP padrão da BladeCP.',
+  'analyze.warn.table_prefix_unreadable':
+    'Não deu para ler o $table_prefix do wp-config.php; a migração usa o padrão do WordPress.',
+  'analyze.warn.db_name_mismatch':
+    'O wp-config.php aponta para o banco {defined}, que não está no backup; o site vem com {used}.',
+  'analyze.warn.primary_docroot_not_public_html':
+    'O site principal é servido de {docroot}, mas a migração leva os arquivos de public_html.',
+  'analyze.warn.unsafe_entry_names':
+    'Algumas entradas ({count}) têm nomes que apontam para fora da pasta da conta (.. ou /). Confira se o backup veio do cPanel como está.',
+  'analyze.warn.entries_outside_account_root':
+    'Alguns arquivos ({count}) estão fora da pasta da conta e não vêm.',
+  'analyze.warn.multi_account_archive':
+    'O arquivo tem entradas de mais de uma conta ({count} pastas); só a primeira conta vem.',
+  'analyze.warn.mailbox_history_over_cap':
+    'Algumas caixas ({count}) passam do limite de histórico (5 GB cada, 25 GB no total): a conta vem, as mensagens antigas não.',
+  'analyze.warn.work_volume_tight':
+    'O backup e o banco juntos chegam perto dos 75 GB que o import comporta de uma vez.',
+  'analyze.warn.other': 'Aviso: {code}',
 };

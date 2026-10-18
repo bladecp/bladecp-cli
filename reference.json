@@ -2,7 +2,7 @@
   "format": 1,
   "name": "BladeCP CLI",
   "binary": "bladecp",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "languages": [
     "en",
     "pt-BR",
@@ -94,6 +94,24 @@
         "en": "List the plans and locations available for migrations",
         "pt-BR": "Listar os planos e locais disponíveis para migração",
         "es": "Listar los planes y ubicaciones disponibles para migraciones"
+      }
+    },
+    {
+      "id": "analyze",
+      "command": "analyze",
+      "usage": "bladecp analyze <backup.tar.gz> [--prices [--currency <code>]]",
+      "arguments": [
+        "<backup.tar.gz>"
+      ],
+      "options": [
+        "prices",
+        "currency"
+      ],
+      "signInRequired": false,
+      "summary": {
+        "en": "See what a cPanel backup holds and what comes to BladeCP, on this computer",
+        "pt-BR": "Ver o que um backup do cPanel tem e o que vem para a BladeCP, neste computador",
+        "es": "Ver qué tiene un respaldo de cPanel y qué llega a BladeCP, en este equipo"
       }
     },
     {
@@ -547,7 +565,8 @@
       "type": "string",
       "global": false,
       "commands": [
-        "destinations.list"
+        "destinations.list",
+        "analyze"
       ],
       "description": {
         "en": "Show plans and prices in one currency (for example USD or BRL)",
@@ -587,6 +606,23 @@
         "en": "Only check for a new version; nothing is installed",
         "pt-BR": "Só verificar se há versão nova; nada é instalado",
         "es": "Solo comprobar si hay una versión nueva; no se instala nada"
+      }
+    },
+    {
+      "name": "prices",
+      "flag": "--prices",
+      "short": null,
+      "syntax": "--prices",
+      "value": null,
+      "type": "boolean",
+      "global": false,
+      "commands": [
+        "analyze"
+      ],
+      "description": {
+        "en": "Also show the plans that fit and their prices now (needs sign-in)",
+        "pt-BR": "Mostrar também os planos que cabem e os preços de agora (pede login)",
+        "es": "Mostrar también los planes que caben y sus precios de ahora (requiere iniciar sesión)"
       }
     }
   ],
@@ -1643,5 +1679,345 @@
       },
       "hint": null
     }
-  ]
+  ],
+  "contracts": {
+    "analyze": {
+      "command": "analyze",
+      "schema": "bladecp.analyze.v1",
+      "envelope": "ok",
+      "verdicts": [
+        {
+          "verdict": "supported",
+          "exitCode": 0
+        },
+        {
+          "verdict": "supported_with_warnings",
+          "exitCode": 0
+        },
+        {
+          "verdict": "blocked",
+          "exitCode": 6
+        }
+      ],
+      "blockers": [
+        {
+          "code": "archive_invalid",
+          "message": {
+            "en": "The file is not a cPanel backup that can be read: the archive (gzip or tar) is damaged or of another kind.",
+            "pt-BR": "O arquivo não é um backup do cPanel legível: o pacote (gzip ou tar) está danificado ou é de outro tipo.",
+            "es": "El archivo no es un respaldo de cPanel legible: el paquete (gzip o tar) está dañado o es de otro tipo."
+          },
+          "fix": {
+            "en": "Download the full backup from cPanel again (Backup, Download a Full Account Backup) and analyze the new file.",
+            "pt-BR": "Baixe de novo o backup completo no cPanel (Backup, Baixar um backup completo da conta) e analise o arquivo novo.",
+            "es": "Descarga de nuevo el respaldo completo en cPanel (Backup, Descargar un respaldo completo de la cuenta) y analiza el archivo nuevo."
+          }
+        },
+        {
+          "code": "archive_truncated",
+          "message": {
+            "en": "The backup ends before it should: the file is incomplete.",
+            "pt-BR": "O backup termina antes da hora: o arquivo está incompleto.",
+            "es": "El respaldo termina antes de tiempo: el archivo está incompleto."
+          },
+          "fix": {
+            "en": "The download or the copy was probably cut off. Download the backup again and compare the sizes.",
+            "pt-BR": "O download ou a cópia provavelmente foi interrompido. Baixe o backup de novo e compare os tamanhos.",
+            "es": "La descarga o la copia probablemente se cortó. Descarga el respaldo de nuevo y compara los tamaños."
+          }
+        },
+        {
+          "code": "parse_cap_exceeded",
+          "message": {
+            "en": "The backup goes past a limit of the migration (domains, mailboxes, databases or data read from it).",
+            "pt-BR": "O backup passa de um limite da migração (domínios, caixas de e-mail, bancos ou dados lidos dele).",
+            "es": "El respaldo supera un límite de la migración (dominios, buzones, bases de datos o datos leídos de él)."
+          },
+          "fix": {
+            "en": "Talk to support with this report; a backup like this may need a guided migration.",
+            "pt-BR": "Fale com o suporte com este relatório; um backup assim pode precisar de uma migração assistida.",
+            "es": "Habla con soporte con este informe; un respaldo así puede necesitar una migración asistida."
+          }
+        },
+        {
+          "code": "unrecognized_layout",
+          "message": {
+            "en": "This file does not look like a cPanel account backup (there is no cpmove-user folder inside).",
+            "pt-BR": "Este arquivo não parece um backup de conta do cPanel (não há uma pasta cpmove-usuario dentro).",
+            "es": "Este archivo no parece un respaldo de cuenta de cPanel (no hay una carpeta cpmove-usuario dentro)."
+          },
+          "fix": {
+            "en": "Use the full backup made by cPanel, the cpmove-user.tar.gz file.",
+            "pt-BR": "Use o backup completo feito pelo cPanel, o arquivo cpmove-usuario.tar.gz.",
+            "es": "Usa el respaldo completo hecho por cPanel, el archivo cpmove-usuario.tar.gz."
+          }
+        },
+        {
+          "code": "not_wordpress",
+          "message": {
+            "en": "The main site is not WordPress: there is no public_html/wp-config.php in the backup. The migration takes WordPress sites for now.",
+            "pt-BR": "O site principal não é WordPress: não há public_html/wp-config.php no backup. A migração aceita sites WordPress por enquanto.",
+            "es": "El sitio principal no es WordPress: no hay public_html/wp-config.php en el respaldo. La migración acepta sitios WordPress por ahora."
+          },
+          "fix": {
+            "en": "If the site is WordPress, check that wp-config.php is in public_html and make the backup again.",
+            "pt-BR": "Se o site é WordPress, confira se o wp-config.php está em public_html e gere o backup de novo.",
+            "es": "Si el sitio es WordPress, revisa que wp-config.php esté en public_html y genera el respaldo de nuevo."
+          }
+        },
+        {
+          "code": "multisite_unsupported",
+          "message": {
+            "en": "The wp-config.php turns on WordPress Multisite ({constant}), and the migration takes single sites for now.",
+            "pt-BR": "O wp-config.php ativa o WordPress Multisite ({constant}), e a migração aceita hoje só sites simples.",
+            "es": "El wp-config.php activa WordPress Multisite ({constant}), y la migración acepta por ahora solo sitios simples."
+          },
+          "fix": {
+            "en": "If the site does not use a network, remove the {constant} line from wp-config.php, make the backup again and analyze it once more.",
+            "pt-BR": "Se o site não usa uma rede, remova a linha {constant} do wp-config.php, gere o backup de novo e rode a análise outra vez.",
+            "es": "Si el sitio no usa una red, quita la línea {constant} de wp-config.php, genera el respaldo de nuevo y analízalo otra vez."
+          }
+        },
+        {
+          "code": "no_primary_domain",
+          "message": {
+            "en": "The backup does not say which domain is the main one.",
+            "pt-BR": "O backup não diz qual é o domínio principal.",
+            "es": "El respaldo no dice cuál es el dominio principal."
+          },
+          "fix": {
+            "en": "Make the backup again in cPanel (Backup, Download a Full Account Backup), without repacking it.",
+            "pt-BR": "Gere o backup de novo no cPanel (Backup, Baixar um backup completo da conta), sem reempacotar.",
+            "es": "Genera el respaldo de nuevo en cPanel (Backup, Descargar un respaldo completo de la cuenta), sin reempaquetarlo."
+          }
+        },
+        {
+          "code": "invalid_primary_domain",
+          "message": {
+            "en": "The main domain {domain} cannot be used: the migration takes lowercase domains of up to 63 characters.",
+            "pt-BR": "O domínio principal {domain} não pode ser usado: a migração aceita domínios em minúsculas com até 63 caracteres.",
+            "es": "El dominio principal {domain} no se puede usar: la migración acepta dominios en minúsculas de hasta 63 caracteres."
+          },
+          "fix": null
+        },
+        {
+          "code": "invalid_database_name",
+          "message": {
+            "en": "The database name in wp-config.php has characters the migration does not accept.",
+            "pt-BR": "O nome do banco no wp-config.php tem caracteres que a migração não aceita.",
+            "es": "El nombre de la base de datos en wp-config.php tiene caracteres que la migración no acepta."
+          },
+          "fix": {
+            "en": "Fix that value in wp-config.php (letters, digits and _ only, up to 64), make the backup again and analyze it.",
+            "pt-BR": "Corrija esse valor no wp-config.php (só letras, números e _, até 64), gere o backup de novo e analise.",
+            "es": "Corrige ese valor en wp-config.php (solo letras, números y _, hasta 64), genera el respaldo de nuevo y analízalo."
+          }
+        },
+        {
+          "code": "invalid_table_prefix",
+          "message": {
+            "en": "The table prefix in wp-config.php has characters the migration does not accept.",
+            "pt-BR": "O prefixo das tabelas no wp-config.php tem caracteres que a migração não aceita.",
+            "es": "El prefijo de las tablas en wp-config.php tiene caracteres que la migración no acepta."
+          },
+          "fix": {
+            "en": "Fix that value in wp-config.php (letters, digits and _ only, up to 64), make the backup again and analyze it.",
+            "pt-BR": "Corrija esse valor no wp-config.php (só letras, números e _, até 64), gere o backup de novo e analise.",
+            "es": "Corrige ese valor en wp-config.php (solo letras, números y _, hasta 64), genera el respaldo de nuevo y analízalo."
+          }
+        },
+        {
+          "code": "invalid_db_charset",
+          "message": {
+            "en": "The DB_CHARSET of wp-config.php has characters the migration does not accept.",
+            "pt-BR": "O DB_CHARSET do wp-config.php tem caracteres que a migração não aceita.",
+            "es": "El DB_CHARSET de wp-config.php tiene caracteres que la migración no acepta."
+          },
+          "fix": {
+            "en": "Fix that value in wp-config.php (letters, digits and _ only, up to 64), make the backup again and analyze it.",
+            "pt-BR": "Corrija esse valor no wp-config.php (só letras, números e _, até 64), gere o backup de novo e analise.",
+            "es": "Corrige ese valor en wp-config.php (solo letras, números y _, hasta 64), genera el respaldo de nuevo y analízalo."
+          }
+        },
+        {
+          "code": "invalid_db_collation",
+          "message": {
+            "en": "The DB_COLLATE of wp-config.php has characters the migration does not accept.",
+            "pt-BR": "O DB_COLLATE do wp-config.php tem caracteres que a migração não aceita.",
+            "es": "El DB_COLLATE de wp-config.php tiene caracteres que la migración no acepta."
+          },
+          "fix": {
+            "en": "Fix that value in wp-config.php (letters, digits and _ only, up to 64), make the backup again and analyze it.",
+            "pt-BR": "Corrija esse valor no wp-config.php (só letras, números e _, até 64), gere o backup de novo e analise.",
+            "es": "Corrige ese valor en wp-config.php (solo letras, números y _, hasta 64), genera el respaldo de nuevo y analízalo."
+          }
+        },
+        {
+          "code": "invalid_email_local_part",
+          "message": {
+            "en": "An email account of {domain} has a name the migration does not accept.",
+            "pt-BR": "Uma conta de e-mail de {domain} tem um nome que a migração não aceita.",
+            "es": "Una cuenta de correo de {domain} tiene un nombre que la migración no acepta."
+          },
+          "fix": {
+            "en": "Names take letters, digits and . _ % + - (up to 64). Rename or remove that account in cPanel and make the backup again.",
+            "pt-BR": "Os nomes aceitam letras, números e . _ % + - (até 64). Renomeie ou remova essa conta no cPanel e gere o backup de novo.",
+            "es": "Los nombres aceptan letras, números y . _ % + - (hasta 64). Cambia el nombre o quita esa cuenta en cPanel y genera el respaldo de nuevo."
+          }
+        },
+        {
+          "code": "backup_too_large",
+          "message": {
+            "en": "The backup has {size}, more than the {limit} a migration takes.",
+            "pt-BR": "O backup tem {size}, mais que os {limit} que uma migração aceita.",
+            "es": "El respaldo tiene {size}, más que los {limit} que acepta una migración."
+          },
+          "fix": {
+            "en": "Remove what does not need to move (old backups, logs, caches) from the account and make the backup again.",
+            "pt-BR": "Tire da conta o que não precisa vir (backups antigos, logs, caches) e gere o backup de novo.",
+            "es": "Quita de la cuenta lo que no necesita venir (respaldos viejos, logs, cachés) y genera el respaldo de nuevo."
+          }
+        },
+        {
+          "code": "multisite_disabled",
+          "message": {
+            "en": "The backup is a WordPress Multisite network ({sites} sites), and the migration takes single sites for now.",
+            "pt-BR": "O backup é uma rede WordPress Multisite ({sites} sites), e a migração aceita hoje só sites simples.",
+            "es": "El respaldo es una red WordPress Multisite ({sites} sitios), y la migración acepta por ahora solo sitios simples."
+          },
+          "fix": {
+            "en": "If the site does not use a network, remove the {constant} line from wp-config.php, make the backup again and analyze it once more.",
+            "pt-BR": "Se o site não usa uma rede, remova a linha {constant} do wp-config.php, gere o backup de novo e rode a análise outra vez.",
+            "es": "Si el sitio no usa una red, quita la línea {constant} de wp-config.php, genera el respaldo de nuevo y analízalo otra vez."
+          }
+        },
+        {
+          "code": "no_sql_dump",
+          "message": {
+            "en": "The backup has no database dump (mysql/*.sql), and the WordPress site needs its database.",
+            "pt-BR": "O backup não tem dump de banco (mysql/*.sql), e o site WordPress precisa do banco dele.",
+            "es": "El respaldo no tiene volcado de base de datos (mysql/*.sql), y el sitio WordPress necesita su base de datos."
+          },
+          "fix": {
+            "en": "Make the backup again in cPanel (Backup, Download a Full Account Backup), without repacking it.",
+            "pt-BR": "Gere o backup de novo no cPanel (Backup, Baixar um backup completo da conta), sem reempacotar.",
+            "es": "Genera el respaldo de nuevo en cPanel (Backup, Descargar un respaldo completo de la cuenta), sin reempaquetarlo."
+          }
+        },
+        {
+          "code": "plain_tar",
+          "message": {
+            "en": "The backup is a tar without compression, and the migration takes the .tar.gz made by cPanel.",
+            "pt-BR": "O backup é um tar sem compressão, e a migração aceita o .tar.gz feito pelo cPanel.",
+            "es": "El respaldo es un tar sin compresión, y la migración acepta el .tar.gz hecho por cPanel."
+          },
+          "fix": {
+            "en": "Compress it with gzip, or download the .tar.gz backup from cPanel again.",
+            "pt-BR": "Compacte com gzip, ou baixe de novo o backup .tar.gz no cPanel.",
+            "es": "Comprímelo con gzip, o descarga de nuevo el respaldo .tar.gz en cPanel."
+          }
+        },
+        {
+          "code": "dot_slash_root",
+          "message": {
+            "en": "The backup was repacked: its entries start with ./, and the import looks for the cpmove-user folder at the top.",
+            "pt-BR": "O backup foi reempacotado: as entradas começam com ./, e o import procura a pasta cpmove-usuario no topo.",
+            "es": "El respaldo fue reempaquetado: las entradas empiezan con ./, y la importación busca la carpeta cpmove-usuario arriba."
+          },
+          "fix": {
+            "en": "Make the backup again in cPanel (Backup, Download a Full Account Backup), without repacking it.",
+            "pt-BR": "Gere o backup de novo no cPanel (Backup, Baixar um backup completo da conta), sem reempacotar.",
+            "es": "Genera el respaldo de nuevo en cPanel (Backup, Descargar un respaldo completo de la cuenta), sin reempaquetarlo."
+          }
+        },
+        {
+          "code": "archive_root_mismatch",
+          "message": {
+            "en": "The first entry of the backup is not the account folder, and the import looks for it at the top.",
+            "pt-BR": "A primeira entrada do backup não é a pasta da conta, e o import procura essa pasta no topo.",
+            "es": "La primera entrada del respaldo no es la carpeta de la cuenta, y la importación la busca arriba."
+          },
+          "fix": {
+            "en": "Make the backup again in cPanel (Backup, Download a Full Account Backup), without repacking it.",
+            "pt-BR": "Gere o backup de novo no cPanel (Backup, Baixar um backup completo da conta), sem reempacotar.",
+            "es": "Genera el respaldo de nuevo en cPanel (Backup, Descargar un respaldo completo de la cuenta), sin reempaquetarlo."
+          }
+        }
+      ],
+      "warnings": [
+        {
+          "code": "php_version_not_mapped",
+          "message": {
+            "en": "{domain} uses PHP {version}, which the migration does not keep: the site moves with the default PHP of BladeCP.",
+            "pt-BR": "{domain} usa PHP {version}, que a migração não mantém: o site vem com o PHP padrão da BladeCP.",
+            "es": "{domain} usa PHP {version}, que la migración no mantiene: el sitio llega con el PHP predeterminado de BladeCP."
+          }
+        },
+        {
+          "code": "table_prefix_unreadable",
+          "message": {
+            "en": "The $table_prefix of wp-config.php could not be read; the migration uses the WordPress default.",
+            "pt-BR": "Não deu para ler o $table_prefix do wp-config.php; a migração usa o padrão do WordPress.",
+            "es": "No se pudo leer el $table_prefix de wp-config.php; la migración usa el predeterminado de WordPress."
+          }
+        },
+        {
+          "code": "db_name_mismatch",
+          "message": {
+            "en": "wp-config.php names the database {defined}, which is not in the backup; the site moves with {used}.",
+            "pt-BR": "O wp-config.php aponta para o banco {defined}, que não está no backup; o site vem com {used}.",
+            "es": "El wp-config.php apunta a la base de datos {defined}, que no está en el respaldo; el sitio llega con {used}."
+          }
+        },
+        {
+          "code": "primary_docroot_not_public_html",
+          "message": {
+            "en": "The main site is served from {docroot}, but the migration takes the files of public_html.",
+            "pt-BR": "O site principal é servido de {docroot}, mas a migração leva os arquivos de public_html.",
+            "es": "El sitio principal se sirve desde {docroot}, pero la migración lleva los archivos de public_html."
+          }
+        },
+        {
+          "code": "unsafe_entry_names",
+          "message": {
+            "en": "Some entries ({count}) have names that point outside the account folder (.. or /). Check that the backup came from cPanel as it is.",
+            "pt-BR": "Algumas entradas ({count}) têm nomes que apontam para fora da pasta da conta (.. ou /). Confira se o backup veio do cPanel como está.",
+            "es": "Algunas entradas ({count}) tienen nombres que apuntan fuera de la carpeta de la cuenta (.. o /). Revisa que el respaldo venga de cPanel tal como está."
+          }
+        },
+        {
+          "code": "entries_outside_account_root",
+          "message": {
+            "en": "Some files ({count}) are outside the account folder and do not move.",
+            "pt-BR": "Alguns arquivos ({count}) estão fora da pasta da conta e não vêm.",
+            "es": "Algunos archivos ({count}) están fuera de la carpeta de la cuenta y no llegan."
+          }
+        },
+        {
+          "code": "multi_account_archive",
+          "message": {
+            "en": "The file holds entries of more than one account ({count} folders); only the first account moves.",
+            "pt-BR": "O arquivo tem entradas de mais de uma conta ({count} pastas); só a primeira conta vem.",
+            "es": "El archivo tiene entradas de más de una cuenta ({count} carpetas); solo llega la primera cuenta."
+          }
+        },
+        {
+          "code": "mailbox_history_over_cap",
+          "message": {
+            "en": "Some mailboxes ({count}) are past the history limit (5 GB each, 25 GB in total): the account comes, the old messages do not.",
+            "pt-BR": "Algumas caixas ({count}) passam do limite de histórico (5 GB cada, 25 GB no total): a conta vem, as mensagens antigas não.",
+            "es": "Algunos buzones ({count}) superan el límite de historial (5 GB cada uno, 25 GB en total): la cuenta llega, los mensajes viejos no."
+          }
+        },
+        {
+          "code": "work_volume_tight",
+          "message": {
+            "en": "The backup and its database together are close to the 75 GB the import holds at once.",
+            "pt-BR": "O backup e o banco juntos chegam perto dos 75 GB que o import comporta de uma vez.",
+            "es": "El respaldo y la base de datos juntos se acercan a los 75 GB que la importación admite de una vez."
+          }
+        }
+      ]
+    }
+  }
 }

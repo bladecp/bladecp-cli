@@ -30,7 +30,7 @@ fi
 
 required=(
   LICENSE README.md README.pt-BR.md README.es.md CHANGELOG.md SECURITY.md CONTRIBUTING.md
-  package.json pnpm-lock.yaml reference.json biome.json tsconfig.json tsconfig.build.json
+  package.json pnpm-lock.yaml reference.json biome.json tsconfig.json tsconfig.build.json tsconfig.analyzer.json
   vitest.config.ts .nvmrc .gitignore
   src/bin.ts src/cli.ts src/reference.ts
   scripts/clean.mjs scripts/postbuild.mjs scripts/export-reference.mjs
@@ -102,7 +102,7 @@ const topLevel = new Set([
   '.github', '.gitignore', '.nvmrc', 'assets', 'docs', 'scripts', 'src', 'test',
   'CHANGELOG.md', 'CONTRIBUTING.md', 'LICENSE', 'README.md', 'README.pt-BR.md', 'README.es.md',
   'SECURITY.md', 'biome.json', 'package.json', 'pnpm-lock.yaml', 'reference.json',
-  'tsconfig.json', 'tsconfig.build.json', 'vitest.config.ts',
+  'tsconfig.json', 'tsconfig.build.json', 'tsconfig.analyzer.json', 'vitest.config.ts',
 ]);
 const scripts = new Set([
   'scripts/check-public-tree.sh', 'scripts/clean.mjs', 'scripts/export-reference.mjs', 'scripts/postbuild.mjs',
@@ -137,6 +137,12 @@ expect(pkg.publishConfig?.access === 'public', 'publishConfig.access must be pub
 expect(pkg.repository?.url === 'git+https://github.com/bladecp/bladecp-cli.git', 'repository.url must point to bladecp/bladecp-cli');
 expect(pkg.scripts?.lint === 'biome check .', 'the lint script must be "biome check ."');
 expect(!pkg.dependencies || Object.keys(pkg.dependencies).length === 0, 'the CLI has no runtime dependencies');
+for (const [entry, file] of [['./analyzer', 'index'], ['./analyzer/node', 'node'], ['./analyzer/web', 'web']]) {
+  expect(
+    pkg.exports?.[entry]?.default === `./dist/analyzer/${file}.js` && pkg.exports?.[entry]?.types === `./dist/analyzer/${file}.d.ts`,
+    `exports["${entry}"] must point to dist/analyzer/${file}.js and its types`,
+  );
+}
 const expectedFiles = ['dist', '!dist/**/*.map', '!dist/reference.js', 'README.md', 'README.pt-BR.md', 'README.es.md', 'CHANGELOG.md'];
 expect(JSON.stringify(pkg.files) === JSON.stringify(expectedFiles), `files must be ${JSON.stringify(expectedFiles)}`);
 for (const [name, command] of Object.entries(pkg.scripts ?? {})) {
@@ -274,6 +280,8 @@ if (checkPackage === '1') {
         const path = `${dir}/${entry.name}`;
         if (entry.isDirectory()) walk(path);
         else if (path.endsWith('.js') && path !== 'dist/reference.js') built.push(path);
+        // The analyzer library ships its type declarations.
+        else if (path.startsWith('dist/analyzer/') && path.endsWith('.d.ts')) built.push(path);
       }
     };
     walk('dist');

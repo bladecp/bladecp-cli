@@ -23,6 +23,7 @@ export const OPTIONS = {
   currency: { type: 'string' },
   all: { type: 'boolean', short: 'a' },
   check: { type: 'boolean' },
+  prices: { type: 'boolean' },
 } as const;
 
 export type OptionName = keyof typeof OPTIONS;
@@ -45,6 +46,7 @@ export type CommandId =
   | 'servers.list'
   | 'servers.show'
   | 'destinations.list'
+  | 'analyze'
   | 'migrate'
   | 'migrations.list'
   | 'migrations.status'
@@ -128,6 +130,16 @@ export const COMMANDS: CommandSpec[] = [
     usage: 'bladecp destinations list [--currency <code>]',
     summary: 'help.destinationsList',
     group: 'servers',
+  },
+  {
+    id: 'analyze',
+    path: ['analyze'],
+    args: ['backup'],
+    options: ['prices', 'currency'],
+    usage: 'bladecp analyze <backup.tar.gz> [--prices [--currency <code>]]',
+    summary: 'help.analyze',
+    group: 'migrations',
+    public: true,
   },
   {
     id: 'migrate',
@@ -268,6 +280,7 @@ export const OPTION_HELP: Record<OptionName, { syntax: string; key: MessageKey }
   currency: { syntax: '--currency <code>', key: 'option.currency' },
   all: { syntax: '-a, --all', key: 'option.all' },
   check: { syntax: '--check', key: 'option.check' },
+  prices: { syntax: '--prices', key: 'option.prices' },
 };
 
 /** `--yes` means something a little different on each command. */

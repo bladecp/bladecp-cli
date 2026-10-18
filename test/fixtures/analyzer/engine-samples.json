@@ -1,0 +1,185 @@
+[
+  {
+    "fixture": "f01-original.tar.gz",
+    "ok": true,
+    "primaryDomain": "clidemo.example.com",
+    "phpVersion": "8.2",
+    "docrootBytes": 110081732,
+    "docrootFiles": 3784,
+    "dbName": "clidemo_wp",
+    "dumpPath": "mysql/clidemo_wp.sql",
+    "dumpBytes": 105338,
+    "dbEngine": "mariadb",
+    "dbVersion": "10.11",
+    "tablePrefix": "wp_",
+    "dbCharset": "utf8mb4"
+  },
+  {
+    "fixture": "f02-plain-gnu.tar",
+    "ok": true,
+    "primaryDomain": "clidemo.example.com",
+    "phpVersion": "8.2",
+    "docrootBytes": 110081732,
+    "docrootFiles": 3784,
+    "dbName": "clidemo_wp",
+    "dumpPath": "mysql/clidemo_wp.sql",
+    "dumpBytes": 105338,
+    "dbEngine": "mariadb",
+    "dbVersion": "10.11",
+    "tablePrefix": "wp_",
+    "dbCharset": "utf8mb4"
+  },
+  {
+    "fixture": "f03-no-wpconfig.tar.gz",
+    "ok": false,
+    "code": "not_wordpress"
+  },
+  {
+    "fixture": "f04-dotslash-root.tar.gz",
+    "ok": true,
+    "primaryDomain": "clidemo.example.com",
+    "phpVersion": "8.2",
+    "docrootBytes": 110081732,
+    "docrootFiles": 3784,
+    "dbName": "clidemo_wp",
+    "dumpPath": "mysql/clidemo_wp.sql",
+    "dumpBytes": 105338,
+    "dbEngine": "mariadb",
+    "dbVersion": "10.11",
+    "tablePrefix": "wp_",
+    "dbCharset": "utf8mb4"
+  },
+  {
+    "fixture": "f05-wp-allow-multisite.tar.gz",
+    "ok": false,
+    "code": "multisite_unsupported"
+  },
+  {
+    "fixture": "f06-commented-multisite.tar.gz",
+    "ok": false,
+    "code": "multisite_unsupported"
+  },
+  {
+    "fixture": "f07-long-domain.tar.gz",
+    "ok": false,
+    "code": "invalid_primary_domain"
+  },
+  {
+    "fixture": "f08-no-sql-dump.tar.gz",
+    "ok": true,
+    "primaryDomain": "clidemo.example.com",
+    "phpVersion": "8.2",
+    "docrootBytes": 110081732,
+    "docrootFiles": 3784,
+    "dbName": "clidemo_wp",
+    "tablePrefix": "wp_",
+    "dbCharset": "utf8mb4"
+  },
+  {
+    "fixture": "f09-one-mailbox.tar.gz",
+    "ok": true,
+    "primaryDomain": "clidemo.example.com",
+    "phpVersion": "8.2",
+    "docrootBytes": 110081732,
+    "docrootFiles": 3784,
+    "dbName": "clidemo_wp",
+    "dumpPath": "mysql/clidemo_wp.sql",
+    "dumpBytes": 105338,
+    "dbEngine": "mariadb",
+    "dbVersion": "10.11",
+    "tablePrefix": "wp_",
+    "dbCharset": "utf8mb4",
+    "mail": [
+      {
+        "domain": "clidemo.example.com",
+        "accounts": 1,
+        "maildirBytes": 3072,
+        "skipHistory": 0
+      }
+    ]
+  },
+  {
+    "fixture": "f10-not-cpanel.tar.gz",
+    "ok": false,
+    "code": "unrecognized_layout"
+  },
+  {
+    "fixture": "f11-php84.tar.gz",
+    "ok": true,
+    "primaryDomain": "clidemo.example.com",
+    "docrootBytes": 110081732,
+    "docrootFiles": 3784,
+    "dbName": "clidemo_wp",
+    "dumpPath": "mysql/clidemo_wp.sql",
+    "dumpBytes": 105338,
+    "dbEngine": "mariadb",
+    "dbVersion": "10.11",
+    "tablePrefix": "wp_",
+    "dbCharset": "utf8mb4"
+  },
+  {
+    "fixture": "f12-truncated.tar.gz",
+    "ok": false,
+    "code": "archive_truncated"
+  },
+  {
+    "fixture": "f13-traversal.tar.gz",
+    "ok": true,
+    "primaryDomain": "clidemo.example.com",
+    "phpVersion": "8.2",
+    "docrootBytes": 110081756,
+    "docrootFiles": 3785,
+    "dbName": "clidemo_wp",
+    "dumpPath": "mysql/clidemo_wp.sql",
+    "dumpBytes": 105338,
+    "dbEngine": "mariadb",
+    "dbVersion": "10.11",
+    "tablePrefix": "wp_",
+    "dbCharset": "utf8mb4"
+  },
+  {
+    "fixture": "f14-longnames-gnu.tar.gz",
+    "ok": true,
+    "primaryDomain": "clidemo.example.com",
+    "phpVersion": "8.2",
+    "docrootBytes": 110085828,
+    "docrootFiles": 3785,
+    "dbName": "clidemo_wp",
+    "dumpPath": "mysql/clidemo_wp.sql",
+    "dumpBytes": 105338,
+    "dbEngine": "mariadb",
+    "dbVersion": "10.11",
+    "tablePrefix": "wp_",
+    "dbCharset": "utf8mb4"
+  },
+  {
+    "fixture": "f15-longnames-pax.tar.gz",
+    "ok": true,
+    "primaryDomain": "clidemo.example.com",
+    "phpVersion": "8.2",
+    "docrootBytes": 110085828,
+    "docrootFiles": 3785,
+    "dbName": "clidemo_wp",
+    "dumpPath": "mysql/clidemo_wp.sql",
+    "dumpBytes": 105338,
+    "dbEngine": "mariadb",
+    "dbVersion": "10.11",
+    "tablePrefix": "wp_",
+    "dbCharset": "utf8mb4"
+  },
+  {
+    "fixture": "f16-multimember.tar.gz",
+    "ok": true,
+    "primaryDomain": "clidemo.example.com",
+    "phpVersion": "8.2",
+    "docrootBytes": 110081732,
+    "docrootFiles": 3784,
+    "dbName": "clidemo_wp",
+    "dumpPath": "mysql/clidemo_wp.sql",
+    "dumpBytes": 105338,
+    "dbEngine": "mariadb",
+    "dbVersion": "10.11",
+    "tablePrefix": "wp_",
+    "dbCharset": "utf8mb4"
+  }
+]

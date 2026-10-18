@@ -9,6 +9,7 @@ import {
   validateInvocation,
 } from './args.js';
 import { loginCommand, logoutCommand, whoamiCommand } from './commands/account.js';
+import { analyzeCommand } from './commands/analyze.js';
 import { configGetCommand, configListCommand, configSetCommand } from './commands/config.js';
 import { homeCommand } from './commands/home.js';
 import { migrateCommand } from './commands/migrate.js';
@@ -85,6 +86,11 @@ async function dispatch(
       return serversShowCommand(ctx, assertUuidArg(args[0]!));
     case 'destinations.list':
       return destinationsListCommand(ctx, str(values, 'currency'));
+    case 'analyze':
+      return analyzeCommand(ctx, args[0]!, {
+        prices: bool(values, 'prices'),
+        currency: str(values, 'currency'),
+      });
     case 'migrate':
       return migrateCommand(ctx, args[0]!, {
         plan: str(values, 'plan'),

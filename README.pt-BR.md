@@ -11,11 +11,11 @@
 </p>
 
 <p align="center">
-  <a href="CHANGELOG.md"><img src="https://img.shields.io/badge/vers%C3%A3o-0.2.0-4f46e5?style=flat-square&amp;labelColor=1e1b4b" alt="Versão 0.2.0"></a>
+  <a href="CHANGELOG.md"><img src="https://img.shields.io/badge/vers%C3%A3o-0.3.0-4f46e5?style=flat-square&amp;labelColor=1e1b4b" alt="Versão 0.3.0"></a>
   <a href="https://www.npmjs.com/package/@bladecp/cli"><img src="https://img.shields.io/badge/npm-%40bladecp%2Fcli-6366f1?style=flat-square&amp;labelColor=1e1b4b&amp;logo=npm&amp;logoColor=white" alt="Pacote npm @bladecp/cli"></a>
   <a href="#instalacao"><img src="https://img.shields.io/badge/Node.js-20%2B-4f46e5?style=flat-square&amp;labelColor=1e1b4b&amp;logo=nodedotjs&amp;logoColor=white" alt="Node.js 20 ou superior"></a>
   <a href="#primeiros-passos"><img src="https://img.shields.io/badge/idiomas-EN%20%C2%B7%20PT--BR%20%C2%B7%20ES-7c3aed?style=flat-square&amp;labelColor=1e1b4b" alt="Inglês, português (Brasil) e espanhol"></a><br>
-  <a href="#qualidade"><img src="https://img.shields.io/badge/testes-910%20aprovados-8b5cf6?style=flat-square&amp;labelColor=1e1b4b" alt="910 testes automatizados aprovados na versão 0.2.0"></a>
+  <a href="#qualidade"><img src="https://img.shields.io/badge/testes-1130%20aprovados-8b5cf6?style=flat-square&amp;labelColor=1e1b4b" alt="1130 testes automatizados aprovados na versão 0.3.0"></a>
   <a href="#qualidade"><img src="https://img.shields.io/badge/depend%C3%AAncias%20de%20runtime-0-6d28d9?style=flat-square&amp;labelColor=1e1b4b" alt="Sem dependências de runtime"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/licen%C3%A7a-MIT-4338ca?style=flat-square&amp;labelColor=1e1b4b" alt="Licença MIT"></a>
   <a href="https://github.com/bladecp/bladecp-cli/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/bladecp/bladecp-cli/ci.yml?branch=main&amp;style=flat-square&amp;labelColor=1e1b4b&amp;label=CI%20p%C3%BAblico" alt="Estado do CI público"></a>
@@ -26,9 +26,9 @@
   <br>
   <a href="https://www.npmjs.com/package/@bladecp/cli"><strong>Instalar pelo npm</strong></a>
   &nbsp;·&nbsp;
-  <a href="https://github.com/bladecp/bladecp-cli/releases/tag/v0.2.0">Notas da versão</a>
+  <a href="https://github.com/bladecp/bladecp-cli/releases/tag/v0.3.0">Notas da versão</a>
   &nbsp;·&nbsp;
-  <a href="https://github.com/bladecp/bladecp-cli/releases/download/v0.2.0/SHA256SUMS">Checksum SHA-256</a>
+  <a href="https://github.com/bladecp/bladecp-cli/releases/download/v0.3.0/SHA256SUMS">Checksum SHA-256</a>
 </p>
 
 <p align="center">
@@ -45,18 +45,21 @@
 </p>
 
 > [!NOTE]
-> **Versão `0.2.0`.** Visual novo em todas as telas, o B em 3D no login,
-> `bladecp update`, verificação diária de versão que você pode desligar,
-> preferências com `bladecp config`, IDs curtos e erros mais claros. Os códigos
-> de saída, o envelope `--json` e os códigos de erro são um contrato público:
-> esta versão só acrescenta (código de saída `11`, códigos de erro e campos
-> novos).
+> **Versão `0.3.0`.** `bladecp analyze` mostra o que um backup do cPanel tem e
+> o que vem para a BladeCP antes de migrar, no seu computador e sem enviar
+> nada, e o analisador também é uma biblioteca (`@bladecp/cli/analyzer`). Os
+> códigos de saída, o envelope `--json` e os códigos de erro são um contrato
+> público: esta versão só acrescenta.
 
 A BladeCP CLI é o cliente oficial de terminal da Customer API da BladeCP. Ela
 faz o login pelo navegador, lista seus servidores e os destinos disponíveis para
 migração, e leva um site para a BladeCP a partir de um backup completo do
 cPanel: envia o backup em partes, acompanha a migração e para na prévia,
 esperando a sua aprovação.
+
+Antes de migrar, `bladecp analyze` lê o backup no seu computador e mostra o
+que ele tem, o que vem para a BladeCP, o que fica e o menor plano necessário.
+Nada é enviado.
 
 É um único pacote npm, sem dependências de runtime. No terminal, ela só
 pergunta o que não consegue descobrir sozinha. Em scripts, CI e agentes de IA,
@@ -81,6 +84,7 @@ ela nunca pergunta e responde em JSON.
 | `bladecp servers list [--all]` | Listar seus servidores (`--all` mostra também os apagados) |
 | `bladecp servers show <uuid>` | Mostrar um servidor e o uso de recursos |
 | `bladecp destinations list [--currency <código>]` | Planos, disco, preços mensais e locais disponíveis para migração |
+| `bladecp analyze <backup.tar.gz> [--prices]` | Ver o que um backup do cPanel tem e o que vem para a BladeCP, sem internet |
 | `bladecp migrate <backup.tar.gz>` | Enviar um backup do cPanel e migrar o site |
 | `bladecp migrations list` | Listar suas migrações |
 | `bladecp migrations status <uuid> [--watch]` | Mostrar ou acompanhar uma migração |
@@ -192,13 +196,13 @@ arquivo publicado no npm.
 
 | Arquivo | Para que serve |
 | --- | --- |
-| [**bladecp-cli-0.2.0.tgz**](https://github.com/bladecp/bladecp-cli/releases/download/v0.2.0/bladecp-cli-0.2.0.tgz) | O pacote npm: `dist/`, READMEs, changelog, licença e `package.json` |
-| [**SHA256SUMS**](https://github.com/bladecp/bladecp-cli/releases/download/v0.2.0/SHA256SUMS) | Checksum para conferir o tarball |
-| [**RELEASE_NOTES.md**](https://github.com/bladecp/bladecp-cli/releases/download/v0.2.0/RELEASE_NOTES.md) | Notas desta versão |
+| [**bladecp-cli-0.3.0.tgz**](https://github.com/bladecp/bladecp-cli/releases/download/v0.3.0/bladecp-cli-0.3.0.tgz) | O pacote npm: `dist/`, READMEs, changelog, licença e `package.json` |
+| [**SHA256SUMS**](https://github.com/bladecp/bladecp-cli/releases/download/v0.3.0/SHA256SUMS) | Checksum para conferir o tarball |
+| [**RELEASE_NOTES.md**](https://github.com/bladecp/bladecp-cli/releases/download/v0.3.0/RELEASE_NOTES.md) | Notas desta versão |
 
 ```sh
 shasum -a 256 -c SHA256SUMS          # no Linux: sha256sum -c SHA256SUMS
-npm install -g ./bladecp-cli-0.2.0.tgz
+npm install -g ./bladecp-cli-0.3.0.tgz
 ```
 
 ### Atualizar e desinstalar
@@ -225,6 +229,7 @@ bladecp login                        # abre o navegador, um clique para autoriza
 bladecp whoami                       # a conta e a chave em uso
 bladecp servers list                 # seus servidores
 bladecp destinations list            # planos e locais para migração
+bladecp analyze cpmove-user.tar.gz   # o que migra e o plano mínimo, sem internet
 bladecp migrate cpmove-user.tar.gz   # envia, acompanha a migração e mostra a prévia
 bladecp migrations approve <uuid>    # depois de conferir a prévia
 ```
@@ -241,6 +246,49 @@ bladecp migrations approve <uuid>    # depois de conferir a prévia
 A chave fica salva em `~/.config/bladecp/config.json` (macOS e Linux) ou
 `%APPDATA%\bladecp\config.json` (Windows), legível só por você. A CLI nunca
 mostra a chave. Veja [autenticação](docs/authentication.md), em inglês.
+
+### Analisar um backup antes de migrar
+
+`bladecp analyze` lê um backup completo do cPanel no seu computador, uma vez e
+em fluxo, e mostra:
+
+- **o que o backup tem:** a conta, os sites (principal, domínios adicionais e
+  subdomínios, com WordPress e a versão do PHP de cada um), os bancos com motor
+  e versão, os domínios e as caixas de e-mail, as zonas DNS, as tarefas cron,
+  os arquivos e o tamanho;
+- **o que vem para a BladeCP e o que fica:** vêm os sites e seus arquivos,
+  todos os bancos MySQL e MariaDB, as caixas de e-mail por IMAP e POP3 com o MX
+  preservado, a zona DNS completa, as tarefas cron e a versão do PHP de cada
+  site; os certificados SSL são emitidos de novo quando o domínio apontar para
+  a BladeCP, e a senha do cPanel fica (o acesso à BladeCP é pelo seu e-mail);
+- **avisos e recusas:** quando a migração recusaria o backup como está
+  (arquivo danificado ou cortado, site que não é WordPress, WordPress
+  Multisite ativo, um valor do `wp-config.php` que ela não aceita), diz o
+  motivo e o que fazer;
+- **o plano mínimo:** disco e bancos, e o comando `bladecp migrate` pronto.
+
+| Opção | Efeito |
+| --- | --- |
+| `--prices` | Mostra também o plano mais barato da sua conta que cabe, com o preço de agora e o `--plan` e o `--location` para usar. Pede login; envia só a moeda |
+| `--currency <código>` | Preços em uma moeda, junto com `--prices` |
+| `--json` | O relatório no esquema `bladecp.analyze.v1` |
+
+A análise não pede login nem internet: nada do backup sai do seu computador, e
+senhas, chaves e o texto do `wp-config.php` nunca aparecem na tela nem no
+relatório. O código de saída `0` quer dizer que o backup migra (talvez com
+avisos), e o `6`, que ele não migra como está.
+
+O mesmo analisador é uma biblioteca sem dependências, para Node e navegadores:
+
+```js
+import { analyzeFile } from '@bladecp/cli/analyzer/node';
+
+const report = await analyzeFile('cpmove-user.tar.gz');
+console.log(report.verdict, report.blockers, report.requirements);
+```
+
+`@bladecp/cli/analyzer/web` lê um `File` ou `Blob` (num Web Worker, por
+exemplo) com `DecompressionStream`.
 
 ### Migrar um backup do cPanel
 
@@ -294,6 +342,11 @@ devolve a ajuda como um documento. O
 [guia de automação](docs/automation.md), em inglês, descreve cada campo e traz
 um exemplo com GitHub Actions.
 
+`bladecp analyze --json` sempre responde `{ "ok": true, "data": <relatório> }`,
+também quando o backup não migra (código de saída `6`): decida por `verdict`
+(`supported`, `supported_with_warnings` ou `blocked`), `blockers` e
+`warnings`, cujos valores de `code` estão no `reference.json`.
+
 | Código | Significado |
 | --- | --- |
 | 0 | Sucesso (no `migrate`, o site está pronto para revisão) |
@@ -302,7 +355,7 @@ um exemplo com GitHub Actions.
 | 3 | Sem login, chave não aceita ou falha no login |
 | 4 | Sem permissão |
 | 5 | Não encontrado |
-| 6 | Recusado pela API (por exemplo, ação indisponível na etapa atual) |
+| 6 | Recusado pela API (por exemplo, ação indisponível na etapa atual), ou backup que não migra como está (`analyze`) |
 | 7 | Limite de requisições |
 | 8 | Erro de rede ou do servidor, ou falha no envio |
 | 9 | Migração com falha ou cancelada |
@@ -380,7 +433,7 @@ Nunca inclua uma chave de API numa issue pública.
 
 ## Qualidade e validação
 
-A versão `0.2.0` foi validada pelos mantenedores com **910 testes
+A versão `0.3.0` foi validada pelos mantenedores com **1130 testes
 automatizados** em 19 arquivos, rodados com Vitest contra uma Customer
 API simulada (`test/helpers/mock-api.ts`) e um registro npm simulado, nunca
 reais. Eles cobrem todos os comandos, a migração e suas etapas, o login pelo

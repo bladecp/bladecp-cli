@@ -1,13 +1,14 @@
 {
   "name": "@bladecp/cli",
-  "version": "0.2.0",
-  "description": "BladeCP CLI: sign in, list your servers and migrate cPanel backups to BladeCP from the terminal.",
+  "version": "0.3.0",
+  "description": "BladeCP CLI: sign in, list your servers, analyze and migrate cPanel backups to BladeCP from the terminal.",
   "keywords": [
     "bladecp",
     "cli",
     "migration",
     "cpanel",
-    "hosting"
+    "hosting",
+    "backup-analyzer"
   ],
   "homepage": "https://developers.bladecp.com/cli",
   "bugs": {
@@ -22,6 +23,21 @@
   "type": "module",
   "bin": {
     "bladecp": "dist/bin.js"
+  },
+  "exports": {
+    "./analyzer": {
+      "types": "./dist/analyzer/index.d.ts",
+      "default": "./dist/analyzer/index.js"
+    },
+    "./analyzer/node": {
+      "types": "./dist/analyzer/node.d.ts",
+      "default": "./dist/analyzer/node.js"
+    },
+    "./analyzer/web": {
+      "types": "./dist/analyzer/web.d.ts",
+      "default": "./dist/analyzer/web.js"
+    },
+    "./package.json": "./package.json"
   },
   "files": [
     "dist",
@@ -40,7 +56,7 @@
   },
   "packageManager": "pnpm@12.8.1",
   "scripts": {
-    "build": "node scripts/clean.mjs && tsc -p tsconfig.build.json && node scripts/postbuild.mjs",
+    "build": "node scripts/clean.mjs && tsc -p tsconfig.build.json && tsc -p tsconfig.analyzer.json && node scripts/postbuild.mjs",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "lint": "biome check .",
     "format": "biome format --write .",

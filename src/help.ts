@@ -38,6 +38,7 @@ export const ENVIRONMENT: [string, MessageKey][] = [
 
 const EXAMPLES: [string, MessageKey][] = [
   ['bladecp login', 'help.ex.login'],
+  ['bladecp analyze cpmove-site.tar.gz', 'help.ex.analyze'],
   ['bladecp migrate cpmove-site.tar.gz', 'help.ex.migrate'],
   ['bladecp migrate cpmove-site.tar.gz --yes --json', 'help.ex.ci'],
   ['bladecp migrations status <uuid> --watch', 'help.ex.watch'],
@@ -65,6 +66,22 @@ const EXTRAS: Partial<Record<CommandId, Extras>> = {
   },
   'servers.list': { notes: ['help.note.serversAll'] },
   'servers.show': { notes: [ID_NOTE] },
+  analyze: {
+    desc: 'ahelp.desc',
+    args: [['<backup.tar.gz>', 'ahelp.backupArg']],
+    examples: [
+      ['bladecp analyze cpmove-site.tar.gz', 'ahelp.ex1'],
+      ['bladecp analyze cpmove-site.tar.gz --prices', 'ahelp.ex2'],
+      ['bladecp analyze cpmove-site.tar.gz --json', 'ahelp.ex3'],
+    ],
+    exits: [
+      [0, 'ahelp.exit0'],
+      [2, 'ahelp.exit2'],
+      [6, 'ahelp.exit6'],
+    ],
+    notes: ['ahelp.note'],
+    seeAlso: ['bladecp migrate <backup.tar.gz>'],
+  },
   migrate: {
     desc: 'mhelp.desc',
     args: [['<backup.tar.gz>', 'mhelp.backupArg']],
@@ -87,7 +104,11 @@ const EXTRAS: Partial<Record<CommandId, Extras>> = {
       [10, 'mhelp.exit10'],
       [130, 'mhelp.exit130'],
     ],
-    seeAlso: ['bladecp destinations', 'bladecp migrations status <uuid> --watch'],
+    seeAlso: [
+      'bladecp analyze <backup.tar.gz>',
+      'bladecp destinations',
+      'bladecp migrations status <uuid> --watch',
+    ],
   },
   'migrations.status': {
     notes: [ID_NOTE],

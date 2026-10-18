@@ -35,14 +35,14 @@ const SLOW = '01979c00-0000-7000-8000-000000000005';
 
 const CHANGELOG = `# Changelog
 
-## [0.3.0] - 2026-11-20
+## [0.4.0] - 2026-11-20
 
 ### Added
 
 - \`bladecp servers\` shows the disk of each server.
 - Faster uploads on slow links.
 
-## [0.2.0] - 2026-10-17
+## [0.3.0] - 2026-10-17
 `;
 
 interface Env {
@@ -139,6 +139,32 @@ const SCENARIOS: Scenario[] = [
   { name: 'servers all', argv: () => ['servers', '--all'] },
   { name: 'servers show', argv: () => ['servers', 'show', '0197a1c4'] },
   { name: 'destinations', argv: () => ['destinations'] },
+  { name: 'help analyze', argv: () => ['analyze', '--help'], signedOut: true },
+  {
+    name: 'analyze',
+    // Relative paths, so the photo is the same on every machine.
+    argv: () => ['analyze', 'test/fixtures/analyzer/cpmove-demo.tar.gz'],
+    signedOut: true,
+  },
+  {
+    name: 'analyze blocked',
+    argv: () => ['analyze', 'test/fixtures/analyzer/cpmove-multisite.tar.gz'],
+    signedOut: true,
+  },
+  {
+    name: 'analyze notes',
+    argv: () => ['analyze', 'test/fixtures/analyzer/cpmove-notes.tar.gz'],
+    signedOut: true,
+  },
+  {
+    name: 'analyze prices',
+    argv: () => ['analyze', 'test/fixtures/analyzer/cpmove-demo.tar.gz', '--prices'],
+  },
+  {
+    name: 'analyze prices signed out',
+    argv: () => ['analyze', 'test/fixtures/analyzer/cpmove-demo.tar.gz', '--prices'],
+    signedOut: true,
+  },
   {
     name: 'migrate',
     argv: ({ backup }) => ['migrate', backup],
@@ -275,7 +301,7 @@ const SCENARIOS: Scenario[] = [
       mkdirSync(config, { recursive: true });
       writeFileSync(
         join(config, 'update-check.json'),
-        JSON.stringify({ checkedAt: new Date().toISOString(), latest: '0.3.0' }),
+        JSON.stringify({ checkedAt: new Date().toISOString(), latest: '0.4.0' }),
       );
     },
   },
@@ -285,7 +311,7 @@ const SCENARIOS: Scenario[] = [
 function network(api: MockApi): RunOptions['fetch'] {
   return async (input, init) => {
     if (input.startsWith('https://registry.npmjs.org/')) {
-      return new Response(JSON.stringify({ 'dist-tags': { latest: '0.3.0' } }), { status: 200 });
+      return new Response(JSON.stringify({ 'dist-tags': { latest: '0.4.0' } }), { status: 200 });
     }
     if (input.startsWith('https://raw.githubusercontent.com/')) {
       return new Response(CHANGELOG, { status: 200 });

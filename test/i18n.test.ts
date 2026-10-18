@@ -47,7 +47,7 @@ describe('message catalogs', () => {
     for (const file of files) {
       const text = readFileSync(new URL(`../${file}`, import.meta.url), 'utf8');
       for (const m of text.matchAll(
-        /'((?:error|hint|login|logout|whoami|label|column|usage|destinations|migrate|upload|review|follow|outcome|status|approve|cancel|retry|progress|prompt|phase|component|componentStatus|help|option|servers|migrations|update|config|home|next|slow|serverStatus|scope|ui|err|errno|cause|reason|retryReason|warning|brand|product)\.[A-Za-z_.]+)'/g,
+        /'((?:error|hint|login|logout|whoami|label|column|usage|destinations|migrate|upload|review|follow|outcome|status|approve|cancel|retry|progress|prompt|phase|component|componentStatus|help|option|servers|migrations|update|config|home|next|slow|serverStatus|scope|ui|err|errno|cause|reason|retryReason|warning|brand|product|analyze|ahelp)\.[A-Za-z_.]+)'/g,
       )) {
         used.add(m[1]!);
       }

@@ -657,4 +657,197 @@ export const es: Record<keyof typeof en, string> = {
   'slow.support': 'Si sigue así, contacta al soporte: {url}',
   'cause.notSignedIn':
     'No hay ninguna clave guardada en este equipo y BLADECP_API_KEY no está definida.',
+  // bladecp analyze
+  'help.analyze': 'Ver qué tiene un respaldo de cPanel y qué llega a BladeCP, en este equipo',
+  'help.ex.analyze': 'revisar un respaldo antes de migrar, sin internet',
+  'option.prices':
+    'Mostrar también los planes que caben y sus precios de ahora (requiere iniciar sesión)',
+  'ahelp.desc':
+    'Lee un respaldo completo de cPanel en este equipo y muestra qué tiene, qué llega a BladeCP, qué se queda y el plan más chico que necesita. No se envía nada: el archivo no sale de este equipo. Con --prices también pide a BladeCP los planes de tu cuenta, enviando solo la moneda.',
+  'ahelp.backupArg': 'respaldo completo hecho por cPanel (cpmove-usuario.tar.gz), hasta 50 GB',
+  'ahelp.ex1': 'qué se migra y el plan mínimo, sin internet',
+  'ahelp.ex2': 'el plan más barato que cabe, con el precio de ahora',
+  'ahelp.ex3': 'el informe para scripts (esquema bladecp.analyze.v1)',
+  'ahelp.exit0': 'el respaldo se migra (quizá con avisos)',
+  'ahelp.exit2': 'el archivo no existe, está vacío o no es un archivo',
+  'ahelp.exit6': 'el respaldo no se migra tal como está',
+  'ahelp.note':
+    'El análisis corre aquí y lee el respaldo una vez, como flujo. Contraseñas, claves y el texto de wp-config.php nunca se muestran ni entran en el informe.',
+  'analyze.currencyNeedsPrices': '--currency funciona junto con --prices.',
+  'analyze.title': 'Análisis del respaldo',
+  'analyze.kind.gzip': 'respaldo de cPanel (.tar.gz)',
+  'analyze.kind.tar': 'tar sin compresión',
+  'analyze.uncompressed': '{size} descomprimidos',
+  'analyze.entriesOne': '1 entrada',
+  'analyze.entries': '{count} entradas',
+  'analyze.verdict.supported': 'Se migra a BladeCP',
+  'analyze.verdict.warnings': 'Se migra a BladeCP, con avisos',
+  'analyze.verdict.blocked': 'No se migra a BladeCP tal como está',
+  'analyze.local': 'Nada del respaldo salió de este equipo.',
+  'analyze.again': 'Después de corregirlo, analízalo otra vez:',
+  'analyze.next': 'Para migrar:',
+  'analyze.reading': 'Leyendo {file}',
+  'analyze.readingNote': 'nada sale de este equipo',
+  'analyze.progress': '{read} de {total}',
+  'analyze.section.contents': 'Qué hay en el respaldo',
+  'analyze.section.comes': 'Llega a BladeCP',
+  'analyze.section.stays': 'Se queda afuera',
+  'analyze.section.warnings': 'Avisos',
+  'analyze.section.plan': 'Plan mínimo',
+  'analyze.section.recommended': 'Plan recomendado',
+  'analyze.label.account': 'Cuenta',
+  'analyze.label.domain': 'Dominio',
+  'analyze.label.sites': 'Sitios',
+  'analyze.label.databases': 'Bases de datos',
+  'analyze.label.email': 'Correo',
+  'analyze.label.dns': 'DNS',
+  'analyze.label.cron': 'Cron',
+  'analyze.label.files': 'Archivos',
+  'analyze.value.account': '{user} · cPanel',
+  'analyze.value.none': 'ninguno',
+  'analyze.value.sitesMixed': '{sites}, {wordpress} con WordPress',
+  'analyze.value.mail': '{domains}, {boxes}',
+  'analyze.value.mailDomainsOne': '1 dominio',
+  'analyze.value.mailDomains': '{count} dominios',
+  'analyze.value.mailboxesOne': '1 buzón',
+  'analyze.value.mailboxesNone': 'ningún buzón',
+  'analyze.value.mailboxes': '{count} buzones',
+  'analyze.value.dns': '{zones}, {records}',
+  'analyze.value.zonesOne': '1 zona',
+  'analyze.value.zones': '{count} zonas',
+  'analyze.value.recordsOne': '1 registro',
+  'analyze.value.records': '{count} registros',
+  'analyze.value.cronOne': '1 tarea',
+  'analyze.value.cron': '{count} tareas',
+  'analyze.value.filesOne': '{size} en 1 archivo',
+  'analyze.value.files': '{size} en {count} archivos',
+  'analyze.count.wpSitesOne': '1 sitio WordPress',
+  'analyze.count.wpSites': '{count} sitios WordPress',
+  'analyze.count.sitesOne': '1 sitio',
+  'analyze.count.sites': '{count} sitios',
+  'analyze.count.databaseOne': '1 base de datos {engine}',
+  'analyze.count.databases': '{count} bases de datos',
+  'analyze.count.mailboxesOne': '1 buzón de correo',
+  'analyze.count.mailboxes': '{count} buzones de correo',
+  'analyze.count.zone': 'la zona DNS',
+  'analyze.count.zones': '{count} zonas DNS',
+  'analyze.count.cronOne': '1 tarea cron',
+  'analyze.count.cron': '{count} tareas cron',
+  'analyze.count.nothing': 'nada para llevar',
+  'analyze.item.sitePrimary': 'Sitio principal {domain}',
+  'analyze.item.siteAddon': 'Dominio adicional {domain}',
+  'analyze.item.siteSub': 'Subdominio {domain}',
+  'analyze.item.database': 'Base de datos {name}',
+  'analyze.item.mailDomain': 'Correo de {domain}',
+  'analyze.item.dnsZone': 'Zona DNS {domain}',
+  'analyze.item.cron': 'Tareas cron',
+  'analyze.detail.phpDefault': 'PHP predeterminado',
+  'analyze.detail.otherApp': 'archivos del sitio',
+  'analyze.detail.aliases': 'también {domains}',
+  'analyze.detail.mx': 'MX conservado',
+  'analyze.stay.notYet': 'no forma parte de la migración',
+  'analyze.stay.ssl': 'Certificados SSL ({count})',
+  'analyze.stay.sslWhy': 'se emite uno nuevo cuando el dominio apunte a BladeCP',
+  'analyze.stay.password': 'Contraseña de cPanel',
+  'analyze.stay.passwordWhy': 'a BladeCP se entra con tu correo',
+  'analyze.stay.ftp': 'Cuentas FTP ({count})',
+  'analyze.stay.ftpWhy': 'BladeCP crea un acceso nuevo',
+  'analyze.stay.postgres': 'Bases de datos PostgreSQL ({count})',
+  'analyze.stay.postgresWhy': 'BladeCP migra MySQL y MariaDB',
+  'analyze.plan.disk': 'Disco necesario',
+  'analyze.plan.databases': 'Bases de datos',
+  'analyze.plan.databasesValue': '{count} ({engine})',
+  'analyze.plan.prices': 'Precios',
+  'analyze.plan.pricesHint': 'usa --prices para ver los planes que caben (requiere iniciar sesión)',
+  'analyze.plan.signIn': 'inicia sesión con bladecp login y vuelve a correrlo con --prices',
+  'analyze.plan.unavailable': 'los planes no cargaron ahora; el mínimo de arriba sigue valiendo',
+  'analyze.plan.none': 'ningún plan de tu cuenta alcanza para este respaldo',
+  'analyze.plan.alsoFits': 'También caben',
+  'analyze.plan.pricesNow': 'Cobro',
+  'analyze.plan.priceNote': 'el plan que elijas en migrate, al precio de ahora',
+  'analyze.plan.diskUnknown': 'disco no informado',
+  'analyze.privacy.keys':
+    'Este respaldo tiene contraseñas y claves privadas: guárdalo con cuidado.',
+  'analyze.privacy.passwords': 'Este respaldo tiene contraseñas: guárdalo con cuidado.',
+  'analyze.block.archive_invalid':
+    'El archivo no es un respaldo de cPanel legible: el paquete (gzip o tar) está dañado o es de otro tipo.',
+  'analyze.fix.archive_invalid':
+    'Descarga de nuevo el respaldo completo en cPanel (Backup, Descargar un respaldo completo de la cuenta) y analiza el archivo nuevo.',
+  'analyze.block.archive_truncated':
+    'El respaldo termina antes de tiempo: el archivo está incompleto.',
+  'analyze.fix.archive_truncated':
+    'La descarga o la copia probablemente se cortó. Descarga el respaldo de nuevo y compara los tamaños.',
+  'analyze.block.parse_cap_exceeded':
+    'El respaldo supera un límite de la migración (dominios, buzones, bases de datos o datos leídos de él).',
+  'analyze.fix.parse_cap_exceeded':
+    'Habla con soporte con este informe; un respaldo así puede necesitar una migración asistida.',
+  'analyze.block.unrecognized_layout':
+    'Este archivo no parece un respaldo de cuenta de cPanel (no hay una carpeta cpmove-usuario dentro).',
+  'analyze.fix.unrecognized_layout':
+    'Usa el respaldo completo hecho por cPanel, el archivo cpmove-usuario.tar.gz.',
+  'analyze.block.not_wordpress':
+    'El sitio principal no es WordPress: no hay public_html/wp-config.php en el respaldo. La migración acepta sitios WordPress por ahora.',
+  'analyze.fix.not_wordpress':
+    'Si el sitio es WordPress, revisa que wp-config.php esté en public_html y genera el respaldo de nuevo.',
+  'analyze.block.multisite_unsupported':
+    'El wp-config.php activa WordPress Multisite ({constant}), y la migración acepta por ahora solo sitios simples.',
+  'analyze.block.multisite_disabled':
+    'El respaldo es una red WordPress Multisite ({sites} sitios), y la migración acepta por ahora solo sitios simples.',
+  'analyze.fix.multisite':
+    'Si el sitio no usa una red, quita la línea {constant} de wp-config.php, genera el respaldo de nuevo y analízalo otra vez.',
+  'analyze.block.no_primary_domain': 'El respaldo no dice cuál es el dominio principal.',
+  'analyze.fix.regenerate':
+    'Genera el respaldo de nuevo en cPanel (Backup, Descargar un respaldo completo de la cuenta), sin reempaquetarlo.',
+  'analyze.block.invalid_primary_domain':
+    'El dominio principal {domain} no se puede usar: la migración acepta dominios en minúsculas de hasta 63 caracteres.',
+  'analyze.block.invalid_database_name':
+    'El nombre de la base de datos en wp-config.php tiene caracteres que la migración no acepta.',
+  'analyze.block.invalid_table_prefix':
+    'El prefijo de las tablas en wp-config.php tiene caracteres que la migración no acepta.',
+  'analyze.block.invalid_db_charset':
+    'El DB_CHARSET de wp-config.php tiene caracteres que la migración no acepta.',
+  'analyze.block.invalid_db_collation':
+    'El DB_COLLATE de wp-config.php tiene caracteres que la migración no acepta.',
+  'analyze.fix.wpconfig':
+    'Corrige ese valor en wp-config.php (solo letras, números y _, hasta 64), genera el respaldo de nuevo y analízalo.',
+  'analyze.block.invalid_email_local_part':
+    'Una cuenta de correo de {domain} tiene un nombre que la migración no acepta.',
+  'analyze.fix.email_local_part':
+    'Los nombres aceptan letras, números y . _ % + - (hasta 64). Cambia el nombre o quita esa cuenta en cPanel y genera el respaldo de nuevo.',
+  'analyze.block.backup_too_large':
+    'El respaldo tiene {size}, más que los {limit} que acepta una migración.',
+  'analyze.fix.backup_too_large':
+    'Quita de la cuenta lo que no necesita venir (respaldos viejos, logs, cachés) y genera el respaldo de nuevo.',
+  'analyze.block.no_sql_dump':
+    'El respaldo no tiene volcado de base de datos (mysql/*.sql), y el sitio WordPress necesita su base de datos.',
+  'analyze.block.plain_tar':
+    'El respaldo es un tar sin compresión, y la migración acepta el .tar.gz hecho por cPanel.',
+  'analyze.fix.plain_tar':
+    'Comprímelo con gzip, o descarga de nuevo el respaldo .tar.gz en cPanel.',
+  'analyze.block.dot_slash_root':
+    'El respaldo fue reempaquetado: las entradas empiezan con ./, y la importación busca la carpeta cpmove-usuario arriba.',
+  'analyze.block.archive_root_mismatch':
+    'La primera entrada del respaldo no es la carpeta de la cuenta, y la importación la busca arriba.',
+  'analyze.block.not_an_archive':
+    'Este archivo no es un respaldo de cPanel: no es un paquete tar ni tar.gz.',
+  'analyze.block.other': 'El respaldo no se migra ({code}).',
+  'analyze.warn.php_version_not_mapped':
+    '{domain} usa PHP {version}, que la migración no mantiene: el sitio llega con el PHP predeterminado de BladeCP.',
+  'analyze.warn.table_prefix_unreadable':
+    'No se pudo leer el $table_prefix de wp-config.php; la migración usa el predeterminado de WordPress.',
+  'analyze.warn.db_name_mismatch':
+    'El wp-config.php apunta a la base de datos {defined}, que no está en el respaldo; el sitio llega con {used}.',
+  'analyze.warn.primary_docroot_not_public_html':
+    'El sitio principal se sirve desde {docroot}, pero la migración lleva los archivos de public_html.',
+  'analyze.warn.unsafe_entry_names':
+    'Algunas entradas ({count}) tienen nombres que apuntan fuera de la carpeta de la cuenta (.. o /). Revisa que el respaldo venga de cPanel tal como está.',
+  'analyze.warn.entries_outside_account_root':
+    'Algunos archivos ({count}) están fuera de la carpeta de la cuenta y no llegan.',
+  'analyze.warn.multi_account_archive':
+    'El archivo tiene entradas de más de una cuenta ({count} carpetas); solo llega la primera cuenta.',
+  'analyze.warn.mailbox_history_over_cap':
+    'Algunos buzones ({count}) superan el límite de historial (5 GB cada uno, 25 GB en total): la cuenta llega, los mensajes viejos no.',
+  'analyze.warn.work_volume_tight':
+    'El respaldo y la base de datos juntos se acercan a los 75 GB que la importación admite de una vez.',
+  'analyze.warn.other': 'Aviso: {code}',
 };
