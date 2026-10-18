@@ -70,6 +70,7 @@ export const putPart: PutPart = (input) => {
             if (typeof etag === 'string' && etag.length > 0) {
               resolve(quoteEtag(etag));
             } else {
+              // i18n-exempt: technical reason shown inside a translated message
               reject(new PartUploadError('missing ETag header', status, false));
             }
             return;

@@ -53,3 +53,19 @@ export type Translator = (key: MessageKey, vars?: Vars) => string;
 export function createTranslator(lang: Lang): Translator {
   return (key, vars) => translate(lang, key, vars);
 }
+
+/**
+ * Like `translate`, but the values are already terminal-safe composed text
+ * (for example a value with the CLI's own style markers). Never pass text
+ * from outside the CLI here without `safeText` first.
+ */
+export function translateComposed(
+  lang: Lang,
+  key: MessageKey,
+  vars: Record<string, string>,
+): string {
+  const template = catalogs[lang][key] ?? catalogs.en[key] ?? key;
+  return template.replace(/\{(\w+)\}/g, (match, name: string) =>
+    Object.hasOwn(vars, name) ? (vars[name] as string) : match,
+  );
+}

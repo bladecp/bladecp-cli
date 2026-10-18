@@ -18,8 +18,13 @@ The CLI talks to the BladeCP Customer API with an API key. Keys start with
 2. opens `https://hub.bladecp.com/connect` in your browser with a PKCE (S256)
    challenge and a random `state`;
 3. waits up to 5 minutes while you sign in to the Hub and authorize the CLI;
-4. accepts only the answer that carries the same `state`, exchanges the
-   one-time code for a key and saves it.
+4. accepts only the answer that carries the same `state` (any other request
+   to the receiver gets an error page and is ignored, so it cannot cancel the
+   sign-in), exchanges the one-time code for a key and saves it.
+
+On a terminal the screen shows the BladeCP B, the address (clickable where the
+terminal supports links) and the time left. While it waits, Enter opens the
+browser again, `c` copies the address and Esc cancels.
 
 The CLI prints the account email and, when BladeCP sets one, the key's expiry
 date. If you cancel in the browser, nothing is saved.
@@ -66,9 +71,13 @@ bladecp whoami     # account, key ID, scopes, rate limit, expiry and API address
 bladecp logout     # removes the saved key from this computer
 ```
 
-`bladecp logout` does not revoke the key. Revoke it, or create a new one, at
+`bladecp logout` does not revoke the key (the Customer API has no route for a
+key to revoke itself). Revoke it, or create a new one, at
 <https://hub.bladecp.com/account/api-keys>. If `BLADECP_API_KEY` is still set,
 `logout` warns that commands will keep using it.
+
+The CLI keeps one saved sign-in. Signing in to another account or API address
+replaces it, and the CLI says which sign-in was replaced.
 
 ## How the key is protected
 
@@ -90,7 +99,8 @@ bladecp logout     # removes the saved key from this computer
 | `insufficient_scope`, `key_bound_to_migration` | The key cannot run this command. Run `bladecp login` to get a new key. |
 | `environment_mismatch` | The key was created for another API address. Check `--api-url`. |
 | `invalid_key_format` | The value is not a BladeCP API key. Copy it again from the Hub. |
-| `login_timeout`, `invalid_grant`, `invalid_callback`, `state_mismatch` | Run `bladecp login` again. |
+| `login_timeout`, `invalid_grant`, `invalid_callback` | Run `bladecp login` again. |
+| `state_mismatch` | The wait timed out after an answer that this terminal did not start reached the receiver (another program or an old browser tab). Run `bladecp login` again. |
 | `access_denied` | You cancelled in the browser. Nothing was saved. |
 
 See [troubleshooting](troubleshooting.md) for more.

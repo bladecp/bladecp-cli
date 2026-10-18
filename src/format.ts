@@ -35,21 +35,6 @@ export function formatDate(value: string | null | undefined, lang: Lang): string
   return new Intl.DateTimeFormat(lang, { dateStyle: 'medium', timeStyle: 'short' }).format(date);
 }
 
-/** Left-aligned text table with two spaces between columns. */
-export function table(headers: string[], rows: string[][]): string {
-  headers = headers.map(safeText);
-  rows = rows.map((row) => row.map(safeText));
-  const widths = headers.map((header, index) =>
-    Math.max(header.length, ...rows.map((row) => (row[index] ?? '').length)),
-  );
-  const line = (cells: string[]) =>
-    cells
-      .map((cell, index) => (index === cells.length - 1 ? cell : cell.padEnd(widths[index] ?? 0)))
-      .join('  ')
-      .trimEnd();
-  return [line(headers), ...rows.map(line)].join('\n');
-}
-
 const PHASE_KEYS: Record<string, MessageKey> = {
   draft: 'phase.draft',
   uploading: 'phase.uploading',
@@ -110,22 +95,145 @@ export function componentLabel(name: string, t: Translator): string {
   return key ? t(key) : safeText(name);
 }
 
-export function componentStatusLabel(status: string, t: Translator): string {
+/**
+ * Status of a component. In a migration that failed or was cancelled, a
+ * component that never started is "not run" and one that was running
+ * "stopped", never "waiting".
+ */
+export function componentStatusLabel(
+  status: string,
+  t: Translator,
+  phase?: string,
+  absent = false,
+): string {
+  // The backup has none of it (for example no email accounts): never "waiting".
+  if (absent && status !== 'completed' && status !== 'failed') return t('componentStatus.none');
+  if (phase === 'failed' || phase === 'cancelled') {
+    if (status === 'pending') return t('componentStatus.notRun');
+    if (status === 'running') return t('componentStatus.stopped');
+  }
   const key = COMPONENT_STATUS_KEYS[status];
   return key ? t(key) : safeText(status);
 }
 
-const PRODUCT_NAMES: Record<string, string> = {
-  'stack-container': 'Stack Container',
-  'edge-cloud': 'Edge Cloud',
-  'hyper-cloud': 'Hyper Cloud',
-  dedicated: 'Dedicated',
-  vibe: 'Vibe',
+const SERVER_STATUS_KEYS: Record<string, MessageKey> = {
+  active: 'serverStatus.active',
+  pending: 'serverStatus.pending',
+  provisioning: 'serverStatus.provisioning',
+  suspended: 'serverStatus.suspended',
+  failed: 'serverStatus.failed',
+  deleted: 'serverStatus.deleted',
+  terminated: 'serverStatus.terminated',
+  cancelled: 'serverStatus.cancelled',
 };
 
-export function productLabel(type: string | null | undefined): string {
+/** Translated server status; an unknown status is shown as the API sent it. */
+export function serverStatusLabel(status: string, t: Translator): string {
+  const key = SERVER_STATUS_KEYS[status];
+  return key ? t(key) : safeText(status);
+}
+
+/** Status for a count of servers ("2 active", "2 ativos"). */
+export function serverStatusCount(status: string, count: number, t: Translator): string {
+  if (count === 1) return `1 ${serverStatusLabel(status, t)}`;
+  const key = SERVER_STATUS_KEYS[status];
+  return `${count} ${key ? t(key.replace('serverStatus.', 'serverStatusMany.') as MessageKey) : safeText(status)}`;
+}
+
+/** Servers that no longer exist are hidden from the list unless asked for. */
+export function isGoneServer(status: string): boolean {
+  return status === 'deleted' || status === 'terminated' || status === 'cancelled';
+}
+
+export type Tone = 'ok' | 'warn' | 'err' | 'faint' | 'violet';
+
+export function serverTone(status: string): Tone {
+  if (status === 'active') return 'ok';
+  if (status === 'failed') return 'err';
+  if (isGoneServer(status)) return 'faint';
+  return 'warn';
+}
+
+/** How a migration phase reads in a list: needs you, running, done or stopped. */
+export function phaseTone(m: Pick<Migration, 'phase' | 'primaryDomain'>): Tone {
+  switch (m.phase) {
+    case 'awaiting_approval':
+    case 'draft':
+    case 'uploading':
+      return 'warn';
+    case 'discovery_review':
+      return reviewAnswered(m) ? 'violet' : 'warn';
+    case 'cutover_pending':
+    case 'cutover_stalled':
+    case 'live':
+      return 'ok';
+    case 'failed':
+      return 'err';
+    case 'cancelled':
+      return 'faint';
+    default:
+      return 'violet';
+  }
+}
+
+/** Whether the migration waits for the person (approve, confirm a domain, finish the upload). */
+export function needsYou(m: Pick<Migration, 'phase' | 'primaryDomain'>): boolean {
+  return phaseTone(m) === 'warn';
+}
+
+/** Ended for good: nothing more will happen on BladeCP. */
+export function isEnded(phase: string): boolean {
+  return phase === 'failed' || phase === 'cancelled' || phase === 'live';
+}
+
+const PRODUCT_KEYS: Record<string, MessageKey> = {
+  'stack-container': 'product.stackContainer',
+  'edge-cloud': 'product.edgeCloud',
+  'hyper-cloud': 'product.hyperCloud',
+  dedicated: 'product.dedicated',
+  vibe: 'product.vibe',
+};
+
+/** Product names are BladeCP brands; the catalog keeps them the same in every language. */
+export function productLabel(type: string | null | undefined, t: Translator): string {
   if (!type) return '-';
-  return PRODUCT_NAMES[type] ?? safeText(type);
+  const key = PRODUCT_KEYS[type];
+  return key ? t(key) : safeText(type);
+}
+
+const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+
+/**
+ * Shortest prefix (at least `min` characters) that tells each ID apart from
+ * the others in the list. IDs that are not UUIDs are kept whole.
+ */
+export function shortIds(ids: string[], min = 8): Map<string, string> {
+  const result = new Map<string, string>();
+  for (const id of ids) {
+    if (!UUID.test(id)) {
+      result.set(id, id);
+      continue;
+    }
+    let length = min;
+    while (
+      length < id.length &&
+      ids.some(
+        (other) =>
+          other !== id && other.toLowerCase().startsWith(id.slice(0, length).toLowerCase()),
+      )
+    ) {
+      length += 1;
+    }
+    // Never end on a dash.
+    while (id[length - 1] === '-' && length < id.length) length += 1;
+    result.set(id, id.slice(0, length));
+  }
+  return result;
+}
+
+/** Path with the home folder written as `~`. */
+export function tildePath(path: string, homedir: string): string {
+  return homedir && path.startsWith(homedir) ? `~${path.slice(homedir.length)}` : path;
 }
 
 /** Same rule as the Hub migration wizard. */

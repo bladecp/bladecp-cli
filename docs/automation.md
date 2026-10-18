@@ -7,8 +7,12 @@ one predictable document, and exit codes and error codes are stable.
 ## Non-interactive use
 
 - Sign in with `BLADECP_API_KEY`. Nothing is saved on disk.
-- The CLI asks questions only when both stdin and stdout are a terminal and
-  `--json` is not set. Every question has an equivalent option.
+- The CLI asks questions only when both stdin and stdout are a terminal,
+  `--json` is not set and `CI` is not set. Every question has an equivalent
+  option (`--yes` for the confirmations of `approve`, `cancel` and `update`).
+- Without a terminal (or in CI) the output is plain text with no colors, no
+  animation and no live progress; the help and every human message stay
+  readable in logs.
 - Without a terminal, `bladecp migrate` never chooses the destination: pass
   `--plan` and `--location` (from `bladecp destinations list`), or `--yes`
   when your account has exactly one destination. Otherwise it stops with
@@ -26,7 +30,8 @@ BLADECP_API_KEY=... bladecp migrate site.tar.gz \
 ## The JSON envelope
 
 With `--json`, every command prints exactly one JSON document on stdout, without
-colors, progress or questions. Success:
+colors, progress or questions (`--help --json` included: the help as one
+document). Success:
 
 ```json
 { "ok": true, "data": { "...": "..." } }
@@ -47,10 +52,19 @@ Failure:
 | `error.apiCode` | The API's own error code, when it sent one. |
 | `error.hint` | A suggested next step, when there is one. |
 
+Some errors add fields of their own, for example `phase` on `phase_conflict`,
+`matches` on `ambiguous_id`, `retryReason` on `retry_unavailable` and
+`migrationUuid`, `partnerPlanId` and `locationId` on `migration_in_progress`.
+An answer from the API that does not follow its contract (an HTML page with
+status 200, a missing field) is `invalid_response` with exit code `1`.
+
 Read commands (`servers list`, `servers show`, `migrations list`,
 `migrations status`, `destinations list`) return the API objects unchanged in
 `data`; once a migration is complete, `migrations status` adds
-`data.domainPointing` (described below). `whoami` returns `apiUrl`, `source`, `customer`, `keyUuid`, `scopes`,
+`data.domainPointing` (described below), and while a phase is taking longer
+than usual it adds `data.slowPhase`:
+`{ "phase": "provisioning", "elapsedMs": 2700000, "expectedMs": 600000, "contactSupport": true }`.
+Nothing else is changed in the API objects. `whoami` returns `apiUrl`, `source`, `customer`, `keyUuid`, `scopes`,
 `tier`, `rateLimit` and `expiresAt`. The key itself is never included.
 
 ## Migrations in JSON
@@ -69,13 +83,17 @@ Read commands (`servers list`, `servers show`, `migrations list`,
   `migration_failed` or `migration_cancelled`, the exit code is `9`, and
   `data` still describes the migration.
 - With `--no-wait`, the document is printed once the backup is received and
-  `nextAction` points to `bladecp migrations status <uuid> --watch`.
+  `nextAction` points to `bladecp migrations status <uuid> --watch`;
+  `domainPointing` is there too (`null` until the migration is complete).
 
 `bladecp migrations status <uuid> --watch --json` prints one JSON line per
 change instead, each with the same envelope, and ends with exit code `0` once
 the migration is complete (`cutover_pending` or `cutover_stalled`: pointing the
 domain is optional). It ends with `10` when it is waiting for you, for example
 to confirm the domain, and with `9` when the migration failed or was cancelled.
+An error while watching is one JSON line as well, so every line parses. When a
+phase passes its usual time, one extra line carries `data.slowPhase` (and one
+more when it is time to contact support).
 
 ## Exit codes
 
@@ -92,12 +110,20 @@ to confirm the domain, and with `9` when the migration failed or was cancelled.
 | 8 | `NETWORK` | Network or server error, or upload failure |
 | 9 | `MIGRATION_FAILED` | Migration failed or was cancelled |
 | 10 | `ACTION_REQUIRED` | Waiting for your action |
+| 11 | `UPDATE_REQUIRED` | The API no longer accepts this version; run `bladecp update` |
 | 130 | `INTERRUPTED` | Interrupted |
 
 ## Stability
 
 Exit codes, the `--json` envelope and error `code` values are a public
-contract. Changing them requires a new major version. `message` and `hint`
+contract. Changing them requires a new major version; new codes and fields can
+be added in any release.
+
+The API can ask for a minimum CLI version: an answer `426`, or a
+`BladeCP-Min-CLI-Version` header above the version in use, stops the command
+with `update_required` and exit code `11`. Update with
+`bladecp update --yes --json` (`npm install --global @bladecp/cli@latest` and
+the equivalents of pnpm, yarn and bun). `message` and `hint`
 follow the selected language and may change wording in any release.
 
 [`reference.json`](../reference.json) lists every command, option, alias, exit
@@ -107,16 +133,28 @@ Spanish. Tools can read it instead of parsing help output.
 ## Retries and limits
 
 The CLI already waits and retries when the API answers `429 Too Many Requests`
-(honoring `Retry-After`) and when an upload part fails. A command that still
+(honoring `Retry-After`), when a read fails on the network or with a server
+error, and when an upload part fails. On a terminal each retry shows one quiet
+line, such as "Trying again in 4 s (2/4)". A command that still
 fails ends with exit code `7` (`rate_limited` or `daily_quota_exceeded`) or
 `8`. A script can retry exit code `8` later; an interrupted upload continues
 where it stopped when the same `bladecp migrate` command runs again.
 
 ## Colors and language
 
-Colors are used only on a terminal. `NO_COLOR`, `FORCE_COLOR=0` or `TERM=dumb`
-disable them; `--json` never has colors. Set `--lang en` (or `LC_ALL=en`) when
-a script also stores the human messages.
+Colors are used only on a terminal. `NO_COLOR` (any non-empty value),
+`FORCE_COLOR=0` or `TERM=dumb` disable them, and `FORCE_COLOR=1`, `2` or `3`
+forces them, also in a pipe. `--json` never has colors. Set `--lang en` (or
+`LC_ALL=en`) when a script also stores the human messages. `--debug` describes
+each request on stderr and never shows the key.
+
+## The version check
+
+Interactive runs check the npm registry for a new version at most once a day,
+in the background, and never in `--json`, pipes, CI or without color. Nothing
+but the version number is asked. Turn it off with `BLADECP_NO_UPDATE_CHECK=1`
+or `NO_UPDATE_NOTIFIER`. In CI, pin the version you test with
+(`npx --yes @bladecp/cli@0.2.0`) and update on purpose.
 
 ## Example: GitHub Actions
 

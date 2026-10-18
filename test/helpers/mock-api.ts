@@ -144,7 +144,7 @@ export class MockApi {
   /** Number of review requests answered with 503 MIGRATION_DISCOVERY_REVIEW_PENDING. */
   reviewPublishFailures = 0;
 
-  async start(): Promise<this> {
+  async start(listenPort = 0): Promise<this> {
     this.server = createServer((req, res) => {
       this.handle(req, res).catch((error: unknown) => {
         res.writeHead(500, { 'Content-Type': 'application/json' });
@@ -152,7 +152,7 @@ export class MockApi {
       });
     });
     await new Promise<void>((resolve) =>
-      this.server.listen({ host: '127.0.0.1', port: 0 }, resolve),
+      this.server.listen({ host: '127.0.0.1', port: listenPort }, resolve),
     );
     const { port } = this.server.address() as AddressInfo;
     this.baseUrl = `http://127.0.0.1:${port}`;
@@ -217,7 +217,7 @@ export class MockApi {
       ...rest,
       sourcePanel: 'cpanel',
       backupReady: m.backupComplete,
-      timing: null,
+      timing: m.timing ?? null,
       retry: {
         allowed: m.phase === 'failed',
         reason: m.phase === 'failed' ? null : 'not_failed',

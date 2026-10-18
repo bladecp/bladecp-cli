@@ -96,17 +96,36 @@ describe('login with the browser', () => {
     expect(savedConfig().credentials.apiKey).toBe(ISSUED_KEY);
   });
 
-  it('rejects a callback whose state does not match and saves nothing', async () => {
+  it('ignores a callback whose state does not match, saves nothing, and says why at the timeout', async () => {
     api.hubOverride = () => 'code=stolen&state=not-the-right-state';
     const result = await runCli(['login', '--json'], {
       configDir: dir.path,
       apiUrl: api.baseUrl,
       openUrl: browserApproves,
+      loginTimeoutMs: 300,
     });
     expect(result.code).toBe(3);
     expect(parseJson(result.stdout).error?.code).toBe('state_mismatch');
     expect(api.apiCalls('POST', /connect\/token$/)).toHaveLength(0);
     expect(() => savedConfig()).toThrow();
+  });
+
+  it('a forged callback from another program does not cancel the sign-in', async () => {
+    // Another local program hits the callback first with a wrong state; the
+    // real browser answer that follows still completes the sign-in.
+    const result = await runCli(['login'], {
+      configDir: dir.path,
+      apiUrl: api.baseUrl,
+      openUrl: async (url) => {
+        const redirect = new URL(new URL(url).searchParams.get('redirect_uri')!);
+        const forged = await fetch(`${redirect.origin}/callback?state=forged&error=access_denied`);
+        expect(forged.status).toBe(400);
+        await forged.text();
+        return browserApproves(url);
+      },
+    });
+    expect(result.code).toBe(0);
+    expect(savedConfig().credentials.apiKey).toBe(ISSUED_KEY);
   });
 
   it('reports a refusal in the browser', async () => {

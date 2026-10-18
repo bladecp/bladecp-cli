@@ -1,4 +1,4 @@
-import { ApiError, InterruptedError, NetworkError } from './errors.js';
+import { ApiError, CliError, ExitCode, InterruptedError, NetworkError } from './errors.js';
 import type {
   CompleteUploadResponse,
   ConnectTokenResponse,
@@ -12,9 +12,21 @@ import type {
   UploadUrlResponse,
   UsageData,
 } from './types.js';
+import { isNewerVersion } from './version.js';
 
 export type FetchLike = (input: string, init: RequestInit) => Promise<Response>;
 export type Sleep = (ms: number, signal?: AbortSignal) => Promise<void>;
+
+/** Response header the API may send with the oldest CLI version it accepts. */
+export const MIN_VERSION_HEADER = 'BladeCP-Min-CLI-Version';
+
+export interface RetryNotice {
+  /** The attempt about to start (2 for the first retry). */
+  attempt: number;
+  /** Total attempts, counting the first. */
+  of: number;
+  seconds: number;
+}
 
 export interface ApiClientOptions {
   baseUrl: string;
@@ -22,9 +34,15 @@ export interface ApiClientOptions {
   fetch: FetchLike;
   sleep: Sleep;
   userAgent: string;
+  /** Version of this CLI, compared with the minimum the API asks for. */
+  cliVersion?: string | undefined;
   signal?: AbortSignal | undefined;
   /** Called before waiting out a 429 so the UI can say why it paused. */
   onRateLimited?: ((seconds: number) => void) | undefined;
+  /** Called before repeating a request after a network or server failure. */
+  onRetry?: ((notice: RetryNotice) => void) | undefined;
+  /** One line per request for `--debug` (never headers, never the key). */
+  onDebug?: ((line: string) => void) | undefined;
   /** How many 429 answers to wait out before giving up. */
   maxRateLimitRetries?: number;
   /** How many network/5xx failures to retry for safe requests. */
@@ -99,6 +117,23 @@ function errorFields(body: unknown): { code?: string; message?: string; retryAft
   return { code, message, retryAfter: record.retry_after_seconds };
 }
 
+/** The API answered with something that does not follow its contract. */
+export function invalidResponse(): CliError {
+  return new CliError(
+    'error.invalidResponse',
+    {},
+    { exitCode: ExitCode.GENERAL, code: 'invalid_response' },
+  );
+}
+
+function updateRequired(current: string, minimum: string): CliError {
+  return new CliError(
+    'error.updateRequired',
+    { current, minimum },
+    { exitCode: ExitCode.UPDATE_REQUIRED, code: 'update_required', hint: { key: 'hint.update' } },
+  );
+}
+
 export class ApiClient {
   private readonly options: ApiClientOptions;
 
@@ -139,6 +174,11 @@ export class ApiClient {
     if (options.auth !== false && this.options.apiKey) {
       headers.Authorization = `Bearer ${this.options.apiKey}`;
     }
+    const debug = this.options.onDebug;
+    const retryLater = async (seconds: number, attempt: number) => {
+      this.options.onRetry?.({ attempt: attempt + 2, of: maxTransientRetries + 1, seconds });
+      await sleep(seconds * 1000, outer);
+    };
 
     let rateLimitRetries = 0;
     let transientRetries = 0;
@@ -147,6 +187,7 @@ export class ApiClient {
       const timeout = new AbortController();
       const timer = setTimeout(() => timeout.abort(), options.timeoutMs ?? 30_000);
       const linked = linkSignals([outer, timeout.signal]);
+      const started = Date.now();
       let response: Response;
       let text: string;
       try {
@@ -160,16 +201,29 @@ export class ApiClient {
         text = await response.text();
       } catch (error) {
         if (outer?.aborted) throw new InterruptedError();
+        const failure = new NetworkError(host, error);
+        debug?.(`${method} ${path} -> ${failure.systemCode ?? 'NETWORK'}`);
         if (retry === 'safe' && transientRetries < maxTransientRetries) {
-          await sleep(retryBaseMs * 2 ** transientRetries, outer);
+          await retryLater((retryBaseMs * 2 ** transientRetries) / 1000, transientRetries);
           transientRetries += 1;
           continue;
         }
-        throw new NetworkError(host, error);
+        throw failure;
       } finally {
         clearTimeout(timer);
         linked.dispose();
       }
+      const requestId = response.headers.get('x-request-id') ?? response.headers.get('cf-ray');
+      debug?.(
+        `${method} ${path} -> ${response.status} (${Date.now() - started} ms${requestId ? `, ${requestId}` : ''})`,
+      );
+
+      const minimum = response.headers.get(MIN_VERSION_HEADER)?.trim();
+      const current = this.options.cliVersion;
+      if (current && minimum && isNewerVersion(minimum, current)) {
+        throw updateRequired(current, minimum);
+      }
+      if (response.status === 426) throw updateRequired(current ?? '0.0.0', minimum || '?');
 
       let body: unknown;
       if (text.length > 0) {
@@ -204,7 +258,7 @@ export class ApiClient {
         retry === 'safe' &&
         transientRetries < maxTransientRetries
       ) {
-        await sleep(retryBaseMs * 2 ** transientRetries, outer);
+        await retryLater((retryBaseMs * 2 ** transientRetries) / 1000, transientRetries);
         transientRetries += 1;
         continue;
       }
@@ -213,74 +267,153 @@ export class ApiClient {
         const fields = errorFields(body);
         throw new ApiError(response.status, fields.code, fields.message);
       }
-      if (body === undefined) {
-        throw new ApiError(
-          response.status,
-          'invalid_response',
-          'The API answered with an unexpected body',
-        );
-      }
+      // A success that is not JSON (a maintenance page, a cut answer).
+      if (body === undefined) throw invalidResponse();
       return body as T;
     }
   }
+}
+
+// -------------------------------------------------------------- validation
+
+type Json = Record<string, unknown>;
+
+const isRecord = (value: unknown): value is Json =>
+  typeof value === 'object' && value !== null && !Array.isArray(value);
+
+/** The `data` member of an answer, which must be an object. */
+function dataObject(body: unknown): Json {
+  if (!isRecord(body) || !isRecord(body.data)) throw invalidResponse();
+  return body.data;
+}
+
+/** The `data` member of an answer, which must be a list of objects. */
+function dataList(body: unknown): Json[] {
+  if (!isRecord(body) || !Array.isArray(body.data)) throw invalidResponse();
+  if (!body.data.every(isRecord)) throw invalidResponse();
+  return body.data as Json[];
+}
+
+function requireStrings(record: Json, fields: string[]): void {
+  for (const field of fields) {
+    if (typeof record[field] !== 'string' || record[field] === '') throw invalidResponse();
+  }
+}
+
+/** `primary_domain` (documented) or `primaryDomain` (what some API versions send). */
+export function provisionDomain(p: Provision): string | null {
+  const snake = p.primary_domain;
+  if (typeof snake === 'string' && snake !== '') return snake;
+  const camel = (p as { primaryDomain?: unknown }).primaryDomain;
+  return typeof camel === 'string' && camel !== '' ? camel : null;
+}
+
+/** `product_type` or `productType`. */
+export function provisionProduct(p: Provision): string | null {
+  const snake = p.product_type;
+  if (typeof snake === 'string' && snake !== '') return snake;
+  const camel = (p as { productType?: unknown }).productType;
+  return typeof camel === 'string' && camel !== '' ? camel : null;
+}
+
+function checkProvision(p: Json): Provision {
+  requireStrings(p, ['uuid']);
+  if (p.status !== undefined && p.status !== null && typeof p.status !== 'string')
+    throw invalidResponse();
+  return p as unknown as Provision;
+}
+
+function checkMigration(m: Json): Migration {
+  requireStrings(m, ['uuid', 'phase']);
+  if (m.components !== undefined && m.components !== null) {
+    if (!Array.isArray(m.components) || !m.components.every(isRecord)) throw invalidResponse();
+  }
+  return m as unknown as Migration;
+}
+
+function checkDestination(d: unknown): Destination {
+  if (!isRecord(d)) throw invalidResponse();
+  if (typeof d.partnerPlanId !== 'number' || typeof d.planName !== 'string')
+    throw invalidResponse();
+  if (!Array.isArray(d.locations)) throw invalidResponse();
+  for (const location of d.locations) {
+    if (!isRecord(location) || typeof location.locationId !== 'number') throw invalidResponse();
+    if (typeof location.name !== 'string') throw invalidResponse();
+  }
+  if (d.prices !== undefined && d.prices !== null && !Array.isArray(d.prices))
+    throw invalidResponse();
+  return d as unknown as Destination;
 }
 
 function seg(value: string): string {
   return encodeURIComponent(value);
 }
 
-function unwrap<T>(body: { data: T }): T {
-  if (!body || typeof body !== 'object' || !('data' in body)) {
-    throw new ApiError(200, 'invalid_response', 'The API answered with an unexpected body');
-  }
-  return body.data;
-}
-
-/** Typed Customer API calls used by the CLI. */
+/** Typed Customer API calls used by the CLI. Answers are checked before use. */
 export class BladecpApi {
   constructor(readonly client: ApiClient) {}
 
   async me(): Promise<MeData> {
-    return unwrap(await this.client.call<{ data: MeData }>('GET', '/customer/me'));
+    const data = dataObject(await this.client.call('GET', '/customer/me'));
+    requireStrings(data, ['customer_uuid', 'customer_email', 'api_key_uuid']);
+    const scopes = Array.isArray(data.scopes)
+      ? data.scopes.filter((s): s is string => typeof s === 'string')
+      : [];
+    const rate = isRecord(data.rate_limit) ? data.rate_limit : null;
+    return {
+      ...(data as unknown as MeData),
+      scopes,
+      tier: typeof data.tier === 'string' ? data.tier : '',
+      rate_limit: {
+        tier:
+          typeof rate?.tier === 'string'
+            ? rate.tier
+            : typeof data.tier === 'string'
+              ? data.tier
+              : '',
+        limit_per_minute: typeof rate?.limit_per_minute === 'number' ? rate.limit_per_minute : null,
+      },
+    };
   }
 
   async listProvisions(): Promise<Provision[]> {
-    return unwrap(await this.client.call<{ data: Provision[] }>('GET', '/customer/provisions'));
+    return dataList(await this.client.call('GET', '/customer/provisions')).map(checkProvision);
   }
 
   async getProvision(uuid: string): Promise<Provision> {
-    return unwrap(
-      await this.client.call<{ data: Provision }>('GET', `/customer/provisions/${seg(uuid)}`),
+    return checkProvision(
+      dataObject(await this.client.call('GET', `/customer/provisions/${seg(uuid)}`)),
     );
   }
 
   async getProvisionUsage(uuid: string): Promise<UsageData> {
-    return unwrap(
-      await this.client.call<{ data: UsageData }>('GET', `/customer/provisions/${seg(uuid)}/usage`),
+    const data = dataObject(
+      await this.client.call('GET', `/customer/provisions/${seg(uuid)}/usage`),
     );
+    for (const field of ['plan', 'usage'] as const) {
+      if (data[field] !== undefined && data[field] !== null && !isRecord(data[field]))
+        throw invalidResponse();
+    }
+    return data as unknown as UsageData;
   }
 
   /** `currency` narrows plans and prices to one currency, like the Hub selector. */
   async listDestinations(currency?: string): Promise<Destination[]> {
     const query = currency ? `?currency=${encodeURIComponent(currency)}` : '';
-    const body = await this.client.call<{ data?: { destinations?: Destination[] } }>(
-      'GET',
-      `/customer/me/migration-destinations${query}`,
+    const data = dataObject(
+      await this.client.call('GET', `/customer/me/migration-destinations${query}`),
     );
-    const list = body.data?.destinations;
-    if (!Array.isArray(list)) {
-      throw new ApiError(200, 'invalid_response', 'The API answered with an unexpected body');
-    }
-    return list;
+    if (!Array.isArray(data.destinations)) throw invalidResponse();
+    return data.destinations.map(checkDestination);
   }
 
   async listMigrations(): Promise<Migration[]> {
-    return unwrap(await this.client.call<{ data: Migration[] }>('GET', '/customer/me/migrations'));
+    return dataList(await this.client.call('GET', '/customer/me/migrations')).map(checkMigration);
   }
 
   async getMigration(uuid: string): Promise<Migration> {
-    return unwrap(
-      await this.client.call<{ data: Migration }>('GET', `/customer/me/migrations/${seg(uuid)}`),
+    return checkMigration(
+      dataObject(await this.client.call('GET', `/customer/me/migrations/${seg(uuid)}`)),
     );
   }
 
@@ -293,100 +426,79 @@ export class BladecpApi {
     },
     idempotencyKey: string,
   ): Promise<CreatedMigration> {
-    return unwrap(
-      await this.client.call<{ data: CreatedMigration }>('POST', '/customer/me/migrations', {
+    const data = dataObject(
+      await this.client.call('POST', '/customer/me/migrations', {
         body,
         headers: { 'Idempotency-Key': idempotencyKey },
         // The idempotency key makes a repeated create return the same migration.
         retry: 'safe',
       }),
     );
+    requireStrings(data, ['migrationUuid']);
+    return data as unknown as CreatedMigration;
   }
 
   async requestUploadUrls(
     uuid: string,
     body: { sizeBytes: number; filename?: string; resume?: boolean },
   ): Promise<UploadUrlResponse> {
-    return unwrap(
-      await this.client.call<{ data: UploadUrlResponse }>(
-        'POST',
-        `/customer/me/migrations/${seg(uuid)}/upload-url`,
-        {
-          body,
-          retry: 'safe',
-          timeoutMs: 60_000,
-        },
-      ),
-    );
+    return dataObject(
+      await this.client.call('POST', `/customer/me/migrations/${seg(uuid)}/upload-url`, {
+        body,
+        retry: 'safe',
+        timeoutMs: 60_000,
+      }),
+    ) as unknown as UploadUrlResponse;
   }
 
   async completeUpload(
     uuid: string,
     parts: { partNumber: number; etag: string }[],
   ): Promise<CompleteUploadResponse> {
-    return unwrap(
-      await this.client.call<{ data: CompleteUploadResponse }>(
-        'POST',
-        `/customer/me/migrations/${seg(uuid)}/complete-upload`,
+    return dataObject(
+      await this.client.call('POST', `/customer/me/migrations/${seg(uuid)}/complete-upload`, {
+        body: { parts },
+        retry: 'safe',
         // Assembling hundreds of parts can take a while on the storage side.
-        { body: { parts }, retry: 'safe', timeoutMs: 300_000 },
-      ),
-    );
+        timeoutMs: 300_000,
+      }),
+    ) as unknown as CompleteUploadResponse;
   }
 
-  async confirmUpload(uuid: string): Promise<PhaseResponse> {
-    return unwrap(
-      await this.client.call<{ data: PhaseResponse }>(
-        'POST',
-        `/customer/me/migrations/${seg(uuid)}/confirm-upload`,
-        {
-          retry: 'safe',
-        },
-      ),
-    );
+  private async phaseCall(path: string, options: CallOptions = {}): Promise<PhaseResponse> {
+    const data = dataObject(await this.client.call('POST', path, options));
+    return { ...data, phase: typeof data.phase === 'string' ? data.phase : '' } as PhaseResponse;
   }
 
-  async reviewDiscovery(uuid: string, primaryDomain: string): Promise<PhaseResponse> {
-    return unwrap(
-      await this.client.call<{ data: PhaseResponse }>(
-        'POST',
-        `/customer/me/migrations/${seg(uuid)}/discovery-review`,
-        {
-          body: { primaryDomain },
-          retry: 'safe',
-        },
-      ),
-    );
+  confirmUpload(uuid: string): Promise<PhaseResponse> {
+    return this.phaseCall(`/customer/me/migrations/${seg(uuid)}/confirm-upload`, {
+      retry: 'safe',
+    });
   }
 
-  async approve(uuid: string): Promise<PhaseResponse> {
-    return unwrap(
-      await this.client.call<{ data: PhaseResponse }>(
-        'POST',
-        `/customer/me/migrations/${seg(uuid)}/approve`,
-      ),
-    );
+  reviewDiscovery(uuid: string, primaryDomain: string): Promise<PhaseResponse> {
+    return this.phaseCall(`/customer/me/migrations/${seg(uuid)}/discovery-review`, {
+      body: { primaryDomain },
+      retry: 'safe',
+    });
   }
 
-  async cancel(uuid: string, reason?: string): Promise<PhaseResponse> {
-    return unwrap(
-      await this.client.call<{ data: PhaseResponse }>(
-        'POST',
-        `/customer/me/migrations/${seg(uuid)}/cancel`,
-        {
-          body: reason ? { reason } : {},
-        },
-      ),
-    );
+  approve(uuid: string): Promise<PhaseResponse> {
+    return this.phaseCall(`/customer/me/migrations/${seg(uuid)}/approve`);
+  }
+
+  cancel(uuid: string, reason?: string): Promise<PhaseResponse> {
+    return this.phaseCall(`/customer/me/migrations/${seg(uuid)}/cancel`, {
+      body: reason ? { reason } : {},
+    });
   }
 
   async retry(uuid: string): Promise<RetryResponse> {
-    return unwrap(
-      await this.client.call<{ data: RetryResponse }>(
-        'POST',
-        `/customer/me/migrations/${seg(uuid)}/retry`,
-      ),
+    const data = dataObject(
+      await this.client.call('POST', `/customer/me/migrations/${seg(uuid)}/retry`),
     );
+    requireStrings(data, ['migrationUuid']);
+    return data as unknown as RetryResponse;
   }
 
   async exchangeConnectCode(body: {
@@ -395,11 +507,10 @@ export class BladecpApi {
     codeVerifier: string;
     redirectUri: string;
   }): Promise<ConnectTokenResponse> {
-    return unwrap(
-      await this.client.call<{ data: ConnectTokenResponse }>('POST', '/customer/connect/token', {
-        body,
-        auth: false,
-      }),
+    const data = dataObject(
+      await this.client.call('POST', '/customer/connect/token', { body, auth: false }),
     );
+    if (typeof data.apiKey !== 'string') throw invalidResponse();
+    return data as unknown as ConnectTokenResponse;
   }
 }

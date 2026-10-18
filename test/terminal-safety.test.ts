@@ -32,24 +32,18 @@ const PAYLOADS = {
 };
 const HOSTILE = Object.values(PAYLOADS).join('|');
 
-/** Our own ANSI output: colors plus the live-line clear. Nothing else is allowed. */
-const ALLOWED_SEQUENCES = new Set([
-  '[1m',
-  '[22m',
-  '[2m',
-  '[31m',
-  '[32m',
-  '[33m',
-  '[36m',
-  '[39m',
-  '[2K',
-]);
+/**
+ * Our own ANSI output, and nothing else: colors and attributes (SGR, any
+ * depth), the live region (clear line, cursor up, clear down), hiding and
+ * showing the cursor, and synchronized updates. Hostile text never adds to
+ * this: its escape characters are printed as visible text.
+ */
+const ALLOWED_SEQUENCE = /^\[(?:[0-9;]*m|2K|J|\d+A|\?25[lh]|\?2026[hl])/;
 
 function expectTerminalSafe(text: string): void {
   for (const sequence of text.split(ESC).slice(1)) {
-    const csi = /^\[[0-9;]*[A-Za-z]/.exec(sequence)?.[0];
     expect(
-      csi && ALLOWED_SEQUENCES.has(csi),
+      ALLOWED_SEQUENCE.test(sequence),
       `escape sequence ${JSON.stringify(sequence.slice(0, 12))}`,
     ).toBe(true);
   }
@@ -150,11 +144,15 @@ describe('hostile API values never reach the terminal raw', () => {
       body: { error: true, message: HOSTILE },
       times: 2,
     });
-    const human = await cli(['migrations', 'approve', 'mig-0000-0300'], colorTerminal);
+    // On a terminal the confirmation comes first; Enter accepts it.
+    const human = await cli(['migrations', 'approve', 'mig-0000-0300'], {
+      ...colorTerminal,
+      answers: [''],
+    });
     expect(human.code).toBe(6);
     expectTerminalSafe(human.stdout + human.stderr);
     expect(human.stderr).toContain('\\x1b]52;c;');
-    // Our own red "Error:" label still works on a color terminal.
+    // Our own red error mark still works on a color terminal.
     expect(human.stderr).toContain(`${ESC}[31m`);
 
     const json = await cli(['migrations', 'approve', 'mig-0000-0300', '--json']);

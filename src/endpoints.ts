@@ -55,6 +55,14 @@ export function resolveApiUrl(
   flag: string | undefined,
   env: Record<string, string | undefined>,
 ): string {
+  // An empty --api-url is a mistake (an unset shell variable), never the default.
+  if (flag !== undefined && flag.trim() === '') {
+    throw new CliError(
+      'error.emptyApiUrl',
+      {},
+      { exitCode: ExitCode.USAGE, code: 'invalid_api_url' },
+    );
+  }
   const raw = flag ?? env.BLADECP_API_URL ?? DEFAULT_API_URL;
   return normalizeApiUrl(raw.trim() === '' ? DEFAULT_API_URL : raw);
 }
@@ -82,6 +90,16 @@ export const OFFICIAL_NAMESERVERS = ['kant.ns.bladecp.com', 'hegel.ns.bladecp.co
  */
 export function nameserversFor(apiUrl: string): readonly string[] {
   return new URL(apiUrl).hostname === new URL(DEFAULT_API_URL).hostname ? OFFICIAL_NAMESERVERS : [];
+}
+
+/** Hub page of one migration (preview, domain and every way to point it). */
+export function migrationHubUrl(hubUrl: string, uuid: string): string {
+  return `${hubUrl}/deploy/migrate/${encodeURIComponent(uuid)}`;
+}
+
+/** Hub page to talk to BladeCP support. */
+export function supportUrl(hubUrl: string): string {
+  return `${hubUrl}/support`;
 }
 
 /** Hub page where the person creates and revokes API keys. */

@@ -14,11 +14,18 @@ type Env = Record<string, string | undefined>;
  */
 export function resolveConfigDir(env: Env, platform: NodeJS.Platform, homedir: string): string {
   const override = env.BLADECP_CONFIG_DIR?.trim();
-  if (override) return resolve(override);
+  if (override) return resolve(expandHome(override, homedir));
   if (platform === 'win32') {
     return join(env.APPDATA?.trim() || join(homedir, 'AppData', 'Roaming'), 'bladecp');
   }
   return join(env.XDG_CONFIG_HOME?.trim() || join(homedir, '.config'), 'bladecp');
+}
+
+/** `~` and `~/folder` mean the home folder, as in a shell (a quoted `~` is not expanded there). */
+export function expandHome(path: string, homedir: string): string {
+  if (path === '~') return homedir;
+  if (path.startsWith('~/') || path.startsWith('~\\')) return join(homedir, path.slice(2));
+  return path;
 }
 
 export interface StoredCredentials {
@@ -32,9 +39,20 @@ export interface StoredCredentials {
   savedAt: string;
 }
 
+/** Preferences set with `bladecp config set`. */
+export interface Preferences {
+  /** Update the CLI on its own before a command when a new version exists (off by default). */
+  autoUpdate?: boolean;
+  /** Look for a new version once a day (on by default). */
+  updateCheck?: boolean;
+  /** Language of the messages when --lang is not given. */
+  lang?: string;
+}
+
 export interface ConfigFile {
   version: 1;
   credentials?: StoredCredentials;
+  preferences?: Preferences;
 }
 
 export function configFilePath(dir: string): string {
@@ -71,7 +89,13 @@ export async function readConfig(dir: string): Promise<ConfigFile> {
   try {
     const parsed = JSON.parse(text) as ConfigFile;
     if (!parsed || typeof parsed !== 'object') throw new Error('not an object');
-    return { version: 1, ...(parsed.credentials ? { credentials: parsed.credentials } : {}) };
+    const preferences =
+      parsed.preferences && typeof parsed.preferences === 'object' ? parsed.preferences : undefined;
+    return {
+      version: 1,
+      ...(parsed.credentials ? { credentials: parsed.credentials } : {}),
+      ...(preferences ? { preferences } : {}),
+    };
   } catch {
     throw new CliError(
       'error.configInvalid',
@@ -98,10 +122,24 @@ export async function clearCredentials(dir: string): Promise<boolean> {
   }
   if (!config.credentials) return false;
   const { credentials: _removed, ...rest } = config;
-  if (Object.keys(rest).length <= 1) {
+  if (!rest.preferences || Object.keys(rest.preferences).length === 0) {
     await rm(configFilePath(dir), { force: true });
   } else {
     await writeConfig(dir, rest);
   }
   return true;
+}
+
+/** Preferences of the config file; a missing or damaged file means the defaults. */
+export async function readPreferences(dir: string): Promise<Preferences> {
+  try {
+    return (await readConfig(dir)).preferences ?? {};
+  } catch {
+    return {};
+  }
+}
+
+export async function writePreferences(dir: string, preferences: Preferences): Promise<void> {
+  const config = await readConfig(dir);
+  await writeConfig(dir, { ...config, preferences });
 }

@@ -1,8 +1,9 @@
-import { createServer, type ServerResponse } from 'node:http';
+import { createServer } from 'node:http';
 import type { AddressInfo } from 'node:net';
 
 import { CliError, ExitCode, InterruptedError } from '../errors.js';
 import type { Translator } from '../i18n/index.js';
+import { callbackPage as page, sendPage as send } from '../ui/callback-page.js';
 import { safeEqual } from './pkce.js';
 
 export interface LoopbackServer {
@@ -13,51 +14,13 @@ export interface LoopbackServer {
   close(): Promise<void>;
 }
 
-function escapeHtml(text: string): string {
-  return text
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#39;');
-}
-
-function page(lang: string, title: string, body: string, ok: boolean): string {
-  const accent = ok ? '#6366f1' : '#dc2626';
-  return `<!doctype html>
-<html lang="${escapeHtml(lang)}">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>BladeCP CLI</title>
-<style>
-  body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #0b0d12; color: #e5e7eb; font: 16px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
-  main { max-width: 28rem; padding: 2rem; border: 1px solid #1f2430; border-radius: 12px; background: #11141b; }
-  h1 { margin: 0 0 .5rem; font-size: 1.25rem; color: ${accent}; }
-  p { margin: 0; color: #9ca3af; }
-</style>
-</head>
-<body><main><h1>${escapeHtml(title)}</h1><p>${escapeHtml(body)}</p></main></body>
-</html>`;
-}
-
-function send(res: ServerResponse, status: number, html: string): void {
-  res.writeHead(status, {
-    'Content-Type': 'text/html; charset=utf-8',
-    'Cache-Control': 'no-store',
-    'Referrer-Policy': 'no-referrer',
-    'X-Content-Type-Options': 'nosniff',
-    'Content-Security-Policy': "default-src 'none'; style-src 'unsafe-inline'",
-    Connection: 'close',
-  });
-  res.end(html);
-}
-
 /**
  * Starts the one-shot callback receiver on 127.0.0.1 with a random port.
- * The first request to `/callback` settles the sign-in: a wrong `state`
- * aborts it, `error=access_denied` reports a refusal, and a `code` is
- * handed to the caller.
+ * Only a request with the right `state` settles the sign-in: it carries the
+ * code, or `error=access_denied` for a refusal. A request with another
+ * `state` (another program on this computer, an old browser tab) gets an
+ * error page and is ignored, so it cannot cancel the sign-in; if the wait
+ * then times out, the error says such a request arrived.
  */
 export async function startLoopbackServer(options: {
   expectedState: string;
@@ -66,6 +29,8 @@ export async function startLoopbackServer(options: {
 }): Promise<LoopbackServer> {
   const { expectedState, t, lang } = options;
   let settled = false;
+  /** Requests that reached /callback with a state this terminal did not start. */
+  let foreign = 0;
   let resolveCode!: (code: string) => void;
   let rejectCode!: (error: Error) => void;
   const codePromise = new Promise<string>((resolve, reject) => {
@@ -108,15 +73,7 @@ export async function startLoopbackServer(options: {
     const error = url.searchParams.get('error');
     if (!state || !safeEqual(state, expectedState)) {
       send(res, 400, page(lang, t('login.page.stateTitle'), t('login.page.stateBody'), false));
-      settle(() =>
-        rejectCode(
-          new CliError(
-            'error.loginStateMismatch',
-            {},
-            { exitCode: ExitCode.AUTH, code: 'state_mismatch' },
-          ),
-        ),
-      );
+      foreign += 1;
       return;
     }
     if (error) {
@@ -162,11 +119,17 @@ export async function startLoopbackServer(options: {
         const timer = setTimeout(() => {
           settle(() =>
             rejectCode(
-              new CliError(
-                'error.loginTimeout',
-                {},
-                { exitCode: ExitCode.AUTH, code: 'login_timeout' },
-              ),
+              foreign > 0
+                ? new CliError(
+                    'error.loginStateMismatch',
+                    {},
+                    { exitCode: ExitCode.AUTH, code: 'state_mismatch' },
+                  )
+                : new CliError(
+                    'error.loginTimeout',
+                    {},
+                    { exitCode: ExitCode.AUTH, code: 'login_timeout' },
+                  ),
             ),
           );
         }, timeoutMs);

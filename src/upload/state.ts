@@ -95,3 +95,33 @@ export async function pruneStates(configDir: string, now: number): Promise<void>
       }),
   );
 }
+
+/**
+ * The upload state on this computer for a migration, if any (to tell "run
+ * the same command again" apart from "it was started on another computer").
+ */
+export async function findLocalUpload(
+  configDir: string,
+  migrationUuid: string,
+): Promise<MigrateState | null> {
+  for (const state of await listStates(configDir)) {
+    if (state.migrationUuid === migrationUuid) return state;
+  }
+  return null;
+}
+
+/** Every upload state kept on this computer. Best effort. */
+export async function listStates(configDir: string): Promise<MigrateState[]> {
+  let names: string[];
+  try {
+    names = await readdir(stateDir(configDir));
+  } catch {
+    return [];
+  }
+  const states: MigrateState[] = [];
+  for (const name of names.filter((n) => n.endsWith('.json'))) {
+    const state = await loadState(configDir, name.slice(0, -'.json'.length));
+    if (state) states.push(state);
+  }
+  return states;
+}

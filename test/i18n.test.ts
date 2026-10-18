@@ -1,4 +1,4 @@
-import { readFileSync } from 'node:fs';
+import { readdirSync, readFileSync } from 'node:fs';
 
 import { describe, expect, it } from 'vitest';
 
@@ -33,33 +33,30 @@ describe('message catalogs', () => {
   });
 
   it('every key used in the source exists in the catalog', () => {
-    const files = [
-      'src/cli.ts',
-      'src/errors.ts',
-      'src/commands/account.ts',
-      'src/commands/follow.ts',
-      'src/commands/migrate.ts',
-      'src/commands/migrations.ts',
-      'src/commands/servers.ts',
-      'src/upload/plan.ts',
-      'src/upload/uploader.ts',
-      'src/auth/credentials.ts',
-      'src/auth/loopback.ts',
-      'src/endpoints.ts',
-      'src/args.ts',
-      'src/prompt.ts',
-      'src/format.ts',
-    ];
+    const walk = (dir: string): string[] =>
+      readdirSync(new URL(`../${dir}`, import.meta.url), { withFileTypes: true }).flatMap(
+        (entry) =>
+          entry.isDirectory()
+            ? walk(`${dir}/${entry.name}`)
+            : entry.name.endsWith('.ts') && !dir.startsWith('src/i18n')
+              ? [`${dir}/${entry.name}`]
+              : [],
+      );
+    const files = walk('src');
     const used = new Set<string>();
     for (const file of files) {
       const text = readFileSync(new URL(`../${file}`, import.meta.url), 'utf8');
       for (const m of text.matchAll(
-        /'((?:error|hint|login|logout|whoami|label|column|usage|destinations|migrate|upload|review|follow|outcome|status|approve|cancel|retry|progress|prompt|phase|component|componentStatus|help|option|servers|migrations)\.[A-Za-z_.]+)'/g,
+        /'((?:error|hint|login|logout|whoami|label|column|usage|destinations|migrate|upload|review|follow|outcome|status|approve|cancel|retry|progress|prompt|phase|component|componentStatus|help|option|servers|migrations|update|config|home|next|slow|serverStatus|scope|ui|err|errno|cause|reason|retryReason|warning|brand|product)\.[A-Za-z_.]+)'/g,
       )) {
         used.add(m[1]!);
       }
     }
     const commandIds = new Set([
+      'config.json',
+      'config.list',
+      'config.get',
+      'config.set',
       'servers.list',
       'servers.show',
       'destinations.list',
@@ -122,9 +119,9 @@ describe('language detection', () => {
     const dir = tempDir();
     try {
       const pt = await runCli(['--help', '--lang', 'pt-BR'], { configDir: dir.path });
-      expect(pt.stdout).toContain('Códigos de saída:');
+      expect(pt.stdout).toContain('Códigos de saída');
       const es = await runCli(['--help', '--lang=es'], { configDir: dir.path });
-      expect(es.stdout).toContain('Códigos de salida:');
+      expect(es.stdout).toContain('Códigos de salida');
     } finally {
       dir.cleanup();
     }

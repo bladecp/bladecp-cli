@@ -14,6 +14,7 @@ import {
   type OptionName,
 } from './args.js';
 import { ExitCode, type ExitCodeValue } from './errors.js';
+import { EXIT_NAMES, exitCodeDescriptions } from './exits.js';
 import { catalogs, LANGS, type Lang, type MessageKey } from './i18n/index.js';
 import { cliVersion } from './version.js';
 
@@ -47,7 +48,19 @@ export const ERROR_CODES: readonly ErrorCodeSpec[] = [
     code: 'invalid_response',
     origin: 'cli',
     exitCodes: [E.GENERAL],
-    message: 'error.invalidKeyFromApi',
+    message: 'error.invalidResponse',
+  },
+  {
+    code: 'filesystem_error',
+    origin: 'cli',
+    exitCodes: [E.GENERAL],
+    message: 'error.fileSystem',
+  },
+  {
+    code: 'update_failed',
+    origin: 'cli',
+    exitCodes: [E.GENERAL],
+    message: 'update.failed',
   },
   { code: 'http_error', origin: 'api', exitCodes: [E.GENERAL], message: 'error.server' },
   { code: 'usage', origin: 'cli', exitCodes: [E.USAGE], message: 'error.invalidArguments' },
@@ -84,6 +97,20 @@ export const ERROR_CODES: readonly ErrorCodeSpec[] = [
     hint: 'hint.destinations',
   },
   { code: 'invalid_domain', origin: 'cli', exitCodes: [E.USAGE], message: 'review.invalidDomain' },
+  {
+    code: 'migration_in_progress',
+    origin: 'cli',
+    exitCodes: [E.USAGE],
+    message: 'migrate.destinationInProgress',
+    hint: 'hint.migrationInProgress',
+  },
+  { code: 'ambiguous_id', origin: 'cli', exitCodes: [E.USAGE], message: 'error.ambiguousId' },
+  {
+    code: 'confirmation_required',
+    origin: 'cli',
+    exitCodes: [E.USAGE],
+    message: 'error.confirmationRequired',
+  },
   {
     code: 'not_signed_in',
     origin: 'cli',
@@ -261,37 +288,38 @@ export const ERROR_CODES: readonly ErrorCodeSpec[] = [
     message: 'upload.sizeMismatch',
     hint: 'hint.rerunToResume',
   },
+  {
+    code: 'migration_failed',
+    origin: 'cli',
+    exitCodes: [E.MIGRATION_FAILED],
+    message: 'outcome.failed',
+  },
+  {
+    code: 'migration_cancelled',
+    origin: 'cli',
+    exitCodes: [E.MIGRATION_FAILED],
+    message: 'outcome.cancelled',
+  },
+  {
+    code: 'update_required',
+    origin: 'cli',
+    exitCodes: [E.UPDATE_REQUIRED],
+    message: 'error.updateRequired',
+    hint: 'hint.update',
+  },
   { code: 'interrupted', origin: 'cli', exitCodes: [E.INTERRUPTED], message: 'error.interrupted' },
 ];
 
-/** Names of `ExitCode`, by value. */
-const EXIT_NAMES = new Map<number, string>(
-  Object.entries(ExitCode).map(([name, value]) => [value, name]),
-);
+/**
+ * Codes of the `--json` envelope that report how a migration ended rather
+ * than a failure of the command itself (`migrate`, exit code 9).
+ */
+export const OUTCOME_ERROR_CODES = ['migration_failed', 'migration_cancelled'] as const;
+
+export { exitCodeDescriptions };
 
 function localized(key: MessageKey): Localized {
   return Object.fromEntries(LANGS.map((lang) => [lang, catalogs[lang][key]])) as Localized;
-}
-
-/**
- * Description of each exit code in one language, read from `help.exitCodes`
- * ("0 ok, 1 unexpected error, ..."), the line `bladecp --help` prints.
- */
-export function exitCodeDescriptions(lang: Lang): Map<number, string> {
-  const result = new Map<number, string>();
-  for (const part of catalogs[lang]['help.exitCodes'].split(', ')) {
-    const match = /^(\d+) (.+)$/.exec(part);
-    if (!match) throw new Error(`help.exitCodes (${lang}): cannot read "${part}"`);
-    result.set(Number(match[1]), match[2]!);
-  }
-  const expected = [...EXIT_NAMES.keys()].sort((a, b) => a - b);
-  const found = [...result.keys()].sort((a, b) => a - b);
-  if (JSON.stringify(found) !== JSON.stringify(expected)) {
-    throw new Error(
-      `help.exitCodes (${lang}) lists ${found.join(', ')}, ExitCode has ${expected.join(', ')}`,
-    );
-  }
-  return result;
 }
 
 /** `--lang <en|pt-BR|es>` -> `<en|pt-BR|es>`; `-y, --yes` -> null. */

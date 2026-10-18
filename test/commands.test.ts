@@ -558,7 +558,7 @@ describe('usage errors', () => {
   it('help and version', async () => {
     const help = await cli(['--help']);
     expect(help.code).toBe(0);
-    expect(help.stdout).toContain('Exit codes:');
+    expect(help.stdout).toContain('Exit codes');
     const commandHelp = await cli(['migrate', '--help']);
     expect(commandHelp.stdout).toContain('--no-wait');
     const version = await cli(['--version']);

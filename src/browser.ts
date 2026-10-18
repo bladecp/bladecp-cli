@@ -33,3 +33,36 @@ export function openInBrowser(url: string, platform: NodeJS.Platform): Promise<b
     }
   });
 }
+
+function pipeTo(command: string, args: string[], text: string): Promise<boolean> {
+  return new Promise((resolve) => {
+    try {
+      const child = spawn(command, args, {
+        stdio: ['pipe', 'ignore', 'ignore'],
+        windowsHide: true,
+      });
+      child.once('error', () => resolve(false));
+      child.once('close', (code) => resolve(code === 0));
+      child.stdin?.end(text);
+    } catch {
+      resolve(false);
+    }
+  });
+}
+
+/**
+ * Copies text to the clipboard with the system tool (pbcopy, clip, wl-copy,
+ * xclip or xsel). Resolves `false` when none is available.
+ */
+export async function copyToClipboard(text: string, platform: NodeJS.Platform): Promise<boolean> {
+  if (platform === 'darwin') return pipeTo('pbcopy', [], text);
+  if (platform === 'win32') return pipeTo('clip', [], text);
+  for (const [command, args] of [
+    ['wl-copy', []],
+    ['xclip', ['-selection', 'clipboard']],
+    ['xsel', ['--clipboard', '--input']],
+  ] as const) {
+    if (await pipeTo(command, [...args], text)) return true;
+  }
+  return false;
+}

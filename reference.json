@@ -2,7 +2,7 @@
   "format": 1,
   "name": "BladeCP CLI",
   "binary": "bladecp",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "languages": [
     "en",
     "pt-BR",
@@ -54,9 +54,11 @@
     {
       "id": "servers.list",
       "command": "servers list",
-      "usage": "bladecp servers list",
+      "usage": "bladecp servers list [--all]",
       "arguments": [],
-      "options": [],
+      "options": [
+        "all"
+      ],
       "signInRequired": true,
       "summary": {
         "en": "List your servers",
@@ -165,11 +167,13 @@
     {
       "id": "migrations.approve",
       "command": "migrations approve",
-      "usage": "bladecp migrations approve <uuid>",
+      "usage": "bladecp migrations approve <uuid> [--yes]",
       "arguments": [
         "<uuid>"
       ],
-      "options": [],
+      "options": [
+        "yes"
+      ],
       "signInRequired": true,
       "summary": {
         "en": "Approve a migration after checking the preview",
@@ -180,12 +184,13 @@
     {
       "id": "migrations.cancel",
       "command": "migrations cancel",
-      "usage": "bladecp migrations cancel <uuid> [--reason <text>]",
+      "usage": "bladecp migrations cancel <uuid> [--reason <text>] [--yes]",
       "arguments": [
         "<uuid>"
       ],
       "options": [
-        "reason"
+        "reason",
+        "yes"
       ],
       "signInRequired": true,
       "summary": {
@@ -207,6 +212,66 @@
         "en": "Try a failed migration again",
         "pt-BR": "Tentar de novo uma migração que falhou",
         "es": "Reintentar una migración que falló"
+      }
+    },
+    {
+      "id": "update",
+      "command": "update",
+      "usage": "bladecp update [--check] [--yes]",
+      "arguments": [],
+      "options": [
+        "check",
+        "yes"
+      ],
+      "signInRequired": false,
+      "summary": {
+        "en": "Update the CLI to the latest version",
+        "pt-BR": "Atualizar a CLI para a versão mais recente",
+        "es": "Actualizar la CLI a la versión más reciente"
+      }
+    },
+    {
+      "id": "config.list",
+      "command": "config list",
+      "usage": "bladecp config list",
+      "arguments": [],
+      "options": [],
+      "signInRequired": false,
+      "summary": {
+        "en": "Show your preferences",
+        "pt-BR": "Mostrar suas preferências",
+        "es": "Mostrar tus preferencias"
+      }
+    },
+    {
+      "id": "config.get",
+      "command": "config get",
+      "usage": "bladecp config get <key>",
+      "arguments": [
+        "<key>"
+      ],
+      "options": [],
+      "signInRequired": false,
+      "summary": {
+        "en": "Show one preference",
+        "pt-BR": "Mostrar uma preferência",
+        "es": "Mostrar una preferencia"
+      }
+    },
+    {
+      "id": "config.set",
+      "command": "config set",
+      "usage": "bladecp config set <key> <value>",
+      "arguments": [
+        "<key>",
+        "<value>"
+      ],
+      "options": [],
+      "signInRequired": false,
+      "summary": {
+        "en": "Change a preference",
+        "pt-BR": "Mudar uma preferência",
+        "es": "Cambiar una preferencia"
       }
     }
   ],
@@ -254,6 +319,36 @@
         "en": "Language for messages",
         "pt-BR": "Idioma das mensagens",
         "es": "Idioma de los mensajes"
+      }
+    },
+    {
+      "name": "debug",
+      "flag": "--debug",
+      "short": null,
+      "syntax": "--debug",
+      "value": null,
+      "type": "boolean",
+      "global": true,
+      "commands": [],
+      "description": {
+        "en": "Describe each request on stderr (the key is never shown)",
+        "pt-BR": "Descrever cada requisição no stderr (a chave nunca aparece)",
+        "es": "Describir cada solicitud en stderr (la clave nunca aparece)"
+      }
+    },
+    {
+      "name": "verbose",
+      "flag": "--verbose",
+      "short": null,
+      "syntax": "--verbose",
+      "value": null,
+      "type": "boolean",
+      "global": true,
+      "commands": [],
+      "description": {
+        "en": "Same as --debug",
+        "pt-BR": "O mesmo que --debug",
+        "es": "Lo mismo que --debug"
       }
     },
     {
@@ -381,7 +476,10 @@
       "type": "boolean",
       "global": false,
       "commands": [
-        "migrate"
+        "migrate",
+        "migrations.approve",
+        "migrations.cancel",
+        "update"
       ],
       "description": {
         "en": "Do not ask for confirmation; accept the domain found in the backup and, when it is the only one, the destination",
@@ -456,12 +554,48 @@
         "pt-BR": "Mostrar planos e preços em uma moeda (por exemplo USD ou BRL)",
         "es": "Mostrar planes y precios en una moneda (por ejemplo USD o BRL)"
       }
+    },
+    {
+      "name": "all",
+      "flag": "--all",
+      "short": "-a",
+      "syntax": "-a, --all",
+      "value": null,
+      "type": "boolean",
+      "global": false,
+      "commands": [
+        "servers.list"
+      ],
+      "description": {
+        "en": "Also list deleted servers",
+        "pt-BR": "Listar também os servidores apagados",
+        "es": "Listar también los servidores eliminados"
+      }
+    },
+    {
+      "name": "check",
+      "flag": "--check",
+      "short": null,
+      "syntax": "--check",
+      "value": null,
+      "type": "boolean",
+      "global": false,
+      "commands": [
+        "update"
+      ],
+      "description": {
+        "en": "Only check for a new version; nothing is installed",
+        "pt-BR": "Só verificar se há versão nova; nada é instalado",
+        "es": "Solo comprobar si hay una versión nueva; no se instala nada"
+      }
     }
   ],
   "globalOptions": [
     "json",
     "api-url",
     "lang",
+    "debug",
+    "verbose",
     "help",
     "version"
   ],
@@ -487,6 +621,11 @@
       "target": "--watch"
     },
     {
+      "kind": "short-option",
+      "alias": "-a",
+      "target": "--all"
+    },
+    {
       "kind": "help-command",
       "alias": "bladecp help <command>",
       "target": "bladecp <command> --help"
@@ -505,6 +644,11 @@
       "kind": "group-default",
       "alias": "bladecp migrations",
       "target": "bladecp migrations list"
+    },
+    {
+      "kind": "group-default",
+      "alias": "bladecp config",
+      "target": "bladecp config list"
     }
   ],
   "exitCodes": [
@@ -608,6 +752,15 @@
       }
     },
     {
+      "code": 11,
+      "name": "UPDATE_REQUIRED",
+      "description": {
+        "en": "update required",
+        "pt-BR": "atualização necessária",
+        "es": "actualización necesaria"
+      }
+    },
+    {
       "code": 130,
       "name": "INTERRUPTED",
       "description": {
@@ -651,9 +804,35 @@
         1
       ],
       "message": {
-        "en": "BladeCP returned an unexpected key. Try \"bladecp login\" again.",
-        "pt-BR": "A BladeCP retornou uma chave inesperada. Tente \"bladecp login\" de novo.",
-        "es": "BladeCP devolvió una clave inesperada. Intenta \"bladecp login\" de nuevo."
+        "en": "BladeCP answered in a format this CLI does not understand. Try again in a few minutes; if it keeps happening, update the CLI with \"bladecp update\".",
+        "pt-BR": "A BladeCP respondeu num formato que esta CLI não entende. Tente de novo em alguns minutos; se continuar, atualize a CLI com \"bladecp update\".",
+        "es": "BladeCP respondió en un formato que esta CLI no entiende. Inténtalo de nuevo en unos minutos; si sigue pasando, actualiza la CLI con \"bladecp update\"."
+      },
+      "hint": null
+    },
+    {
+      "code": "filesystem_error",
+      "origin": "cli",
+      "exitCodes": [
+        1
+      ],
+      "message": {
+        "en": "Could not use {path}: {reason}.",
+        "pt-BR": "Não foi possível usar {path}: {reason}.",
+        "es": "No se pudo usar {path}: {reason}."
+      },
+      "hint": null
+    },
+    {
+      "code": "update_failed",
+      "origin": "cli",
+      "exitCodes": [
+        1
+      ],
+      "message": {
+        "en": "The update did not finish (the package manager ended with {status}).",
+        "pt-BR": "A atualização não terminou (o gerenciador de pacotes saiu com {status}).",
+        "es": "La actualización no terminó (el gestor de paquetes salió con {status})."
       },
       "hint": null
     },
@@ -832,6 +1011,49 @@
         "en": "Type a valid domain, for example example.com.",
         "pt-BR": "Digite um domínio válido, por exemplo example.com.",
         "es": "Escribe un dominio válido, por ejemplo example.com."
+      },
+      "hint": null
+    },
+    {
+      "code": "migration_in_progress",
+      "origin": "cli",
+      "exitCodes": [
+        2
+      ],
+      "message": {
+        "en": "A migration of this file ({uuid}) is already in progress to {destination}, not to the destination you gave now.",
+        "pt-BR": "Uma migração deste arquivo ({uuid}) já está em andamento para {destination}, e não para o destino informado agora.",
+        "es": "Una migración de este archivo ({uuid}) ya está en curso hacia {destination}, no hacia el destino indicado ahora."
+      },
+      "hint": {
+        "en": "To continue it, run the command without --plan and --location. To start over somewhere else, cancel it first: bladecp migrations cancel {uuid}",
+        "pt-BR": "Para continuar, rode o comando sem --plan e --location. Para começar em outro lugar, cancele antes: bladecp migrations cancel {uuid}",
+        "es": "Para continuarla, ejecuta el comando sin --plan ni --location. Para empezar en otro lugar, cancélala antes: bladecp migrations cancel {uuid}"
+      }
+    },
+    {
+      "code": "ambiguous_id",
+      "origin": "cli",
+      "exitCodes": [
+        2
+      ],
+      "message": {
+        "en": "\"{value}\" matches {count} of your items. Type more characters of the ID.",
+        "pt-BR": "\"{value}\" corresponde a {count} itens seus. Digite mais caracteres do ID.",
+        "es": "\"{value}\" coincide con {count} de tus elementos. Escribe más caracteres del ID."
+      },
+      "hint": null
+    },
+    {
+      "code": "confirmation_required",
+      "origin": "cli",
+      "exitCodes": [
+        2
+      ],
+      "message": {
+        "en": "This needs a confirmation. Without a terminal, run: {command}",
+        "pt-BR": "Isto precisa de confirmação. Sem terminal, rode: {command}",
+        "es": "Esto necesita una confirmación. Sin terminal, ejecuta: {command}"
       },
       "hint": null
     },
@@ -1363,6 +1585,49 @@
         "en": "Run the same command again to continue where it stopped.",
         "pt-BR": "Rode o mesmo comando de novo para continuar de onde parou.",
         "es": "Ejecuta el mismo comando otra vez para continuar donde se detuvo."
+      }
+    },
+    {
+      "code": "migration_failed",
+      "origin": "cli",
+      "exitCodes": [
+        9
+      ],
+      "message": {
+        "en": "The migration failed.",
+        "pt-BR": "A migração falhou.",
+        "es": "La migración falló."
+      },
+      "hint": null
+    },
+    {
+      "code": "migration_cancelled",
+      "origin": "cli",
+      "exitCodes": [
+        9
+      ],
+      "message": {
+        "en": "The migration was cancelled.",
+        "pt-BR": "A migração foi cancelada.",
+        "es": "La migración fue cancelada."
+      },
+      "hint": null
+    },
+    {
+      "code": "update_required",
+      "origin": "cli",
+      "exitCodes": [
+        11
+      ],
+      "message": {
+        "en": "This version of the BladeCP CLI ({current}) is no longer accepted by BladeCP (minimum {minimum}). Update to continue.",
+        "pt-BR": "Esta versão da BladeCP CLI ({current}) não é mais aceita pela BladeCP (mínima {minimum}). Atualize para continuar.",
+        "es": "BladeCP ya no acepta esta versión de la CLI ({current}); la mínima es {minimum}. Actualiza para continuar."
+      },
+      "hint": {
+        "en": "Run \"bladecp update\".",
+        "pt-BR": "Rode \"bladecp update\".",
+        "es": "Ejecuta \"bladecp update\"."
       }
     },
     {

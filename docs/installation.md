@@ -42,11 +42,26 @@ Continue with [authentication](authentication.md) and the
 ## Update
 
 ```sh
-npm install -g @bladecp/cli@latest
+bladecp update                 # shows what changed, asks, then updates
+bladecp update --check         # only checks
+npm install -g @bladecp/cli@latest   # the same by hand
 ```
 
-Your saved sign-in and the progress of interrupted uploads are kept across
-updates.
+`bladecp update` uses the package manager that installed the CLI (npm, pnpm,
+yarn, bun or Volta). Your saved sign-in, preferences and the progress of
+interrupted uploads are kept across updates.
+
+Once a day, in the background, the CLI asks the npm registry for the latest
+version (only the version number) and shows one quiet line at the end of an
+interactive command. Turn it off with `BLADECP_NO_UPDATE_CHECK=1`,
+`NO_UPDATE_NOTIFIER` or `bladecp config set update-check off`. To update on its
+own before a command, run `bladecp config set auto-update on` (off by default;
+never in CI or with `--json`).
+
+If the update fails with a permission error (`EACCES`), do not run the package
+manager with sudo: give npm a folder you own
+(`npm config set prefix ~/.npm-global`, then add `~/.npm-global/bin` to `PATH`)
+or install Node.js with a version manager such as nvm, fnm or Volta.
 
 ## Uninstall
 
@@ -64,10 +79,12 @@ The CLI keeps its files in one folder:
 |---|---|
 | macOS and Linux | `$XDG_CONFIG_HOME/bladecp`, by default `~/.config/bladecp` |
 | Windows | `%APPDATA%\bladecp` |
-| Any, when set | `BLADECP_CONFIG_DIR` |
+| Any, when set | `BLADECP_CONFIG_DIR` (`~` is expanded) |
 
-It contains `config.json` (the saved sign-in) and `uploads/` (the progress of
-interrupted uploads). You can delete the folder after uninstalling.
+It contains `config.json` (the saved sign-in and your preferences),
+`update-check.json` (the date and result of the last version check) and
+`uploads/` (the progress of interrupted uploads). You can delete the folder
+after uninstalling.
 
 ## Verify a release download
 
@@ -80,12 +97,12 @@ published to npm.
 ```sh
 shasum -a 256 -c SHA256SUMS      # macOS
 sha256sum -c SHA256SUMS          # Linux
-npm install -g ./bladecp-cli-0.1.0.tgz
+npm install -g ./bladecp-cli-0.2.0.tgz
 ```
 
 To compare it with the npm registry, check that the SHA-1 of the tarball
-(`shasum bladecp-cli-0.1.0.tgz`) equals the output of
-`npm view @bladecp/cli@0.1.0 dist.shasum`.
+(`shasum bladecp-cli-0.2.0.tgz`) equals the output of
+`npm view @bladecp/cli@0.2.0 dist.shasum`.
 
 ## Build from source
 

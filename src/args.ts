@@ -7,6 +7,8 @@ export const OPTIONS = {
   json: { type: 'boolean' },
   'api-url': { type: 'string' },
   lang: { type: 'string' },
+  debug: { type: 'boolean' },
+  verbose: { type: 'boolean' },
   help: { type: 'boolean', short: 'h' },
   version: { type: 'boolean', short: 'v' },
   token: { type: 'string' },
@@ -19,12 +21,22 @@ export const OPTIONS = {
   watch: { type: 'boolean', short: 'w' },
   reason: { type: 'string' },
   currency: { type: 'string' },
+  all: { type: 'boolean', short: 'a' },
+  check: { type: 'boolean' },
 } as const;
 
 export type OptionName = keyof typeof OPTIONS;
 export type OptionValues = Partial<Record<OptionName, string | boolean>>;
 
-export const GLOBAL_OPTIONS: readonly OptionName[] = ['json', 'api-url', 'lang', 'help', 'version'];
+export const GLOBAL_OPTIONS: readonly OptionName[] = [
+  'json',
+  'api-url',
+  'lang',
+  'debug',
+  'verbose',
+  'help',
+  'version',
+];
 
 export type CommandId =
   | 'login'
@@ -39,7 +51,13 @@ export type CommandId =
   | 'migrations.review'
   | 'migrations.approve'
   | 'migrations.cancel'
-  | 'migrations.retry';
+  | 'migrations.retry'
+  | 'update'
+  | 'config.list'
+  | 'config.get'
+  | 'config.set';
+
+export type HelpGroup = 'account' | 'servers' | 'migrations' | 'cli';
 
 export interface CommandSpec {
   id: CommandId;
@@ -48,6 +66,8 @@ export interface CommandSpec {
   options: OptionName[];
   usage: string;
   summary: MessageKey;
+  /** Section of `bladecp --help` the command is listed in. */
+  group: HelpGroup;
   /** Commands that run without a key. */
   public?: boolean;
 }
@@ -60,6 +80,7 @@ export const COMMANDS: CommandSpec[] = [
     options: ['token', 'no-browser'],
     usage: 'bladecp login [--token <key>] [--no-browser]',
     summary: 'help.login',
+    group: 'account',
     public: true,
   },
   {
@@ -69,6 +90,7 @@ export const COMMANDS: CommandSpec[] = [
     options: [],
     usage: 'bladecp logout',
     summary: 'help.logout',
+    group: 'account',
     public: true,
   },
   {
@@ -78,14 +100,16 @@ export const COMMANDS: CommandSpec[] = [
     options: [],
     usage: 'bladecp whoami',
     summary: 'help.whoami',
+    group: 'account',
   },
   {
     id: 'servers.list',
     path: ['servers', 'list'],
     args: [],
-    options: [],
-    usage: 'bladecp servers list',
+    options: ['all'],
+    usage: 'bladecp servers list [--all]',
     summary: 'help.serversList',
+    group: 'servers',
   },
   {
     id: 'servers.show',
@@ -94,6 +118,7 @@ export const COMMANDS: CommandSpec[] = [
     options: [],
     usage: 'bladecp servers show <uuid>',
     summary: 'help.serversShow',
+    group: 'servers',
   },
   {
     id: 'destinations.list',
@@ -102,6 +127,7 @@ export const COMMANDS: CommandSpec[] = [
     options: ['currency'],
     usage: 'bladecp destinations list [--currency <code>]',
     summary: 'help.destinationsList',
+    group: 'servers',
   },
   {
     id: 'migrate',
@@ -111,6 +137,7 @@ export const COMMANDS: CommandSpec[] = [
     usage:
       'bladecp migrate <backup.tar.gz> [--plan <id> --location <id>] [--domain <host>] [--yes] [--no-wait]',
     summary: 'help.migrate',
+    group: 'migrations',
   },
   {
     id: 'migrations.list',
@@ -119,6 +146,7 @@ export const COMMANDS: CommandSpec[] = [
     options: [],
     usage: 'bladecp migrations list',
     summary: 'help.migrationsList',
+    group: 'migrations',
   },
   {
     id: 'migrations.status',
@@ -127,6 +155,7 @@ export const COMMANDS: CommandSpec[] = [
     options: ['watch'],
     usage: 'bladecp migrations status <uuid> [--watch]',
     summary: 'help.migrationsStatus',
+    group: 'migrations',
   },
   {
     id: 'migrations.review',
@@ -135,22 +164,25 @@ export const COMMANDS: CommandSpec[] = [
     options: ['domain'],
     usage: 'bladecp migrations review <uuid> --domain <host>',
     summary: 'help.migrationsReview',
+    group: 'migrations',
   },
   {
     id: 'migrations.approve',
     path: ['migrations', 'approve'],
     args: ['uuid'],
-    options: [],
-    usage: 'bladecp migrations approve <uuid>',
+    options: ['yes'],
+    usage: 'bladecp migrations approve <uuid> [--yes]',
     summary: 'help.migrationsApprove',
+    group: 'migrations',
   },
   {
     id: 'migrations.cancel',
     path: ['migrations', 'cancel'],
     args: ['uuid'],
-    options: ['reason'],
-    usage: 'bladecp migrations cancel <uuid> [--reason <text>]',
+    options: ['reason', 'yes'],
+    usage: 'bladecp migrations cancel <uuid> [--reason <text>] [--yes]',
     summary: 'help.migrationsCancel',
+    group: 'migrations',
   },
   {
     id: 'migrations.retry',
@@ -159,6 +191,47 @@ export const COMMANDS: CommandSpec[] = [
     options: [],
     usage: 'bladecp migrations retry <uuid>',
     summary: 'help.migrationsRetry',
+    group: 'migrations',
+  },
+  {
+    id: 'update',
+    path: ['update'],
+    args: [],
+    options: ['check', 'yes'],
+    usage: 'bladecp update [--check] [--yes]',
+    summary: 'help.update',
+    group: 'cli',
+    public: true,
+  },
+  {
+    id: 'config.list',
+    path: ['config', 'list'],
+    args: [],
+    options: [],
+    usage: 'bladecp config list',
+    summary: 'help.configList',
+    group: 'cli',
+    public: true,
+  },
+  {
+    id: 'config.get',
+    path: ['config', 'get'],
+    args: ['key'],
+    options: [],
+    usage: 'bladecp config get <key>',
+    summary: 'help.configGet',
+    group: 'cli',
+    public: true,
+  },
+  {
+    id: 'config.set',
+    path: ['config', 'set'],
+    args: ['key', 'value'],
+    options: [],
+    usage: 'bladecp config set <key> <value>',
+    summary: 'help.configSet',
+    group: 'cli',
+    public: true,
   },
 ];
 
@@ -167,6 +240,7 @@ export const GROUP_DEFAULTS: Record<string, CommandId> = {
   servers: 'servers.list',
   destinations: 'destinations.list',
   migrations: 'migrations.list',
+  config: 'config.list',
 };
 
 /** How a positional argument is written in help and usage lines. */
@@ -178,6 +252,8 @@ export const OPTION_HELP: Record<OptionName, { syntax: string; key: MessageKey }
   json: { syntax: '--json', key: 'option.json' },
   'api-url': { syntax: '--api-url <url>', key: 'option.apiUrl' },
   lang: { syntax: '--lang <en|pt-BR|es>', key: 'option.lang' },
+  debug: { syntax: '--debug', key: 'option.debug' },
+  verbose: { syntax: '--verbose', key: 'option.verbose' },
   help: { syntax: '-h, --help', key: 'option.help' },
   version: { syntax: '-v, --version', key: 'option.version' },
   token: { syntax: '--token <key>', key: 'option.token' },
@@ -190,61 +266,101 @@ export const OPTION_HELP: Record<OptionName, { syntax: string; key: MessageKey }
   watch: { syntax: '-w, --watch', key: 'option.watch' },
   reason: { syntax: '--reason <text>', key: 'option.reason' },
   currency: { syntax: '--currency <code>', key: 'option.currency' },
+  all: { syntax: '-a, --all', key: 'option.all' },
+  check: { syntax: '--check', key: 'option.check' },
+};
+
+/** `--yes` means something a little different on each command. */
+export const YES_HELP: Partial<Record<CommandId, MessageKey>> = {
+  'migrations.approve': 'option.yesConfirm',
+  'migrations.cancel': 'option.yesConfirm',
+  update: 'option.yesUpdate',
 };
 
 export interface ParsedArgs {
   values: OptionValues;
   positionals: string[];
+  /** Options given more than once (the last value wins). */
+  repeated: { option: string; value: string }[];
 }
 
-/** Reads `--json` and `--lang` before full parsing so errors are localized. */
-export function prescan(argv: string[]): { json: boolean; lang?: string } {
+/** Reads `--json`, `--lang` and `--debug` before full parsing so errors are localized. */
+export function prescan(argv: string[]): { json: boolean; lang?: string; debug: boolean } {
   let json = false;
+  let debug = false;
   let lang: string | undefined;
   for (let i = 0; i < argv.length; i += 1) {
     const arg = argv[i]!;
     if (arg === '--') break;
     if (arg === '--json') json = true;
+    else if (arg === '--debug' || arg === '--verbose') debug = true;
     else if (arg === '--lang') lang = argv[i + 1];
     else if (arg.startsWith('--lang=')) lang = arg.slice('--lang='.length);
   }
-  return lang === undefined ? { json } : { json, lang };
+  return lang === undefined ? { json, debug } : { json, debug, lang };
 }
 
+const usage = (messageKey: MessageKey, vars: Record<string, string>) =>
+  new CliError(messageKey, vars, { exitCode: ExitCode.USAGE, code: 'usage' });
+
 export function parseCli(argv: string[]): ParsedArgs {
+  let parsed: {
+    values: Record<string, unknown>;
+    positionals: string[];
+    tokens: { kind: string; name?: string }[];
+  };
   try {
-    const { values, positionals } = parseArgs({
+    parsed = parseArgs({
       args: argv,
       options: OPTIONS,
       allowPositionals: true,
       strict: true,
+      tokens: true,
     });
-    return { values: values as OptionValues, positionals };
   } catch (error) {
     const code = (error as { code?: string }).code;
     const message = error instanceof Error ? error.message : '';
     const option = /'(-[^' ]+)/.exec(message)?.[1] ?? '';
     if (code === 'ERR_PARSE_ARGS_UNKNOWN_OPTION') {
-      throw new CliError(
-        'error.unknownOption',
-        { option },
-        { exitCode: ExitCode.USAGE, code: 'usage' },
-      );
+      throw usage('error.unknownOption', { option });
     }
     if (code === 'ERR_PARSE_ARGS_INVALID_OPTION_VALUE') {
-      throw new CliError(
-        'error.optionNeedsValue',
-        { option },
-        { exitCode: ExitCode.USAGE, code: 'usage' },
-      );
+      if (/does not take an argument/.test(message)) {
+        throw usage('error.optionTakesNoValue', { option: option.replace(/=.*$/, '') });
+      }
+      if (/ambiguous/.test(message)) {
+        // `--plan -1`: the value starts with a dash.
+        const value = argv[argv.indexOf(option) + 1] ?? '';
+        if (option === '--plan' || option === '--location') {
+          throw usage('error.invalidNumber', { option, value });
+        }
+        throw usage('error.optionValueDash', { option, value });
+      }
+      throw usage('error.optionNeedsValue', { option });
     }
     throw new CliError('error.invalidArguments', {}, { exitCode: ExitCode.USAGE, code: 'usage' });
   }
+  const seen = new Map<string, number>();
+  const repeated: ParsedArgs['repeated'] = [];
+  for (const token of parsed.tokens) {
+    if (token.kind !== 'option' || !token.name) continue;
+    const count = (seen.get(token.name) ?? 0) + 1;
+    seen.set(token.name, count);
+    if (count === 2) {
+      const value = parsed.values[token.name as OptionName];
+      repeated.push({ option: `--${token.name}`, value: typeof value === 'string' ? value : '' });
+    }
+  }
+  return { values: parsed.values as OptionValues, positionals: parsed.positionals, repeated };
 }
 
 export type Resolved =
   | { kind: 'help'; topic?: CommandSpec | undefined; group?: string | undefined }
   | { kind: 'command'; spec: CommandSpec; args: string[] };
+
+export function isGroup(name: string | undefined): boolean {
+  return Boolean(name) && COMMANDS.some((spec) => spec.path.length > 1 && spec.path[0] === name);
+}
 
 export function resolveCommand(positionals: string[]): Resolved {
   if (positionals.length === 0) return { kind: 'help' };
@@ -252,6 +368,8 @@ export function resolveCommand(positionals: string[]): Resolved {
   if (first === 'help') {
     const rest = positionals.slice(1);
     if (rest.length === 0) return { kind: 'help' };
+    // `bladecp help migrations` is the help of the whole group.
+    if (rest.length === 1 && isGroup(rest[0])) return { kind: 'help', group: rest[0] };
     const inner = resolveCommand(rest);
     if (inner.kind === 'command') return { kind: 'help', topic: inner.spec };
     return inner;
@@ -324,7 +442,8 @@ export function validateInvocation(spec: CommandSpec, values: OptionValues, args
   }
 }
 
-const UUID_LIKE = /^[0-9A-Za-z][0-9A-Za-z-]{7,63}$/;
+/** A BladeCP ID, or the first characters of one (at least 4). */
+const UUID_LIKE = /^[0-9A-Za-z][0-9A-Za-z-]{3,63}$/;
 
 export function assertUuidArg(value: string): string {
   const trimmed = value.trim();

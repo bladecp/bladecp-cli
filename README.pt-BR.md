@@ -11,11 +11,11 @@
 </p>
 
 <p align="center">
-  <a href="CHANGELOG.md"><img src="https://img.shields.io/badge/vers%C3%A3o-0.1.0-4f46e5?style=flat-square&amp;labelColor=1e1b4b" alt="Versão 0.1.0"></a>
+  <a href="CHANGELOG.md"><img src="https://img.shields.io/badge/vers%C3%A3o-0.2.0-4f46e5?style=flat-square&amp;labelColor=1e1b4b" alt="Versão 0.2.0"></a>
   <a href="https://www.npmjs.com/package/@bladecp/cli"><img src="https://img.shields.io/badge/npm-%40bladecp%2Fcli-6366f1?style=flat-square&amp;labelColor=1e1b4b&amp;logo=npm&amp;logoColor=white" alt="Pacote npm @bladecp/cli"></a>
   <a href="#instalacao"><img src="https://img.shields.io/badge/Node.js-20%2B-4f46e5?style=flat-square&amp;labelColor=1e1b4b&amp;logo=nodedotjs&amp;logoColor=white" alt="Node.js 20 ou superior"></a>
   <a href="#primeiros-passos"><img src="https://img.shields.io/badge/idiomas-EN%20%C2%B7%20PT--BR%20%C2%B7%20ES-7c3aed?style=flat-square&amp;labelColor=1e1b4b" alt="Inglês, português (Brasil) e espanhol"></a><br>
-  <a href="#qualidade"><img src="https://img.shields.io/badge/testes-152%20aprovados-8b5cf6?style=flat-square&amp;labelColor=1e1b4b" alt="152 testes automatizados aprovados na versão 0.1.0"></a>
+  <a href="#qualidade"><img src="https://img.shields.io/badge/testes-910%20aprovados-8b5cf6?style=flat-square&amp;labelColor=1e1b4b" alt="910 testes automatizados aprovados na versão 0.2.0"></a>
   <a href="#qualidade"><img src="https://img.shields.io/badge/depend%C3%AAncias%20de%20runtime-0-6d28d9?style=flat-square&amp;labelColor=1e1b4b" alt="Sem dependências de runtime"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/licen%C3%A7a-MIT-4338ca?style=flat-square&amp;labelColor=1e1b4b" alt="Licença MIT"></a>
   <a href="https://github.com/bladecp/bladecp-cli/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/bladecp/bladecp-cli/ci.yml?branch=main&amp;style=flat-square&amp;labelColor=1e1b4b&amp;label=CI%20p%C3%BAblico" alt="Estado do CI público"></a>
@@ -26,9 +26,9 @@
   <br>
   <a href="https://www.npmjs.com/package/@bladecp/cli"><strong>Instalar pelo npm</strong></a>
   &nbsp;·&nbsp;
-  <a href="https://github.com/bladecp/bladecp-cli/releases/tag/v0.1.0">Notas da versão</a>
+  <a href="https://github.com/bladecp/bladecp-cli/releases/tag/v0.2.0">Notas da versão</a>
   &nbsp;·&nbsp;
-  <a href="https://github.com/bladecp/bladecp-cli/releases/download/v0.1.0/SHA256SUMS">Checksum SHA-256</a>
+  <a href="https://github.com/bladecp/bladecp-cli/releases/download/v0.2.0/SHA256SUMS">Checksum SHA-256</a>
 </p>
 
 <p align="center">
@@ -45,9 +45,12 @@
 </p>
 
 > [!NOTE]
-> **Versão `0.1.0`, a primeira release pública.** Os códigos de saída, o
-> envelope `--json` e os códigos de erro são um contrato público: mudar qualquer
-> um deles exige uma nova versão major.
+> **Versão `0.2.0`.** Visual novo em todas as telas, o B em 3D no login,
+> `bladecp update`, verificação diária de versão que você pode desligar,
+> preferências com `bladecp config`, IDs curtos e erros mais claros. Os códigos
+> de saída, o envelope `--json` e os códigos de erro são um contrato público:
+> esta versão só acrescenta (código de saída `11`, códigos de erro e campos
+> novos).
 
 A BladeCP CLI é o cliente oficial de terminal da Customer API da BladeCP. Ela
 faz o login pelo navegador, lista seus servidores e os destinos disponíveis para
@@ -74,19 +77,24 @@ ela nunca pergunta e responde em JSON.
 | `bladecp login [--token <chave>] [--no-browser]` | Entrar |
 | `bladecp logout` | Remover o login salvo |
 | `bladecp whoami` | Mostrar a conta e a chave em uso |
-| `bladecp servers list` | Listar seus servidores |
+| `bladecp` | No terminal: boas-vindas com o que precisa de você agora |
+| `bladecp servers list [--all]` | Listar seus servidores (`--all` mostra também os apagados) |
 | `bladecp servers show <uuid>` | Mostrar um servidor e o uso de recursos |
 | `bladecp destinations list [--currency <código>]` | Planos, disco, preços mensais e locais disponíveis para migração |
 | `bladecp migrate <backup.tar.gz>` | Enviar um backup do cPanel e migrar o site |
 | `bladecp migrations list` | Listar suas migrações |
 | `bladecp migrations status <uuid> [--watch]` | Mostrar ou acompanhar uma migração |
 | `bladecp migrations review <uuid> --domain <host>` | Confirmar o domínio de uma migração |
-| `bladecp migrations approve <uuid>` | Aprovar depois de conferir a prévia |
-| `bladecp migrations cancel <uuid> [--reason <texto>]` | Cancelar uma migração |
+| `bladecp migrations approve <uuid> [--yes]` | Aprovar depois de conferir a prévia |
+| `bladecp migrations cancel <uuid> [--reason <texto>] [--yes]` | Cancelar uma migração |
 | `bladecp migrations retry <uuid>` | Tentar de novo uma migração que falhou |
+| `bladecp update [--check] [--yes]` | Ver o que mudou e atualizar a CLI |
+| `bladecp config list` / `get <chave>` / `set <chave> <valor>` | Preferências: `auto-update`, `update-check`, `lang` |
 
 Opções globais: `--json`, `--api-url <url>` (ou `BLADECP_API_URL`, padrão
-`https://api.bladecp.com`), `--lang en|pt-BR|es`, `--help`, `--version`. A
+`https://api.bladecp.com`), `--lang en|pt-BR|es`, `--debug` (ou `--verbose`),
+`--help`, `--version`. Onde um comando recebe um ID, bastam os primeiros
+caracteres (pelo menos 4) quando só um item seu começa com eles. A
 [referência de comandos](docs/commands.md), em inglês, traz todas as opções.
 
 ### Do que a CLI cuida
@@ -102,8 +110,18 @@ Opções globais: `--json`, `--api-url <url>` (ou `BLADECP_API_URL`, padrão
 - **Concluída na aprovação.** A migração conclui quando a prévia é aprovada.
   Apontar o domínio é opcional; a CLI mostra os nameservers da BladeCP e, quando
   a API devolve, o endereço para um registro A.
+- **Avisa quando algo demora.** Uma fase que passa do tempo normal aparece na
+  tela (e no `--json` como `slowPhase`), com como acompanhar depois e, quando
+  passa muito, como falar com o suporte.
+- **Cabe na sua janela.** Tabelas, ajuda e progresso se adaptam a 40, 80 ou 120
+  colunas; a porcentagem do envio fica sempre visível.
+- **Se mantém atualizada.** Uma vez por dia a CLI pergunta ao npm qual é a
+  versão mais recente e mostra uma linha discreta no fim de um comando
+  interativo. O `bladecp update` mostra o que mudou e atualiza com o
+  gerenciador de pacotes que a instalou. Nada mais é enviado.
 - **Três idiomas.** Mensagens em inglês, português do Brasil e espanhol, a partir
-  de `LC_ALL`, `LC_MESSAGES` ou `LANG`, ou escolhidas com `--lang`.
+  de `LC_ALL`, `LC_MESSAGES` ou `LANG`, de `bladecp config set lang`, ou
+  escolhidas com `--lang`.
 
 ## Arquitetura
 
@@ -174,22 +192,27 @@ arquivo publicado no npm.
 
 | Arquivo | Para que serve |
 | --- | --- |
-| [**bladecp-cli-0.1.0.tgz**](https://github.com/bladecp/bladecp-cli/releases/download/v0.1.0/bladecp-cli-0.1.0.tgz) | O pacote npm: `dist/`, READMEs, changelog, licença e `package.json` |
-| [**SHA256SUMS**](https://github.com/bladecp/bladecp-cli/releases/download/v0.1.0/SHA256SUMS) | Checksum para conferir o tarball |
-| [**RELEASE_NOTES.md**](https://github.com/bladecp/bladecp-cli/releases/download/v0.1.0/RELEASE_NOTES.md) | Notas desta versão |
+| [**bladecp-cli-0.2.0.tgz**](https://github.com/bladecp/bladecp-cli/releases/download/v0.2.0/bladecp-cli-0.2.0.tgz) | O pacote npm: `dist/`, READMEs, changelog, licença e `package.json` |
+| [**SHA256SUMS**](https://github.com/bladecp/bladecp-cli/releases/download/v0.2.0/SHA256SUMS) | Checksum para conferir o tarball |
+| [**RELEASE_NOTES.md**](https://github.com/bladecp/bladecp-cli/releases/download/v0.2.0/RELEASE_NOTES.md) | Notas desta versão |
 
 ```sh
 shasum -a 256 -c SHA256SUMS          # no Linux: sha256sum -c SHA256SUMS
-npm install -g ./bladecp-cli-0.1.0.tgz
+npm install -g ./bladecp-cli-0.2.0.tgz
 ```
 
 ### Atualizar e desinstalar
 
 ```sh
-npm install -g @bladecp/cli@latest   # mantém seu login e o progresso dos envios
+bladecp update                       # o que mudou, depois atualiza com npm, pnpm, yarn ou bun
+bladecp config set auto-update on    # opcional: atualizar sozinha antes de um comando
 bladecp logout                       # remove a chave salva deste computador
 npm uninstall -g @bladecp/cli
 ```
+
+A verificação diária só pergunta ao registro do npm o número da versão mais
+recente. Desligue com `BLADECP_NO_UPDATE_CHECK=1`, `NO_UPDATE_NOTIFIER` ou
+`bladecp config set update-check off`.
 
 O `bladecp logout` não revoga a chave: revogue em
 [Chaves de API](https://hub.bladecp.com/account/api-keys). O
@@ -228,15 +251,16 @@ até 50 GB.
 | --- | --- |
 | `--plan <id> --location <id>` | Destino, de `bladecp destinations list` |
 | `--domain <host>` | Domínio que o site migrado vai usar |
-| `--yes` | Sem confirmação; aceita o domínio encontrado no backup e, quando sua conta tem exatamente um destino, esse destino |
+| `--yes` | Sem confirmação; aceita o domínio encontrado no backup e, quando sua conta tem exatamente um destino, esse destino. Nunca aprova a migração |
 | `--no-wait` | Para quando o backup for recebido |
 
 **O envio parou?** Rode o mesmo comando de novo. A CLI lembra a migração daquele
 arquivo e envia só as partes que faltam. Se o backup já foi recebido, ela apenas
 continua acompanhando a migração.
 
-Ctrl+C durante o acompanhamento só para de acompanhar; a migração continua.
-Confira depois com `bladecp migrations status <uuid> --watch`.
+No terminal, quando a prévia fica pronta, `o` abre a prévia e `a` aprova; `d`
+decide depois. Ctrl+C durante o acompanhamento só para de acompanhar; a
+migração continua. Confira depois com `bladecp migrations status <uuid> --watch`.
 
 <a id="automacao"></a>
 
@@ -262,9 +286,11 @@ Uma migração sem nenhuma pergunta:
 BLADECP_API_KEY=… bladecp migrate site.tar.gz --plan 12 --location 3 --domain example.com --json
 ```
 
-`migrations status --watch --json` imprime uma linha JSON por mudança e termina
-com código de saída `0` quando a migração está concluída. Os comandos de leitura
-devolvem os objetos da API sem alteração em `data`. O
+`migrations status --watch --json` imprime uma linha JSON por mudança, erros
+incluídos, e termina com código de saída `0` quando a migração está concluída.
+Os comandos de leitura devolvem os objetos da API sem alteração em `data`; a
+CLI só acrescenta campos como `domainPointing` e `slowPhase`. O `--help --json`
+devolve a ajuda como um documento. O
 [guia de automação](docs/automation.md), em inglês, descreve cada campo e traz
 um exemplo com GitHub Actions.
 
@@ -281,14 +307,20 @@ um exemplo com GitHub Actions.
 | 8 | Erro de rede ou do servidor, ou falha no envio |
 | 9 | Migração com falha ou cancelada |
 | 10 | Aguardando uma ação sua (por exemplo, confirmar o domínio) |
+| 11 | Atualização necessária (a API não aceita mais esta versão: rode `bladecp update`) |
 | 130 | Interrompido |
 
 | Variável | Para que serve |
 | --- | --- |
 | `BLADECP_API_KEY` | Chave de API usada no lugar do login salvo |
 | `BLADECP_API_URL` | Endereço da API (o mesmo que `--api-url`) |
-| `BLADECP_CONFIG_DIR` | Pasta do login salvo e do progresso dos envios |
-| `NO_COLOR` | Desliga as cores |
+| `BLADECP_HUB_URL` | Endereço do Hub para o login e os links (padrão: o Hub do endereço da API) |
+| `BLADECP_CONFIG_DIR` | Pasta do login salvo, das preferências e do progresso dos envios (`~` é expandido) |
+| `BLADECP_NO_UPDATE_CHECK` | `1` nunca procura versão nova (`NO_UPDATE_NOTIFIER` também vale) |
+| `BLADECP_MOTION` | `off` mostra o B sem animação, `reduced` só o último quadro |
+| `NO_COLOR` | Desliga as cores (qualquer valor não vazio) |
+| `FORCE_COLOR` | Força as cores (`1`, `2` ou `3`), inclusive em pipe, ou desliga (`0`) |
+| `CI` | Nunca pergunta e nunca anima |
 
 O [`reference.json`](reference.json) lista cada comando, opção, alias, código de
 saída e código de erro, com as mensagens nos três idiomas, para ferramentas que
@@ -334,9 +366,12 @@ mostra a CLI junto com a Customer API, em português.
 - **Nada a mais para confiar.** Sem dependências de runtime: `fetch`,
   `util.parseArgs`, `http(s)` e `readline` nativos. Cada release publica o
   tarball verificado e o checksum SHA-256.
-- **O logout é local.** O `bladecp logout` remove a chave do computador. Revogue
-  uma chave que você não usa mais em
+- **O logout é local.** O `bladecp logout` remove a chave do computador; a
+  Customer API não tem rota para revogar a chave em uso, então revogue uma
+  chave que você não usa mais em
   [Chaves de API](https://hub.bladecp.com/account/api-keys).
+- **Sem telemetria.** A verificação diária de versão pergunta ao registro do npm
+  um número de versão, nada mais, e pode ser desligada.
 
 Para relatar uma vulnerabilidade em privado, siga o [SECURITY.md](SECURITY.md).
 Nunca inclua uma chave de API numa issue pública.
@@ -345,13 +380,16 @@ Nunca inclua uma chave de API numa issue pública.
 
 ## Qualidade e validação
 
-A versão `0.1.0` foi validada pelos mantenedores com **152 testes
-automatizados** em 10 arquivos, rodados com Vitest contra uma Customer API
-simulada (`test/helpers/mock-api.ts`), nunca uma real. Eles cobrem todos os
-comandos, a migração e suas etapas, o login pelo navegador e o retorno local, o
-login salvo, os três catálogos de mensagens, o envio em partes, sequências
-hostis de terminal, os snapshots do `--json`, o `reference.json` e a ocultação da
-chave em todos os comandos. O selo de testes representa essa execução.
+A versão `0.2.0` foi validada pelos mantenedores com **910 testes
+automatizados** em 19 arquivos, rodados com Vitest contra uma Customer
+API simulada (`test/helpers/mock-api.ts`) e um registro npm simulado, nunca
+reais. Eles cobrem todos os comandos, a migração e suas etapas, o login pelo
+navegador e o retorno local, o login salvo, os três catálogos de mensagens, o
+envio em partes, as atualizações, sequências hostis de terminal, os snapshots
+do `--json`, o `reference.json`, a ocultação da chave em todos os comandos, uma
+foto de cada tela em 40, 80 e 120 colunas nos três idiomas, com e sem cor, e uma
+trava que mantém todo o visual num único kit. O selo de testes representa essa
+execução.
 
 Antes de uma release, o pacote é montado a partir da árvore pública curada, a
 árvore e o tarball passam por uma varredura de credenciais e referências não
@@ -382,11 +420,12 @@ bash scripts/check-public-tree.sh --package
 ```text
 src/
   bin.ts, cli.ts   Entrada, leitura dos argumentos, despacho e relatório de erro
-  commands/        account, servers, migrate, migrations e follow
+  commands/        account, servers, migrate, migrations, follow, home, update, config
+  ui/              O kit visual: saída, terminal, peças, perguntas e o B em 3D
+  update/          Verificação diária de versão, forma de instalação e novidades
   auth/            Credenciais, PKCE e o retorno em 127.0.0.1
   upload/          Plano de partes, PUT em stream, estado local e envio
   i18n/            Inglês (base), português (Brasil) e espanhol
-  output.ts        Toda a saída: escape, ocultação da chave, cores e --json
 test/              Suíte Vitest com uma Customer API simulada
 scripts/           Auxiliares de build e o portão da árvore pública
 docs/              Guias
@@ -395,8 +434,9 @@ reference.json     Referência para máquinas
 ```
 
 Contribuições são bem-vindas. Leia o [CONTRIBUTING.md](CONTRIBUTING.md) antes de
-abrir uma issue ou um pull request: toda mensagem existe nos três idiomas, texto
-externo nunca chega cru ao terminal, a chave nunca chega à saída, e uma mudança
+abrir uma issue ou um pull request: toda mensagem existe nos três idiomas, toda
+tela é montada com o kit visual em `src/ui/`, texto externo nunca chega cru ao
+terminal, a chave nunca chega à saída, e uma mudança
 de comando ou mensagem gera de novo o `reference.json`. Contribuições aprovadas
 seguem o fluxo de manutenção do projeto antes de entrar numa release pública
 seguinte.

@@ -36,6 +36,9 @@ Every error has a stable code. With `--json` it is in `error.code`; the
   `--api-url` and `BLADECP_API_URL` are not pointing somewhere else.
 - **"The configuration file ... is damaged" (`config_invalid`).** Run
   `bladecp logout` and sign in again.
+- **"Could not use ...: permission denied" (`filesystem_error`).** The CLI
+  could not write to its folder. Check its permissions, or choose another
+  folder with `BLADECP_CONFIG_DIR`.
 
 More detail in [authentication](authentication.md).
 
@@ -68,7 +71,18 @@ More detail in [authentication](authentication.md).
   domain. Run the command shown in the output, for example
   `bladecp migrations review <uuid> --domain example.com`.
 - **Exit code 9.** The migration failed or was cancelled. When a retry is
-  allowed, the output shows `bladecp migrations retry <uuid>`.
+  allowed, the output shows `bladecp migrations retry <uuid>`; when it is not,
+  the output says why.
+- **A phase is "taking longer than usual".** The migration keeps going on
+  BladeCP even if you close the terminal. Follow it later with
+  `bladecp migrations status <uuid> --watch`; when it takes much longer, the
+  CLI shows the support address.
+- **"A migration of this file is already in progress to ..."
+  (`migration_in_progress`).** You ran `migrate` again with another `--plan`
+  or `--location`. Run it without them to continue, or cancel the earlier
+  migration first.
+- **"... matches N of your items" (`ambiguous_id`).** Type more characters of
+  the ID, or the whole ID.
 
 ## Network and limits
 
@@ -80,6 +94,16 @@ More detail in [authentication](authentication.md).
   (`daily_quota_exceeded`).** Try again the next day.
 - **"Refusing to send your key over plain HTTP" (`insecure_api_url`).** Use an
   `https://` address. Plain HTTP is accepted only for `localhost`.
+- **"BladeCP answered in a format this CLI does not understand"
+  (`invalid_response`).** Try again in a few minutes; if it keeps happening,
+  update the CLI with `bladecp update`.
+- **"This version of the BladeCP CLI ... is no longer accepted"
+  (`update_required`, exit code 11).** Run `bladecp update`.
+- **`bladecp update` fails with a permission error (`update_failed`).** See
+  [installation](installation.md#update): give npm a folder you own instead of
+  using sudo.
+- **To see what the CLI sends,** add `--debug`: each request is described on
+  stderr (never the key).
 
 ## Get help
 

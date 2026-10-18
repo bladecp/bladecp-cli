@@ -7,14 +7,15 @@ export interface MeData {
   api_key_uuid: string;
   scopes: string[];
   tier: string;
-  rate_limit: { tier: string; limit_per_minute: number };
+  rate_limit: { tier: string; limit_per_minute: number | null };
 }
 
 export interface Provision {
   uuid: string;
   status: string;
-  primary_domain: string | null;
-  product_type: string | null;
+  /** Documented name; some API versions send `primaryDomain` instead. */
+  primary_domain?: string | null;
+  product_type?: string | null;
   [key: string]: unknown;
 }
 
@@ -98,7 +99,12 @@ export interface Migration {
   primaryDomain: string | null;
   requestedPrimaryDomain?: string | null;
   sourcePrimaryDomain?: string | null;
-  discovery?: Record<string, unknown> | null;
+  /** What the reading of the backup found (counts of files, email accounts, ...). */
+  discovery?: {
+    emailAccountCount?: number;
+    emailHistoryBytes?: number;
+    [key: string]: unknown;
+  } | null;
   components?: MigrationComponent[] | null;
   stagingUrl?: string | null;
   /** Public IPv4 for an A record of the domain, once the migration is complete. */
@@ -154,6 +160,8 @@ export interface RetryResponse {
 }
 
 export interface ConnectTokenResponse {
+  /** Name of the organization, when the API starts sending it. */
+  organization?: { name?: string | null } | null;
   apiKey: string;
   keyUuid: string;
   scopes: string[];

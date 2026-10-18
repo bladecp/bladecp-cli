@@ -16,6 +16,7 @@ export const ExitCode = {
   NETWORK: 8,
   MIGRATION_FAILED: 9,
   ACTION_REQUIRED: 10,
+  UPDATE_REQUIRED: 11,
   INTERRUPTED: 130,
 } as const;
 
@@ -58,6 +59,10 @@ export class ApiError extends Error {
   readonly apiCode: string | undefined;
   readonly apiMessage: string | undefined;
   readonly retryAfterSeconds: number | undefined;
+  /** A follow-up hint a command learned after the failure (for example why a retry is refused). */
+  extraHint: { key: MessageKey; vars?: Vars } | undefined;
+  /** Extra machine-readable fields for `--json` output. */
+  extraDetails: Record<string, unknown> | undefined;
 
   constructor(
     status: number,
@@ -83,6 +88,30 @@ export class NetworkError extends Error {
     this.name = 'NetworkError';
     this.host = host;
   }
+
+  /** The system code behind the failure (ECONNREFUSED, ENOTFOUND, ...), when known. */
+  get systemCode(): string | undefined {
+    let current: unknown = this.cause;
+    for (let depth = 0; depth < 4 && current; depth += 1) {
+      const code = (current as { code?: unknown }).code;
+      if (typeof code === 'string' && /^[A-Z_]+$/.test(code)) return code;
+      if (current instanceof Error && current.name === 'TimeoutError') return 'ETIMEDOUT';
+      current = (current as { cause?: unknown }).cause;
+    }
+    return undefined;
+  }
+}
+
+/** A failure of the operating system (file permissions, a full disk, ...). */
+export function isSystemError(
+  error: unknown,
+): error is NodeJS.ErrnoException & { code: string; syscall: string } {
+  return (
+    error instanceof Error &&
+    typeof (error as NodeJS.ErrnoException).code === 'string' &&
+    /^E[A-Z]+$/.test((error as NodeJS.ErrnoException).code!) &&
+    typeof (error as NodeJS.ErrnoException).syscall === 'string'
+  );
 }
 
 /** The user pressed Ctrl+C (or the run was aborted). */

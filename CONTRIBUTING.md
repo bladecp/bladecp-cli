@@ -65,10 +65,24 @@ Tests never call a real API: they use the simulated server in
   `{placeholders}`. The type checker and `test/i18n.test.ts` block gaps.
 - **No em dash in user-facing text.** Messages, READMEs, the changelog and the
   documentation use commas, colons, parentheses or separate sentences instead.
+- **One visual kit.** Everything visual lives in `src/ui/`: color tokens
+  (truecolor, 256, 16 and none), glyphs, spacing and the pieces every screen is
+  made of (header, horizon line, step rail, section ruler, label and value
+  rows, width-aware tables, progress bar, spinner, questions, success, warning
+  and error blocks, the update notice and the 3D B). Commands build screens only
+  with these pieces and never write escape sequences, colors or layout
+  themselves. If a piece is missing, add it to the kit in the same style, with
+  translations and screen photos. `test/design-lock.test.ts` fails when code
+  outside `src/ui/` writes to stdout or stderr, uses escape sequences or builds
+  a color, or when text for people does not come from the message catalogs.
+- **Screen photos.** `test/screens.test.ts` keeps a photo of every screen in 40,
+  80 and 120 columns, in the three languages, with and without color. A visual
+  change shows up as a photo diff; update the photos on purpose with
+  `pnpm vitest run test/screens.test.ts -u` and review the diff.
 - **Terminal safety.** Text that comes from outside (the API, the network,
   file names) never reaches the terminal unescaped. All human output goes
-  through `src/output.ts`; values interpolated in template literals go through
-  `safeText`. `test/terminal-safety.test.ts` covers hostile payloads.
+  through `src/ui/output.ts`; values interpolated in template literals go
+  through `safeText`. `test/terminal-safety.test.ts` covers hostile payloads.
 - **Keys never appear.** Never write to stdout or stderr outside `Output`, and
   register secrets with `out.addSecret`. `test/redaction.test.ts` covers every
   command.

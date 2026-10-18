@@ -196,16 +196,42 @@ describe('migrate happy path', () => {
         { locationId: 7, name: 'Miami', countryCode: 'US' },
       ],
     });
-    // Choose option 3 (Edge Cloud M in Miami), confirm with Enter, accept the found domain.
-    const result = await cli(['migrate', backup], { tty: true, answers: ['3', '', ''] });
+    // Choose option 3 (Edge Cloud M in Miami), confirm with Enter, accept the
+    // found domain, then decide later at the approval question.
+    const result = await cli(['migrate', backup], { tty: true, answers: ['3', '', '', 'd'] });
     expect(result.code).toBe(0);
-    expect(result.prompts[0]).toContain('Choose a number (1-3)');
-    expect(result.prompts[1]).toContain('Migrate cpmove-owner.tar.gz');
+    expect(result.prompts[0]).toContain('Where should the site go? (1-3)');
+    expect(result.prompts[1]).toContain('Start the migration?');
+    expect(result.prompts[1]).toContain('cpmove-owner.tar.gz');
     expect(result.prompts[2]).toContain('[old-site.example.com]');
+    expect(result.prompts[3]).toContain('Approve the migration?');
     expect(api.apiCalls('POST', /\/customer\/me\/migrations$/)[0]!.body).toMatchObject({
       partnerPlanId: 20,
       locationId: 7,
     });
+    // Deciding later never approves.
+    expect(api.apiCalls('POST', /approve$/)).toHaveLength(0);
+    expect(result.stdout).toMatch(/bladecp migrations approve [0-9a-f-]+/);
+  });
+
+  it('on a terminal, the key "a" approves and the migration is followed to the end', async () => {
+    api.phaseScript = [...api.phaseScript, 'syncing', 'cutover_pending'];
+    const result = await cli(['migrate', backup, '--plan', '12', '--location', '3'], {
+      tty: true,
+      answers: ['', '', 'a'],
+    });
+    expect(result.code).toBe(0);
+    expect(api.apiCalls('POST', /approve$/)).toHaveLength(1);
+    expect(result.stdout).toContain('Migration complete. Your site is ready on BladeCP.');
+  });
+
+  it('--yes on a terminal never asks to approve and never approves', async () => {
+    const result = await cli(['migrate', backup, '--plan', '12', '--location', '3', '--yes'], {
+      tty: true,
+    });
+    expect(result.code).toBe(0);
+    expect(result.prompts).toEqual([]);
+    expect(api.apiCalls('POST', /approve$/)).toHaveLength(0);
   });
 
   it('declining the confirmation changes nothing', async () => {

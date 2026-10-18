@@ -11,6 +11,7 @@ import {
   ERROR_CODES,
   exitCodeDescriptions,
   formatReference,
+  OUTCOME_ERROR_CODES,
 } from '../src/reference.js';
 
 const root = new URL('..', import.meta.url).pathname;
@@ -136,10 +137,12 @@ describe('reference.json', () => {
       '-v = --version',
       '-y = --yes',
       '-w = --watch',
+      '-a = --all',
       'bladecp help <command> = bladecp <command> --help',
       'bladecp servers = bladecp servers list',
       'bladecp destinations = bladecp destinations list',
       'bladecp migrations = bladecp migrations list',
+      'bladecp config = bladecp config list',
     ]);
     for (const alias of reference.aliases.filter((entry) => entry.kind === 'short-option')) {
       const long = alias.target.slice(2) as keyof typeof OPTIONS;
@@ -222,7 +225,17 @@ describe('error code registry', () => {
           code,
         ).toContain(spec.hint);
     }
-    const declared = ERROR_CODES.filter((spec) => spec.origin === 'cli').map((spec) => spec.code);
+    // How a migration ended (`migrate --json`, exit 9) is reported in the
+    // envelope without a CliError; those codes are listed apart.
+    const source = read('src/commands/migrate.ts');
+    for (const code of OUTCOME_ERROR_CODES) {
+      expect(source, code).toContain(`'${code}'`);
+      expect(registry.get(code)?.exitCodes, code).toEqual([ExitCode.MIGRATION_FAILED]);
+    }
+    const declared = ERROR_CODES.filter(
+      (spec) =>
+        spec.origin === 'cli' && !(OUTCOME_ERROR_CODES as readonly string[]).includes(spec.code),
+    ).map((spec) => spec.code);
     expect([...byCode.keys()].sort()).toEqual(declared.sort());
   });
 
