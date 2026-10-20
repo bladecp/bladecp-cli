@@ -181,7 +181,7 @@ const SCENARIOS: Scenario[] = [
     }),
   },
   { name: 'config', argv: () => ['config'], signedOut: true },
-  { name: 'config set', argv: () => ['config', 'set', 'auto-update', 'on'], signedOut: true },
+  { name: 'config set', argv: () => ['config', 'set', 'auto-update', 'off'], signedOut: true },
   { name: 'error not signed in', argv: () => ['servers'], signedOut: true },
   { name: 'error key expired', argv: () => ['whoami'], apiKey: EXPIRED_KEY },
   {
@@ -201,7 +201,25 @@ const SCENARIOS: Scenario[] = [
     }),
   },
   {
+    // With the automatic update off, the quiet notice says how to update.
     name: 'update notice',
+    argv: () => ['whoami'],
+    setup: ({ dir }) => {
+      const config = join(dir, 'config');
+      mkdirSync(config, { recursive: true });
+      writeFileSync(
+        join(config, 'update-check.json'),
+        JSON.stringify({ checkedAt: new Date().toISOString(), latest: '0.5.0' }),
+      );
+      writeFileSync(
+        join(config, 'config.json'),
+        JSON.stringify({ version: 1, preferences: { autoUpdate: false } }),
+      );
+    },
+  },
+  {
+    // The default since 0.4.1: the new version installs itself first.
+    name: 'auto update',
     argv: () => ['whoami'],
     setup: ({ dir }) => {
       const config = join(dir, 'config');

@@ -296,7 +296,7 @@ npm install -g ./bladecp-cli-0.3.2.tgz
 
 ```sh
 bladecp update                       # qué cambió, luego actualiza con npm, pnpm, yarn o bun
-bladecp config set auto-update on    # opcional: actualizar sola antes de un comando
+bladecp config set auto-update off   # dejar de actualizarse sola antes de un comando
 bladecp logout                       # quita la clave guardada de esta computadora
 npm uninstall -g @bladecp/cli
 ```

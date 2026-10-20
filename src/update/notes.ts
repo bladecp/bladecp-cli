@@ -55,7 +55,9 @@ export function changesBetween(
   flush();
   return items.map((item) => {
     const plain = item.replace(/`([^`]*)`/g, '$1').replace(/\*\*([^*]*)\*\*/g, '$1');
-    const sentence = /^(.+?[.:])(\s|$)/.exec(plain)?.[1] ?? plain;
+    // The first sentence ends at a period. A colon only introduces a list
+    // ("Sites: bladecp domains ..."), so the list comes with it.
+    const sentence = /^(.+?\.)(\s|$)/.exec(plain)?.[1] ?? plain;
     return sentence.length > 140 ? `${sentence.slice(0, 139)}…` : sentence;
   });
 }

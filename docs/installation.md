@@ -54,9 +54,10 @@ interrupted uploads are kept across updates.
 Once a day, in the background, the CLI asks the npm registry for the latest
 version (only the version number) and shows one quiet line at the end of an
 interactive command. Turn it off with `BLADECP_NO_UPDATE_CHECK=1`,
-`NO_UPDATE_NOTIFIER` or `bladecp config set update-check off`. To update on its
-own before a command, run `bladecp config set auto-update on` (off by default;
-never in CI or with `--json`).
+`NO_UPDATE_NOTIFIER` or `bladecp config set update-check off`. On an interactive
+terminal, a new version installs itself before your next command (on by
+default since 0.4.1; never in CI, in scripts or with `--json`). To keep the
+notice instead, run `bladecp config set auto-update off`.
 
 If the update fails with a permission error (`EACCES`), do not run the package
 manager with sudo: give npm a folder you own

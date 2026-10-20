@@ -131,7 +131,7 @@ const BASE_EXTRAS: Partial<Record<BaseCommandId, Extras>> = {
   'config.get': { notes: ['help.note.configKeys'] },
   'config.set': {
     notes: ['help.note.configKeys'],
-    examples: [['bladecp config set auto-update on', 'help.ex.autoUpdate']],
+    examples: [['bladecp config set auto-update off', 'help.ex.autoUpdate']],
   },
 };
 

@@ -462,7 +462,7 @@ export const en = {
   'help.ex.watch': 'follow until it needs you',
   'help.ex.update': 'see what changed and update',
   'help.ex.updateCheck': 'only check, for scripts',
-  'help.ex.autoUpdate': 'update on its own before a command, on a terminal',
+  'help.ex.autoUpdate': 'stop updating on its own',
   'help.note.shortIds':
     'Instead of the whole ID you can type its first characters (at least 4), when only one of yours starts with them.',
   'help.note.serversAll':
@@ -470,7 +470,7 @@ export const en = {
   'help.note.approve':
     'On a terminal it shows the preview and asks first; --yes skips the question. Approving is always this explicit command.',
   'help.note.autoUpdate':
-    'The CLI looks for a new version once a day and tells you at the end of a command. "bladecp config set auto-update on" updates on its own before a command.',
+    'The CLI looks for a new version once a day and, on an interactive terminal, updates itself before your next command (never in CI, scripts or with --json). "bladecp config set auto-update off" turns this off and leaves a notice instead.',
   'help.note.configKeys':
     'Settings: auto-update (on or off, off by default), update-check (on or off), lang (auto, en, pt-BR or es).',
   'mhelp.desc':
@@ -657,7 +657,7 @@ export const en = {
   'config.setHint': 'Change one with: bladecp config set <key> <value>',
   'config.saved': '{key} is now {value}.',
   'config.noteAutoUpdate':
-    'When a new version is out, the CLI updates itself before a command. Only on an interactive terminal; never in CI or with --json.',
+    'On by default: when a new version is out, the CLI updates itself before a command. Only on an interactive terminal; never in CI or with --json. With off, a notice says how to update.',
   'product.stackContainer': 'Stack Container',
   'product.edgeCloud': 'Edge Cloud',
   'product.hyperCloud': 'Hyper Cloud',

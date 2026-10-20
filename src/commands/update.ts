@@ -262,17 +262,43 @@ export async function printUpdateNotice(ctx: Ctx): Promise<void> {
   ]);
 }
 
+/** After a failed automatic update, that version is not tried again for a day. */
+const AUTO_UPDATE_RETRY_MS = 24 * 60 * 60 * 1000;
+
 /**
- * With `bladecp config set auto-update on`, a new version found by the daily
- * check is installed before the command runs, then the command runs on the
- * new version. Interactive terminals only; never in CI or with --json.
- * Returns the exit code of the command when it ran again, or null.
+ * A new version found by the daily check is installed before the command
+ * runs, then the command runs on the new version, the way an app updates
+ * itself. On by default since 0.4.1; `bladecp config set auto-update off`
+ * turns it off. Interactive terminals and global installs only; never in CI,
+ * with --json or in a script, which keep the quiet notice. A failed update
+ * runs the command on the current version and waits a day before trying that
+ * version again. Returns the exit code of the command when it ran again, or
+ * null.
  */
+/** The automatic update runs on any interactive terminal, with or without color. */
+function autoUpdateAllowed(ctx: Ctx): boolean {
+  const caps = ctx.out.caps;
+  return (
+    ctx.interactive &&
+    !ctx.json &&
+    !ctx.ci &&
+    caps.outTTY &&
+    caps.errTTY &&
+    ctx.preferences.autoUpdate !== false &&
+    !updateCheckDisabled(ctx.env, ctx.preferences)
+  );
+}
+
 export async function autoUpdate(ctx: Ctx, argv: string[]): Promise<number | null> {
-  if (!ctx.preferences.autoUpdate || !updateNoticeAllowed(ctx) || !ctx.interactive) return null;
+  if (!autoUpdateAllowed(ctx)) return null;
   if (ctx.env.BLADECP_AUTO_UPDATED) return null;
-  const latest = await newerVersion(ctx);
-  if (!latest) return null;
+  const cache = await readUpdateCache(ctx.configDir);
+  const latest = cache?.latest && isNewerVersion(cache.latest, cliVersion()) ? cache.latest : null;
+  if (!latest || !cache) return null;
+  const failed = cache.autoUpdateFailed;
+  if (failed?.version === latest && Date.now() - Date.parse(failed.at) < AUTO_UPDATE_RETRY_MS) {
+    return null;
+  }
   const install = detectInstall(ctx.binPath);
   if (install.kind !== 'global') return null;
   const t = ctx.out.t;
@@ -284,6 +310,10 @@ export async function autoUpdate(ctx: Ctx, argv: string[]): Promise<number | nul
   try {
     await runUpdate(ctx, install);
   } catch {
+    await writeUpdateCache(ctx.configDir, {
+      ...cache,
+      autoUpdateFailed: { version: latest, at: new Date().toISOString() },
+    }).catch(() => undefined);
     ctx.out.infoLines([
       `  ${k.warn(k.glyph.active)}  ${t('update.autoFailed', { current: cliVersion() })}`,
       '',

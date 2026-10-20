@@ -29,6 +29,8 @@ export interface UpdateCache {
   checkedAt: string;
   /** Latest version the registry reported, or null when unknown. */
   latest: string | null;
+  /** The last automatic update that failed, so it is not retried on every run. */
+  autoUpdateFailed?: { version: string; at: string };
 }
 
 export function cachePath(configDir: string): string {
@@ -57,9 +59,13 @@ export async function readUpdateCache(configDir: string): Promise<UpdateCache | 
   try {
     const parsed = JSON.parse(await readFile(cachePath(configDir), 'utf8')) as UpdateCache;
     if (!parsed || typeof parsed.checkedAt !== 'string') return null;
+    const failed = parsed.autoUpdateFailed;
     return {
       checkedAt: parsed.checkedAt,
       latest: typeof parsed.latest === 'string' ? parsed.latest : null,
+      ...(failed && typeof failed.version === 'string' && typeof failed.at === 'string'
+        ? { autoUpdateFailed: { version: failed.version, at: failed.at } }
+        : {}),
     };
   } catch {
     return null;

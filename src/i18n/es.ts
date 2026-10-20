@@ -469,7 +469,7 @@ export const es: Record<keyof typeof en, string> = {
   'help.ex.watch': 'seguir hasta que te necesite',
   'help.ex.update': 'ver qué cambió y actualizar',
   'help.ex.updateCheck': 'solo comprobar, para scripts',
-  'help.ex.autoUpdate': 'actualizar sola antes de un comando, en la terminal',
+  'help.ex.autoUpdate': 'dejar de actualizarse sola',
   'help.note.shortIds':
     'En lugar del ID completo puedes escribir sus primeros caracteres (al menos 4), cuando solo uno de tus elementos empieza con ellos.',
   'help.note.serversAll':
@@ -477,7 +477,7 @@ export const es: Record<keyof typeof en, string> = {
   'help.note.approve':
     'En la terminal muestra la vista previa y pregunta antes; --yes omite la pregunta. Aprobar es siempre este comando explícito.',
   'help.note.autoUpdate':
-    'La CLI busca una versión nueva una vez al día y avisa al final de un comando. "bladecp config set auto-update on" actualiza sola antes de un comando.',
+    'La CLI busca una versión nueva una vez al día y, en una terminal interactiva, se actualiza sola antes del siguiente comando (nunca en CI, en scripts ni con --json). "bladecp config set auto-update off" lo desactiva y deja solo un aviso.',
   'help.note.configKeys':
     'Preferencias: auto-update (on u off, off por defecto), update-check (on u off), lang (auto, en, pt-BR o es).',
   'mhelp.desc':
@@ -665,7 +665,7 @@ export const es: Record<keyof typeof en, string> = {
   'config.setHint': 'Cambia una con: bladecp config set <clave> <valor>',
   'config.saved': '{key} ahora es {value}.',
   'config.noteAutoUpdate':
-    'Cuando salga una versión nueva, la CLI se actualiza sola antes de un comando. Solo en una terminal interactiva; nunca en CI ni con --json.',
+    'Activada por defecto: cuando sale una versión nueva, la CLI se actualiza sola antes de un comando. Solo en una terminal interactiva; nunca en CI ni con --json. Desactivada, un aviso dice cómo actualizar.',
   'product.stackContainer': 'Stack Container',
   'product.edgeCloud': 'Edge Cloud',
   'product.hyperCloud': 'Hyper Cloud',

@@ -464,7 +464,7 @@ export const ptBR: Record<keyof typeof en, string> = {
   'help.ex.watch': 'acompanhar até precisar de você',
   'help.ex.update': 'ver o que mudou e atualizar',
   'help.ex.updateCheck': 'só verificar, para scripts',
-  'help.ex.autoUpdate': 'atualizar sozinha antes de um comando, no terminal',
+  'help.ex.autoUpdate': 'parar de atualizar sozinha',
   'help.note.shortIds':
     'Em vez do ID inteiro você pode digitar os primeiros caracteres (pelo menos 4), quando só um item seu começa com eles.',
   'help.note.serversAll':
@@ -472,7 +472,7 @@ export const ptBR: Record<keyof typeof en, string> = {
   'help.note.approve':
     'No terminal, mostra a prévia e pergunta antes; --yes pula a pergunta. Aprovar é sempre este comando explícito.',
   'help.note.autoUpdate':
-    'A CLI procura versão nova uma vez por dia e avisa no fim de um comando. "bladecp config set auto-update on" atualiza sozinha antes de um comando.',
+    'A CLI procura versão nova uma vez por dia e, num terminal interativo, se atualiza sozinha antes do próximo comando (nunca em CI, em scripts ou com --json). "bladecp config set auto-update off" desliga isso e deixa só um aviso.',
   'help.note.configKeys':
     'Preferências: auto-update (on ou off, off por padrão), update-check (on ou off), lang (auto, en, pt-BR ou es).',
   'mhelp.desc':
@@ -659,7 +659,7 @@ export const ptBR: Record<keyof typeof en, string> = {
   'config.setHint': 'Mude uma com: bladecp config set <chave> <valor>',
   'config.saved': '{key} agora é {value}.',
   'config.noteAutoUpdate':
-    'Quando sair versão nova, a CLI se atualiza sozinha antes de um comando. Só em terminal interativo; nunca em CI ou com --json.',
+    'Ligada por padrão: quando sai versão nova, a CLI se atualiza sozinha antes de um comando. Só em terminal interativo; nunca em CI ou com --json. Desligada, um aviso diz como atualizar.',
   'product.stackContainer': 'Stack Container',
   'product.edgeCloud': 'Edge Cloud',
   'product.hyperCloud': 'Hyper Cloud',

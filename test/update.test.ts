@@ -5,7 +5,7 @@
 import { mkdirSync, readFileSync, statSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 
-import { afterEach, beforeEach, describe, expect, it } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { MIN_VERSION_HEADER } from '../src/api.js';
 import { cachePath, checkIsDue, registryUrl, runUpdateCheck } from '../src/update/check.js';
@@ -26,6 +26,7 @@ beforeEach(async () => {
 });
 
 afterEach(async () => {
+  vi.restoreAllMocks();
   await api.stop();
   dir.cleanup();
 });
@@ -96,10 +97,31 @@ describe('versions', () => {
       'A fix in the upload.',
     ]);
   });
+
+  it('keeps the list after a label instead of showing the label alone', () => {
+    const changelog = [
+      '## [0.4.0] - 2026-12-01',
+      '- Sites: `bladecp domains list|add`, `bladecp apps list` and',
+      '  `bladecp components list`.',
+      '- Partner tools, for keys with the `partner:read` scope: `bladecp partner plans`.',
+      '- New options: `--status`, `--limit`, `--page`, `--external-id`, `--name`, `--email`, `--url`, `--event`, `--option`, `--wait`, `-X/--method`, `--data`, `--input`.',
+    ].join('\n');
+    const changes = changesBetween(changelog, '0.3.0', '0.4.0');
+    expect(changes[0]).toBe(
+      'Sites: bladecp domains list|add, bladecp apps list and bladecp components list.',
+    );
+    expect(changes[1]).toBe(
+      'Partner tools, for keys with the partner:read scope: bladecp partner plans.',
+    );
+    expect(changes[2]!.startsWith('New options: --status, --limit')).toBe(true);
+    expect(changes[2]!.length).toBeLessThanOrEqual(140);
+  });
 });
 
 describe('the daily check and the notice', () => {
   it('a terminal run starts one check in the background, at most once a day', async () => {
+    // The notice is what an off automatic update leaves.
+    await cli(['config', 'set', 'auto-update', 'off']);
     const first = await cli(['whoami'], { ...terminal(), runUpdateCheck: true });
     expect(first.code).toBe(0);
     expect(first.updateChecks).toHaveLength(1);
@@ -147,6 +169,8 @@ describe('the daily check and the notice', () => {
 
   it('never in --json, a pipe, CI, without color or when turned off', async () => {
     seedCache('9.9.9');
+    // The notice is what an off automatic update leaves.
+    await cli(['config', 'set', 'auto-update', 'off']);
     const cases: [string, Partial<RunOptions>, string[]][] = [
       ['json', terminal(), ['whoami', '--json']],
       ['pipe', { env: { BLADECP_API_KEY: LIVE_KEY, NO_COLOR: undefined } }, ['whoami']],
@@ -303,44 +327,64 @@ describe('bladecp update', () => {
   });
 });
 
-describe('automatic update (off by default)', () => {
-  it('off: nothing is installed on its own', async () => {
+describe('automatic update (on by default since 0.4.1)', () => {
+  it('on by default: updates before the command, then runs it on the new version', async () => {
     seedCache('9.9.9');
-    const result = await cli(['whoami'], terminal());
-    expect(result.processes).toEqual([]);
-    expect(result.reruns).toEqual([]);
-  });
-
-  it('on: updates before the command, then runs it on the new version', async () => {
-    seedCache('9.9.9');
-    expect((await cli(['config', 'set', 'auto-update', 'on'])).code).toBe(0);
     const result = await cli(['whoami'], terminal());
     expect(result.processes).toEqual(['npm install --global @bladecp/cli@latest']);
     expect(result.reruns).toEqual([['whoami']]);
     expect(result.stderr).toContain('Updating the BladeCP CLI');
+    expect((await cli(['config', 'get', 'auto-update'])).stdout).toContain('on');
   });
 
-  it('on, but never in CI, with --json or after the update already ran', async () => {
+  it('off: nothing is installed on its own, and the notice says how to update', async () => {
     seedCache('9.9.9');
-    await cli(['config', 'set', 'auto-update', 'on']);
+    expect((await cli(['config', 'set', 'auto-update', 'off'])).code).toBe(0);
+    const result = await cli(['whoami'], terminal());
+    expect(result.processes).toEqual([]);
+    expect(result.reruns).toEqual([]);
+    expect(result.stderr).toContain('bladecp update');
+  });
+
+  it('also runs on a terminal without color', async () => {
+    seedCache('9.9.9');
+    const result = await cli(['whoami'], terminal({ NO_COLOR: '1' }));
+    expect(result.processes).toEqual(['npm install --global @bladecp/cli@latest']);
+    expect(result.reruns).toEqual([['whoami']]);
+  });
+
+  it('never in CI, with --json, without a terminal or after the update already ran', async () => {
+    seedCache('9.9.9');
     for (const extra of [terminal({ CI: '1' }), terminal({ BLADECP_AUTO_UPDATED: '1' })]) {
       const result = await cli(['whoami'], extra);
       expect(result.processes).toEqual([]);
     }
     const json = await cli(['whoami', '--json'], terminal());
     expect(json.processes).toEqual([]);
+    const script = await cli(['whoami']);
+    expect(script.processes).toEqual([]);
   });
 
-  it('a failed automatic update runs the command on the current version', async () => {
+  it('a failed update runs the command on the current version and waits a day before trying that version again', async () => {
     seedCache('9.9.9');
-    await cli(['config', 'set', 'auto-update', 'on']);
-    const result = await cli(['whoami'], {
+    const failing = {
       ...terminal(),
       runProcess: () => ({ code: 1, output: 'npm error network\n' }),
-    });
-    expect(result.code).toBe(0);
-    expect(result.reruns).toEqual([]);
-    expect(result.stdout).toContain('owner@example.com');
+    };
+    const first = await cli(['whoami'], failing);
+    expect(first.code).toBe(0);
+    expect(first.reruns).toEqual([]);
+    expect(first.stdout).toContain('owner@example.com');
+    expect(first.processes).toHaveLength(1);
+
+    const second = await cli(['whoami'], failing);
+    expect(second.processes).toEqual([]);
+    expect(second.stderr).toContain('bladecp update');
+
+    const now = Date.now();
+    vi.spyOn(Date, 'now').mockReturnValue(now + 25 * 60 * 60 * 1000);
+    const nextDay = await cli(['whoami'], failing);
+    expect(nextDay.processes).toHaveLength(1);
   });
 });
 

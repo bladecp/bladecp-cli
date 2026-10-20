@@ -743,7 +743,7 @@ alone lists them.
 
 | Key | Values | Effect |
 |---|---|---|
-| `auto-update` | `on`, `off` (default) | When a new version is out, update before a command, then run it on the new version. Only on an interactive terminal; never in CI or with `--json`. |
+| `auto-update` | `on` (default), `off` | When a new version is out, update before a command, then run it on the new version. Only on an interactive terminal with a global install; never in CI, in scripts or with `--json`. |
 | `update-check` | `on` (default), `off` | The daily check for a new version. |
 | `lang` | `auto` (default), `en`, `pt-BR`, `es` | Message language when `--lang` is not given. |
 

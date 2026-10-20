@@ -18,8 +18,8 @@ const onOff = ['on', 'off'];
 export const SETTINGS: Record<string, Setting> = {
   'auto-update': {
     values: onOff,
-    fallback: 'off',
-    read: (p) => (p.autoUpdate ? 'on' : 'off'),
+    fallback: 'on',
+    read: (p) => (p.autoUpdate === false ? 'off' : 'on'),
     write: (p, value) => ({ ...p, autoUpdate: value === 'on' }),
     note: 'config.noteAutoUpdate',
   },

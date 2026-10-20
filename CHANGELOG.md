@@ -4,6 +4,21 @@ All notable changes to the BladeCP CLI are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project uses
 [Semantic Versioning](https://semver.org/).
 
+## [0.4.1] - 2026-10-19
+
+### Changed
+
+- On an interactive terminal, a new version now installs itself before your
+  next command, which then runs on it. It never happens in CI, in scripts or
+  with `--json`, nor with a non-global install. After a failed update, that
+  version waits a day before another try. `bladecp config set auto-update off`
+  turns it off and leaves the notice instead.
+
+### Fixed
+
+- The changes listed by `bladecp update` keep the list that follows a label
+  ("Sites: ...") instead of showing the label alone.
+
 ## [0.4.0] - 2026-10-19
 
 The CLI now reaches the whole Customer API. The `--json` envelope, the exit
