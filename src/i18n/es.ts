@@ -89,6 +89,7 @@ export const es: Record<keyof typeof en, string> = {
   'hint.rerunToResume': 'Ejecuta el mismo comando otra vez para continuar donde se detuvo.',
   'hint.watch': 'Síguela con: bladecp migrations status {uuid} --watch',
   'hint.usage': 'Uso: {usage}',
+  'hint.numericId': 'Usa el número de la columna ID de "{list}", no el UUID.',
 
   'error.unexpected': 'Algo salió mal: {message}',
   'error.interrupted': 'Interrumpido.',

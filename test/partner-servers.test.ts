@@ -243,6 +243,28 @@ describe('bladecp partner servers create', () => {
     expect(api.requests).toHaveLength(0);
   });
 
+  it('a UUID where the plan or location number goes says where the number is', async () => {
+    const without = (name: string) => {
+      const argv = [...CREATE];
+      argv.splice(argv.indexOf(name), 2);
+      return argv;
+    };
+    const cases: Array<[string, string]> = [
+      ['--plan', 'bladecp partner plans'],
+      ['--location', 'bladecp partner locations'],
+    ];
+    for (const [option, list] of cases) {
+      const argv = [...without(option), option, '0197d1c4-0000-7000-8000-000000000040'];
+      const result = await cli([...argv, '--json']);
+      expect(result.code, option).toBe(2);
+      const error = parseJson(result.stdout).error;
+      expect(error, option).toMatchObject({ code: 'usage' });
+      expect(error?.hint, option).toContain(`"${list}"`);
+      expect(error?.hint, option).toContain('not the UUID');
+    }
+    expect(api.requests).toHaveLength(0);
+  });
+
   it('a Stack Container plan without components stops before sending, saying why', async () => {
     const argv = CREATE.slice(0, -2);
     const result = await cli([...argv, '--json']);

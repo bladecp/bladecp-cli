@@ -4,6 +4,17 @@ All notable changes to the BladeCP CLI are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project uses
 [Semantic Versioning](https://semver.org/).
 
+## [0.4.3] - 2026-10-20
+
+### Changed
+
+- `bladecp partner servers create --help` says that a Stack Container always
+  gets a web server: NGINX by default, or another one such as
+  `--component apache`. The BladeCP API adds NGINX to a stack sent without
+  one, so `--component php` alone no longer leaves the server without it.
+- `--plan` or `--location` with a UUID says to use the number in the ID
+  column of `bladecp partner plans` or `bladecp partner locations`.
+
 ## [0.4.2] - 2026-10-20
 
 ### Fixed

@@ -90,6 +90,7 @@ export const ptBR: Record<keyof typeof en, string> = {
   'hint.rerunToResume': 'Rode o mesmo comando de novo para continuar de onde parou.',
   'hint.watch': 'Acompanhe com: bladecp migrations status {uuid} --watch',
   'hint.usage': 'Uso: {usage}',
+  'hint.numericId': 'Use o número da coluna ID de "{list}", não o UUID.',
 
   'error.unexpected': 'Algo deu errado: {message}',
   'error.interrupted': 'Interrompido.',

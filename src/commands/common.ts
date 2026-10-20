@@ -51,13 +51,30 @@ export function usageError(message: MessageKey, vars: Vars = {}): CliError {
   return new CliError(message, vars, { exitCode: ExitCode.USAGE, code: 'usage' });
 }
 
+/** Where the number of an option that takes a catalog ID is listed. */
+const NUMERIC_ID_LISTS: Partial<Record<OptionName, string>> = {
+  plan: 'bladecp partner plans',
+  location: 'bladecp partner locations',
+};
+
 /** A whole number option (`--plan 12`), or a usage error. */
 export function optInteger(values: OptionValues, name: OptionName): number | undefined {
   const raw = optString(values, name);
   if (raw === undefined) return undefined;
   const trimmed = raw.trim();
   if (!/^\d{1,9}$/.test(trimmed)) {
-    throw usageError('error.invalidNumber', { option: `--${name}`, value: raw });
+    // The catalog shows a UUID next to the number: the CLI test of 20/10
+    // passed the UUID twice before finding the number.
+    const list = NUMERIC_ID_LISTS[name];
+    throw new CliError(
+      'error.invalidNumber',
+      { option: `--${name}`, value: raw },
+      {
+        exitCode: ExitCode.USAGE,
+        code: 'usage',
+        ...(list !== undefined ? { hint: { key: 'hint.numericId', vars: { list } } } : {}),
+      },
+    );
   }
   return Number(trimmed);
 }

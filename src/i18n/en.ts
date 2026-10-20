@@ -93,6 +93,7 @@ export const en = {
   'hint.rerunToResume': 'Run the same command again to continue where it stopped.',
   'hint.watch': 'Follow it with: bladecp migrations status {uuid} --watch',
   'hint.usage': 'Usage: {usage}',
+  'hint.numericId': 'Use the number in the ID column of "{list}", not the UUID.',
 
   // Errors
   'error.unexpected': 'Something went wrong: {message}',

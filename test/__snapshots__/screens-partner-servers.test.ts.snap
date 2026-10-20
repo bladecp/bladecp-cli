@@ -62,9 +62,12 @@ exports[`screen: 'help partner servers create' > en 40 color 1`] = `
   list --external-id" finds it later.
   Stack Container plans need the
   components to install (for example
-  --component php, or a version from
-  "bladecp components list" after @).
-  Other products take none.
+  --component php --component mysql, or
+  a version from "bladecp components
+  list" after @). A web server always
+  comes along: NGINX by default, or
+  another one, such as --component
+  apache. Other products take none.
 
   Examples ────────────────────────────
   › bladecp partner servers create
@@ -79,7 +82,7 @@ exports[`screen: 'help partner servers create' > en 40 color 1`] = `
     example.com --email
     owner@example.com --name "Example
     Shop" --option memory=4 --component
-    php
+    php --component mysql
     With more memory and the PHP
     component
 
@@ -158,37 +161,40 @@ exports[`screen: 'help partner servers create' > en 40 color 1`] = `
 58: 2-36 f8b8b98
 59: 2-31 f8b8b98
 60: 2-35 f8b8b98
-61: 2-35 f8b8b98
-62: 2-36 f8b8b98
-63: 2-26 f8b8b98
-65: 11-11 f4b4b62 | 12-12 f494960 | 13-13 f48485e | 14-14 f46465c | 15-15 f44445a | 16-16 f434358 | 17-17 f414156 | 18-18 f3f3f54 | 19-19 f3e3e51 | 20-20 f3c3c4f | 21-21 f3a3a4d | 22-22 f39394b | 23-23 f373749 | 24-24 f353547 | 25-25 f343445 | 26-26 f323243 | 27-27 f303041 | 28-28 f2e2e3f | 29-29 f2d2d3d | 30-30 f2b2b3b | 31-31 f292939 | 32-32 f282837 | 33-33 f262634 | 34-34 f242432 | 35-35 f232330 | 36-36 f21212e | 37-37 f1f1f2c | 38-38 f1e1e2a
-66: 2-2 fa78bfa
-71: 4-35 f8b8b98
-72: 4-17 f8b8b98
-73: 2-2 fa78bfa
-79: 4-31 f8b8b98
-80: 4-12 f8b8b98
-82: 17-17 f4b4b62 | 18-18 f49495f | 19-19 f47475d | 20-20 f45455a | 21-21 f424257 | 22-22 f404055 | 23-23 f3e3e52 | 24-24 f3c3c50 | 25-25 f3a3a4d | 26-26 f38384a | 27-27 f363648 | 28-28 f343445 | 29-29 f313142 | 30-30 f2f2f40 | 31-31 f2d2d3d | 32-32 f2b2b3a | 33-33 f292938 | 34-34 f272735 | 35-35 f252533 | 36-36 f222230 | 37-37 f20202d | 38-38 f1e1e2b
-83: 2-7 f6366f1
-84: 4-34 f8b8b98
-85: 4-22 f8b8b98
-86: 2-10 f6366f1 | 12-16 f6366f1
-87: 4-23 f8b8b98
-88: 4-27 f8b8b98
-89: 2-7 f6366f1 | 9-21 f6366f1
-90: 4-24 f8b8b98
-91: 2-8 f6366f1
-92: 4-34 f8b8b98
-93: 4-27 f8b8b98
-94: 2-10 f6366f1
-95: 4-18 f8b8b98
-96: 2-4 f6366f1 | 6-11 f6366f1
-97: 4-12 f8b8b98
-98: 2-4 f6366f1 | 6-14 f6366f1
-99: 4-19 f8b8b98
-101: 2-9 f8b8b98 | 12-18 f6366f1 | 20-26 f6366f1 | 28-32 f6366f1 | 33-34 f8b8b98
-102: 0-1 f8b8b98 | 2-8 f6366f1 | 10-16 f6366f1 | 18-26 f6366f1 | 27-29 f8b8b98 | 30-36 f6366f1
-103: 2-8 f6366f1 | 10-16 f6366f1"
+61: 2-38 f8b8b98
+62: 2-35 f8b8b98
+63: 2-36 f8b8b98
+64: 2-34 f8b8b98
+65: 2-33 f8b8b98
+66: 2-34 f8b8b98
+68: 11-11 f4b4b62 | 12-12 f494960 | 13-13 f48485e | 14-14 f46465c | 15-15 f44445a | 16-16 f434358 | 17-17 f414156 | 18-18 f3f3f54 | 19-19 f3e3e51 | 20-20 f3c3c4f | 21-21 f3a3a4d | 22-22 f39394b | 23-23 f373749 | 24-24 f353547 | 25-25 f343445 | 26-26 f323243 | 27-27 f303041 | 28-28 f2e2e3f | 29-29 f2d2d3d | 30-30 f2b2b3b | 31-31 f292939 | 32-32 f282837 | 33-33 f262634 | 34-34 f242432 | 35-35 f232330 | 36-36 f21212e | 37-37 f1f1f2c | 38-38 f1e1e2a
+69: 2-2 fa78bfa
+74: 4-35 f8b8b98
+75: 4-17 f8b8b98
+76: 2-2 fa78bfa
+82: 4-31 f8b8b98
+83: 4-12 f8b8b98
+85: 17-17 f4b4b62 | 18-18 f49495f | 19-19 f47475d | 20-20 f45455a | 21-21 f424257 | 22-22 f404055 | 23-23 f3e3e52 | 24-24 f3c3c50 | 25-25 f3a3a4d | 26-26 f38384a | 27-27 f363648 | 28-28 f343445 | 29-29 f313142 | 30-30 f2f2f40 | 31-31 f2d2d3d | 32-32 f2b2b3a | 33-33 f292938 | 34-34 f272735 | 35-35 f252533 | 36-36 f222230 | 37-37 f20202d | 38-38 f1e1e2b
+86: 2-7 f6366f1
+87: 4-34 f8b8b98
+88: 4-22 f8b8b98
+89: 2-10 f6366f1 | 12-16 f6366f1
+90: 4-23 f8b8b98
+91: 4-27 f8b8b98
+92: 2-7 f6366f1 | 9-21 f6366f1
+93: 4-24 f8b8b98
+94: 2-8 f6366f1
+95: 4-34 f8b8b98
+96: 4-27 f8b8b98
+97: 2-10 f6366f1
+98: 4-18 f8b8b98
+99: 2-4 f6366f1 | 6-11 f6366f1
+100: 4-12 f8b8b98
+101: 2-4 f6366f1 | 6-14 f6366f1
+102: 4-19 f8b8b98
+104: 2-9 f8b8b98 | 12-18 f6366f1 | 20-26 f6366f1 | 28-32 f6366f1 | 33-34 f8b8b98
+105: 0-1 f8b8b98 | 2-8 f6366f1 | 10-16 f6366f1 | 18-26 f6366f1 | 27-29 f8b8b98 | 30-36 f6366f1
+106: 2-8 f6366f1 | 10-16 f6366f1"
 `;
 
 exports[`screen: 'help partner servers create' > en 40 plain 1`] = `
@@ -253,9 +259,12 @@ exports[`screen: 'help partner servers create' > en 40 plain 1`] = `
   list --external-id" finds it later.
   Stack Container plans need the
   components to install (for example
-  --component php, or a version from
-  "bladecp components list" after @).
-  Other products take none.
+  --component php --component mysql, or
+  a version from "bladecp components
+  list" after @). A web server always
+  comes along: NGINX by default, or
+  another one, such as --component
+  apache. Other products take none.
 
   Examples ────────────────────────────
   › bladecp partner servers create
@@ -270,7 +279,7 @@ exports[`screen: 'help partner servers create' > en 40 plain 1`] = `
     example.com --email
     owner@example.com --name "Example
     Shop" --option memory=4 --component
-    php
+    php --component mysql
     With more memory and the PHP
     component
 
@@ -335,8 +344,9 @@ exports[`screen: 'help partner servers create' > en 80 color 1`] = `
   With --external-id the server keeps the service ID of your billing system, so
   "bladecp partner servers list --external-id" finds it later.
   Stack Container plans need the components to install (for example --component
-  php, or a version from "bladecp components list" after @). Other products
-  take none.
+  php --component mysql, or a version from "bladecp components list" after @).
+  A web server always comes along: NGINX by default, or another one, such as
+  --component apache. Other products take none.
 
   Examples ───────────────────────────────────
   › bladecp partner servers create --plan 12 --location 3 --domain example.com
@@ -344,7 +354,7 @@ exports[`screen: 'help partner servers create' > en 80 color 1`] = `
     A server on plan 12, location 3, for a customer
   › bladecp partner servers create --plan 12 --location 3 --domain example.com
     --email owner@example.com --name "Example Shop" --option memory=4
-    --component php
+    --component php --component mysql
     With more memory and the PHP component
 
   Global options ─────────────────────────────
@@ -390,24 +400,25 @@ exports[`screen: 'help partner servers create' > en 80 color 1`] = `
 33: 2-78 f8b8b98
 34: 2-61 f8b8b98
 35: 2-78 f8b8b98
-36: 2-74 f8b8b98
-37: 2-11 f8b8b98
-39: 11-11 f4b4b62 | 12-12 f4a4a60 | 13-13 f48485f | 14-14 f47475d | 15-15 f46465b | 16-16 f44445a | 17-17 f434358 | 18-18 f424256 | 19-19 f404055 | 20-20 f3f3f53 | 21-21 f3e3e51 | 22-22 f3c3c50 | 23-23 f3b3b4e | 24-24 f3a3a4c | 25-25 f38384b | 26-26 f373749 | 27-27 f363647 | 28-28 f343446 | 29-29 f333344 | 30-30 f313143 | 31-31 f303041 | 32-32 f2f2f3f | 33-33 f2d2d3e | 34-34 f2c2c3c | 35-35 f2b2b3a | 36-36 f292939 | 37-37 f282837 | 38-38 f272735 | 39-39 f252534 | 40-40 f242432 | 41-41 f232330 | 42-42 f21212f | 43-43 f20202d | 44-44 f1f1f2b | 45-45 f1d1d2a
-40: 2-2 fa78bfa
-42: 4-50 f8b8b98
-43: 2-2 fa78bfa
-46: 4-41 f8b8b98
-48: 17-17 f4b4b62 | 18-18 f494960 | 19-19 f48485e | 20-20 f46465c | 21-21 f45455a | 22-22 f434358 | 23-23 f414156 | 24-24 f404054 | 25-25 f3e3e52 | 26-26 f3c3c50 | 27-27 f3b3b4e | 28-28 f39394c | 29-29 f38384a | 30-30 f363648 | 31-31 f343446 | 32-32 f333344 | 33-33 f313142 | 34-34 f2f2f40 | 35-35 f2e2e3e | 36-36 f2c2c3c | 37-37 f2b2b3a | 38-38 f292938 | 39-39 f272736 | 40-40 f262634 | 41-41 f242432 | 42-42 f222230 | 43-43 f21212e | 44-44 f1f1f2c | 45-45 f1e1e2a
-49: 2-7 f6366f1 | 25-75 f8b8b98
-50: 2-10 f6366f1 | 12-16 f6366f1 | 25-69 f8b8b98
-51: 2-7 f6366f1 | 9-21 f6366f1 | 25-45 f8b8b98
-52: 2-8 f6366f1 | 25-73 f8b8b98
-53: 25-30 f8b8b98
-54: 2-10 f6366f1 | 25-39 f8b8b98
-55: 2-4 f6366f1 | 6-11 f6366f1 | 25-33 f8b8b98
-56: 2-4 f6366f1 | 6-14 f6366f1 | 25-40 f8b8b98
-58: 2-9 f8b8b98 | 12-18 f6366f1 | 20-26 f6366f1 | 28-32 f6366f1 | 33-35 f8b8b98 | 36-42 f6366f1 | 44-50 f6366f1 | 52-60 f6366f1 | 61-63 f8b8b98 | 64-70 f6366f1 | 72-78 f6366f1
-59: 2-8 f6366f1"
+36: 2-77 f8b8b98
+37: 2-75 f8b8b98
+38: 2-46 f8b8b98
+40: 11-11 f4b4b62 | 12-12 f4a4a60 | 13-13 f48485f | 14-14 f47475d | 15-15 f46465b | 16-16 f44445a | 17-17 f434358 | 18-18 f424256 | 19-19 f404055 | 20-20 f3f3f53 | 21-21 f3e3e51 | 22-22 f3c3c50 | 23-23 f3b3b4e | 24-24 f3a3a4c | 25-25 f38384b | 26-26 f373749 | 27-27 f363647 | 28-28 f343446 | 29-29 f333344 | 30-30 f313143 | 31-31 f303041 | 32-32 f2f2f3f | 33-33 f2d2d3e | 34-34 f2c2c3c | 35-35 f2b2b3a | 36-36 f292939 | 37-37 f282837 | 38-38 f272735 | 39-39 f252534 | 40-40 f242432 | 41-41 f232330 | 42-42 f21212f | 43-43 f20202d | 44-44 f1f1f2b | 45-45 f1d1d2a
+41: 2-2 fa78bfa
+43: 4-50 f8b8b98
+44: 2-2 fa78bfa
+47: 4-41 f8b8b98
+49: 17-17 f4b4b62 | 18-18 f494960 | 19-19 f48485e | 20-20 f46465c | 21-21 f45455a | 22-22 f434358 | 23-23 f414156 | 24-24 f404054 | 25-25 f3e3e52 | 26-26 f3c3c50 | 27-27 f3b3b4e | 28-28 f39394c | 29-29 f38384a | 30-30 f363648 | 31-31 f343446 | 32-32 f333344 | 33-33 f313142 | 34-34 f2f2f40 | 35-35 f2e2e3e | 36-36 f2c2c3c | 37-37 f2b2b3a | 38-38 f292938 | 39-39 f272736 | 40-40 f262634 | 41-41 f242432 | 42-42 f222230 | 43-43 f21212e | 44-44 f1f1f2c | 45-45 f1e1e2a
+50: 2-7 f6366f1 | 25-75 f8b8b98
+51: 2-10 f6366f1 | 12-16 f6366f1 | 25-69 f8b8b98
+52: 2-7 f6366f1 | 9-21 f6366f1 | 25-45 f8b8b98
+53: 2-8 f6366f1 | 25-73 f8b8b98
+54: 25-30 f8b8b98
+55: 2-10 f6366f1 | 25-39 f8b8b98
+56: 2-4 f6366f1 | 6-11 f6366f1 | 25-33 f8b8b98
+57: 2-4 f6366f1 | 6-14 f6366f1 | 25-40 f8b8b98
+59: 2-9 f8b8b98 | 12-18 f6366f1 | 20-26 f6366f1 | 28-32 f6366f1 | 33-35 f8b8b98 | 36-42 f6366f1 | 44-50 f6366f1 | 52-60 f6366f1 | 61-63 f8b8b98 | 64-70 f6366f1 | 72-78 f6366f1
+60: 2-8 f6366f1"
 `;
 
 exports[`screen: 'help partner servers create' > en 80 plain 1`] = `
@@ -447,8 +458,9 @@ exports[`screen: 'help partner servers create' > en 80 plain 1`] = `
   With --external-id the server keeps the service ID of your billing system, so
   "bladecp partner servers list --external-id" finds it later.
   Stack Container plans need the components to install (for example --component
-  php, or a version from "bladecp components list" after @). Other products
-  take none.
+  php --component mysql, or a version from "bladecp components list" after @).
+  A web server always comes along: NGINX by default, or another one, such as
+  --component apache. Other products take none.
 
   Examples ───────────────────────────────────
   › bladecp partner servers create --plan 12 --location 3 --domain example.com
@@ -456,7 +468,7 @@ exports[`screen: 'help partner servers create' > en 80 plain 1`] = `
     A server on plan 12, location 3, for a customer
   › bladecp partner servers create --plan 12 --location 3 --domain example.com
     --email owner@example.com --name "Example Shop" --option memory=4
-    --component php
+    --component php --component mysql
     With more memory and the PHP component
 
   Global options ─────────────────────────────
@@ -503,15 +515,16 @@ exports[`screen: 'help partner servers create' > en 120 color 1`] = `
 
   With --external-id the server keeps the service ID of your billing system, so "bladecp partner
   servers list --external-id" finds it later.
-  Stack Container plans need the components to install (for example --component php, or a version
-  from "bladecp components list" after @). Other products take none.
+  Stack Container plans need the components to install (for example --component php --component
+  mysql, or a version from "bladecp components list" after @). A web server always comes along:
+  NGINX by default, or another one, such as --component apache. Other products take none.
 
   Examples ───────────────────────────────────
   › bladecp partner servers create --plan 12 --location 3 --domain example.com --email owner@example.com --name "Example
     Shop" --external-id 1042
     A server on plan 12, location 3, for a customer
   › bladecp partner servers create --plan 12 --location 3 --domain example.com --email owner@example.com --name "Example
-    Shop" --option memory=4 --component php
+    Shop" --option memory=4 --component php --component mysql
     With more memory and the PHP component
 
   Global options ─────────────────────────────
@@ -549,22 +562,23 @@ exports[`screen: 'help partner servers create' > en 120 color 1`] = `
 25: 2-4 f6366f1 | 6-10 f6366f1 | 35-75 f8b8b98
 27: 2-95 f8b8b98
 28: 2-44 f8b8b98
-29: 2-96 f8b8b98
-30: 2-67 f8b8b98
-32: 11-11 f4b4b62 | 12-12 f4a4a60 | 13-13 f48485f | 14-14 f47475d | 15-15 f46465b | 16-16 f44445a | 17-17 f434358 | 18-18 f424256 | 19-19 f404055 | 20-20 f3f3f53 | 21-21 f3e3e51 | 22-22 f3c3c50 | 23-23 f3b3b4e | 24-24 f3a3a4c | 25-25 f38384b | 26-26 f373749 | 27-27 f363647 | 28-28 f343446 | 29-29 f333344 | 30-30 f313143 | 31-31 f303041 | 32-32 f2f2f3f | 33-33 f2d2d3e | 34-34 f2c2c3c | 35-35 f2b2b3a | 36-36 f292939 | 37-37 f282837 | 38-38 f272735 | 39-39 f252534 | 40-40 f242432 | 41-41 f232330 | 42-42 f21212f | 43-43 f20202d | 44-44 f1f1f2b | 45-45 f1d1d2a
-33: 2-2 fa78bfa
-35: 4-50 f8b8b98
-36: 2-2 fa78bfa
-38: 4-41 f8b8b98
-40: 17-17 f4b4b62 | 18-18 f494960 | 19-19 f48485e | 20-20 f46465c | 21-21 f45455a | 22-22 f434358 | 23-23 f414156 | 24-24 f404054 | 25-25 f3e3e52 | 26-26 f3c3c50 | 27-27 f3b3b4e | 28-28 f39394c | 29-29 f38384a | 30-30 f363648 | 31-31 f343446 | 32-32 f333344 | 33-33 f313142 | 34-34 f2f2f40 | 35-35 f2e2e3e | 36-36 f2c2c3c | 37-37 f2b2b3a | 38-38 f292938 | 39-39 f272736 | 40-40 f262634 | 41-41 f242432 | 42-42 f222230 | 43-43 f21212e | 44-44 f1f1f2c | 45-45 f1e1e2a
-41: 2-7 f6366f1 | 25-75 f8b8b98
-42: 2-10 f6366f1 | 12-16 f6366f1 | 25-69 f8b8b98
-43: 2-7 f6366f1 | 9-21 f6366f1 | 25-45 f8b8b98
-44: 2-8 f6366f1 | 25-80 f8b8b98
-45: 2-10 f6366f1 | 25-39 f8b8b98
-46: 2-4 f6366f1 | 6-11 f6366f1 | 25-33 f8b8b98
-47: 2-4 f6366f1 | 6-14 f6366f1 | 25-40 f8b8b98
-49: 2-9 f8b8b98 | 12-18 f6366f1 | 20-26 f6366f1 | 28-32 f6366f1 | 33-35 f8b8b98 | 36-42 f6366f1 | 44-50 f6366f1 | 52-60 f6366f1 | 61-63 f8b8b98 | 64-70 f6366f1 | 72-78 f6366f1 | 80-86 f6366f1"
+29: 2-94 f8b8b98
+30: 2-94 f8b8b98
+31: 2-88 f8b8b98
+33: 11-11 f4b4b62 | 12-12 f4a4a60 | 13-13 f48485f | 14-14 f47475d | 15-15 f46465b | 16-16 f44445a | 17-17 f434358 | 18-18 f424256 | 19-19 f404055 | 20-20 f3f3f53 | 21-21 f3e3e51 | 22-22 f3c3c50 | 23-23 f3b3b4e | 24-24 f3a3a4c | 25-25 f38384b | 26-26 f373749 | 27-27 f363647 | 28-28 f343446 | 29-29 f333344 | 30-30 f313143 | 31-31 f303041 | 32-32 f2f2f3f | 33-33 f2d2d3e | 34-34 f2c2c3c | 35-35 f2b2b3a | 36-36 f292939 | 37-37 f282837 | 38-38 f272735 | 39-39 f252534 | 40-40 f242432 | 41-41 f232330 | 42-42 f21212f | 43-43 f20202d | 44-44 f1f1f2b | 45-45 f1d1d2a
+34: 2-2 fa78bfa
+36: 4-50 f8b8b98
+37: 2-2 fa78bfa
+39: 4-41 f8b8b98
+41: 17-17 f4b4b62 | 18-18 f494960 | 19-19 f48485e | 20-20 f46465c | 21-21 f45455a | 22-22 f434358 | 23-23 f414156 | 24-24 f404054 | 25-25 f3e3e52 | 26-26 f3c3c50 | 27-27 f3b3b4e | 28-28 f39394c | 29-29 f38384a | 30-30 f363648 | 31-31 f343446 | 32-32 f333344 | 33-33 f313142 | 34-34 f2f2f40 | 35-35 f2e2e3e | 36-36 f2c2c3c | 37-37 f2b2b3a | 38-38 f292938 | 39-39 f272736 | 40-40 f262634 | 41-41 f242432 | 42-42 f222230 | 43-43 f21212e | 44-44 f1f1f2c | 45-45 f1e1e2a
+42: 2-7 f6366f1 | 25-75 f8b8b98
+43: 2-10 f6366f1 | 12-16 f6366f1 | 25-69 f8b8b98
+44: 2-7 f6366f1 | 9-21 f6366f1 | 25-45 f8b8b98
+45: 2-8 f6366f1 | 25-80 f8b8b98
+46: 2-10 f6366f1 | 25-39 f8b8b98
+47: 2-4 f6366f1 | 6-11 f6366f1 | 25-33 f8b8b98
+48: 2-4 f6366f1 | 6-14 f6366f1 | 25-40 f8b8b98
+50: 2-9 f8b8b98 | 12-18 f6366f1 | 20-26 f6366f1 | 28-32 f6366f1 | 33-35 f8b8b98 | 36-42 f6366f1 | 44-50 f6366f1 | 52-60 f6366f1 | 61-63 f8b8b98 | 64-70 f6366f1 | 72-78 f6366f1 | 80-86 f6366f1"
 `;
 
 exports[`screen: 'help partner servers create' > en 120 plain 1`] = `
@@ -597,15 +611,16 @@ exports[`screen: 'help partner servers create' > en 120 plain 1`] = `
 
   With --external-id the server keeps the service ID of your billing system, so "bladecp partner
   servers list --external-id" finds it later.
-  Stack Container plans need the components to install (for example --component php, or a version
-  from "bladecp components list" after @). Other products take none.
+  Stack Container plans need the components to install (for example --component php --component
+  mysql, or a version from "bladecp components list" after @). A web server always comes along:
+  NGINX by default, or another one, such as --component apache. Other products take none.
 
   Examples ───────────────────────────────────
   › bladecp partner servers create --plan 12 --location 3 --domain example.com --email owner@example.com --name "Example
     Shop" --external-id 1042
     A server on plan 12, location 3, for a customer
   › bladecp partner servers create --plan 12 --location 3 --domain example.com --email owner@example.com --name "Example
-    Shop" --option memory=4 --component php
+    Shop" --option memory=4 --component php --component mysql
     With more memory and the PHP component
 
   Global options ─────────────────────────────
@@ -686,10 +701,13 @@ exports[`screen: 'help partner servers create' > es 40 color 1`] = `
   después.
   Los planes Stack Container necesitan
   los componentes a instalar (por
-  ejemplo --component php, o una
-  versión de "bladecp components list"
-  después de @). Los demás productos no
-  llevan componentes.
+  ejemplo --component php --component
+  mysql, o una versión de "bladecp
+  components list" después de @). Un
+  servidor web siempre va incluido:
+  NGINX por defecto, u otro, como
+  --component apache. Los demás
+  productos no llevan componentes.
 
   Ejemplos ────────────────────────────
   › bladecp partner servers create
@@ -704,7 +722,7 @@ exports[`screen: 'help partner servers create' > es 40 color 1`] = `
     example.com --email
     owner@example.com --name "Example
     Shop" --option memory=4 --component
-    php
+    php --component mysql
     Con más memoria y el componente PHP
 
   Opciones globales ───────────────────
@@ -786,37 +804,40 @@ exports[`screen: 'help partner servers create' > es 40 color 1`] = `
 62: 2-9 f8b8b98
 63: 2-37 f8b8b98
 64: 2-32 f8b8b98
-65: 2-31 f8b8b98
-66: 2-37 f8b8b98
-67: 2-38 f8b8b98
-68: 2-20 f8b8b98
-70: 11-11 f4b4b62 | 12-12 f494960 | 13-13 f48485e | 14-14 f46465c | 15-15 f44445a | 16-16 f434358 | 17-17 f414156 | 18-18 f3f3f54 | 19-19 f3e3e51 | 20-20 f3c3c4f | 21-21 f3a3a4d | 22-22 f39394b | 23-23 f373749 | 24-24 f353547 | 25-25 f343445 | 26-26 f323243 | 27-27 f303041 | 28-28 f2e2e3f | 29-29 f2d2d3d | 30-30 f2b2b3b | 31-31 f292939 | 32-32 f282837 | 33-33 f262634 | 34-34 f242432 | 35-35 f232330 | 36-36 f21212e | 37-37 f1f1f2c | 38-38 f1e1e2a
-71: 2-2 fa78bfa
-76: 4-29 f8b8b98
-77: 4-31 f8b8b98
-78: 2-2 fa78bfa
-84: 4-38 f8b8b98
-86: 20-20 f4b4b62 | 21-21 f49495f | 22-22 f46465c | 23-23 f444459 | 24-24 f414156 | 25-25 f3f3f53 | 26-26 f3c3c50 | 27-27 f3a3a4d | 28-28 f37374a | 29-29 f353547 | 30-30 f323243 | 31-31 f303040 | 32-32 f2d2d3d | 33-33 f2b2b3a | 34-34 f282837 | 35-35 f262634 | 36-36 f232331 | 37-37 f21212e | 38-38 f1e1e2b
-87: 2-7 f6366f1
-88: 4-35 f8b8b98
-89: 4-24 f8b8b98
-90: 2-10 f6366f1 | 12-16 f6366f1
-91: 4-38 f8b8b98
-92: 4-27 f8b8b98
-93: 2-7 f6366f1 | 9-21 f6366f1
-94: 4-25 f8b8b98
-95: 2-8 f6366f1
-96: 4-37 f8b8b98
-97: 4-27 f8b8b98
-98: 2-10 f6366f1
-99: 4-23 f8b8b98
-100: 2-4 f6366f1 | 6-11 f6366f1
-101: 4-19 f8b8b98
-102: 2-4 f6366f1 | 6-14 f6366f1
-103: 4-21 f8b8b98
-105: 2-12 f8b8b98 | 15-21 f6366f1 | 23-29 f6366f1 | 31-35 f6366f1 | 36-37 f8b8b98
-106: 0-1 f8b8b98 | 2-8 f6366f1 | 10-16 f6366f1 | 18-26 f6366f1 | 27-29 f8b8b98 | 30-36 f6366f1
-107: 2-8 f6366f1 | 10-16 f6366f1"
+65: 2-36 f8b8b98
+66: 2-33 f8b8b98
+67: 2-35 f8b8b98
+68: 2-34 f8b8b98
+69: 2-32 f8b8b98
+70: 2-30 f8b8b98
+71: 2-33 f8b8b98
+73: 11-11 f4b4b62 | 12-12 f494960 | 13-13 f48485e | 14-14 f46465c | 15-15 f44445a | 16-16 f434358 | 17-17 f414156 | 18-18 f3f3f54 | 19-19 f3e3e51 | 20-20 f3c3c4f | 21-21 f3a3a4d | 22-22 f39394b | 23-23 f373749 | 24-24 f353547 | 25-25 f343445 | 26-26 f323243 | 27-27 f303041 | 28-28 f2e2e3f | 29-29 f2d2d3d | 30-30 f2b2b3b | 31-31 f292939 | 32-32 f282837 | 33-33 f262634 | 34-34 f242432 | 35-35 f232330 | 36-36 f21212e | 37-37 f1f1f2c | 38-38 f1e1e2a
+74: 2-2 fa78bfa
+79: 4-29 f8b8b98
+80: 4-31 f8b8b98
+81: 2-2 fa78bfa
+87: 4-38 f8b8b98
+89: 20-20 f4b4b62 | 21-21 f49495f | 22-22 f46465c | 23-23 f444459 | 24-24 f414156 | 25-25 f3f3f53 | 26-26 f3c3c50 | 27-27 f3a3a4d | 28-28 f37374a | 29-29 f353547 | 30-30 f323243 | 31-31 f303040 | 32-32 f2d2d3d | 33-33 f2b2b3a | 34-34 f282837 | 35-35 f262634 | 36-36 f232331 | 37-37 f21212e | 38-38 f1e1e2b
+90: 2-7 f6366f1
+91: 4-35 f8b8b98
+92: 4-24 f8b8b98
+93: 2-10 f6366f1 | 12-16 f6366f1
+94: 4-38 f8b8b98
+95: 4-27 f8b8b98
+96: 2-7 f6366f1 | 9-21 f6366f1
+97: 4-25 f8b8b98
+98: 2-8 f6366f1
+99: 4-37 f8b8b98
+100: 4-27 f8b8b98
+101: 2-10 f6366f1
+102: 4-23 f8b8b98
+103: 2-4 f6366f1 | 6-11 f6366f1
+104: 4-19 f8b8b98
+105: 2-4 f6366f1 | 6-14 f6366f1
+106: 4-21 f8b8b98
+108: 2-12 f8b8b98 | 15-21 f6366f1 | 23-29 f6366f1 | 31-35 f6366f1 | 36-37 f8b8b98
+109: 0-1 f8b8b98 | 2-8 f6366f1 | 10-16 f6366f1 | 18-26 f6366f1 | 27-29 f8b8b98 | 30-36 f6366f1
+110: 2-8 f6366f1 | 10-16 f6366f1"
 `;
 
 exports[`screen: 'help partner servers create' > es 40 plain 1`] = `
@@ -885,10 +906,13 @@ exports[`screen: 'help partner servers create' > es 40 plain 1`] = `
   después.
   Los planes Stack Container necesitan
   los componentes a instalar (por
-  ejemplo --component php, o una
-  versión de "bladecp components list"
-  después de @). Los demás productos no
-  llevan componentes.
+  ejemplo --component php --component
+  mysql, o una versión de "bladecp
+  components list" después de @). Un
+  servidor web siempre va incluido:
+  NGINX por defecto, u otro, como
+  --component apache. Los demás
+  productos no llevan componentes.
 
   Ejemplos ────────────────────────────
   › bladecp partner servers create
@@ -903,7 +927,7 @@ exports[`screen: 'help partner servers create' > es 40 plain 1`] = `
     example.com --email
     owner@example.com --name "Example
     Shop" --option memory=4 --component
-    php
+    php --component mysql
     Con más memoria y el componente PHP
 
   Opciones globales ───────────────────
@@ -966,8 +990,9 @@ exports[`screen: 'help partner servers create' > es 80 color 1`] = `
   Con --external-id, el servidor guarda el ID del servicio de tu sistema de
   cobro, y "bladecp partner servers list --external-id" lo encuentra después.
   Los planes Stack Container necesitan los componentes a instalar (por ejemplo
-  --component php, o una versión de "bladecp components list" después de @).
-  Los demás productos no llevan componentes.
+  --component php --component mysql, o una versión de "bladecp components list"
+  después de @). Un servidor web siempre va incluido: NGINX por defecto, u
+  otro, como --component apache. Los demás productos no llevan componentes.
 
   Ejemplos ───────────────────────────────────
   › bladecp partner servers create --plan 12 --location 3 --domain example.com
@@ -975,7 +1000,7 @@ exports[`screen: 'help partner servers create' > es 80 color 1`] = `
     Un servidor en el plan 12, ubicación 3, para un cliente
   › bladecp partner servers create --plan 12 --location 3 --domain example.com
     --email owner@example.com --name "Example Shop" --option memory=4
-    --component php
+    --component php --component mysql
     Con más memoria y el componente PHP
 
   Opciones globales ──────────────────────────
@@ -1021,25 +1046,26 @@ exports[`screen: 'help partner servers create' > es 80 color 1`] = `
 32: 2-74 f8b8b98
 33: 2-76 f8b8b98
 34: 2-77 f8b8b98
-35: 2-75 f8b8b98
-36: 2-43 f8b8b98
-38: 11-11 f4b4b62 | 12-12 f4a4a60 | 13-13 f48485f | 14-14 f47475d | 15-15 f46465b | 16-16 f44445a | 17-17 f434358 | 18-18 f424256 | 19-19 f404055 | 20-20 f3f3f53 | 21-21 f3e3e51 | 22-22 f3c3c50 | 23-23 f3b3b4e | 24-24 f3a3a4c | 25-25 f38384b | 26-26 f373749 | 27-27 f363647 | 28-28 f343446 | 29-29 f333344 | 30-30 f313143 | 31-31 f303041 | 32-32 f2f2f3f | 33-33 f2d2d3e | 34-34 f2c2c3c | 35-35 f2b2b3a | 36-36 f292939 | 37-37 f282837 | 38-38 f272735 | 39-39 f252534 | 40-40 f242432 | 41-41 f232330 | 42-42 f21212f | 43-43 f20202d | 44-44 f1f1f2b | 45-45 f1d1d2a
-39: 2-2 fa78bfa
-41: 4-58 f8b8b98
-42: 2-2 fa78bfa
-45: 4-38 f8b8b98
-47: 20-20 f4b4b62 | 21-21 f494960 | 22-22 f47475e | 23-23 f46465b | 24-24 f444459 | 25-25 f424257 | 26-26 f404055 | 27-27 f3e3e52 | 28-28 f3d3d50 | 29-29 f3b3b4e | 30-30 f39394c | 31-31 f373749 | 32-32 f353547 | 33-33 f343445 | 34-34 f323243 | 35-35 f303041 | 36-36 f2e2e3e | 37-37 f2c2c3c | 38-38 f2a2a3a | 39-39 f292938 | 40-40 f272735 | 41-41 f252533 | 42-42 f232331 | 43-43 f21212f | 44-44 f20202c | 45-45 f1e1e2a
-48: 2-7 f6366f1 | 25-78 f8b8b98
-49: 2-10 f6366f1 | 12-16 f6366f1 | 25-59 f8b8b98
-50: 25-48 f8b8b98
-51: 2-7 f6366f1 | 9-21 f6366f1 | 25-46 f8b8b98
-52: 2-8 f6366f1 | 25-74 f8b8b98
-53: 25-32 f8b8b98
-54: 2-10 f6366f1 | 25-44 f8b8b98
-55: 2-4 f6366f1 | 6-11 f6366f1 | 25-40 f8b8b98
-56: 2-4 f6366f1 | 6-14 f6366f1 | 25-42 f8b8b98
-58: 2-12 f8b8b98 | 15-21 f6366f1 | 23-29 f6366f1 | 31-35 f6366f1 | 36-38 f8b8b98 | 39-45 f6366f1 | 47-53 f6366f1 | 55-63 f6366f1 | 64-66 f8b8b98 | 67-73 f6366f1
-59: 2-8 f6366f1 | 10-16 f6366f1"
+35: 2-78 f8b8b98
+36: 2-73 f8b8b98
+37: 2-74 f8b8b98
+39: 11-11 f4b4b62 | 12-12 f4a4a60 | 13-13 f48485f | 14-14 f47475d | 15-15 f46465b | 16-16 f44445a | 17-17 f434358 | 18-18 f424256 | 19-19 f404055 | 20-20 f3f3f53 | 21-21 f3e3e51 | 22-22 f3c3c50 | 23-23 f3b3b4e | 24-24 f3a3a4c | 25-25 f38384b | 26-26 f373749 | 27-27 f363647 | 28-28 f343446 | 29-29 f333344 | 30-30 f313143 | 31-31 f303041 | 32-32 f2f2f3f | 33-33 f2d2d3e | 34-34 f2c2c3c | 35-35 f2b2b3a | 36-36 f292939 | 37-37 f282837 | 38-38 f272735 | 39-39 f252534 | 40-40 f242432 | 41-41 f232330 | 42-42 f21212f | 43-43 f20202d | 44-44 f1f1f2b | 45-45 f1d1d2a
+40: 2-2 fa78bfa
+42: 4-58 f8b8b98
+43: 2-2 fa78bfa
+46: 4-38 f8b8b98
+48: 20-20 f4b4b62 | 21-21 f494960 | 22-22 f47475e | 23-23 f46465b | 24-24 f444459 | 25-25 f424257 | 26-26 f404055 | 27-27 f3e3e52 | 28-28 f3d3d50 | 29-29 f3b3b4e | 30-30 f39394c | 31-31 f373749 | 32-32 f353547 | 33-33 f343445 | 34-34 f323243 | 35-35 f303041 | 36-36 f2e2e3e | 37-37 f2c2c3c | 38-38 f2a2a3a | 39-39 f292938 | 40-40 f272735 | 41-41 f252533 | 42-42 f232331 | 43-43 f21212f | 44-44 f20202c | 45-45 f1e1e2a
+49: 2-7 f6366f1 | 25-78 f8b8b98
+50: 2-10 f6366f1 | 12-16 f6366f1 | 25-59 f8b8b98
+51: 25-48 f8b8b98
+52: 2-7 f6366f1 | 9-21 f6366f1 | 25-46 f8b8b98
+53: 2-8 f6366f1 | 25-74 f8b8b98
+54: 25-32 f8b8b98
+55: 2-10 f6366f1 | 25-44 f8b8b98
+56: 2-4 f6366f1 | 6-11 f6366f1 | 25-40 f8b8b98
+57: 2-4 f6366f1 | 6-14 f6366f1 | 25-42 f8b8b98
+59: 2-12 f8b8b98 | 15-21 f6366f1 | 23-29 f6366f1 | 31-35 f6366f1 | 36-38 f8b8b98 | 39-45 f6366f1 | 47-53 f6366f1 | 55-63 f6366f1 | 64-66 f8b8b98 | 67-73 f6366f1
+60: 2-8 f6366f1 | 10-16 f6366f1"
 `;
 
 exports[`screen: 'help partner servers create' > es 80 plain 1`] = `
@@ -1078,8 +1104,9 @@ exports[`screen: 'help partner servers create' > es 80 plain 1`] = `
   Con --external-id, el servidor guarda el ID del servicio de tu sistema de
   cobro, y "bladecp partner servers list --external-id" lo encuentra después.
   Los planes Stack Container necesitan los componentes a instalar (por ejemplo
-  --component php, o una versión de "bladecp components list" después de @).
-  Los demás productos no llevan componentes.
+  --component php --component mysql, o una versión de "bladecp components list"
+  después de @). Un servidor web siempre va incluido: NGINX por defecto, u
+  otro, como --component apache. Los demás productos no llevan componentes.
 
   Ejemplos ───────────────────────────────────
   › bladecp partner servers create --plan 12 --location 3 --domain example.com
@@ -1087,7 +1114,7 @@ exports[`screen: 'help partner servers create' > es 80 plain 1`] = `
     Un servidor en el plan 12, ubicación 3, para un cliente
   › bladecp partner servers create --plan 12 --location 3 --domain example.com
     --email owner@example.com --name "Example Shop" --option memory=4
-    --component php
+    --component php --component mysql
     Con más memoria y el componente PHP
 
   Opciones globales ──────────────────────────
@@ -1137,16 +1164,17 @@ exports[`screen: 'help partner servers create' > es 120 color 1`] = `
 
   Con --external-id, el servidor guarda el ID del servicio de tu sistema de cobro, y "bladecp
   partner servers list --external-id" lo encuentra después.
-  Los planes Stack Container necesitan los componentes a instalar (por ejemplo --component php, o
-  una versión de "bladecp components list" después de @). Los demás productos no llevan
-  componentes.
+  Los planes Stack Container necesitan los componentes a instalar (por ejemplo --component php
+  --component mysql, o una versión de "bladecp components list" después de @). Un servidor web
+  siempre va incluido: NGINX por defecto, u otro, como --component apache. Los demás productos no
+  llevan componentes.
 
   Ejemplos ───────────────────────────────────
   › bladecp partner servers create --plan 12 --location 3 --domain example.com --email owner@example.com --name "Example
     Shop" --external-id 1042
     Un servidor en el plan 12, ubicación 3, para un cliente
   › bladecp partner servers create --plan 12 --location 3 --domain example.com --email owner@example.com --name "Example
-    Shop" --option memory=4 --component php
+    Shop" --option memory=4 --component php --component mysql
     Con más memoria y el componente PHP
 
   Opciones globales ──────────────────────────
@@ -1186,23 +1214,24 @@ exports[`screen: 'help partner servers create' > es 120 color 1`] = `
 27: 2-4 f6366f1 | 6-10 f6366f1 | 35-70 f8b8b98
 29: 2-92 f8b8b98
 30: 2-58 f8b8b98
-31: 2-96 f8b8b98
-32: 2-86 f8b8b98
-33: 2-13 f8b8b98
-35: 11-11 f4b4b62 | 12-12 f4a4a60 | 13-13 f48485f | 14-14 f47475d | 15-15 f46465b | 16-16 f44445a | 17-17 f434358 | 18-18 f424256 | 19-19 f404055 | 20-20 f3f3f53 | 21-21 f3e3e51 | 22-22 f3c3c50 | 23-23 f3b3b4e | 24-24 f3a3a4c | 25-25 f38384b | 26-26 f373749 | 27-27 f363647 | 28-28 f343446 | 29-29 f333344 | 30-30 f313143 | 31-31 f303041 | 32-32 f2f2f3f | 33-33 f2d2d3e | 34-34 f2c2c3c | 35-35 f2b2b3a | 36-36 f292939 | 37-37 f282837 | 38-38 f272735 | 39-39 f252534 | 40-40 f242432 | 41-41 f232330 | 42-42 f21212f | 43-43 f20202d | 44-44 f1f1f2b | 45-45 f1d1d2a
-36: 2-2 fa78bfa
-38: 4-58 f8b8b98
-39: 2-2 fa78bfa
-41: 4-38 f8b8b98
-43: 20-20 f4b4b62 | 21-21 f494960 | 22-22 f47475e | 23-23 f46465b | 24-24 f444459 | 25-25 f424257 | 26-26 f404055 | 27-27 f3e3e52 | 28-28 f3d3d50 | 29-29 f3b3b4e | 30-30 f39394c | 31-31 f373749 | 32-32 f353547 | 33-33 f343445 | 34-34 f323243 | 35-35 f303041 | 36-36 f2e2e3e | 37-37 f2c2c3c | 38-38 f2a2a3a | 39-39 f292938 | 40-40 f272735 | 41-41 f252533 | 42-42 f232331 | 43-43 f21212f | 44-44 f20202c | 45-45 f1e1e2a
-44: 2-7 f6366f1 | 25-78 f8b8b98
-45: 2-10 f6366f1 | 12-16 f6366f1 | 25-84 f8b8b98
-46: 2-7 f6366f1 | 9-21 f6366f1 | 25-46 f8b8b98
-47: 2-8 f6366f1 | 25-83 f8b8b98
-48: 2-10 f6366f1 | 25-44 f8b8b98
-49: 2-4 f6366f1 | 6-11 f6366f1 | 25-40 f8b8b98
-50: 2-4 f6366f1 | 6-14 f6366f1 | 25-42 f8b8b98
-52: 2-12 f8b8b98 | 15-21 f6366f1 | 23-29 f6366f1 | 31-35 f6366f1 | 36-38 f8b8b98 | 39-45 f6366f1 | 47-53 f6366f1 | 55-63 f6366f1 | 64-66 f8b8b98 | 67-73 f6366f1 | 75-81 f6366f1 | 83-89 f6366f1"
+31: 2-93 f8b8b98
+32: 2-93 f8b8b98
+33: 2-96 f8b8b98
+34: 2-20 f8b8b98
+36: 11-11 f4b4b62 | 12-12 f4a4a60 | 13-13 f48485f | 14-14 f47475d | 15-15 f46465b | 16-16 f44445a | 17-17 f434358 | 18-18 f424256 | 19-19 f404055 | 20-20 f3f3f53 | 21-21 f3e3e51 | 22-22 f3c3c50 | 23-23 f3b3b4e | 24-24 f3a3a4c | 25-25 f38384b | 26-26 f373749 | 27-27 f363647 | 28-28 f343446 | 29-29 f333344 | 30-30 f313143 | 31-31 f303041 | 32-32 f2f2f3f | 33-33 f2d2d3e | 34-34 f2c2c3c | 35-35 f2b2b3a | 36-36 f292939 | 37-37 f282837 | 38-38 f272735 | 39-39 f252534 | 40-40 f242432 | 41-41 f232330 | 42-42 f21212f | 43-43 f20202d | 44-44 f1f1f2b | 45-45 f1d1d2a
+37: 2-2 fa78bfa
+39: 4-58 f8b8b98
+40: 2-2 fa78bfa
+42: 4-38 f8b8b98
+44: 20-20 f4b4b62 | 21-21 f494960 | 22-22 f47475e | 23-23 f46465b | 24-24 f444459 | 25-25 f424257 | 26-26 f404055 | 27-27 f3e3e52 | 28-28 f3d3d50 | 29-29 f3b3b4e | 30-30 f39394c | 31-31 f373749 | 32-32 f353547 | 33-33 f343445 | 34-34 f323243 | 35-35 f303041 | 36-36 f2e2e3e | 37-37 f2c2c3c | 38-38 f2a2a3a | 39-39 f292938 | 40-40 f272735 | 41-41 f252533 | 42-42 f232331 | 43-43 f21212f | 44-44 f20202c | 45-45 f1e1e2a
+45: 2-7 f6366f1 | 25-78 f8b8b98
+46: 2-10 f6366f1 | 12-16 f6366f1 | 25-84 f8b8b98
+47: 2-7 f6366f1 | 9-21 f6366f1 | 25-46 f8b8b98
+48: 2-8 f6366f1 | 25-83 f8b8b98
+49: 2-10 f6366f1 | 25-44 f8b8b98
+50: 2-4 f6366f1 | 6-11 f6366f1 | 25-40 f8b8b98
+51: 2-4 f6366f1 | 6-14 f6366f1 | 25-42 f8b8b98
+53: 2-12 f8b8b98 | 15-21 f6366f1 | 23-29 f6366f1 | 31-35 f6366f1 | 36-38 f8b8b98 | 39-45 f6366f1 | 47-53 f6366f1 | 55-63 f6366f1 | 64-66 f8b8b98 | 67-73 f6366f1 | 75-81 f6366f1 | 83-89 f6366f1"
 `;
 
 exports[`screen: 'help partner servers create' > es 120 plain 1`] = `
@@ -1237,16 +1266,17 @@ exports[`screen: 'help partner servers create' > es 120 plain 1`] = `
 
   Con --external-id, el servidor guarda el ID del servicio de tu sistema de cobro, y "bladecp
   partner servers list --external-id" lo encuentra después.
-  Los planes Stack Container necesitan los componentes a instalar (por ejemplo --component php, o
-  una versión de "bladecp components list" después de @). Los demás productos no llevan
-  componentes.
+  Los planes Stack Container necesitan los componentes a instalar (por ejemplo --component php
+  --component mysql, o una versión de "bladecp components list" después de @). Un servidor web
+  siempre va incluido: NGINX por defecto, u otro, como --component apache. Los demás productos no
+  llevan componentes.
 
   Ejemplos ───────────────────────────────────
   › bladecp partner servers create --plan 12 --location 3 --domain example.com --email owner@example.com --name "Example
     Shop" --external-id 1042
     Un servidor en el plan 12, ubicación 3, para un cliente
   › bladecp partner servers create --plan 12 --location 3 --domain example.com --email owner@example.com --name "Example
-    Shop" --option memory=4 --component php
+    Shop" --option memory=4 --component php --component mysql
     Con más memoria y el componente PHP
 
   Opciones globales ──────────────────────────
@@ -1322,9 +1352,12 @@ exports[`screen: 'help partner servers create' > pt-BR 40 color 1`] = `
   depois.
   Planos Stack Container precisam dos
   componentes a instalar (por exemplo
-  --component php, ou uma versão de
-  "bladecp components list" depois do
-  @). Os outros produtos não levam
+  --component php --component mysql, ou
+  uma versão de "bladecp components
+  list" depois do @). Um servidor web
+  sempre vai junto: o NGINX por padrão,
+  ou outro, como --component apache. Os
+  outros produtos não levam
   componentes.
 
   Exemplos ────────────────────────────
@@ -1340,7 +1373,7 @@ exports[`screen: 'help partner servers create' > pt-BR 40 color 1`] = `
     example.com --email
     owner@example.com --name "Example
     Shop" --option memory=4 --component
-    php
+    php --component mysql
     Com mais memória e o componente PHP
 
   Opções globais ──────────────────────
@@ -1417,37 +1450,40 @@ exports[`screen: 'help partner servers create' > pt-BR 40 color 1`] = `
 57: 2-8 f8b8b98
 58: 2-36 f8b8b98
 59: 2-36 f8b8b98
-60: 2-34 f8b8b98
-61: 2-36 f8b8b98
-62: 2-33 f8b8b98
-63: 2-13 f8b8b98
-65: 11-11 f4b4b62 | 12-12 f494960 | 13-13 f48485e | 14-14 f46465c | 15-15 f44445a | 16-16 f434358 | 17-17 f414156 | 18-18 f3f3f54 | 19-19 f3e3e51 | 20-20 f3c3c4f | 21-21 f3a3a4d | 22-22 f39394b | 23-23 f373749 | 24-24 f353547 | 25-25 f343445 | 26-26 f323243 | 27-27 f303041 | 28-28 f2e2e3f | 29-29 f2d2d3d | 30-30 f2b2b3b | 31-31 f292939 | 32-32 f282837 | 33-33 f262634 | 34-34 f242432 | 35-35 f232330 | 36-36 f21212e | 37-37 f1f1f2c | 38-38 f1e1e2a
-66: 2-2 fa78bfa
-71: 4-27 f8b8b98
-72: 4-33 f8b8b98
-73: 2-2 fa78bfa
-79: 4-38 f8b8b98
-81: 17-17 f4b4b62 | 18-18 f49495f | 19-19 f47475d | 20-20 f45455a | 21-21 f424257 | 22-22 f404055 | 23-23 f3e3e52 | 24-24 f3c3c50 | 25-25 f3a3a4d | 26-26 f38384a | 27-27 f363648 | 28-28 f343445 | 29-29 f313142 | 30-30 f2f2f40 | 31-31 f2d2d3d | 32-32 f2b2b3a | 33-33 f292938 | 34-34 f272735 | 35-35 f252533 | 36-36 f222230 | 37-37 f20202d | 38-38 f1e1e2b
-82: 2-7 f6366f1
-83: 4-35 f8b8b98
-84: 4-25 f8b8b98
-85: 2-10 f6366f1 | 12-16 f6366f1
-86: 4-26 f8b8b98
-87: 4-27 f8b8b98
-88: 2-7 f6366f1 | 9-21 f6366f1
-89: 4-23 f8b8b98
-90: 2-8 f6366f1
-91: 4-38 f8b8b98
-92: 4-26 f8b8b98
-93: 2-10 f6366f1
-94: 4-22 f8b8b98
-95: 2-4 f6366f1 | 6-11 f6366f1
-96: 4-18 f8b8b98
-97: 2-4 f6366f1 | 6-14 f6366f1
-98: 4-19 f8b8b98
-100: 2-12 f8b8b98 | 15-21 f6366f1 | 23-29 f6366f1 | 31-35 f6366f1 | 36-37 f8b8b98
-101: 0-1 f8b8b98 | 2-8 f6366f1 | 10-16 f6366f1 | 18-26 f6366f1 | 27-29 f8b8b98 | 30-36 f6366f1
-102: 2-8 f6366f1 | 10-16 f6366f1"
+60: 2-38 f8b8b98
+61: 2-34 f8b8b98
+62: 2-36 f8b8b98
+63: 2-38 f8b8b98
+64: 2-38 f8b8b98
+65: 2-26 f8b8b98
+66: 2-13 f8b8b98
+68: 11-11 f4b4b62 | 12-12 f494960 | 13-13 f48485e | 14-14 f46465c | 15-15 f44445a | 16-16 f434358 | 17-17 f414156 | 18-18 f3f3f54 | 19-19 f3e3e51 | 20-20 f3c3c4f | 21-21 f3a3a4d | 22-22 f39394b | 23-23 f373749 | 24-24 f353547 | 25-25 f343445 | 26-26 f323243 | 27-27 f303041 | 28-28 f2e2e3f | 29-29 f2d2d3d | 30-30 f2b2b3b | 31-31 f292939 | 32-32 f282837 | 33-33 f262634 | 34-34 f242432 | 35-35 f232330 | 36-36 f21212e | 37-37 f1f1f2c | 38-38 f1e1e2a
+69: 2-2 fa78bfa
+74: 4-27 f8b8b98
+75: 4-33 f8b8b98
+76: 2-2 fa78bfa
+82: 4-38 f8b8b98
+84: 17-17 f4b4b62 | 18-18 f49495f | 19-19 f47475d | 20-20 f45455a | 21-21 f424257 | 22-22 f404055 | 23-23 f3e3e52 | 24-24 f3c3c50 | 25-25 f3a3a4d | 26-26 f38384a | 27-27 f363648 | 28-28 f343445 | 29-29 f313142 | 30-30 f2f2f40 | 31-31 f2d2d3d | 32-32 f2b2b3a | 33-33 f292938 | 34-34 f272735 | 35-35 f252533 | 36-36 f222230 | 37-37 f20202d | 38-38 f1e1e2b
+85: 2-7 f6366f1
+86: 4-35 f8b8b98
+87: 4-25 f8b8b98
+88: 2-10 f6366f1 | 12-16 f6366f1
+89: 4-26 f8b8b98
+90: 4-27 f8b8b98
+91: 2-7 f6366f1 | 9-21 f6366f1
+92: 4-23 f8b8b98
+93: 2-8 f6366f1
+94: 4-38 f8b8b98
+95: 4-26 f8b8b98
+96: 2-10 f6366f1
+97: 4-22 f8b8b98
+98: 2-4 f6366f1 | 6-11 f6366f1
+99: 4-18 f8b8b98
+100: 2-4 f6366f1 | 6-14 f6366f1
+101: 4-19 f8b8b98
+103: 2-12 f8b8b98 | 15-21 f6366f1 | 23-29 f6366f1 | 31-35 f6366f1 | 36-37 f8b8b98
+104: 0-1 f8b8b98 | 2-8 f6366f1 | 10-16 f6366f1 | 18-26 f6366f1 | 27-29 f8b8b98 | 30-36 f6366f1
+105: 2-8 f6366f1 | 10-16 f6366f1"
 `;
 
 exports[`screen: 'help partner servers create' > pt-BR 40 plain 1`] = `
@@ -1511,9 +1547,12 @@ exports[`screen: 'help partner servers create' > pt-BR 40 plain 1`] = `
   depois.
   Planos Stack Container precisam dos
   componentes a instalar (por exemplo
-  --component php, ou uma versão de
-  "bladecp components list" depois do
-  @). Os outros produtos não levam
+  --component php --component mysql, ou
+  uma versão de "bladecp components
+  list" depois do @). Um servidor web
+  sempre vai junto: o NGINX por padrão,
+  ou outro, como --component apache. Os
+  outros produtos não levam
   componentes.
 
   Exemplos ────────────────────────────
@@ -1529,7 +1568,7 @@ exports[`screen: 'help partner servers create' > pt-BR 40 plain 1`] = `
     example.com --email
     owner@example.com --name "Example
     Shop" --option memory=4 --component
-    php
+    php --component mysql
     Com mais memória e o componente PHP
 
   Opções globais ──────────────────────
@@ -1593,8 +1632,9 @@ exports[`screen: 'help partner servers create' > pt-BR 80 color 1`] = `
   Com --external-id, o servidor guarda o ID do serviço no seu sistema de
   cobrança, e "bladecp partner servers list --external-id" encontra ele depois.
   Planos Stack Container precisam dos componentes a instalar (por exemplo
-  --component php, ou uma versão de "bladecp components list" depois do @). Os
-  outros produtos não levam componentes.
+  --component php --component mysql, ou uma versão de "bladecp components list"
+  depois do @). Um servidor web sempre vai junto: o NGINX por padrão, ou outro,
+  como --component apache. Os outros produtos não levam componentes.
 
   Exemplos ───────────────────────────────────
   › bladecp partner servers create --plan 12 --location 3 --domain example.com
@@ -1602,7 +1642,7 @@ exports[`screen: 'help partner servers create' > pt-BR 80 color 1`] = `
     Um servidor no plano 12, localização 3, para um cliente
   › bladecp partner servers create --plan 12 --location 3 --domain example.com
     --email owner@example.com --name "Example Shop" --option memory=4
-    --component php
+    --component php --component mysql
     Com mais memória e o componente PHP
 
   Opções globais ─────────────────────────────
@@ -1649,25 +1689,26 @@ exports[`screen: 'help partner servers create' > pt-BR 80 color 1`] = `
 33: 2-71 f8b8b98
 34: 2-78 f8b8b98
 35: 2-72 f8b8b98
-36: 2-77 f8b8b98
-37: 2-39 f8b8b98
-39: 11-11 f4b4b62 | 12-12 f4a4a60 | 13-13 f48485f | 14-14 f47475d | 15-15 f46465b | 16-16 f44445a | 17-17 f434358 | 18-18 f424256 | 19-19 f404055 | 20-20 f3f3f53 | 21-21 f3e3e51 | 22-22 f3c3c50 | 23-23 f3b3b4e | 24-24 f3a3a4c | 25-25 f38384b | 26-26 f373749 | 27-27 f363647 | 28-28 f343446 | 29-29 f333344 | 30-30 f313143 | 31-31 f303041 | 32-32 f2f2f3f | 33-33 f2d2d3e | 34-34 f2c2c3c | 35-35 f2b2b3a | 36-36 f292939 | 37-37 f282837 | 38-38 f272735 | 39-39 f252534 | 40-40 f242432 | 41-41 f232330 | 42-42 f21212f | 43-43 f20202d | 44-44 f1f1f2b | 45-45 f1d1d2a
-40: 2-2 fa78bfa
-42: 4-58 f8b8b98
-43: 2-2 fa78bfa
-46: 4-38 f8b8b98
-48: 17-17 f4b4b62 | 18-18 f494960 | 19-19 f48485e | 20-20 f46465c | 21-21 f45455a | 22-22 f434358 | 23-23 f414156 | 24-24 f404054 | 25-25 f3e3e52 | 26-26 f3c3c50 | 27-27 f3b3b4e | 28-28 f39394c | 29-29 f38384a | 30-30 f363648 | 31-31 f343446 | 32-32 f333344 | 33-33 f313142 | 34-34 f2f2f40 | 35-35 f2e2e3e | 36-36 f2c2c3c | 37-37 f2b2b3a | 38-38 f292938 | 39-39 f272736 | 40-40 f262634 | 41-41 f242432 | 42-42 f222230 | 43-43 f21212e | 44-44 f1f1f2c | 45-45 f1e1e2a
-49: 2-7 f6366f1 | 25-68 f8b8b98
-50: 25-34 f8b8b98
-51: 2-10 f6366f1 | 12-16 f6366f1 | 25-72 f8b8b98
-52: 2-7 f6366f1 | 9-21 f6366f1 | 25-44 f8b8b98
-53: 2-8 f6366f1 | 25-74 f8b8b98
-54: 25-32 f8b8b98
-55: 2-10 f6366f1 | 25-43 f8b8b98
-56: 2-4 f6366f1 | 6-11 f6366f1 | 25-39 f8b8b98
-57: 2-4 f6366f1 | 6-14 f6366f1 | 25-40 f8b8b98
-59: 2-12 f8b8b98 | 15-21 f6366f1 | 23-29 f6366f1 | 31-35 f6366f1 | 36-38 f8b8b98 | 39-45 f6366f1 | 47-53 f6366f1 | 55-63 f6366f1 | 64-66 f8b8b98 | 67-73 f6366f1
-60: 2-8 f6366f1 | 10-16 f6366f1"
+36: 2-78 f8b8b98
+37: 2-78 f8b8b98
+38: 2-67 f8b8b98
+40: 11-11 f4b4b62 | 12-12 f4a4a60 | 13-13 f48485f | 14-14 f47475d | 15-15 f46465b | 16-16 f44445a | 17-17 f434358 | 18-18 f424256 | 19-19 f404055 | 20-20 f3f3f53 | 21-21 f3e3e51 | 22-22 f3c3c50 | 23-23 f3b3b4e | 24-24 f3a3a4c | 25-25 f38384b | 26-26 f373749 | 27-27 f363647 | 28-28 f343446 | 29-29 f333344 | 30-30 f313143 | 31-31 f303041 | 32-32 f2f2f3f | 33-33 f2d2d3e | 34-34 f2c2c3c | 35-35 f2b2b3a | 36-36 f292939 | 37-37 f282837 | 38-38 f272735 | 39-39 f252534 | 40-40 f242432 | 41-41 f232330 | 42-42 f21212f | 43-43 f20202d | 44-44 f1f1f2b | 45-45 f1d1d2a
+41: 2-2 fa78bfa
+43: 4-58 f8b8b98
+44: 2-2 fa78bfa
+47: 4-38 f8b8b98
+49: 17-17 f4b4b62 | 18-18 f494960 | 19-19 f48485e | 20-20 f46465c | 21-21 f45455a | 22-22 f434358 | 23-23 f414156 | 24-24 f404054 | 25-25 f3e3e52 | 26-26 f3c3c50 | 27-27 f3b3b4e | 28-28 f39394c | 29-29 f38384a | 30-30 f363648 | 31-31 f343446 | 32-32 f333344 | 33-33 f313142 | 34-34 f2f2f40 | 35-35 f2e2e3e | 36-36 f2c2c3c | 37-37 f2b2b3a | 38-38 f292938 | 39-39 f272736 | 40-40 f262634 | 41-41 f242432 | 42-42 f222230 | 43-43 f21212e | 44-44 f1f1f2c | 45-45 f1e1e2a
+50: 2-7 f6366f1 | 25-68 f8b8b98
+51: 25-34 f8b8b98
+52: 2-10 f6366f1 | 12-16 f6366f1 | 25-72 f8b8b98
+53: 2-7 f6366f1 | 9-21 f6366f1 | 25-44 f8b8b98
+54: 2-8 f6366f1 | 25-74 f8b8b98
+55: 25-32 f8b8b98
+56: 2-10 f6366f1 | 25-43 f8b8b98
+57: 2-4 f6366f1 | 6-11 f6366f1 | 25-39 f8b8b98
+58: 2-4 f6366f1 | 6-14 f6366f1 | 25-40 f8b8b98
+60: 2-12 f8b8b98 | 15-21 f6366f1 | 23-29 f6366f1 | 31-35 f6366f1 | 36-38 f8b8b98 | 39-45 f6366f1 | 47-53 f6366f1 | 55-63 f6366f1 | 64-66 f8b8b98 | 67-73 f6366f1
+61: 2-8 f6366f1 | 10-16 f6366f1"
 `;
 
 exports[`screen: 'help partner servers create' > pt-BR 80 plain 1`] = `
@@ -1707,8 +1748,9 @@ exports[`screen: 'help partner servers create' > pt-BR 80 plain 1`] = `
   Com --external-id, o servidor guarda o ID do serviço no seu sistema de
   cobrança, e "bladecp partner servers list --external-id" encontra ele depois.
   Planos Stack Container precisam dos componentes a instalar (por exemplo
-  --component php, ou uma versão de "bladecp components list" depois do @). Os
-  outros produtos não levam componentes.
+  --component php --component mysql, ou uma versão de "bladecp components list"
+  depois do @). Um servidor web sempre vai junto: o NGINX por padrão, ou outro,
+  como --component apache. Os outros produtos não levam componentes.
 
   Exemplos ───────────────────────────────────
   › bladecp partner servers create --plan 12 --location 3 --domain example.com
@@ -1716,7 +1758,7 @@ exports[`screen: 'help partner servers create' > pt-BR 80 plain 1`] = `
     Um servidor no plano 12, localização 3, para um cliente
   › bladecp partner servers create --plan 12 --location 3 --domain example.com
     --email owner@example.com --name "Example Shop" --option memory=4
-    --component php
+    --component php --component mysql
     Com mais memória e o componente PHP
 
   Opções globais ─────────────────────────────
@@ -1765,15 +1807,17 @@ exports[`screen: 'help partner servers create' > pt-BR 120 color 1`] = `
 
   Com --external-id, o servidor guarda o ID do serviço no seu sistema de cobrança, e "bladecp
   partner servers list --external-id" encontra ele depois.
-  Planos Stack Container precisam dos componentes a instalar (por exemplo --component php, ou uma
-  versão de "bladecp components list" depois do @). Os outros produtos não levam componentes.
+  Planos Stack Container precisam dos componentes a instalar (por exemplo --component php
+  --component mysql, ou uma versão de "bladecp components list" depois do @). Um servidor web
+  sempre vai junto: o NGINX por padrão, ou outro, como --component apache. Os outros produtos não
+  levam componentes.
 
   Exemplos ───────────────────────────────────
   › bladecp partner servers create --plan 12 --location 3 --domain example.com --email owner@example.com --name "Example
     Shop" --external-id 1042
     Um servidor no plano 12, localização 3, para um cliente
   › bladecp partner servers create --plan 12 --location 3 --domain example.com --email owner@example.com --name "Example
-    Shop" --option memory=4 --component php
+    Shop" --option memory=4 --component php --component mysql
     Com mais memória e o componente PHP
 
   Opções globais ─────────────────────────────
@@ -1812,22 +1856,24 @@ exports[`screen: 'help partner servers create' > pt-BR 120 color 1`] = `
 26: 2-4 f6366f1 | 6-10 f6366f1 | 35-67 f8b8b98
 28: 2-92 f8b8b98
 29: 2-57 f8b8b98
-30: 2-96 f8b8b98
+30: 2-88 f8b8b98
 31: 2-92 f8b8b98
-33: 11-11 f4b4b62 | 12-12 f4a4a60 | 13-13 f48485f | 14-14 f47475d | 15-15 f46465b | 16-16 f44445a | 17-17 f434358 | 18-18 f424256 | 19-19 f404055 | 20-20 f3f3f53 | 21-21 f3e3e51 | 22-22 f3c3c50 | 23-23 f3b3b4e | 24-24 f3a3a4c | 25-25 f38384b | 26-26 f373749 | 27-27 f363647 | 28-28 f343446 | 29-29 f333344 | 30-30 f313143 | 31-31 f303041 | 32-32 f2f2f3f | 33-33 f2d2d3e | 34-34 f2c2c3c | 35-35 f2b2b3a | 36-36 f292939 | 37-37 f282837 | 38-38 f272735 | 39-39 f252534 | 40-40 f242432 | 41-41 f232330 | 42-42 f21212f | 43-43 f20202d | 44-44 f1f1f2b | 45-45 f1d1d2a
-34: 2-2 fa78bfa
-36: 4-58 f8b8b98
-37: 2-2 fa78bfa
-39: 4-38 f8b8b98
-41: 17-17 f4b4b62 | 18-18 f494960 | 19-19 f48485e | 20-20 f46465c | 21-21 f45455a | 22-22 f434358 | 23-23 f414156 | 24-24 f404054 | 25-25 f3e3e52 | 26-26 f3c3c50 | 27-27 f3b3b4e | 28-28 f39394c | 29-29 f38384a | 30-30 f363648 | 31-31 f343446 | 32-32 f333344 | 33-33 f313142 | 34-34 f2f2f40 | 35-35 f2e2e3e | 36-36 f2c2c3c | 37-37 f2b2b3a | 38-38 f292938 | 39-39 f272736 | 40-40 f262634 | 41-41 f242432 | 42-42 f222230 | 43-43 f21212e | 44-44 f1f1f2c | 45-45 f1e1e2a
-42: 2-7 f6366f1 | 25-79 f8b8b98
-43: 2-10 f6366f1 | 12-16 f6366f1 | 25-72 f8b8b98
-44: 2-7 f6366f1 | 9-21 f6366f1 | 25-44 f8b8b98
-45: 2-8 f6366f1 | 25-83 f8b8b98
-46: 2-10 f6366f1 | 25-43 f8b8b98
-47: 2-4 f6366f1 | 6-11 f6366f1 | 25-39 f8b8b98
-48: 2-4 f6366f1 | 6-14 f6366f1 | 25-40 f8b8b98
-50: 2-12 f8b8b98 | 15-21 f6366f1 | 23-29 f6366f1 | 31-35 f6366f1 | 36-38 f8b8b98 | 39-45 f6366f1 | 47-53 f6366f1 | 55-63 f6366f1 | 64-66 f8b8b98 | 67-73 f6366f1 | 75-81 f6366f1 | 83-89 f6366f1"
+32: 2-96 f8b8b98
+33: 2-19 f8b8b98
+35: 11-11 f4b4b62 | 12-12 f4a4a60 | 13-13 f48485f | 14-14 f47475d | 15-15 f46465b | 16-16 f44445a | 17-17 f434358 | 18-18 f424256 | 19-19 f404055 | 20-20 f3f3f53 | 21-21 f3e3e51 | 22-22 f3c3c50 | 23-23 f3b3b4e | 24-24 f3a3a4c | 25-25 f38384b | 26-26 f373749 | 27-27 f363647 | 28-28 f343446 | 29-29 f333344 | 30-30 f313143 | 31-31 f303041 | 32-32 f2f2f3f | 33-33 f2d2d3e | 34-34 f2c2c3c | 35-35 f2b2b3a | 36-36 f292939 | 37-37 f282837 | 38-38 f272735 | 39-39 f252534 | 40-40 f242432 | 41-41 f232330 | 42-42 f21212f | 43-43 f20202d | 44-44 f1f1f2b | 45-45 f1d1d2a
+36: 2-2 fa78bfa
+38: 4-58 f8b8b98
+39: 2-2 fa78bfa
+41: 4-38 f8b8b98
+43: 17-17 f4b4b62 | 18-18 f494960 | 19-19 f48485e | 20-20 f46465c | 21-21 f45455a | 22-22 f434358 | 23-23 f414156 | 24-24 f404054 | 25-25 f3e3e52 | 26-26 f3c3c50 | 27-27 f3b3b4e | 28-28 f39394c | 29-29 f38384a | 30-30 f363648 | 31-31 f343446 | 32-32 f333344 | 33-33 f313142 | 34-34 f2f2f40 | 35-35 f2e2e3e | 36-36 f2c2c3c | 37-37 f2b2b3a | 38-38 f292938 | 39-39 f272736 | 40-40 f262634 | 41-41 f242432 | 42-42 f222230 | 43-43 f21212e | 44-44 f1f1f2c | 45-45 f1e1e2a
+44: 2-7 f6366f1 | 25-79 f8b8b98
+45: 2-10 f6366f1 | 12-16 f6366f1 | 25-72 f8b8b98
+46: 2-7 f6366f1 | 9-21 f6366f1 | 25-44 f8b8b98
+47: 2-8 f6366f1 | 25-83 f8b8b98
+48: 2-10 f6366f1 | 25-43 f8b8b98
+49: 2-4 f6366f1 | 6-11 f6366f1 | 25-39 f8b8b98
+50: 2-4 f6366f1 | 6-14 f6366f1 | 25-40 f8b8b98
+52: 2-12 f8b8b98 | 15-21 f6366f1 | 23-29 f6366f1 | 31-35 f6366f1 | 36-38 f8b8b98 | 39-45 f6366f1 | 47-53 f6366f1 | 55-63 f6366f1 | 64-66 f8b8b98 | 67-73 f6366f1 | 75-81 f6366f1 | 83-89 f6366f1"
 `;
 
 exports[`screen: 'help partner servers create' > pt-BR 120 plain 1`] = `
@@ -1861,15 +1907,17 @@ exports[`screen: 'help partner servers create' > pt-BR 120 plain 1`] = `
 
   Com --external-id, o servidor guarda o ID do serviço no seu sistema de cobrança, e "bladecp
   partner servers list --external-id" encontra ele depois.
-  Planos Stack Container precisam dos componentes a instalar (por exemplo --component php, ou uma
-  versão de "bladecp components list" depois do @). Os outros produtos não levam componentes.
+  Planos Stack Container precisam dos componentes a instalar (por exemplo --component php
+  --component mysql, ou uma versão de "bladecp components list" depois do @). Um servidor web
+  sempre vai junto: o NGINX por padrão, ou outro, como --component apache. Os outros produtos não
+  levam componentes.
 
   Exemplos ───────────────────────────────────
   › bladecp partner servers create --plan 12 --location 3 --domain example.com --email owner@example.com --name "Example
     Shop" --external-id 1042
     Um servidor no plano 12, localização 3, para um cliente
   › bladecp partner servers create --plan 12 --location 3 --domain example.com --email owner@example.com --name "Example
-    Shop" --option memory=4 --component php
+    Shop" --option memory=4 --component php --component mysql
     Com mais memória e o componente PHP
 
   Opções globais ─────────────────────────────

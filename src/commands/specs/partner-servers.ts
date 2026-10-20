@@ -178,7 +178,7 @@ export const group: GroupSpec = {
           'partnerServers.ex.create',
         ],
         [
-          'bladecp partner servers create --plan 12 --location 3 --domain example.com --email owner@example.com --name "Example Shop" --option memory=4 --component php',
+          'bladecp partner servers create --plan 12 --location 3 --domain example.com --email owner@example.com --name "Example Shop" --option memory=4 --component php --component mysql',
           'partnerServers.ex.createOptions',
         ],
       ],

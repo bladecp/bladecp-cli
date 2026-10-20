@@ -20,7 +20,7 @@ export const en = {
   'partnerServers.help.createNote':
     'With --external-id the server keeps the service ID of your billing system, so "bladecp partner servers list --external-id" finds it later.',
   'partnerServers.help.componentNote':
-    'Stack Container plans need the components to install (for example --component php, or a version from "bladecp components list" after @). Other products take none.',
+    'Stack Container plans need the components to install (for example --component php --component mysql, or a version from "bladecp components list" after @). A web server always comes along: NGINX by default, or another one, such as --component apache. Other products take none.',
   'partnerServers.help.planDesc':
     'Moves the server to another plan of your catalog. The server gets the resources of the new plan.',
   'partnerServers.help.serverArg': 'The server ID (the first characters are enough)',
@@ -207,7 +207,7 @@ export const ptBR: Record<keyof typeof en, string> = {
   'partnerServers.help.createNote':
     'Com --external-id, o servidor guarda o ID do serviço no seu sistema de cobrança, e "bladecp partner servers list --external-id" encontra ele depois.',
   'partnerServers.help.componentNote':
-    'Planos Stack Container precisam dos componentes a instalar (por exemplo --component php, ou uma versão de "bladecp components list" depois do @). Os outros produtos não levam componentes.',
+    'Planos Stack Container precisam dos componentes a instalar (por exemplo --component php --component mysql, ou uma versão de "bladecp components list" depois do @). Um servidor web sempre vai junto: o NGINX por padrão, ou outro, como --component apache. Os outros produtos não levam componentes.',
   'partnerServers.help.planDesc':
     'Muda o servidor para outro plano do seu catálogo. O servidor passa a ter os recursos do novo plano.',
   'partnerServers.help.serverArg': 'O ID do servidor (os primeiros caracteres bastam)',
@@ -396,7 +396,7 @@ export const es: Record<keyof typeof en, string> = {
   'partnerServers.help.createNote':
     'Con --external-id, el servidor guarda el ID del servicio de tu sistema de cobro, y "bladecp partner servers list --external-id" lo encuentra después.',
   'partnerServers.help.componentNote':
-    'Los planes Stack Container necesitan los componentes a instalar (por ejemplo --component php, o una versión de "bladecp components list" después de @). Los demás productos no llevan componentes.',
+    'Los planes Stack Container necesitan los componentes a instalar (por ejemplo --component php --component mysql, o una versión de "bladecp components list" después de @). Un servidor web siempre va incluido: NGINX por defecto, u otro, como --component apache. Los demás productos no llevan componentes.',
   'partnerServers.help.planDesc':
     'Cambia el servidor a otro plan de tu catálogo. El servidor recibe los recursos del nuevo plan.',
   'partnerServers.help.serverArg': 'El ID del servidor (bastan los primeros caracteres)',
