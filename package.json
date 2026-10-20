@@ -1,6 +1,6 @@
 {
   "name": "@bladecp/cli",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "BladeCP CLI: sign in, manage servers, domains, apps and WordPress, migrate cPanel backups, run partner tools and reach every Customer API route from the terminal.",
   "keywords": [
     "bladecp",

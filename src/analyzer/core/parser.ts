@@ -112,6 +112,11 @@ export function isVHostFile(rel: string): boolean {
   return !name.endsWith('_SSL') && !name.includes('/');
 }
 
+/** isMailDomain: homedir/mail/<x> names a mail domain, not a folder of the account's own Maildir (cur, .Sent). */
+export function isMailDomain(name: string): boolean {
+  return !name.startsWith('.') && name.includes('.');
+}
+
 const reTablePrefix = new RegExp(`\\$table_prefix${WS}*=${WS}*['"]([^'"]*)['"]`);
 const reMultisite = new RegExp(
   `define\\(${WS}*['"](MULTISITE|WP_ALLOW_MULTISITE)['"]${WS}*,${WS}*true`,
@@ -302,7 +307,9 @@ export class Collector {
     }
     if (rel.startsWith('homedir/mail/')) {
       const parts = rel.split('/');
-      if (parts.length < 5) return false;
+      // homedir/mail/<domain>/<account>/...; the cPanel user's own Maildir
+      // (mail/cur, mail/.Sent/cur) sits there too and names no domain.
+      if (parts.length < 5 || !isMailDomain(parts[2]!)) return false;
       const key = `${parts[2]}/${parts[3]}`;
       if (!this.mailBytes.has(key)) this.charge(key.length);
       this.mailBytes.set(key, (this.mailBytes.get(key) ?? 0) + size);

@@ -483,6 +483,23 @@ describe('privacy: secrets found in the backup never reach the report', () => {
     }
   });
 
+  it("the account's own Maildir folders are no email domain", async () => {
+    const demo = demoBackups().find((d) => d.file === 'cpmove-demo.tar.gz')!;
+    const extra = [
+      { name: 'cpmove-demo/homedir/mail/.Sent/cur/1760000002.M3:2,S', data: 'z'.repeat(514) },
+      { name: 'cpmove-demo/homedir/mail/.Trash/new/1760000003.M4', data: 'z'.repeat(100) },
+      { name: 'cpmove-demo/homedir/mail/cur/1760000004.M5', data: 'z'.repeat(100) },
+    ];
+    const report = await analyzeBytes(
+      buildBackup({ ...demo.spec, entries: [...demo.spec.entries, ...extra] }),
+    );
+    const mail = report.items.filter((i): i is EmailItem => i.kind === 'email_domain');
+    expect(mail.map((item) => item.id)).not.toContain('.Sent');
+    expect(mail.map((item) => item.id)).not.toContain('.Trash');
+    expect(report.summary?.emailDomains).toBe(mail.length);
+    expect(mail[0]?.accounts).toBe(2);
+  });
+
   it('only the kinds of secrets are named', async () => {
     const demo = demoBackups().find((d) => d.file === 'cpmove-demo.tar.gz')!;
     const report = await analyzeBytes(buildBackup(demo.spec));

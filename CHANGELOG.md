@@ -4,6 +4,13 @@ All notable changes to the BladeCP CLI are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project uses
 [Semantic Versioning](https://semver.org/).
 
+## [0.4.2] - 2026-10-20
+
+### Fixed
+
+- `bladecp analyze` no longer counts the folders of the cPanel user's own
+  mailbox (`mail/.Sent`, `mail/cur`) as an email domain.
+
 ## [0.4.1] - 2026-10-19
 
 ### Changed

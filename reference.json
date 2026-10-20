@@ -2,7 +2,7 @@
   "format": 1,
   "name": "BladeCP CLI",
   "binary": "bladecp",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "languages": [
     "en",
     "pt-BR",
