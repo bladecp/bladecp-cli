@@ -125,28 +125,35 @@ describe('reference.json', () => {
     expect(destinations?.usage).toBe('bladecp destinations list [--currency <code>]');
     const watch = reference.options.find((option) => option.name === 'watch');
     expect(watch).toMatchObject({ flag: '--watch', short: '-w', value: null, global: false });
-    expect(watch?.commands).toEqual(['migrations.status']);
+    expect(watch?.commands).toEqual(['migrations.status', 'partner.migrations.show']);
     const lang = reference.options.find((option) => option.name === 'lang');
     expect(lang).toMatchObject({ value: '<en|pt-BR|es>', global: true, type: 'string' });
   });
 
   it('documents aliases that the parser really accepts', () => {
     const aliases = reference.aliases.map(({ alias, target }) => `${alias} = ${target}`);
-    expect(aliases).toEqual([
+    // The aliases of the first versions stay; the command groups may add their own.
+    for (const expected of [
       '-h = --help',
       '-v = --version',
       '-y = --yes',
       '-w = --watch',
       '-a = --all',
+      '-X = --method',
       'bladecp help <command> = bladecp <command> --help',
       'bladecp servers = bladecp servers list',
       'bladecp destinations = bladecp destinations list',
       'bladecp migrations = bladecp migrations list',
       'bladecp config = bladecp config list',
-    ]);
+    ]) {
+      expect(aliases).toContain(expected);
+    }
+    expect(new Set(aliases).size).toBe(aliases.length);
     for (const alias of reference.aliases.filter((entry) => entry.kind === 'short-option')) {
       const long = alias.target.slice(2) as keyof typeof OPTIONS;
-      expect(parseCli([alias.alias]).values[long], alias.alias).toBe(true);
+      if (OPTIONS[long].type === 'string')
+        expect(parseCli([alias.alias, 'x']).values[long], alias.alias).toBe('x');
+      else expect(parseCli([alias.alias]).values[long], alias.alias).toBe(true);
     }
     expect(resolveCommand(['help', 'migrations', 'status'])).toMatchObject({
       kind: 'help',

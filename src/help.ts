@@ -1,12 +1,18 @@
 import {
-  argumentSyntax,
+  argumentsSyntax,
+  type BaseCommandId,
   COMMANDS,
-  type CommandId,
   type CommandSpec,
   GLOBAL_OPTIONS,
+  GROUP_DEFAULTS,
+  GROUP_EXTRAS,
+  HELP_GROUPS,
+  type HelpExtras,
   type HelpGroup,
   OPTION_HELP,
   type OptionName,
+  TOPICS,
+  type Topic,
   YES_HELP,
 } from './args.js';
 import { DOCS_URL } from './endpoints.js';
@@ -19,7 +25,10 @@ import type { Output } from './ui/output.js';
 const GROUP_TITLES: Record<HelpGroup, MessageKey> = {
   account: 'help.group.account',
   servers: 'help.group.servers',
+  sites: 'help.group.sites',
   migrations: 'help.group.migrations',
+  partner: 'help.group.partner',
+  automation: 'help.group.automation',
   cli: 'help.group.cli',
 };
 
@@ -44,19 +53,11 @@ const EXAMPLES: [string, MessageKey][] = [
   ['bladecp migrations status <uuid> --watch', 'help.ex.watch'],
 ];
 
-interface Extras {
-  desc?: MessageKey;
-  args?: [string, MessageKey][];
-  flow?: MessageKey[];
-  examples?: [string, MessageKey][];
-  exits?: [number, MessageKey][];
-  notes?: MessageKey[];
-  seeAlso?: string[];
-}
+type Extras = HelpExtras;
 
 const ID_NOTE: MessageKey = 'help.note.shortIds';
 
-const EXTRAS: Partial<Record<CommandId, Extras>> = {
+const BASE_EXTRAS: Partial<Record<BaseCommandId, Extras>> = {
   login: {
     examples: [
       ['bladecp login', 'help.ex.login'],
@@ -134,13 +135,68 @@ const EXTRAS: Partial<Record<CommandId, Extras>> = {
   },
 };
 
+const EXTRAS: Record<string, Extras> = { ...BASE_EXTRAS, ...GROUP_EXTRAS };
+
 function optionHelpKey(spec: CommandSpec | null, name: OptionName): MessageKey {
-  if (spec && name === 'yes') return YES_HELP[spec.id] ?? OPTION_HELP.yes.key;
+  const own = spec?.optionHelp?.[name];
+  if (own) return own;
+  if (spec && name === 'yes') return YES_HELP[spec.id as BaseCommandId] ?? OPTION_HELP.yes.key;
   return OPTION_HELP[name].key;
 }
 
 function commandSyntax(spec: CommandSpec): string {
-  return [spec.path.join(' '), ...spec.args.map(argumentSyntax)].join(' ');
+  return [spec.path.join(' '), ...argumentsSyntax(spec)].join(' ');
+}
+
+const startsWith = (path: readonly string[], prefix: readonly string[]) =>
+  prefix.length <= path.length && prefix.every((segment, i) => path[i] === segment);
+
+/** The topic a command is listed under in the help of `prefix`, if any. */
+function topicOf(path: readonly string[], prefix: readonly string[]): Topic | undefined {
+  return TOPICS.find(
+    (topic) =>
+      topic.path.length > prefix.length &&
+      startsWith(topic.path, prefix) &&
+      startsWith(path, topic.path) &&
+      path.length > topic.path.length,
+  );
+}
+
+/**
+ * The lines of a list of commands under `prefix`: each command not inside a
+ * topic, and each topic once, as "<words> <command>".
+ */
+function entries(
+  c: Ctx,
+  prefix: readonly string[],
+  specs: CommandSpec[],
+): { left: string; right: string; width: number }[] {
+  const { k } = c;
+  const seen = new Set<Topic>();
+  const rows: { left: string; right: string; width: number }[] = [];
+  for (const spec of specs) {
+    const topic = topicOf(spec.path, prefix);
+    if (topic) {
+      if (seen.has(topic)) continue;
+      seen.add(topic);
+      const words = topic.path.slice(prefix.length).join(' ');
+      const arg = c.out.t('help.cmdArg');
+      rows.push({
+        left: `${k.accent(words)} ${k.violet(arg)}`,
+        right: c.out.t(topic.summary),
+        width: words.length + 1 + arg.length,
+      });
+      continue;
+    }
+    const words = spec.path.slice(prefix.length).join(' ');
+    const args = argumentsSyntax(spec).join(' ');
+    rows.push({
+      left: `${k.accent(words)}${args ? ` ${k.violet(args)}` : ''}`,
+      right: c.out.t(spec.summary),
+      width: words.length + (args ? args.length + 1 : 0),
+    });
+  }
+  return rows;
 }
 
 interface Ctx {
@@ -246,17 +302,22 @@ export function globalHelp(out: Output, version: string): string {
     '',
     `  ${k.muted(`${t('help.usageLabel')}:`)} bladecp ${k.accent(t('help.cmdArg'))} ${k.muted(t('help.optsArg'))}`,
   ];
-  const commandWidth = Math.max(...COMMANDS.map((spec) => commandSyntax(spec).length));
-  for (const group of ['account', 'servers', 'migrations', 'cli'] as HelpGroup[]) {
-    lines.push('', ruler(c, GROUP_TITLES[group]));
-    const specs = COMMANDS.filter((spec) => spec.group === group);
+  const sections = HELP_GROUPS.map((group) => ({
+    group,
+    rows: entries(
+      c,
+      [],
+      COMMANDS.filter((spec) => spec.group === group),
+    ),
+  }));
+  const commandWidth = Math.max(...sections.flatMap((s) => s.rows.map((row) => row.width)));
+  for (const section of sections) {
+    if (section.rows.length === 0) continue;
+    lines.push('', ruler(c, GROUP_TITLES[section.group]));
     lines.push(
       ...twoColumns(
         out,
-        specs.map((spec) => [
-          `${k.accent(spec.path.join(' '))}${spec.args.length ? ` ${k.violet(spec.args.map(argumentSyntax).join(' '))}` : ''}`,
-          t(spec.summary),
-        ]),
+        section.rows.map((row) => [row.left, row.right]),
         { width: c.width, minLeft: commandWidth, wrap: (text, w) => wrap(c, text, w) },
       ),
     );
@@ -298,7 +359,7 @@ export function commandHelp(out: Output, spec: CommandSpec): string {
   const t = out.t;
   const extras = EXTRAS[spec.id] ?? {};
   const W = Number.isFinite(c.width) ? Math.min(c.width - 1, 78) : 78;
-  const title = `${k.bold(`bladecp ${spec.path.join(' ')}`)}${spec.args.length ? ` ${k.violet(spec.args.map(argumentSyntax).join(' '))}` : ''}`;
+  const title = `${k.bold(`bladecp ${spec.path.join(' ')}`)}${spec.args.length ? ` ${k.violet(argumentsSyntax(spec).join(' '))}` : ''}`;
   const lines = [
     `  ${title}`,
     ` ${k.horizon(W, { at: 0.12, spread: 0.45 })}`,
@@ -363,25 +424,27 @@ export function groupHelp(out: Output, group: string): string {
   const c = setup(out);
   const { k } = c;
   const t = out.t;
-  const specs = COMMANDS.filter((spec) => spec.path[0] === group);
+  const prefix = group.split(' ');
+  const specs = COMMANDS.filter(
+    (spec) => spec.path.length > prefix.length && startsWith(spec.path, prefix),
+  );
+  const topic = TOPICS.find((candidate) => candidate.path.join(' ') === group);
   const W = Number.isFinite(c.width) ? Math.min(c.width - 1, 78) : 78;
   const lines = [
     `  ${k.bold(`bladecp ${group}`)}`,
     ` ${k.horizon(W, { at: 0.12, spread: 0.45 })}`,
+    ...(topic ? [...prose(c, t(topic.summary), k.muted), ''] : []),
     `  ${k.muted(`${t('help.usageLabel')}:`)} bladecp ${group} ${k.accent(t('help.cmdArg'))} ${k.muted(t('help.optsArg'))}`,
     '',
     ruler(c, 'help.commandsLabel'),
     ...twoColumns(
       out,
-      specs.map((spec) => [
-        `${k.accent(spec.path.slice(1).join(' '))}${spec.args.length ? ` ${k.violet(spec.args.map(argumentSyntax).join(' '))}` : ''}`,
-        t(spec.summary),
-      ]),
+      entries(c, prefix, specs).map((row) => [row.left, row.right]),
       { width: c.width, wrap: (text, w) => wrap(c, text, w) },
     ),
     '',
   ];
-  const fallback = COMMANDS.find((spec) => spec.id === `${group}.list`);
+  const fallback = COMMANDS.find((spec) => spec.id === GROUP_DEFAULTS[group]);
   if (fallback)
     lines.push(
       ...prose(
@@ -394,7 +457,11 @@ export function groupHelp(out: Output, group: string): string {
     lines.push(`  ${k.muted(t('help.seeAlso'))}  ${k.accent('bladecp migrate <backup.tar.gz>')}`);
   }
   lines.push(
-    ...prose(c, t('help.groupMore', { command: `bladecp ${group} <command> --help` }), k.muted),
+    ...prose(
+      c,
+      t('help.groupMore', { command: `bladecp ${group} ${t('help.cmdArg')} --help` }),
+      k.muted,
+    ),
   );
   return lines.join('\n');
 }
@@ -433,7 +500,11 @@ export function helpDocument(
       ok: true,
       data: {
         group: topic.group,
-        commands: COMMANDS.filter((spec) => spec.path[0] === topic.group).map(command),
+        commands: COMMANDS.filter(
+          (spec) =>
+            spec.path.length > topic.group!.split(' ').length &&
+            startsWith(spec.path, topic.group!.split(' ')),
+        ).map(command),
       },
     };
   }

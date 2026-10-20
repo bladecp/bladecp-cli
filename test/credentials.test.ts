@@ -179,3 +179,14 @@ describe('logout', () => {
     expect(readFileSync(join(dir.path, 'config.json'), 'utf8')).toBe('{not json');
   });
 });
+
+describe('a pasted key', () => {
+  it('loses the bracketed-paste markers, the spaces and matching quotes', async () => {
+    const { cleanApiKey } = await import('../src/auth/credentials.js');
+    const key = 'bcp_live_TESTKEY0123456789ABCDEFGHIJKLMNOP';
+    expect(cleanApiKey(`\u001b[200~${key}\u001b[201~`)).toBe(key);
+    expect(cleanApiKey(`  ${key}\n`)).toBe(key);
+    expect(cleanApiKey(`"${key}"`)).toBe(key);
+    expect(cleanApiKey(`'${key}'`)).toBe(key);
+  });
+});

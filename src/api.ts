@@ -1,3 +1,4 @@
+import { OPERATIONS, type OperationId } from './api/operations.js';
 import { ApiError, CliError, ExitCode, InterruptedError, NetworkError } from './errors.js';
 import type {
   CompleteUploadResponse,
@@ -52,14 +53,18 @@ export interface ApiClientOptions {
 }
 
 /** `safe` requests may be repeated after a network or 5xx failure. */
-type RetryPolicy = 'safe' | 'once';
+export type RetryPolicy = 'safe' | 'once';
 
-interface CallOptions {
+export type HttpMethod = 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE';
+
+export interface CallOptions {
   body?: unknown;
   headers?: Record<string, string>;
   auth?: boolean;
   retry?: RetryPolicy;
   timeoutMs?: number;
+  /** A success without a body (204) returns undefined instead of failing. */
+  allowEmpty?: boolean;
 }
 
 const MAX_RATE_LIMIT_WAIT_SECONDS = 120;
@@ -149,11 +154,7 @@ export class ApiClient {
     return Boolean(this.options.apiKey);
   }
 
-  async call<T>(
-    method: 'GET' | 'POST' | 'DELETE',
-    path: string,
-    options: CallOptions = {},
-  ): Promise<T> {
+  async call<T>(method: HttpMethod, path: string, options: CallOptions = {}): Promise<T> {
     const {
       fetch,
       sleep,
@@ -268,7 +269,10 @@ export class ApiClient {
         throw new ApiError(response.status, fields.code, fields.message);
       }
       // A success that is not JSON (a maintenance page, a cut answer).
-      if (body === undefined) throw invalidResponse();
+      if (body === undefined) {
+        if (options.allowEmpty && text.length === 0) return undefined as T;
+        throw invalidResponse();
+      }
       return body as T;
     }
   }
@@ -276,25 +280,25 @@ export class ApiClient {
 
 // -------------------------------------------------------------- validation
 
-type Json = Record<string, unknown>;
+export type Json = Record<string, unknown>;
 
-const isRecord = (value: unknown): value is Json =>
+export const isRecord = (value: unknown): value is Json =>
   typeof value === 'object' && value !== null && !Array.isArray(value);
 
 /** The `data` member of an answer, which must be an object. */
-function dataObject(body: unknown): Json {
+export function dataObject(body: unknown): Json {
   if (!isRecord(body) || !isRecord(body.data)) throw invalidResponse();
   return body.data;
 }
 
 /** The `data` member of an answer, which must be a list of objects. */
-function dataList(body: unknown): Json[] {
+export function dataList(body: unknown): Json[] {
   if (!isRecord(body) || !Array.isArray(body.data)) throw invalidResponse();
   if (!body.data.every(isRecord)) throw invalidResponse();
   return body.data as Json[];
 }
 
-function requireStrings(record: Json, fields: string[]): void {
+export function requireStrings(record: Json, fields: string[]): void {
   for (const field of fields) {
     if (typeof record[field] !== 'string' || record[field] === '') throw invalidResponse();
   }
@@ -349,12 +353,61 @@ function seg(value: string): string {
   return encodeURIComponent(value);
 }
 
+export interface OperationCall extends Omit<CallOptions, 'body'> {
+  /** Values for the `{placeholders}` of the operation path. */
+  params?: Record<string, string | number>;
+  /** Query string values; undefined values are left out. */
+  query?: Record<string, string | number | boolean | undefined>;
+  body?: unknown;
+  /** Sent as the Idempotency-Key header (operations that accept it). */
+  idempotencyKey?: string;
+}
+
+/**
+ * The path of an operation with its placeholders filled (each value encoded
+ * as one path segment) and the query string, from src/api/operations.ts.
+ */
+export function operationPath(id: OperationId, call: OperationCall = {}): string {
+  const op = OPERATIONS[id];
+  let path: string = op.path;
+  for (const name of op.pathParams) {
+    const value = call.params?.[name];
+    if (value === undefined || value === '') throw new Error(`${id} needs the path value ${name}`);
+    path = path.replace(`{${name}}`, seg(String(value)));
+  }
+  const query = new URLSearchParams();
+  for (const [name, value] of Object.entries(call.query ?? {})) {
+    if (value !== undefined) query.set(name, String(value));
+  }
+  const search = query.toString();
+  return search ? `${path}?${search}` : path;
+}
+
 /** Typed Customer API calls used by the CLI. Answers are checked before use. */
 export class BladecpApi {
   constructor(readonly client: ApiClient) {}
 
+  /**
+   * Calls one operation of src/api/operations.ts and returns the answer as it
+   * came (the caller checks it). Safe reads are retried; writes are sent once
+   * unless they carry an idempotency key.
+   */
+  request<T = unknown>(id: OperationId, call: OperationCall = {}): Promise<T> {
+    const op = OPERATIONS[id];
+    const { params: _params, query: _query, idempotencyKey, headers, ...rest } = call;
+    return this.client.call<T>(op.method, operationPath(id, call), {
+      ...rest,
+      headers: {
+        ...headers,
+        ...(idempotencyKey && op.idempotent ? { 'Idempotency-Key': idempotencyKey } : {}),
+      },
+      ...(op.public ? { auth: false } : {}),
+      ...(rest.retry ? {} : idempotencyKey && op.idempotent ? { retry: 'safe' as const } : {}),
+    });
+  }
+
   async me(): Promise<MeData> {
-    const data = dataObject(await this.client.call('GET', '/customer/me'));
+    const data = dataObject(await this.request('getMe'));
     requireStrings(data, ['customer_uuid', 'customer_email', 'api_key_uuid']);
     const scopes = Array.isArray(data.scopes)
       ? data.scopes.filter((s): s is string => typeof s === 'string')
@@ -377,19 +430,17 @@ export class BladecpApi {
   }
 
   async listProvisions(): Promise<Provision[]> {
-    return dataList(await this.client.call('GET', '/customer/provisions')).map(checkProvision);
+    return dataList(await this.request('getProvisions')).map(checkProvision);
   }
 
   async getProvision(uuid: string): Promise<Provision> {
     return checkProvision(
-      dataObject(await this.client.call('GET', `/customer/provisions/${seg(uuid)}`)),
+      dataObject(await this.request('getProvisionsByUuid', { params: { uuid } })),
     );
   }
 
   async getProvisionUsage(uuid: string): Promise<UsageData> {
-    const data = dataObject(
-      await this.client.call('GET', `/customer/provisions/${seg(uuid)}/usage`),
-    );
+    const data = dataObject(await this.request('getProvisionsByUuidUsage', { params: { uuid } }));
     for (const field of ['plan', 'usage'] as const) {
       if (data[field] !== undefined && data[field] !== null && !isRecord(data[field]))
         throw invalidResponse();
@@ -399,21 +450,20 @@ export class BladecpApi {
 
   /** `currency` narrows plans and prices to one currency, like the Hub selector. */
   async listDestinations(currency?: string): Promise<Destination[]> {
-    const query = currency ? `?currency=${encodeURIComponent(currency)}` : '';
     const data = dataObject(
-      await this.client.call('GET', `/customer/me/migration-destinations${query}`),
+      await this.request('getMeMigration-destinations', { query: { currency } }),
     );
     if (!Array.isArray(data.destinations)) throw invalidResponse();
     return data.destinations.map(checkDestination);
   }
 
   async listMigrations(): Promise<Migration[]> {
-    return dataList(await this.client.call('GET', '/customer/me/migrations')).map(checkMigration);
+    return dataList(await this.request('getMeMigrations')).map(checkMigration);
   }
 
   async getMigration(uuid: string): Promise<Migration> {
     return checkMigration(
-      dataObject(await this.client.call('GET', `/customer/me/migrations/${seg(uuid)}`)),
+      dataObject(await this.request('getMeMigrationsByUuid', { params: { uuid } })),
     );
   }
 
@@ -427,7 +477,7 @@ export class BladecpApi {
     idempotencyKey: string,
   ): Promise<CreatedMigration> {
     const data = dataObject(
-      await this.client.call('POST', '/customer/me/migrations', {
+      await this.request('postMeMigrations', {
         body,
         headers: { 'Idempotency-Key': idempotencyKey },
         // The idempotency key makes a repeated create return the same migration.
@@ -443,7 +493,8 @@ export class BladecpApi {
     body: { sizeBytes: number; filename?: string; resume?: boolean },
   ): Promise<UploadUrlResponse> {
     return dataObject(
-      await this.client.call('POST', `/customer/me/migrations/${seg(uuid)}/upload-url`, {
+      await this.request('postMeMigrationsByUuidUpload-url', {
+        params: { uuid },
         body,
         retry: 'safe',
         timeoutMs: 60_000,
@@ -456,7 +507,8 @@ export class BladecpApi {
     parts: { partNumber: number; etag: string }[],
   ): Promise<CompleteUploadResponse> {
     return dataObject(
-      await this.client.call('POST', `/customer/me/migrations/${seg(uuid)}/complete-upload`, {
+      await this.request('postMeMigrationsByUuidComplete-upload', {
+        params: { uuid },
         body: { parts },
         retry: 'safe',
         // Assembling hundreds of parts can take a while on the storage side.
@@ -465,37 +517,40 @@ export class BladecpApi {
     ) as unknown as CompleteUploadResponse;
   }
 
-  private async phaseCall(path: string, options: CallOptions = {}): Promise<PhaseResponse> {
-    const data = dataObject(await this.client.call('POST', path, options));
+  private async phaseCall(id: OperationId, call: OperationCall): Promise<PhaseResponse> {
+    const data = dataObject(await this.request(id, call));
     return { ...data, phase: typeof data.phase === 'string' ? data.phase : '' } as PhaseResponse;
   }
 
   confirmUpload(uuid: string): Promise<PhaseResponse> {
-    return this.phaseCall(`/customer/me/migrations/${seg(uuid)}/confirm-upload`, {
+    return this.phaseCall('postMeMigrationsByUuidConfirm-upload', {
+      params: { uuid },
       retry: 'safe',
     });
   }
 
   reviewDiscovery(uuid: string, primaryDomain: string): Promise<PhaseResponse> {
-    return this.phaseCall(`/customer/me/migrations/${seg(uuid)}/discovery-review`, {
+    return this.phaseCall('postMeMigrationsByUuidDiscovery-review', {
+      params: { uuid },
       body: { primaryDomain },
       retry: 'safe',
     });
   }
 
   approve(uuid: string): Promise<PhaseResponse> {
-    return this.phaseCall(`/customer/me/migrations/${seg(uuid)}/approve`);
+    return this.phaseCall('postMeMigrationsByUuidApprove', { params: { uuid } });
   }
 
   cancel(uuid: string, reason?: string): Promise<PhaseResponse> {
-    return this.phaseCall(`/customer/me/migrations/${seg(uuid)}/cancel`, {
+    return this.phaseCall('postMeMigrationsByUuidCancel', {
+      params: { uuid },
       body: reason ? { reason } : {},
     });
   }
 
   async retry(uuid: string): Promise<RetryResponse> {
     const data = dataObject(
-      await this.client.call('POST', `/customer/me/migrations/${seg(uuid)}/retry`),
+      await this.request('postMeMigrationsByUuidRetry', { params: { uuid } }),
     );
     requireStrings(data, ['migrationUuid']);
     return data as unknown as RetryResponse;
@@ -507,9 +562,7 @@ export class BladecpApi {
     codeVerifier: string;
     redirectUri: string;
   }): Promise<ConnectTokenResponse> {
-    const data = dataObject(
-      await this.client.call('POST', '/customer/connect/token', { body, auth: false }),
-    );
+    const data = dataObject(await this.request('postConnectToken', { body, auth: false }));
     if (typeof data.apiKey !== 'string') throw invalidResponse();
     return data as unknown as ConnectTokenResponse;
   }

@@ -270,6 +270,8 @@ export function describeApiError(error: ApiError): DescribedError {
       case 'idempotency_key_reused':
       case 'IDEMPOTENCY_KEY_REUSED':
         return rejected('error.idempotencyConflict', 'idempotency_conflict');
+      case 'external_service_id_required':
+        return rejected('error.externalServiceRequired', 'external_service_id_required');
       default: {
         const phase = PHASE_IN_MESSAGE.exec(apiMessage)?.[1];
         if (status === 409 && phase) {

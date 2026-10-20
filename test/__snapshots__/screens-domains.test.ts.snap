@@ -1,0 +1,3843 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`screen: 'domains add in use' > en 40 color 1`] = `
+"
+  ✕  The API rejected the request
+     (HTTP 409): Domain is already in
+     use
+ ━━━━━━━━━━━━━━━━━━━━──────────────────
+  What to do  The domain is already on
+              this server or on
+              another one. See why
+              with bladecp domains
+              check shop.example.org.
+  exit 6 · conflict
+
+--- styles ---
+1: 2-2 ff43f5e | 5-7 B | 9-11 B | 13-20 B | 22-24 B | 26-32 B
+2: 5-9 B | 11-15 B | 17-22 B | 24-25 B | 27-33 B | 35-36 B
+3: 5-7 B
+4: 1-10 ff43f5e | 11-11 fea3d5b | 12-12 fe03c59 | 13-13 fd63a56 | 14-14 fcc3954 | 15-15 fc33752 | 16-16 fba364f | 17-17 fb0344d | 18-18 fa7334b | 19-19 f9e3149 | 20-20 f953046 | 21-21 f8d2e44 | 22-22 f842d42 | 23-23 f7c2c40 | 24-24 f742a3e | 25-25 f6b293c | 26-26 f64283a | 27-27 f5c2638 | 28-28 f552536 | 29-29 f4d2434 | 30-30 f462333 | 31-31 f402231 | 32-32 f39212f | 33-33 f33202e | 34-34 f2d1f2c | 35-35 f281e2b | 36-36 f231d2a | 37-37 f1f1c29 | 38-38 f1c1c28
+5: 2-11 f8b8b98
+10: 2-5 f62627a | 7-7 f62627a | 9-9 f62627a | 11-18 f62627a"
+`;
+
+exports[`screen: 'domains add in use' > en 40 plain 1`] = `
+"
+  ✕  The API rejected the request
+     (HTTP 409): Domain is already in
+     use
+ ──────────────────────────────────────
+  What to do  The domain is already on
+              this server or on
+              another one. See why
+              with bladecp domains
+              check shop.example.org.
+  exit 6 · conflict"
+`;
+
+exports[`screen: 'domains add in use' > en 80 color 1`] = `
+"
+  ✕  The API rejected the request (HTTP 409): Domain is already in use
+ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━──────────────────────────────
+  What to do  The domain is already on this server or on another one. See
+              why with bladecp domains check shop.example.org.
+  exit 6 · conflict
+
+--- styles ---
+1: 2-2 ff43f5e | 5-7 B | 9-11 B | 13-20 B | 22-24 B | 26-32 B | 34-38 B | 40-44 B | 46-51 B | 53-54 B | 56-62 B | 64-65 B | 67-69 B
+2: 1-16 ff43f5e | 17-17 ff03e5d | 18-18 fea3d5b | 19-19 fe43c5a | 20-20 fde3b59 | 21-21 fd83b57 | 22-22 fd33a56 | 23-23 fcd3954 | 24-24 fc83853 | 25-25 fc23751 | 26-26 fbc3650 | 27-27 fb7354f | 28-28 fb2344d | 29-29 fac334c | 30-30 fa7334b | 31-31 fa23249 | 32-32 f9c3148 | 33-33 f973047 | 34-34 f922f46 | 35-35 f8d2e44 | 36-36 f882d43 | 37-37 f832d42 | 38-38 f7e2c40 | 39-39 f792b3f | 40-40 f742a3e | 41-41 f702a3d | 42-42 f6b293c | 43-43 f66283b | 44-44 f622739 | 45-45 f5d2738 | 46-46 f592637 | 47-47 f542536 | 48-48 f502435 | 49-49 f4c2434 | 50-50 f482333 | 51-51 f442232 | 52-52 f402231 | 53-53 f3c2130 | 54-54 f38212f | 55-55 f35202e | 56-56 f311f2d | 57-57 f2e1f2c | 58-58 f2b1e2c | 59-59 f271e2b | 60-60 f251d2a | 61-61 f221d29 | 62-62 f1f1d29 | 63-63 f1d1c28 | 64-64 f1c1c28
+3: 2-11 f8b8b98
+5: 2-5 f62627a | 7-7 f62627a | 9-9 f62627a | 11-18 f62627a"
+`;
+
+exports[`screen: 'domains add in use' > en 80 plain 1`] = `
+"
+  ✕  The API rejected the request (HTTP 409): Domain is already in use
+ ────────────────────────────────────────────────────────────────
+  What to do  The domain is already on this server or on another one. See
+              why with bladecp domains check shop.example.org.
+  exit 6 · conflict"
+`;
+
+exports[`screen: 'domains add in use' > en 120 color 1`] = `
+"
+  ✕  The API rejected the request (HTTP 409): Domain is already in use
+ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━──────────────────────────────
+  What to do  The domain is already on this server or on another one. See
+              why with bladecp domains check shop.example.org.
+  exit 6 · conflict
+
+--- styles ---
+1: 2-2 ff43f5e | 5-7 B | 9-11 B | 13-20 B | 22-24 B | 26-32 B | 34-38 B | 40-44 B | 46-51 B | 53-54 B | 56-62 B | 64-65 B | 67-69 B
+2: 1-16 ff43f5e | 17-17 ff03e5d | 18-18 fea3d5b | 19-19 fe43c5a | 20-20 fde3b59 | 21-21 fd83b57 | 22-22 fd33a56 | 23-23 fcd3954 | 24-24 fc83853 | 25-25 fc23751 | 26-26 fbc3650 | 27-27 fb7354f | 28-28 fb2344d | 29-29 fac334c | 30-30 fa7334b | 31-31 fa23249 | 32-32 f9c3148 | 33-33 f973047 | 34-34 f922f46 | 35-35 f8d2e44 | 36-36 f882d43 | 37-37 f832d42 | 38-38 f7e2c40 | 39-39 f792b3f | 40-40 f742a3e | 41-41 f702a3d | 42-42 f6b293c | 43-43 f66283b | 44-44 f622739 | 45-45 f5d2738 | 46-46 f592637 | 47-47 f542536 | 48-48 f502435 | 49-49 f4c2434 | 50-50 f482333 | 51-51 f442232 | 52-52 f402231 | 53-53 f3c2130 | 54-54 f38212f | 55-55 f35202e | 56-56 f311f2d | 57-57 f2e1f2c | 58-58 f2b1e2c | 59-59 f271e2b | 60-60 f251d2a | 61-61 f221d29 | 62-62 f1f1d29 | 63-63 f1d1c28 | 64-64 f1c1c28
+3: 2-11 f8b8b98
+5: 2-5 f62627a | 7-7 f62627a | 9-9 f62627a | 11-18 f62627a"
+`;
+
+exports[`screen: 'domains add in use' > en 120 plain 1`] = `
+"
+  ✕  The API rejected the request (HTTP 409): Domain is already in use
+ ────────────────────────────────────────────────────────────────
+  What to do  The domain is already on this server or on another one. See
+              why with bladecp domains check shop.example.org.
+  exit 6 · conflict"
+`;
+
+exports[`screen: 'domains add in use' > es 40 color 1`] = `
+"
+  ✕  La API rechazó la solicitud (HTTP
+     409): Domain is already in use
+ ━━━━━━━━━━━━━━━━━━━━──────────────────
+  Qué hacer  El dominio ya está en
+             este servidor o en otro.
+             Ve por qué con bladecp
+             domains check
+             shop.example.org.
+  salida 6 · conflict
+
+--- styles ---
+1: 2-2 ff43f5e | 5-6 B | 8-10 B | 12-18 B | 20-21 B | 23-31 B | 33-37 B
+2: 5-9 B | 11-16 B | 18-19 B | 21-27 B | 29-30 B | 32-34 B
+3: 1-10 ff43f5e | 11-11 fea3d5b | 12-12 fe03c59 | 13-13 fd63a56 | 14-14 fcc3954 | 15-15 fc33752 | 16-16 fba364f | 17-17 fb0344d | 18-18 fa7334b | 19-19 f9e3149 | 20-20 f953046 | 21-21 f8d2e44 | 22-22 f842d42 | 23-23 f7c2c40 | 24-24 f742a3e | 25-25 f6b293c | 26-26 f64283a | 27-27 f5c2638 | 28-28 f552536 | 29-29 f4d2434 | 30-30 f462333 | 31-31 f402231 | 32-32 f39212f | 33-33 f33202e | 34-34 f2d1f2c | 35-35 f281e2b | 36-36 f231d2a | 37-37 f1f1c29 | 38-38 f1c1c28
+4: 2-10 f8b8b98
+9: 2-7 f62627a | 9-9 f62627a | 11-11 f62627a | 13-20 f62627a"
+`;
+
+exports[`screen: 'domains add in use' > es 40 plain 1`] = `
+"
+  ✕  La API rechazó la solicitud (HTTP
+     409): Domain is already in use
+ ──────────────────────────────────────
+  Qué hacer  El dominio ya está en
+             este servidor o en otro.
+             Ve por qué con bladecp
+             domains check
+             shop.example.org.
+  salida 6 · conflict"
+`;
+
+exports[`screen: 'domains add in use' > es 80 color 1`] = `
+"
+  ✕  La API rechazó la solicitud (HTTP 409): Domain is already in use
+ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━──────────────────────────────
+  Qué hacer  El dominio ya está en este servidor o en otro. Ve por qué con
+             bladecp domains check shop.example.org.
+  salida 6 · conflict
+
+--- styles ---
+1: 2-2 ff43f5e | 5-6 B | 8-10 B | 12-18 B | 20-21 B | 23-31 B | 33-37 B | 39-43 B | 45-50 B | 52-53 B | 55-61 B | 63-64 B | 66-68 B
+2: 1-16 ff43f5e | 17-17 ff03e5d | 18-18 fea3d5b | 19-19 fe43c5a | 20-20 fde3b59 | 21-21 fd83b57 | 22-22 fd33a56 | 23-23 fcd3954 | 24-24 fc83853 | 25-25 fc23751 | 26-26 fbc3650 | 27-27 fb7354f | 28-28 fb2344d | 29-29 fac334c | 30-30 fa7334b | 31-31 fa23249 | 32-32 f9c3148 | 33-33 f973047 | 34-34 f922f46 | 35-35 f8d2e44 | 36-36 f882d43 | 37-37 f832d42 | 38-38 f7e2c40 | 39-39 f792b3f | 40-40 f742a3e | 41-41 f702a3d | 42-42 f6b293c | 43-43 f66283b | 44-44 f622739 | 45-45 f5d2738 | 46-46 f592637 | 47-47 f542536 | 48-48 f502435 | 49-49 f4c2434 | 50-50 f482333 | 51-51 f442232 | 52-52 f402231 | 53-53 f3c2130 | 54-54 f38212f | 55-55 f35202e | 56-56 f311f2d | 57-57 f2e1f2c | 58-58 f2b1e2c | 59-59 f271e2b | 60-60 f251d2a | 61-61 f221d29 | 62-62 f1f1d29 | 63-63 f1d1c28 | 64-64 f1c1c28
+3: 2-10 f8b8b98
+5: 2-7 f62627a | 9-9 f62627a | 11-11 f62627a | 13-20 f62627a"
+`;
+
+exports[`screen: 'domains add in use' > es 80 plain 1`] = `
+"
+  ✕  La API rechazó la solicitud (HTTP 409): Domain is already in use
+ ────────────────────────────────────────────────────────────────
+  Qué hacer  El dominio ya está en este servidor o en otro. Ve por qué con
+             bladecp domains check shop.example.org.
+  salida 6 · conflict"
+`;
+
+exports[`screen: 'domains add in use' > es 120 color 1`] = `
+"
+  ✕  La API rechazó la solicitud (HTTP 409): Domain is already in use
+ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━──────────────────────────────
+  Qué hacer  El dominio ya está en este servidor o en otro. Ve por qué con
+             bladecp domains check shop.example.org.
+  salida 6 · conflict
+
+--- styles ---
+1: 2-2 ff43f5e | 5-6 B | 8-10 B | 12-18 B | 20-21 B | 23-31 B | 33-37 B | 39-43 B | 45-50 B | 52-53 B | 55-61 B | 63-64 B | 66-68 B
+2: 1-16 ff43f5e | 17-17 ff03e5d | 18-18 fea3d5b | 19-19 fe43c5a | 20-20 fde3b59 | 21-21 fd83b57 | 22-22 fd33a56 | 23-23 fcd3954 | 24-24 fc83853 | 25-25 fc23751 | 26-26 fbc3650 | 27-27 fb7354f | 28-28 fb2344d | 29-29 fac334c | 30-30 fa7334b | 31-31 fa23249 | 32-32 f9c3148 | 33-33 f973047 | 34-34 f922f46 | 35-35 f8d2e44 | 36-36 f882d43 | 37-37 f832d42 | 38-38 f7e2c40 | 39-39 f792b3f | 40-40 f742a3e | 41-41 f702a3d | 42-42 f6b293c | 43-43 f66283b | 44-44 f622739 | 45-45 f5d2738 | 46-46 f592637 | 47-47 f542536 | 48-48 f502435 | 49-49 f4c2434 | 50-50 f482333 | 51-51 f442232 | 52-52 f402231 | 53-53 f3c2130 | 54-54 f38212f | 55-55 f35202e | 56-56 f311f2d | 57-57 f2e1f2c | 58-58 f2b1e2c | 59-59 f271e2b | 60-60 f251d2a | 61-61 f221d29 | 62-62 f1f1d29 | 63-63 f1d1c28 | 64-64 f1c1c28
+3: 2-10 f8b8b98
+5: 2-7 f62627a | 9-9 f62627a | 11-11 f62627a | 13-20 f62627a"
+`;
+
+exports[`screen: 'domains add in use' > es 120 plain 1`] = `
+"
+  ✕  La API rechazó la solicitud (HTTP 409): Domain is already in use
+ ────────────────────────────────────────────────────────────────
+  Qué hacer  El dominio ya está en este servidor o en otro. Ve por qué con
+             bladecp domains check shop.example.org.
+  salida 6 · conflict"
+`;
+
+exports[`screen: 'domains add in use' > pt-BR 40 color 1`] = `
+"
+  ✕  A API recusou o pedido (HTTP
+     409): Domain is already in use
+ ━━━━━━━━━━━━━━━━━━━━──────────────────
+  O que fazer  O domínio já está neste
+               servidor ou em outro.
+               Veja o motivo com
+               bladecp domains check
+               shop.example.org.
+  saída 6 · conflict
+
+--- styles ---
+1: 2-2 ff43f5e | 5-5 B | 7-9 B | 11-17 B | 19-19 B | 21-26 B | 28-32 B
+2: 5-9 B | 11-16 B | 18-19 B | 21-27 B | 29-30 B | 32-34 B
+3: 1-10 ff43f5e | 11-11 fea3d5b | 12-12 fe03c59 | 13-13 fd63a56 | 14-14 fcc3954 | 15-15 fc33752 | 16-16 fba364f | 17-17 fb0344d | 18-18 fa7334b | 19-19 f9e3149 | 20-20 f953046 | 21-21 f8d2e44 | 22-22 f842d42 | 23-23 f7c2c40 | 24-24 f742a3e | 25-25 f6b293c | 26-26 f64283a | 27-27 f5c2638 | 28-28 f552536 | 29-29 f4d2434 | 30-30 f462333 | 31-31 f402231 | 32-32 f39212f | 33-33 f33202e | 34-34 f2d1f2c | 35-35 f281e2b | 36-36 f231d2a | 37-37 f1f1c29 | 38-38 f1c1c28
+4: 2-12 f8b8b98
+9: 2-6 f62627a | 8-8 f62627a | 10-10 f62627a | 12-19 f62627a"
+`;
+
+exports[`screen: 'domains add in use' > pt-BR 40 plain 1`] = `
+"
+  ✕  A API recusou o pedido (HTTP
+     409): Domain is already in use
+ ──────────────────────────────────────
+  O que fazer  O domínio já está neste
+               servidor ou em outro.
+               Veja o motivo com
+               bladecp domains check
+               shop.example.org.
+  saída 6 · conflict"
+`;
+
+exports[`screen: 'domains add in use' > pt-BR 80 color 1`] = `
+"
+  ✕  A API recusou o pedido (HTTP 409): Domain is already in use
+ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━──────────────────────────────
+  O que fazer  O domínio já está neste servidor ou em outro. Veja o motivo
+               com bladecp domains check shop.example.org.
+  saída 6 · conflict
+
+--- styles ---
+1: 2-2 ff43f5e | 5-5 B | 7-9 B | 11-17 B | 19-19 B | 21-26 B | 28-32 B | 34-38 B | 40-45 B | 47-48 B | 50-56 B | 58-59 B | 61-63 B
+2: 1-16 ff43f5e | 17-17 ff03e5d | 18-18 fea3d5b | 19-19 fe43c5a | 20-20 fde3b59 | 21-21 fd83b57 | 22-22 fd33a56 | 23-23 fcd3954 | 24-24 fc83853 | 25-25 fc23751 | 26-26 fbc3650 | 27-27 fb7354f | 28-28 fb2344d | 29-29 fac334c | 30-30 fa7334b | 31-31 fa23249 | 32-32 f9c3148 | 33-33 f973047 | 34-34 f922f46 | 35-35 f8d2e44 | 36-36 f882d43 | 37-37 f832d42 | 38-38 f7e2c40 | 39-39 f792b3f | 40-40 f742a3e | 41-41 f702a3d | 42-42 f6b293c | 43-43 f66283b | 44-44 f622739 | 45-45 f5d2738 | 46-46 f592637 | 47-47 f542536 | 48-48 f502435 | 49-49 f4c2434 | 50-50 f482333 | 51-51 f442232 | 52-52 f402231 | 53-53 f3c2130 | 54-54 f38212f | 55-55 f35202e | 56-56 f311f2d | 57-57 f2e1f2c | 58-58 f2b1e2c | 59-59 f271e2b | 60-60 f251d2a | 61-61 f221d29 | 62-62 f1f1d29 | 63-63 f1d1c28 | 64-64 f1c1c28
+3: 2-12 f8b8b98
+5: 2-6 f62627a | 8-8 f62627a | 10-10 f62627a | 12-19 f62627a"
+`;
+
+exports[`screen: 'domains add in use' > pt-BR 80 plain 1`] = `
+"
+  ✕  A API recusou o pedido (HTTP 409): Domain is already in use
+ ────────────────────────────────────────────────────────────────
+  O que fazer  O domínio já está neste servidor ou em outro. Veja o motivo
+               com bladecp domains check shop.example.org.
+  saída 6 · conflict"
+`;
+
+exports[`screen: 'domains add in use' > pt-BR 120 color 1`] = `
+"
+  ✕  A API recusou o pedido (HTTP 409): Domain is already in use
+ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━──────────────────────────────
+  O que fazer  O domínio já está neste servidor ou em outro. Veja o motivo
+               com bladecp domains check shop.example.org.
+  saída 6 · conflict
+
+--- styles ---
+1: 2-2 ff43f5e | 5-5 B | 7-9 B | 11-17 B | 19-19 B | 21-26 B | 28-32 B | 34-38 B | 40-45 B | 47-48 B | 50-56 B | 58-59 B | 61-63 B
+2: 1-16 ff43f5e | 17-17 ff03e5d | 18-18 fea3d5b | 19-19 fe43c5a | 20-20 fde3b59 | 21-21 fd83b57 | 22-22 fd33a56 | 23-23 fcd3954 | 24-24 fc83853 | 25-25 fc23751 | 26-26 fbc3650 | 27-27 fb7354f | 28-28 fb2344d | 29-29 fac334c | 30-30 fa7334b | 31-31 fa23249 | 32-32 f9c3148 | 33-33 f973047 | 34-34 f922f46 | 35-35 f8d2e44 | 36-36 f882d43 | 37-37 f832d42 | 38-38 f7e2c40 | 39-39 f792b3f | 40-40 f742a3e | 41-41 f702a3d | 42-42 f6b293c | 43-43 f66283b | 44-44 f622739 | 45-45 f5d2738 | 46-46 f592637 | 47-47 f542536 | 48-48 f502435 | 49-49 f4c2434 | 50-50 f482333 | 51-51 f442232 | 52-52 f402231 | 53-53 f3c2130 | 54-54 f38212f | 55-55 f35202e | 56-56 f311f2d | 57-57 f2e1f2c | 58-58 f2b1e2c | 59-59 f271e2b | 60-60 f251d2a | 61-61 f221d29 | 62-62 f1f1d29 | 63-63 f1d1c28 | 64-64 f1c1c28
+3: 2-12 f8b8b98
+5: 2-6 f62627a | 8-8 f62627a | 10-10 f62627a | 12-19 f62627a"
+`;
+
+exports[`screen: 'domains add in use' > pt-BR 120 plain 1`] = `
+"
+  ✕  A API recusou o pedido (HTTP 409): Domain is already in use
+ ────────────────────────────────────────────────────────────────
+  O que fazer  O domínio já está neste servidor ou em outro. Veja o motivo
+               com bladecp domains check shop.example.org.
+  saída 6 · conflict"
+`;
+
+exports[`screen: 'domains add' > en 40 color 1`] = `
+"
+  ◇  blog.example.com was added to the
+     server.
+  │  The site answers there once the DNS
+  │  of the domain points to BladeCP.
+  │  See every domain with:
+  └  bladecp domains list 0197a1c4
+
+--- styles ---
+1: 2-2 f22c55e
+3: 2-2 f4a4a5e | 5-39 f8b8b98
+4: 2-2 f4a4a5e | 5-36 f8b8b98
+5: 2-2 f4a4a5e | 5-26 f8b8b98
+6: 2-2 f4a4a5e | 5-11 f6366f1 | 13-19 f6366f1 | 21-24 f6366f1 | 26-33 f6366f1"
+`;
+
+exports[`screen: 'domains add' > en 40 plain 1`] = `
+"
+  ◇  blog.example.com was added to the
+     server.
+  │  The site answers there once the DNS
+  │  of the domain points to BladeCP.
+  │  See every domain with:
+  └  bladecp domains list 0197a1c4"
+`;
+
+exports[`screen: 'domains add' > en 80 color 1`] = `
+"
+  ◇  blog.example.com was added to the server.
+  │  The site answers there once the DNS of the domain points to BladeCP. See
+  │  every domain with:
+  └  bladecp domains list 0197a1c4
+
+--- styles ---
+1: 2-2 f22c55e
+2: 2-2 f4a4a5e | 5-76 f8b8b98
+3: 2-2 f4a4a5e | 5-22 f8b8b98
+4: 2-2 f4a4a5e | 5-11 f6366f1 | 13-19 f6366f1 | 21-24 f6366f1 | 26-33 f6366f1"
+`;
+
+exports[`screen: 'domains add' > en 80 plain 1`] = `
+"
+  ◇  blog.example.com was added to the server.
+  │  The site answers there once the DNS of the domain points to BladeCP. See
+  │  every domain with:
+  └  bladecp domains list 0197a1c4"
+`;
+
+exports[`screen: 'domains add' > en 120 color 1`] = `
+"
+  ◇  blog.example.com was added to the server.
+  │  The site answers there once the DNS of the domain points to BladeCP. See
+  │  every domain with:
+  └  bladecp domains list 0197a1c4
+
+--- styles ---
+1: 2-2 f22c55e
+2: 2-2 f4a4a5e | 5-76 f8b8b98
+3: 2-2 f4a4a5e | 5-22 f8b8b98
+4: 2-2 f4a4a5e | 5-11 f6366f1 | 13-19 f6366f1 | 21-24 f6366f1 | 26-33 f6366f1"
+`;
+
+exports[`screen: 'domains add' > en 120 plain 1`] = `
+"
+  ◇  blog.example.com was added to the server.
+  │  The site answers there once the DNS of the domain points to BladeCP. See
+  │  every domain with:
+  └  bladecp domains list 0197a1c4"
+`;
+
+exports[`screen: 'domains add' > es 40 color 1`] = `
+"
+  ◇  blog.example.com se agregó al
+     servidor.
+  │  El sitio responde ahí cuando el DNS
+  │  del dominio apunte a BladeCP. Ve
+  │  todos los dominios con:
+  └  bladecp domains list 0197a1c4
+
+--- styles ---
+1: 2-2 f22c55e
+3: 2-2 f4a4a5e | 5-39 f8b8b98
+4: 2-2 f4a4a5e | 5-36 f8b8b98
+5: 2-2 f4a4a5e | 5-27 f8b8b98
+6: 2-2 f4a4a5e | 5-11 f6366f1 | 13-19 f6366f1 | 21-24 f6366f1 | 26-33 f6366f1"
+`;
+
+exports[`screen: 'domains add' > es 40 plain 1`] = `
+"
+  ◇  blog.example.com se agregó al
+     servidor.
+  │  El sitio responde ahí cuando el DNS
+  │  del dominio apunte a BladeCP. Ve
+  │  todos los dominios con:
+  └  bladecp domains list 0197a1c4"
+`;
+
+exports[`screen: 'domains add' > es 80 color 1`] = `
+"
+  ◇  blog.example.com se agregó al servidor.
+  │  El sitio responde ahí cuando el DNS del dominio apunte a BladeCP. Ve todos
+  │  los dominios con:
+  └  bladecp domains list 0197a1c4
+
+--- styles ---
+1: 2-2 f22c55e
+2: 2-2 f4a4a5e | 5-78 f8b8b98
+3: 2-2 f4a4a5e | 5-21 f8b8b98
+4: 2-2 f4a4a5e | 5-11 f6366f1 | 13-19 f6366f1 | 21-24 f6366f1 | 26-33 f6366f1"
+`;
+
+exports[`screen: 'domains add' > es 80 plain 1`] = `
+"
+  ◇  blog.example.com se agregó al servidor.
+  │  El sitio responde ahí cuando el DNS del dominio apunte a BladeCP. Ve todos
+  │  los dominios con:
+  └  bladecp domains list 0197a1c4"
+`;
+
+exports[`screen: 'domains add' > es 120 color 1`] = `
+"
+  ◇  blog.example.com se agregó al servidor.
+  │  El sitio responde ahí cuando el DNS del dominio apunte a BladeCP. Ve todos
+  │  los dominios con:
+  └  bladecp domains list 0197a1c4
+
+--- styles ---
+1: 2-2 f22c55e
+2: 2-2 f4a4a5e | 5-78 f8b8b98
+3: 2-2 f4a4a5e | 5-21 f8b8b98
+4: 2-2 f4a4a5e | 5-11 f6366f1 | 13-19 f6366f1 | 21-24 f6366f1 | 26-33 f6366f1"
+`;
+
+exports[`screen: 'domains add' > es 120 plain 1`] = `
+"
+  ◇  blog.example.com se agregó al servidor.
+  │  El sitio responde ahí cuando el DNS del dominio apunte a BladeCP. Ve todos
+  │  los dominios con:
+  └  bladecp domains list 0197a1c4"
+`;
+
+exports[`screen: 'domains add' > pt-BR 40 color 1`] = `
+"
+  ◇  blog.example.com foi adicionado ao
+     servidor.
+  │  O site responde nele quando o DNS
+  │  do domínio apontar para a BladeCP.
+  │  Veja todos os domínios com:
+  └  bladecp domains list 0197a1c4
+
+--- styles ---
+1: 2-2 f22c55e
+3: 2-2 f4a4a5e | 5-37 f8b8b98
+4: 2-2 f4a4a5e | 5-38 f8b8b98
+5: 2-2 f4a4a5e | 5-31 f8b8b98
+6: 2-2 f4a4a5e | 5-11 f6366f1 | 13-19 f6366f1 | 21-24 f6366f1 | 26-33 f6366f1"
+`;
+
+exports[`screen: 'domains add' > pt-BR 40 plain 1`] = `
+"
+  ◇  blog.example.com foi adicionado ao
+     servidor.
+  │  O site responde nele quando o DNS
+  │  do domínio apontar para a BladeCP.
+  │  Veja todos os domínios com:
+  └  bladecp domains list 0197a1c4"
+`;
+
+exports[`screen: 'domains add' > pt-BR 80 color 1`] = `
+"
+  ◇  blog.example.com foi adicionado ao servidor.
+  │  O site responde nele quando o DNS do domínio apontar para a BladeCP. Veja
+  │  todos os domínios com:
+  └  bladecp domains list 0197a1c4
+
+--- styles ---
+1: 2-2 f22c55e
+2: 2-2 f4a4a5e | 5-77 f8b8b98
+3: 2-2 f4a4a5e | 5-26 f8b8b98
+4: 2-2 f4a4a5e | 5-11 f6366f1 | 13-19 f6366f1 | 21-24 f6366f1 | 26-33 f6366f1"
+`;
+
+exports[`screen: 'domains add' > pt-BR 80 plain 1`] = `
+"
+  ◇  blog.example.com foi adicionado ao servidor.
+  │  O site responde nele quando o DNS do domínio apontar para a BladeCP. Veja
+  │  todos os domínios com:
+  └  bladecp domains list 0197a1c4"
+`;
+
+exports[`screen: 'domains add' > pt-BR 120 color 1`] = `
+"
+  ◇  blog.example.com foi adicionado ao servidor.
+  │  O site responde nele quando o DNS do domínio apontar para a BladeCP. Veja
+  │  todos os domínios com:
+  └  bladecp domains list 0197a1c4
+
+--- styles ---
+1: 2-2 f22c55e
+2: 2-2 f4a4a5e | 5-77 f8b8b98
+3: 2-2 f4a4a5e | 5-26 f8b8b98
+4: 2-2 f4a4a5e | 5-11 f6366f1 | 13-19 f6366f1 | 21-24 f6366f1 | 26-33 f6366f1"
+`;
+
+exports[`screen: 'domains add' > pt-BR 120 plain 1`] = `
+"
+  ◇  blog.example.com foi adicionado ao servidor.
+  │  O site responde nele quando o DNS do domínio apontar para a BladeCP. Veja
+  │  todos os domínios com:
+  └  bladecp domains list 0197a1c4"
+`;
+
+exports[`screen: 'domains bad host' > en 40 color 1`] = `
+"
+  ✕  "localhost" is not a domain.
+     Write it like blog.example.com.
+ ━━━━━━━━━━━━━━━━━━━━──────────────────
+  exit 2 · usage
+
+--- styles ---
+1: 2-2 ff43f5e | 5-15 B | 17-18 B | 20-22 B | 24-24 B | 26-32 B
+2: 5-9 B | 11-12 B | 14-17 B | 19-35 B
+3: 1-10 ff43f5e | 11-11 fea3d5b | 12-12 fe03c59 | 13-13 fd63a56 | 14-14 fcc3954 | 15-15 fc33752 | 16-16 fba364f | 17-17 fb0344d | 18-18 fa7334b | 19-19 f9e3149 | 20-20 f953046 | 21-21 f8d2e44 | 22-22 f842d42 | 23-23 f7c2c40 | 24-24 f742a3e | 25-25 f6b293c | 26-26 f64283a | 27-27 f5c2638 | 28-28 f552536 | 29-29 f4d2434 | 30-30 f462333 | 31-31 f402231 | 32-32 f39212f | 33-33 f33202e | 34-34 f2d1f2c | 35-35 f281e2b | 36-36 f231d2a | 37-37 f1f1c29 | 38-38 f1c1c28
+4: 2-5 f62627a | 7-7 f62627a | 9-9 f62627a | 11-15 f62627a"
+`;
+
+exports[`screen: 'domains bad host' > en 40 plain 1`] = `
+"
+  ✕  "localhost" is not a domain.
+     Write it like blog.example.com.
+ ──────────────────────────────────────
+  exit 2 · usage"
+`;
+
+exports[`screen: 'domains bad host' > en 80 color 1`] = `
+"
+  ✕  "localhost" is not a domain. Write it like blog.example.com.
+ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━──────────────────────────────
+  exit 2 · usage
+
+--- styles ---
+1: 2-2 ff43f5e | 5-15 B | 17-18 B | 20-22 B | 24-24 B | 26-32 B | 34-38 B | 40-41 B | 43-46 B | 48-64 B
+2: 1-16 ff43f5e | 17-17 ff03e5d | 18-18 fea3d5b | 19-19 fe43c5a | 20-20 fde3b59 | 21-21 fd83b57 | 22-22 fd33a56 | 23-23 fcd3954 | 24-24 fc83853 | 25-25 fc23751 | 26-26 fbc3650 | 27-27 fb7354f | 28-28 fb2344d | 29-29 fac334c | 30-30 fa7334b | 31-31 fa23249 | 32-32 f9c3148 | 33-33 f973047 | 34-34 f922f46 | 35-35 f8d2e44 | 36-36 f882d43 | 37-37 f832d42 | 38-38 f7e2c40 | 39-39 f792b3f | 40-40 f742a3e | 41-41 f702a3d | 42-42 f6b293c | 43-43 f66283b | 44-44 f622739 | 45-45 f5d2738 | 46-46 f592637 | 47-47 f542536 | 48-48 f502435 | 49-49 f4c2434 | 50-50 f482333 | 51-51 f442232 | 52-52 f402231 | 53-53 f3c2130 | 54-54 f38212f | 55-55 f35202e | 56-56 f311f2d | 57-57 f2e1f2c | 58-58 f2b1e2c | 59-59 f271e2b | 60-60 f251d2a | 61-61 f221d29 | 62-62 f1f1d29 | 63-63 f1d1c28 | 64-64 f1c1c28
+3: 2-5 f62627a | 7-7 f62627a | 9-9 f62627a | 11-15 f62627a"
+`;
+
+exports[`screen: 'domains bad host' > en 80 plain 1`] = `
+"
+  ✕  "localhost" is not a domain. Write it like blog.example.com.
+ ────────────────────────────────────────────────────────────────
+  exit 2 · usage"
+`;
+
+exports[`screen: 'domains bad host' > en 120 color 1`] = `
+"
+  ✕  "localhost" is not a domain. Write it like blog.example.com.
+ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━──────────────────────────────
+  exit 2 · usage
+
+--- styles ---
+1: 2-2 ff43f5e | 5-15 B | 17-18 B | 20-22 B | 24-24 B | 26-32 B | 34-38 B | 40-41 B | 43-46 B | 48-64 B
+2: 1-16 ff43f5e | 17-17 ff03e5d | 18-18 fea3d5b | 19-19 fe43c5a | 20-20 fde3b59 | 21-21 fd83b57 | 22-22 fd33a56 | 23-23 fcd3954 | 24-24 fc83853 | 25-25 fc23751 | 26-26 fbc3650 | 27-27 fb7354f | 28-28 fb2344d | 29-29 fac334c | 30-30 fa7334b | 31-31 fa23249 | 32-32 f9c3148 | 33-33 f973047 | 34-34 f922f46 | 35-35 f8d2e44 | 36-36 f882d43 | 37-37 f832d42 | 38-38 f7e2c40 | 39-39 f792b3f | 40-40 f742a3e | 41-41 f702a3d | 42-42 f6b293c | 43-43 f66283b | 44-44 f622739 | 45-45 f5d2738 | 46-46 f592637 | 47-47 f542536 | 48-48 f502435 | 49-49 f4c2434 | 50-50 f482333 | 51-51 f442232 | 52-52 f402231 | 53-53 f3c2130 | 54-54 f38212f | 55-55 f35202e | 56-56 f311f2d | 57-57 f2e1f2c | 58-58 f2b1e2c | 59-59 f271e2b | 60-60 f251d2a | 61-61 f221d29 | 62-62 f1f1d29 | 63-63 f1d1c28 | 64-64 f1c1c28
+3: 2-5 f62627a | 7-7 f62627a | 9-9 f62627a | 11-15 f62627a"
+`;
+
+exports[`screen: 'domains bad host' > en 120 plain 1`] = `
+"
+  ✕  "localhost" is not a domain. Write it like blog.example.com.
+ ────────────────────────────────────────────────────────────────
+  exit 2 · usage"
+`;
+
+exports[`screen: 'domains bad host' > es 40 color 1`] = `
+"
+  ✕  "localhost" no es un dominio.
+     Escríbelo como blog.example.com.
+ ━━━━━━━━━━━━━━━━━━━━──────────────────
+  salida 2 · usage
+
+--- styles ---
+1: 2-2 ff43f5e | 5-15 B | 17-18 B | 20-21 B | 23-24 B | 26-33 B
+2: 5-13 B | 15-18 B | 20-36 B
+3: 1-10 ff43f5e | 11-11 fea3d5b | 12-12 fe03c59 | 13-13 fd63a56 | 14-14 fcc3954 | 15-15 fc33752 | 16-16 fba364f | 17-17 fb0344d | 18-18 fa7334b | 19-19 f9e3149 | 20-20 f953046 | 21-21 f8d2e44 | 22-22 f842d42 | 23-23 f7c2c40 | 24-24 f742a3e | 25-25 f6b293c | 26-26 f64283a | 27-27 f5c2638 | 28-28 f552536 | 29-29 f4d2434 | 30-30 f462333 | 31-31 f402231 | 32-32 f39212f | 33-33 f33202e | 34-34 f2d1f2c | 35-35 f281e2b | 36-36 f231d2a | 37-37 f1f1c29 | 38-38 f1c1c28
+4: 2-7 f62627a | 9-9 f62627a | 11-11 f62627a | 13-17 f62627a"
+`;
+
+exports[`screen: 'domains bad host' > es 40 plain 1`] = `
+"
+  ✕  "localhost" no es un dominio.
+     Escríbelo como blog.example.com.
+ ──────────────────────────────────────
+  salida 2 · usage"
+`;
+
+exports[`screen: 'domains bad host' > es 80 color 1`] = `
+"
+  ✕  "localhost" no es un dominio. Escríbelo como blog.example.com.
+ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━──────────────────────────────
+  salida 2 · usage
+
+--- styles ---
+1: 2-2 ff43f5e | 5-15 B | 17-18 B | 20-21 B | 23-24 B | 26-33 B | 35-43 B | 45-48 B | 50-66 B
+2: 1-16 ff43f5e | 17-17 ff03e5d | 18-18 fea3d5b | 19-19 fe43c5a | 20-20 fde3b59 | 21-21 fd83b57 | 22-22 fd33a56 | 23-23 fcd3954 | 24-24 fc83853 | 25-25 fc23751 | 26-26 fbc3650 | 27-27 fb7354f | 28-28 fb2344d | 29-29 fac334c | 30-30 fa7334b | 31-31 fa23249 | 32-32 f9c3148 | 33-33 f973047 | 34-34 f922f46 | 35-35 f8d2e44 | 36-36 f882d43 | 37-37 f832d42 | 38-38 f7e2c40 | 39-39 f792b3f | 40-40 f742a3e | 41-41 f702a3d | 42-42 f6b293c | 43-43 f66283b | 44-44 f622739 | 45-45 f5d2738 | 46-46 f592637 | 47-47 f542536 | 48-48 f502435 | 49-49 f4c2434 | 50-50 f482333 | 51-51 f442232 | 52-52 f402231 | 53-53 f3c2130 | 54-54 f38212f | 55-55 f35202e | 56-56 f311f2d | 57-57 f2e1f2c | 58-58 f2b1e2c | 59-59 f271e2b | 60-60 f251d2a | 61-61 f221d29 | 62-62 f1f1d29 | 63-63 f1d1c28 | 64-64 f1c1c28
+3: 2-7 f62627a | 9-9 f62627a | 11-11 f62627a | 13-17 f62627a"
+`;
+
+exports[`screen: 'domains bad host' > es 80 plain 1`] = `
+"
+  ✕  "localhost" no es un dominio. Escríbelo como blog.example.com.
+ ────────────────────────────────────────────────────────────────
+  salida 2 · usage"
+`;
+
+exports[`screen: 'domains bad host' > es 120 color 1`] = `
+"
+  ✕  "localhost" no es un dominio. Escríbelo como blog.example.com.
+ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━──────────────────────────────
+  salida 2 · usage
+
+--- styles ---
+1: 2-2 ff43f5e | 5-15 B | 17-18 B | 20-21 B | 23-24 B | 26-33 B | 35-43 B | 45-48 B | 50-66 B
+2: 1-16 ff43f5e | 17-17 ff03e5d | 18-18 fea3d5b | 19-19 fe43c5a | 20-20 fde3b59 | 21-21 fd83b57 | 22-22 fd33a56 | 23-23 fcd3954 | 24-24 fc83853 | 25-25 fc23751 | 26-26 fbc3650 | 27-27 fb7354f | 28-28 fb2344d | 29-29 fac334c | 30-30 fa7334b | 31-31 fa23249 | 32-32 f9c3148 | 33-33 f973047 | 34-34 f922f46 | 35-35 f8d2e44 | 36-36 f882d43 | 37-37 f832d42 | 38-38 f7e2c40 | 39-39 f792b3f | 40-40 f742a3e | 41-41 f702a3d | 42-42 f6b293c | 43-43 f66283b | 44-44 f622739 | 45-45 f5d2738 | 46-46 f592637 | 47-47 f542536 | 48-48 f502435 | 49-49 f4c2434 | 50-50 f482333 | 51-51 f442232 | 52-52 f402231 | 53-53 f3c2130 | 54-54 f38212f | 55-55 f35202e | 56-56 f311f2d | 57-57 f2e1f2c | 58-58 f2b1e2c | 59-59 f271e2b | 60-60 f251d2a | 61-61 f221d29 | 62-62 f1f1d29 | 63-63 f1d1c28 | 64-64 f1c1c28
+3: 2-7 f62627a | 9-9 f62627a | 11-11 f62627a | 13-17 f62627a"
+`;
+
+exports[`screen: 'domains bad host' > es 120 plain 1`] = `
+"
+  ✕  "localhost" no es un dominio. Escríbelo como blog.example.com.
+ ────────────────────────────────────────────────────────────────
+  salida 2 · usage"
+`;
+
+exports[`screen: 'domains bad host' > pt-BR 40 color 1`] = `
+"
+  ✕  "localhost" não é um domínio.
+     Escreva como blog.example.com.
+ ━━━━━━━━━━━━━━━━━━━━──────────────────
+  saída 2 · usage
+
+--- styles ---
+1: 2-2 ff43f5e | 5-15 B | 17-19 B | 21-21 B | 23-24 B | 26-33 B
+2: 5-11 B | 13-16 B | 18-34 B
+3: 1-10 ff43f5e | 11-11 fea3d5b | 12-12 fe03c59 | 13-13 fd63a56 | 14-14 fcc3954 | 15-15 fc33752 | 16-16 fba364f | 17-17 fb0344d | 18-18 fa7334b | 19-19 f9e3149 | 20-20 f953046 | 21-21 f8d2e44 | 22-22 f842d42 | 23-23 f7c2c40 | 24-24 f742a3e | 25-25 f6b293c | 26-26 f64283a | 27-27 f5c2638 | 28-28 f552536 | 29-29 f4d2434 | 30-30 f462333 | 31-31 f402231 | 32-32 f39212f | 33-33 f33202e | 34-34 f2d1f2c | 35-35 f281e2b | 36-36 f231d2a | 37-37 f1f1c29 | 38-38 f1c1c28
+4: 2-6 f62627a | 8-8 f62627a | 10-10 f62627a | 12-16 f62627a"
+`;
+
+exports[`screen: 'domains bad host' > pt-BR 40 plain 1`] = `
+"
+  ✕  "localhost" não é um domínio.
+     Escreva como blog.example.com.
+ ──────────────────────────────────────
+  saída 2 · usage"
+`;
+
+exports[`screen: 'domains bad host' > pt-BR 80 color 1`] = `
+"
+  ✕  "localhost" não é um domínio. Escreva como blog.example.com.
+ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━──────────────────────────────
+  saída 2 · usage
+
+--- styles ---
+1: 2-2 ff43f5e | 5-15 B | 17-19 B | 21-21 B | 23-24 B | 26-33 B | 35-41 B | 43-46 B | 48-64 B
+2: 1-16 ff43f5e | 17-17 ff03e5d | 18-18 fea3d5b | 19-19 fe43c5a | 20-20 fde3b59 | 21-21 fd83b57 | 22-22 fd33a56 | 23-23 fcd3954 | 24-24 fc83853 | 25-25 fc23751 | 26-26 fbc3650 | 27-27 fb7354f | 28-28 fb2344d | 29-29 fac334c | 30-30 fa7334b | 31-31 fa23249 | 32-32 f9c3148 | 33-33 f973047 | 34-34 f922f46 | 35-35 f8d2e44 | 36-36 f882d43 | 37-37 f832d42 | 38-38 f7e2c40 | 39-39 f792b3f | 40-40 f742a3e | 41-41 f702a3d | 42-42 f6b293c | 43-43 f66283b | 44-44 f622739 | 45-45 f5d2738 | 46-46 f592637 | 47-47 f542536 | 48-48 f502435 | 49-49 f4c2434 | 50-50 f482333 | 51-51 f442232 | 52-52 f402231 | 53-53 f3c2130 | 54-54 f38212f | 55-55 f35202e | 56-56 f311f2d | 57-57 f2e1f2c | 58-58 f2b1e2c | 59-59 f271e2b | 60-60 f251d2a | 61-61 f221d29 | 62-62 f1f1d29 | 63-63 f1d1c28 | 64-64 f1c1c28
+3: 2-6 f62627a | 8-8 f62627a | 10-10 f62627a | 12-16 f62627a"
+`;
+
+exports[`screen: 'domains bad host' > pt-BR 80 plain 1`] = `
+"
+  ✕  "localhost" não é um domínio. Escreva como blog.example.com.
+ ────────────────────────────────────────────────────────────────
+  saída 2 · usage"
+`;
+
+exports[`screen: 'domains bad host' > pt-BR 120 color 1`] = `
+"
+  ✕  "localhost" não é um domínio. Escreva como blog.example.com.
+ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━──────────────────────────────
+  saída 2 · usage
+
+--- styles ---
+1: 2-2 ff43f5e | 5-15 B | 17-19 B | 21-21 B | 23-24 B | 26-33 B | 35-41 B | 43-46 B | 48-64 B
+2: 1-16 ff43f5e | 17-17 ff03e5d | 18-18 fea3d5b | 19-19 fe43c5a | 20-20 fde3b59 | 21-21 fd83b57 | 22-22 fd33a56 | 23-23 fcd3954 | 24-24 fc83853 | 25-25 fc23751 | 26-26 fbc3650 | 27-27 fb7354f | 28-28 fb2344d | 29-29 fac334c | 30-30 fa7334b | 31-31 fa23249 | 32-32 f9c3148 | 33-33 f973047 | 34-34 f922f46 | 35-35 f8d2e44 | 36-36 f882d43 | 37-37 f832d42 | 38-38 f7e2c40 | 39-39 f792b3f | 40-40 f742a3e | 41-41 f702a3d | 42-42 f6b293c | 43-43 f66283b | 44-44 f622739 | 45-45 f5d2738 | 46-46 f592637 | 47-47 f542536 | 48-48 f502435 | 49-49 f4c2434 | 50-50 f482333 | 51-51 f442232 | 52-52 f402231 | 53-53 f3c2130 | 54-54 f38212f | 55-55 f35202e | 56-56 f311f2d | 57-57 f2e1f2c | 58-58 f2b1e2c | 59-59 f271e2b | 60-60 f251d2a | 61-61 f221d29 | 62-62 f1f1d29 | 63-63 f1d1c28 | 64-64 f1c1c28
+3: 2-6 f62627a | 8-8 f62627a | 10-10 f62627a | 12-16 f62627a"
+`;
+
+exports[`screen: 'domains bad host' > pt-BR 120 plain 1`] = `
+"
+  ✕  "localhost" não é um domínio. Escreva como blog.example.com.
+ ────────────────────────────────────────────────────────────────
+  saída 2 · usage"
+`;
+
+exports[`screen: 'domains check free' > en 40 color 1`] = `
+"
+  ◇  new.example.com is free to use.
+  │  Add it to one of your servers with:
+  └  bladecp domains add <server>
+     new.example.com
+
+--- styles ---
+1: 2-2 f22c55e
+2: 2-2 f4a4a5e | 5-39 f8b8b98
+3: 2-2 f4a4a5e | 5-11 f6366f1 | 13-19 f6366f1 | 21-23 f6366f1 | 25-32 f6366f1
+4: 5-19 f6366f1"
+`;
+
+exports[`screen: 'domains check free' > en 40 plain 1`] = `
+"
+  ◇  new.example.com is free to use.
+  │  Add it to one of your servers with:
+  └  bladecp domains add <server>
+     new.example.com"
+`;
+
+exports[`screen: 'domains check free' > en 80 color 1`] = `
+"
+  ◇  new.example.com is free to use.
+  │  Add it to one of your servers with:
+  └  bladecp domains add <server> new.example.com
+
+--- styles ---
+1: 2-2 f22c55e
+2: 2-2 f4a4a5e | 5-39 f8b8b98
+3: 2-2 f4a4a5e | 5-11 f6366f1 | 13-19 f6366f1 | 21-23 f6366f1 | 25-32 f6366f1 | 34-48 f6366f1"
+`;
+
+exports[`screen: 'domains check free' > en 80 plain 1`] = `
+"
+  ◇  new.example.com is free to use.
+  │  Add it to one of your servers with:
+  └  bladecp domains add <server> new.example.com"
+`;
+
+exports[`screen: 'domains check free' > en 120 color 1`] = `
+"
+  ◇  new.example.com is free to use.
+  │  Add it to one of your servers with:
+  └  bladecp domains add <server> new.example.com
+
+--- styles ---
+1: 2-2 f22c55e
+2: 2-2 f4a4a5e | 5-39 f8b8b98
+3: 2-2 f4a4a5e | 5-11 f6366f1 | 13-19 f6366f1 | 21-23 f6366f1 | 25-32 f6366f1 | 34-48 f6366f1"
+`;
+
+exports[`screen: 'domains check free' > en 120 plain 1`] = `
+"
+  ◇  new.example.com is free to use.
+  │  Add it to one of your servers with:
+  └  bladecp domains add <server> new.example.com"
+`;
+
+exports[`screen: 'domains check free' > es 40 color 1`] = `
+"
+  ◇  new.example.com está libre para
+     usar.
+  │  Agrégalo a uno de tus servidores
+  │  con:
+  └  bladecp domains add <server>
+     new.example.com
+
+--- styles ---
+1: 2-2 f22c55e
+3: 2-2 f4a4a5e | 5-36 f8b8b98
+4: 2-2 f4a4a5e | 5-8 f8b8b98
+5: 2-2 f4a4a5e | 5-11 f6366f1 | 13-19 f6366f1 | 21-23 f6366f1 | 25-32 f6366f1
+6: 5-19 f6366f1"
+`;
+
+exports[`screen: 'domains check free' > es 40 plain 1`] = `
+"
+  ◇  new.example.com está libre para
+     usar.
+  │  Agrégalo a uno de tus servidores
+  │  con:
+  └  bladecp domains add <server>
+     new.example.com"
+`;
+
+exports[`screen: 'domains check free' > es 80 color 1`] = `
+"
+  ◇  new.example.com está libre para usar.
+  │  Agrégalo a uno de tus servidores con:
+  └  bladecp domains add <server> new.example.com
+
+--- styles ---
+1: 2-2 f22c55e
+2: 2-2 f4a4a5e | 5-41 f8b8b98
+3: 2-2 f4a4a5e | 5-11 f6366f1 | 13-19 f6366f1 | 21-23 f6366f1 | 25-32 f6366f1 | 34-48 f6366f1"
+`;
+
+exports[`screen: 'domains check free' > es 80 plain 1`] = `
+"
+  ◇  new.example.com está libre para usar.
+  │  Agrégalo a uno de tus servidores con:
+  └  bladecp domains add <server> new.example.com"
+`;
+
+exports[`screen: 'domains check free' > es 120 color 1`] = `
+"
+  ◇  new.example.com está libre para usar.
+  │  Agrégalo a uno de tus servidores con:
+  └  bladecp domains add <server> new.example.com
+
+--- styles ---
+1: 2-2 f22c55e
+2: 2-2 f4a4a5e | 5-41 f8b8b98
+3: 2-2 f4a4a5e | 5-11 f6366f1 | 13-19 f6366f1 | 21-23 f6366f1 | 25-32 f6366f1 | 34-48 f6366f1"
+`;
+
+exports[`screen: 'domains check free' > es 120 plain 1`] = `
+"
+  ◇  new.example.com está libre para usar.
+  │  Agrégalo a uno de tus servidores con:
+  └  bladecp domains add <server> new.example.com"
+`;
+
+exports[`screen: 'domains check free' > pt-BR 40 color 1`] = `
+"
+  ◇  new.example.com está livre para
+     usar.
+  │  Adicione-o a um dos seus servidores
+  │  com:
+  └  bladecp domains add <server>
+     new.example.com
+
+--- styles ---
+1: 2-2 f22c55e
+3: 2-2 f4a4a5e | 5-39 f8b8b98
+4: 2-2 f4a4a5e | 5-8 f8b8b98
+5: 2-2 f4a4a5e | 5-11 f6366f1 | 13-19 f6366f1 | 21-23 f6366f1 | 25-32 f6366f1
+6: 5-19 f6366f1"
+`;
+
+exports[`screen: 'domains check free' > pt-BR 40 plain 1`] = `
+"
+  ◇  new.example.com está livre para
+     usar.
+  │  Adicione-o a um dos seus servidores
+  │  com:
+  └  bladecp domains add <server>
+     new.example.com"
+`;
+
+exports[`screen: 'domains check free' > pt-BR 80 color 1`] = `
+"
+  ◇  new.example.com está livre para usar.
+  │  Adicione-o a um dos seus servidores com:
+  └  bladecp domains add <server> new.example.com
+
+--- styles ---
+1: 2-2 f22c55e
+2: 2-2 f4a4a5e | 5-44 f8b8b98
+3: 2-2 f4a4a5e | 5-11 f6366f1 | 13-19 f6366f1 | 21-23 f6366f1 | 25-32 f6366f1 | 34-48 f6366f1"
+`;
+
+exports[`screen: 'domains check free' > pt-BR 80 plain 1`] = `
+"
+  ◇  new.example.com está livre para usar.
+  │  Adicione-o a um dos seus servidores com:
+  └  bladecp domains add <server> new.example.com"
+`;
+
+exports[`screen: 'domains check free' > pt-BR 120 color 1`] = `
+"
+  ◇  new.example.com está livre para usar.
+  │  Adicione-o a um dos seus servidores com:
+  └  bladecp domains add <server> new.example.com
+
+--- styles ---
+1: 2-2 f22c55e
+2: 2-2 f4a4a5e | 5-44 f8b8b98
+3: 2-2 f4a4a5e | 5-11 f6366f1 | 13-19 f6366f1 | 21-23 f6366f1 | 25-32 f6366f1 | 34-48 f6366f1"
+`;
+
+exports[`screen: 'domains check free' > pt-BR 120 plain 1`] = `
+"
+  ◇  new.example.com está livre para usar.
+  │  Adicione-o a um dos seus servidores com:
+  └  bladecp domains add <server> new.example.com"
+`;
+
+exports[`screen: 'domains check other account' > en 40 color 1`] = `
+"
+  ◇  www.example.info cannot be used.
+  │  It belongs to another BladeCP
+  │  account. If the domain is yours,
+  │  talk to support:
+  └  https://hub.bladecp.com/support
+
+--- styles ---
+1: 2-2 feab308
+2: 2-2 f4a4a5e | 5-33 f8b8b98
+3: 2-2 f4a4a5e | 5-36 f8b8b98
+4: 2-2 f4a4a5e | 5-20 f8b8b98
+5: 2-2 f4a4a5e | 5-35 f6366f1"
+`;
+
+exports[`screen: 'domains check other account' > en 40 plain 1`] = `
+"
+  ◇  www.example.info cannot be used.
+  │  It belongs to another BladeCP
+  │  account. If the domain is yours,
+  │  talk to support:
+  └  https://hub.bladecp.com/support"
+`;
+
+exports[`screen: 'domains check other account' > en 80 color 1`] = `
+"
+  ◇  www.example.info cannot be used.
+  │  It belongs to another BladeCP account. If the domain is yours, talk to
+  │  support:
+  └  https://hub.bladecp.com/support
+
+--- styles ---
+1: 2-2 feab308
+2: 2-2 f4a4a5e | 5-74 f8b8b98
+3: 2-2 f4a4a5e | 5-12 f8b8b98
+4: 2-2 f4a4a5e | 5-35 f6366f1"
+`;
+
+exports[`screen: 'domains check other account' > en 80 plain 1`] = `
+"
+  ◇  www.example.info cannot be used.
+  │  It belongs to another BladeCP account. If the domain is yours, talk to
+  │  support:
+  └  https://hub.bladecp.com/support"
+`;
+
+exports[`screen: 'domains check other account' > en 120 color 1`] = `
+"
+  ◇  www.example.info cannot be used.
+  │  It belongs to another BladeCP account. If the domain is yours, talk to
+  │  support:
+  └  https://hub.bladecp.com/support
+
+--- styles ---
+1: 2-2 feab308
+2: 2-2 f4a4a5e | 5-74 f8b8b98
+3: 2-2 f4a4a5e | 5-12 f8b8b98
+4: 2-2 f4a4a5e | 5-35 f6366f1"
+`;
+
+exports[`screen: 'domains check other account' > en 120 plain 1`] = `
+"
+  ◇  www.example.info cannot be used.
+  │  It belongs to another BladeCP account. If the domain is yours, talk to
+  │  support:
+  └  https://hub.bladecp.com/support"
+`;
+
+exports[`screen: 'domains check other account' > es 40 color 1`] = `
+"
+  ◇  www.example.info no se puede usar.
+  │  Pertenece a otra cuenta de BladeCP.
+  │  Si el dominio es tuyo, habla con
+  │  soporte:
+  └  https://hub.bladecp.com/support
+
+--- styles ---
+1: 2-2 feab308
+2: 2-2 f4a4a5e | 5-39 f8b8b98
+3: 2-2 f4a4a5e | 5-36 f8b8b98
+4: 2-2 f4a4a5e | 5-12 f8b8b98
+5: 2-2 f4a4a5e | 5-35 f6366f1"
+`;
+
+exports[`screen: 'domains check other account' > es 40 plain 1`] = `
+"
+  ◇  www.example.info no se puede usar.
+  │  Pertenece a otra cuenta de BladeCP.
+  │  Si el dominio es tuyo, habla con
+  │  soporte:
+  └  https://hub.bladecp.com/support"
+`;
+
+exports[`screen: 'domains check other account' > es 80 color 1`] = `
+"
+  ◇  www.example.info no se puede usar.
+  │  Pertenece a otra cuenta de BladeCP. Si el dominio es tuyo, habla con
+  │  soporte:
+  └  https://hub.bladecp.com/support
+
+--- styles ---
+1: 2-2 feab308
+2: 2-2 f4a4a5e | 5-72 f8b8b98
+3: 2-2 f4a4a5e | 5-12 f8b8b98
+4: 2-2 f4a4a5e | 5-35 f6366f1"
+`;
+
+exports[`screen: 'domains check other account' > es 80 plain 1`] = `
+"
+  ◇  www.example.info no se puede usar.
+  │  Pertenece a otra cuenta de BladeCP. Si el dominio es tuyo, habla con
+  │  soporte:
+  └  https://hub.bladecp.com/support"
+`;
+
+exports[`screen: 'domains check other account' > es 120 color 1`] = `
+"
+  ◇  www.example.info no se puede usar.
+  │  Pertenece a otra cuenta de BladeCP. Si el dominio es tuyo, habla con
+  │  soporte:
+  └  https://hub.bladecp.com/support
+
+--- styles ---
+1: 2-2 feab308
+2: 2-2 f4a4a5e | 5-72 f8b8b98
+3: 2-2 f4a4a5e | 5-12 f8b8b98
+4: 2-2 f4a4a5e | 5-35 f6366f1"
+`;
+
+exports[`screen: 'domains check other account' > es 120 plain 1`] = `
+"
+  ◇  www.example.info no se puede usar.
+  │  Pertenece a otra cuenta de BladeCP. Si el dominio es tuyo, habla con
+  │  soporte:
+  └  https://hub.bladecp.com/support"
+`;
+
+exports[`screen: 'domains check other account' > pt-BR 40 color 1`] = `
+"
+  ◇  www.example.info não pode ser
+     usado.
+  │  Ele pertence a outra conta da
+  │  BladeCP. Se o domínio é seu, fale
+  │  com o suporte:
+  └  https://hub.bladecp.com/support
+
+--- styles ---
+1: 2-2 feab308
+3: 2-2 f4a4a5e | 5-33 f8b8b98
+4: 2-2 f4a4a5e | 5-37 f8b8b98
+5: 2-2 f4a4a5e | 5-18 f8b8b98
+6: 2-2 f4a4a5e | 5-35 f6366f1"
+`;
+
+exports[`screen: 'domains check other account' > pt-BR 40 plain 1`] = `
+"
+  ◇  www.example.info não pode ser
+     usado.
+  │  Ele pertence a outra conta da
+  │  BladeCP. Se o domínio é seu, fale
+  │  com o suporte:
+  └  https://hub.bladecp.com/support"
+`;
+
+exports[`screen: 'domains check other account' > pt-BR 80 color 1`] = `
+"
+  ◇  www.example.info não pode ser usado.
+  │  Ele pertence a outra conta da BladeCP. Se o domínio é seu, fale com o
+  │  suporte:
+  └  https://hub.bladecp.com/support
+
+--- styles ---
+1: 2-2 feab308
+2: 2-2 f4a4a5e | 5-73 f8b8b98
+3: 2-2 f4a4a5e | 5-12 f8b8b98
+4: 2-2 f4a4a5e | 5-35 f6366f1"
+`;
+
+exports[`screen: 'domains check other account' > pt-BR 80 plain 1`] = `
+"
+  ◇  www.example.info não pode ser usado.
+  │  Ele pertence a outra conta da BladeCP. Se o domínio é seu, fale com o
+  │  suporte:
+  └  https://hub.bladecp.com/support"
+`;
+
+exports[`screen: 'domains check other account' > pt-BR 120 color 1`] = `
+"
+  ◇  www.example.info não pode ser usado.
+  │  Ele pertence a outra conta da BladeCP. Se o domínio é seu, fale com o
+  │  suporte:
+  └  https://hub.bladecp.com/support
+
+--- styles ---
+1: 2-2 feab308
+2: 2-2 f4a4a5e | 5-73 f8b8b98
+3: 2-2 f4a4a5e | 5-12 f8b8b98
+4: 2-2 f4a4a5e | 5-35 f6366f1"
+`;
+
+exports[`screen: 'domains check other account' > pt-BR 120 plain 1`] = `
+"
+  ◇  www.example.info não pode ser usado.
+  │  Ele pertence a outra conta da BladeCP. Se o domínio é seu, fale com o
+  │  suporte:
+  └  https://hub.bladecp.com/support"
+`;
+
+exports[`screen: 'domains check taken' > en 40 color 1`] = `
+"
+  ◇  shop.example.org cannot be used.
+  │  It is already on a BladeCP server.
+  │  If the server is yours, you see it
+  │  with:
+  └  bladecp servers
+
+--- styles ---
+1: 2-2 feab308
+2: 2-2 f4a4a5e | 5-38 f8b8b98
+3: 2-2 f4a4a5e | 5-38 f8b8b98
+4: 2-2 f4a4a5e | 5-9 f8b8b98
+5: 2-2 f4a4a5e | 5-11 f6366f1 | 13-19 f6366f1"
+`;
+
+exports[`screen: 'domains check taken' > en 40 plain 1`] = `
+"
+  ◇  shop.example.org cannot be used.
+  │  It is already on a BladeCP server.
+  │  If the server is yours, you see it
+  │  with:
+  └  bladecp servers"
+`;
+
+exports[`screen: 'domains check taken' > en 80 color 1`] = `
+"
+  ◇  shop.example.org cannot be used.
+  │  It is already on a BladeCP server. If the server is yours, you see it with:
+  └  bladecp servers
+
+--- styles ---
+1: 2-2 feab308
+2: 2-2 f4a4a5e | 5-79 f8b8b98
+3: 2-2 f4a4a5e | 5-11 f6366f1 | 13-19 f6366f1"
+`;
+
+exports[`screen: 'domains check taken' > en 80 plain 1`] = `
+"
+  ◇  shop.example.org cannot be used.
+  │  It is already on a BladeCP server. If the server is yours, you see it with:
+  └  bladecp servers"
+`;
+
+exports[`screen: 'domains check taken' > en 120 color 1`] = `
+"
+  ◇  shop.example.org cannot be used.
+  │  It is already on a BladeCP server. If the server is yours, you see it with:
+  └  bladecp servers
+
+--- styles ---
+1: 2-2 feab308
+2: 2-2 f4a4a5e | 5-79 f8b8b98
+3: 2-2 f4a4a5e | 5-11 f6366f1 | 13-19 f6366f1"
+`;
+
+exports[`screen: 'domains check taken' > en 120 plain 1`] = `
+"
+  ◇  shop.example.org cannot be used.
+  │  It is already on a BladeCP server. If the server is yours, you see it with:
+  └  bladecp servers"
+`;
+
+exports[`screen: 'domains check taken' > es 40 color 1`] = `
+"
+  ◇  shop.example.org no se puede usar.
+  │  Ya está en un servidor de BladeCP.
+  │  Si el servidor es tuyo, lo ves con:
+  └  bladecp servers
+
+--- styles ---
+1: 2-2 feab308
+2: 2-2 f4a4a5e | 5-38 f8b8b98
+3: 2-2 f4a4a5e | 5-39 f8b8b98
+4: 2-2 f4a4a5e | 5-11 f6366f1 | 13-19 f6366f1"
+`;
+
+exports[`screen: 'domains check taken' > es 40 plain 1`] = `
+"
+  ◇  shop.example.org no se puede usar.
+  │  Ya está en un servidor de BladeCP.
+  │  Si el servidor es tuyo, lo ves con:
+  └  bladecp servers"
+`;
+
+exports[`screen: 'domains check taken' > es 80 color 1`] = `
+"
+  ◇  shop.example.org no se puede usar.
+  │  Ya está en un servidor de BladeCP. Si el servidor es tuyo, lo ves con:
+  └  bladecp servers
+
+--- styles ---
+1: 2-2 feab308
+2: 2-2 f4a4a5e | 5-74 f8b8b98
+3: 2-2 f4a4a5e | 5-11 f6366f1 | 13-19 f6366f1"
+`;
+
+exports[`screen: 'domains check taken' > es 80 plain 1`] = `
+"
+  ◇  shop.example.org no se puede usar.
+  │  Ya está en un servidor de BladeCP. Si el servidor es tuyo, lo ves con:
+  └  bladecp servers"
+`;
+
+exports[`screen: 'domains check taken' > es 120 color 1`] = `
+"
+  ◇  shop.example.org no se puede usar.
+  │  Ya está en un servidor de BladeCP. Si el servidor es tuyo, lo ves con:
+  └  bladecp servers
+
+--- styles ---
+1: 2-2 feab308
+2: 2-2 f4a4a5e | 5-74 f8b8b98
+3: 2-2 f4a4a5e | 5-11 f6366f1 | 13-19 f6366f1"
+`;
+
+exports[`screen: 'domains check taken' > es 120 plain 1`] = `
+"
+  ◇  shop.example.org no se puede usar.
+  │  Ya está en un servidor de BladeCP. Si el servidor es tuyo, lo ves con:
+  └  bladecp servers"
+`;
+
+exports[`screen: 'domains check taken' > pt-BR 40 color 1`] = `
+"
+  ◇  shop.example.org não pode ser
+     usado.
+  │  Ele já está em um servidor da
+  │  BladeCP. Se o servidor é seu, você
+  │  o vê com:
+  └  bladecp servers
+
+--- styles ---
+1: 2-2 feab308
+3: 2-2 f4a4a5e | 5-33 f8b8b98
+4: 2-2 f4a4a5e | 5-38 f8b8b98
+5: 2-2 f4a4a5e | 5-13 f8b8b98
+6: 2-2 f4a4a5e | 5-11 f6366f1 | 13-19 f6366f1"
+`;
+
+exports[`screen: 'domains check taken' > pt-BR 40 plain 1`] = `
+"
+  ◇  shop.example.org não pode ser
+     usado.
+  │  Ele já está em um servidor da
+  │  BladeCP. Se o servidor é seu, você
+  │  o vê com:
+  └  bladecp servers"
+`;
+
+exports[`screen: 'domains check taken' > pt-BR 80 color 1`] = `
+"
+  ◇  shop.example.org não pode ser usado.
+  │  Ele já está em um servidor da BladeCP. Se o servidor é seu, você o vê com:
+  └  bladecp servers
+
+--- styles ---
+1: 2-2 feab308
+2: 2-2 f4a4a5e | 5-78 f8b8b98
+3: 2-2 f4a4a5e | 5-11 f6366f1 | 13-19 f6366f1"
+`;
+
+exports[`screen: 'domains check taken' > pt-BR 80 plain 1`] = `
+"
+  ◇  shop.example.org não pode ser usado.
+  │  Ele já está em um servidor da BladeCP. Se o servidor é seu, você o vê com:
+  └  bladecp servers"
+`;
+
+exports[`screen: 'domains check taken' > pt-BR 120 color 1`] = `
+"
+  ◇  shop.example.org não pode ser usado.
+  │  Ele já está em um servidor da BladeCP. Se o servidor é seu, você o vê com:
+  └  bladecp servers
+
+--- styles ---
+1: 2-2 feab308
+2: 2-2 f4a4a5e | 5-78 f8b8b98
+3: 2-2 f4a4a5e | 5-11 f6366f1 | 13-19 f6366f1"
+`;
+
+exports[`screen: 'domains check taken' > pt-BR 120 plain 1`] = `
+"
+  ◇  shop.example.org não pode ser usado.
+  │  Ele já está em um servidor da BladeCP. Se o servidor é seu, você o vê com:
+  └  bladecp servers"
+`;
+
+exports[`screen: 'domains list main only' > en 40 color 1`] = `
+"
+  DOMAIN                        TYPE
+ ━━━━━━━━━━━━━━━━━━━━───────────────────
+  example.com                   main
+  0197a1c4.preview.example.n…   preview
+
+  No additional domains
+  The preview address shows the site
+  even before its domains point to
+  BladeCP.
+
+  Add a domain with:
+  › bladecp domains add 0197a1c4 <host>
+
+--- styles ---
+1: 2-28 f8b8b98 | 32-35 f8b8b98
+2: 1-1 fc6b4fc | 2-2 fd3c6fc | 3-3 fe0d7fd | 4-4 fece8fe | 5-5 fe1d8fd | 6-6 fd4c7fd | 7-7 fc7b6fc | 8-8 fbaa5fb | 9-9 fae94fa | 10-10 fa188f9 | 11-11 f9581f8 | 12-12 f897bf6 | 13-13 f7d74f4 | 14-14 f716ef3 | 15-15 f6668f1 | 16-16 f6062ef | 17-17 f5d5ced | 18-18 f5a57eb | 19-19 f5652e9 | 20-20 f534de7 | 21-21 f5047e6 | 22-22 f4c43da | 23-23 f4740ca | 24-24 f423cbb | 25-25 f3e38ab | 26-26 f39359c | 27-27 f35318e | 28-28 f312e80 | 29-29 f2e2b73 | 30-30 f2b2967 | 31-31 f28265b | 32-32 f252450 | 33-33 f232245 | 34-34 f20203b | 35-35 f1e1e32 | 36-36 f1c1c2a | 37-39 f1c1c28
+3: 32-35 fa78bfa
+4: 2-28 f8b8b98 | 32-38 f8b8b98
+6: 2-22 f8b8b98
+7: 2-35 f8b8b98
+8: 2-33 f8b8b98
+9: 2-9 f8b8b98
+11: 2-19 f8b8b98
+12: 2-2 fa78bfa | 4-10 f6366f1 | 12-18 f6366f1 | 20-22 f6366f1 | 24-31 f6366f1 | 33-38 f6366f1"
+`;
+
+exports[`screen: 'domains list main only' > en 40 plain 1`] = `
+"
+  DOMAIN                        TYPE
+ ───────────────────────────────────────
+  example.com                   main
+  0197a1c4.preview.example.n…   preview
+
+  No additional domains
+  The preview address shows the site
+  even before its domains point to
+  BladeCP.
+
+  Add a domain with:
+  › bladecp domains add 0197a1c4 <host>"
+`;
+
+exports[`screen: 'domains list main only' > en 80 color 1`] = `
+"
+  DOMAIN                         TYPE
+ ━━━━━━━━━━━━━━━━━━━━━────────────────────
+  example.com                    main
+  0197a1c4.preview.example.net   preview
+
+  No additional domains
+  The preview address shows the site even before its domains point to
+  BladeCP.
+
+  Add a domain with:
+  › bladecp domains add 0197a1c4 <host>
+
+--- styles ---
+1: 2-29 f8b8b98 | 33-36 f8b8b98
+2: 1-1 fc6b4fc | 2-2 fd2c5fc | 3-3 fded5fd | 4-4 febe6fe | 5-5 fe3dcfd | 6-6 fd7cbfd | 7-7 fcbbbfc | 8-8 fbfabfb | 9-9 fb39bfb | 10-10 fa78bfa | 11-11 f9b85f8 | 12-12 f907ef7 | 13-13 f8478f5 | 14-14 f7972f4 | 15-15 f6e6cf2 | 16-16 f6366f1 | 17-17 f6061ef | 18-18 f5d5ced | 19-19 f5957eb | 20-20 f5652e9 | 21-21 f534de7 | 22-22 f5048e6 | 23-23 f4c44db | 24-24 f4840cc | 25-25 f433dbe | 26-26 f3f39af | 27-27 f3b36a1 | 28-28 f363293 | 29-29 f322f85 | 30-30 f2f2c79 | 31-31 f2c2a6d | 32-32 f2a2862 | 33-33 f272557 | 34-34 f25234c | 35-35 f222142 | 36-36 f201f39 | 37-37 f1e1e30 | 38-38 f1c1c29 | 39-41 f1c1c28
+3: 33-36 fa78bfa
+4: 2-29 f8b8b98 | 33-39 f8b8b98
+6: 2-22 f8b8b98
+7: 2-68 f8b8b98
+8: 2-9 f8b8b98
+10: 2-19 f8b8b98
+11: 2-2 fa78bfa | 4-10 f6366f1 | 12-18 f6366f1 | 20-22 f6366f1 | 24-31 f6366f1 | 33-38 f6366f1"
+`;
+
+exports[`screen: 'domains list main only' > en 80 plain 1`] = `
+"
+  DOMAIN                         TYPE
+ ─────────────────────────────────────────
+  example.com                    main
+  0197a1c4.preview.example.net   preview
+
+  No additional domains
+  The preview address shows the site even before its domains point to
+  BladeCP.
+
+  Add a domain with:
+  › bladecp domains add 0197a1c4 <host>"
+`;
+
+exports[`screen: 'domains list main only' > en 120 color 1`] = `
+"
+  DOMAIN                         TYPE
+ ━━━━━━━━━━━━━━━━━━━━━────────────────────
+  example.com                    main
+  0197a1c4.preview.example.net   preview
+
+  No additional domains
+  The preview address shows the site even before its domains point to
+  BladeCP.
+
+  Add a domain with:
+  › bladecp domains add 0197a1c4 <host>
+
+--- styles ---
+1: 2-29 f8b8b98 | 33-36 f8b8b98
+2: 1-1 fc6b4fc | 2-2 fd2c5fc | 3-3 fded5fd | 4-4 febe6fe | 5-5 fe3dcfd | 6-6 fd7cbfd | 7-7 fcbbbfc | 8-8 fbfabfb | 9-9 fb39bfb | 10-10 fa78bfa | 11-11 f9b85f8 | 12-12 f907ef7 | 13-13 f8478f5 | 14-14 f7972f4 | 15-15 f6e6cf2 | 16-16 f6366f1 | 17-17 f6061ef | 18-18 f5d5ced | 19-19 f5957eb | 20-20 f5652e9 | 21-21 f534de7 | 22-22 f5048e6 | 23-23 f4c44db | 24-24 f4840cc | 25-25 f433dbe | 26-26 f3f39af | 27-27 f3b36a1 | 28-28 f363293 | 29-29 f322f85 | 30-30 f2f2c79 | 31-31 f2c2a6d | 32-32 f2a2862 | 33-33 f272557 | 34-34 f25234c | 35-35 f222142 | 36-36 f201f39 | 37-37 f1e1e30 | 38-38 f1c1c29 | 39-41 f1c1c28
+3: 33-36 fa78bfa
+4: 2-29 f8b8b98 | 33-39 f8b8b98
+6: 2-22 f8b8b98
+7: 2-68 f8b8b98
+8: 2-9 f8b8b98
+10: 2-19 f8b8b98
+11: 2-2 fa78bfa | 4-10 f6366f1 | 12-18 f6366f1 | 20-22 f6366f1 | 24-31 f6366f1 | 33-38 f6366f1"
+`;
+
+exports[`screen: 'domains list main only' > en 120 plain 1`] = `
+"
+  DOMAIN                         TYPE
+ ─────────────────────────────────────────
+  example.com                    main
+  0197a1c4.preview.example.net   preview
+
+  No additional domains
+  The preview address shows the site even before its domains point to
+  BladeCP.
+
+  Add a domain with:
+  › bladecp domains add 0197a1c4 <host>"
+`;
+
+exports[`screen: 'domains list main only' > es 40 color 1`] = `
+"
+  DOMINIO                  TIPO
+ ━━━━━━━━━━━━━━━━━━━━───────────────────
+  example.com              principal
+  0197a1c4.preview.exam…   vista previa
+
+  Ningún dominio adicional
+  La dirección de vista previa
+  muestra el sitio incluso antes de
+  que sus dominios apunten a
+  BladeCP.
+
+  Agrega un dominio con:
+  › bladecp domains add 0197a1c4 <host>
+
+--- styles ---
+1: 2-23 f8b8b98 | 27-30 f8b8b98
+2: 1-1 fc6b4fc | 2-2 fd3c6fc | 3-3 fe0d7fd | 4-4 fece8fe | 5-5 fe1d8fd | 6-6 fd4c7fd | 7-7 fc7b6fc | 8-8 fbaa5fb | 9-9 fae94fa | 10-10 fa188f9 | 11-11 f9581f8 | 12-12 f897bf6 | 13-13 f7d74f4 | 14-14 f716ef3 | 15-15 f6668f1 | 16-16 f6062ef | 17-17 f5d5ced | 18-18 f5a57eb | 19-19 f5652e9 | 20-20 f534de7 | 21-21 f5047e6 | 22-22 f4c43da | 23-23 f4740ca | 24-24 f423cbb | 25-25 f3e38ab | 26-26 f39359c | 27-27 f35318e | 28-28 f312e80 | 29-29 f2e2b73 | 30-30 f2b2967 | 31-31 f28265b | 32-32 f252450 | 33-33 f232245 | 34-34 f20203b | 35-35 f1e1e32 | 36-36 f1c1c2a | 37-39 f1c1c28
+3: 27-35 fa78bfa
+4: 2-23 f8b8b98 | 27-38 f8b8b98
+6: 2-25 f8b8b98
+7: 2-29 f8b8b98
+8: 2-34 f8b8b98
+9: 2-27 f8b8b98
+10: 2-9 f8b8b98
+12: 2-23 f8b8b98
+13: 2-2 fa78bfa | 4-10 f6366f1 | 12-18 f6366f1 | 20-22 f6366f1 | 24-31 f6366f1 | 33-38 f6366f1"
+`;
+
+exports[`screen: 'domains list main only' > es 40 plain 1`] = `
+"
+  DOMINIO                  TIPO
+ ───────────────────────────────────────
+  example.com              principal
+  0197a1c4.preview.exam…   vista previa
+
+  Ningún dominio adicional
+  La dirección de vista previa
+  muestra el sitio incluso antes de
+  que sus dominios apunten a
+  BladeCP.
+
+  Agrega un dominio con:
+  › bladecp domains add 0197a1c4 <host>"
+`;
+
+exports[`screen: 'domains list main only' > es 80 color 1`] = `
+"
+  DOMINIO                        TIPO
+ ━━━━━━━━━━━━━━━━━━━━━━━━──────────────────────
+  example.com                    principal
+  0197a1c4.preview.example.net   vista previa
+
+  Ningún dominio adicional
+  La dirección de vista previa muestra el sitio incluso antes de que sus
+  dominios apunten a BladeCP.
+
+  Agrega un dominio con:
+  › bladecp domains add 0197a1c4 <host>
+
+--- styles ---
+1: 2-29 f8b8b98 | 33-36 f8b8b98
+2: 1-1 fc6b4fc | 2-2 fd1c3fc | 3-3 fdcd2fd | 4-4 fe6e0fe | 5-5 fe9e3fe | 6-6 fded4fd | 7-7 fd3c6fd | 8-8 fc8b7fc | 9-9 fbda9fb | 10-10 fb39bfb | 11-11 fa88cfa | 12-12 f9e86f9 | 13-13 f9380f7 | 14-14 f897bf6 | 15-15 f7f75f5 | 16-16 f7570f3 | 17-17 f6b6bf2 | 18-18 f6365f1 | 19-19 f6061ef | 20-20 f5d5ced | 21-21 f5a58ec | 22-22 f5753ea | 23-23 f554fe8 | 24-24 f524ae7 | 25-25 f4f46e5 | 26-26 f4b43d8 | 27-27 f4740cb | 28-28 f433dbe | 29-29 f3f39b1 | 30-30 f3c36a4 | 31-31 f383398 | 32-32 f34308b | 33-33 f312e7f | 34-34 f2e2c75 | 35-35 f2c296b | 36-36 f292760 | 37-37 f272557 | 38-38 f25244d | 39-39 f232244 | 40-40 f21203c | 41-41 f1f1e34 | 42-42 f1d1d2d | 43-46 f1c1c28
+3: 33-41 fa78bfa
+4: 2-29 f8b8b98 | 33-44 f8b8b98
+6: 2-25 f8b8b98
+7: 2-71 f8b8b98
+8: 2-28 f8b8b98
+10: 2-23 f8b8b98
+11: 2-2 fa78bfa | 4-10 f6366f1 | 12-18 f6366f1 | 20-22 f6366f1 | 24-31 f6366f1 | 33-38 f6366f1"
+`;
+
+exports[`screen: 'domains list main only' > es 80 plain 1`] = `
+"
+  DOMINIO                        TIPO
+ ──────────────────────────────────────────────
+  example.com                    principal
+  0197a1c4.preview.example.net   vista previa
+
+  Ningún dominio adicional
+  La dirección de vista previa muestra el sitio incluso antes de que sus
+  dominios apunten a BladeCP.
+
+  Agrega un dominio con:
+  › bladecp domains add 0197a1c4 <host>"
+`;
+
+exports[`screen: 'domains list main only' > es 120 color 1`] = `
+"
+  DOMINIO                        TIPO
+ ━━━━━━━━━━━━━━━━━━━━━━━━──────────────────────
+  example.com                    principal
+  0197a1c4.preview.example.net   vista previa
+
+  Ningún dominio adicional
+  La dirección de vista previa muestra el sitio incluso antes de que sus
+  dominios apunten a BladeCP.
+
+  Agrega un dominio con:
+  › bladecp domains add 0197a1c4 <host>
+
+--- styles ---
+1: 2-29 f8b8b98 | 33-36 f8b8b98
+2: 1-1 fc6b4fc | 2-2 fd1c3fc | 3-3 fdcd2fd | 4-4 fe6e0fe | 5-5 fe9e3fe | 6-6 fded4fd | 7-7 fd3c6fd | 8-8 fc8b7fc | 9-9 fbda9fb | 10-10 fb39bfb | 11-11 fa88cfa | 12-12 f9e86f9 | 13-13 f9380f7 | 14-14 f897bf6 | 15-15 f7f75f5 | 16-16 f7570f3 | 17-17 f6b6bf2 | 18-18 f6365f1 | 19-19 f6061ef | 20-20 f5d5ced | 21-21 f5a58ec | 22-22 f5753ea | 23-23 f554fe8 | 24-24 f524ae7 | 25-25 f4f46e5 | 26-26 f4b43d8 | 27-27 f4740cb | 28-28 f433dbe | 29-29 f3f39b1 | 30-30 f3c36a4 | 31-31 f383398 | 32-32 f34308b | 33-33 f312e7f | 34-34 f2e2c75 | 35-35 f2c296b | 36-36 f292760 | 37-37 f272557 | 38-38 f25244d | 39-39 f232244 | 40-40 f21203c | 41-41 f1f1e34 | 42-42 f1d1d2d | 43-46 f1c1c28
+3: 33-41 fa78bfa
+4: 2-29 f8b8b98 | 33-44 f8b8b98
+6: 2-25 f8b8b98
+7: 2-71 f8b8b98
+8: 2-28 f8b8b98
+10: 2-23 f8b8b98
+11: 2-2 fa78bfa | 4-10 f6366f1 | 12-18 f6366f1 | 20-22 f6366f1 | 24-31 f6366f1 | 33-38 f6366f1"
+`;
+
+exports[`screen: 'domains list main only' > es 120 plain 1`] = `
+"
+  DOMINIO                        TIPO
+ ──────────────────────────────────────────────
+  example.com                    principal
+  0197a1c4.preview.example.net   vista previa
+
+  Ningún dominio adicional
+  La dirección de vista previa muestra el sitio incluso antes de que sus
+  dominios apunten a BladeCP.
+
+  Agrega un dominio con:
+  › bladecp domains add 0197a1c4 <host>"
+`;
+
+exports[`screen: 'domains list main only' > pt-BR 40 color 1`] = `
+"
+  DOMÍNIO                     TIPO
+ ━━━━━━━━━━━━━━━━━━━━───────────────────
+  example.com                 principal
+  0197a1c4.preview.example…   prévia
+
+  Nenhum domínio adicional
+  O endereço de prévia mostra o site
+  mesmo antes de os domínios
+  apontarem para a BladeCP.
+
+  Adicione um domínio com:
+  › bladecp domains add 0197a1c4 <host>
+
+--- styles ---
+1: 2-26 f8b8b98 | 30-33 f8b8b98
+2: 1-1 fc6b4fc | 2-2 fd3c6fc | 3-3 fe0d7fd | 4-4 fece8fe | 5-5 fe1d8fd | 6-6 fd4c7fd | 7-7 fc7b6fc | 8-8 fbaa5fb | 9-9 fae94fa | 10-10 fa188f9 | 11-11 f9581f8 | 12-12 f897bf6 | 13-13 f7d74f4 | 14-14 f716ef3 | 15-15 f6668f1 | 16-16 f6062ef | 17-17 f5d5ced | 18-18 f5a57eb | 19-19 f5652e9 | 20-20 f534de7 | 21-21 f5047e6 | 22-22 f4c43da | 23-23 f4740ca | 24-24 f423cbb | 25-25 f3e38ab | 26-26 f39359c | 27-27 f35318e | 28-28 f312e80 | 29-29 f2e2b73 | 30-30 f2b2967 | 31-31 f28265b | 32-32 f252450 | 33-33 f232245 | 34-34 f20203b | 35-35 f1e1e32 | 36-36 f1c1c2a | 37-39 f1c1c28
+3: 30-38 fa78bfa
+4: 2-26 f8b8b98 | 30-35 f8b8b98
+6: 2-25 f8b8b98
+7: 2-35 f8b8b98
+8: 2-27 f8b8b98
+9: 2-26 f8b8b98
+11: 2-25 f8b8b98
+12: 2-2 fa78bfa | 4-10 f6366f1 | 12-18 f6366f1 | 20-22 f6366f1 | 24-31 f6366f1 | 33-38 f6366f1"
+`;
+
+exports[`screen: 'domains list main only' > pt-BR 40 plain 1`] = `
+"
+  DOMÍNIO                     TIPO
+ ───────────────────────────────────────
+  example.com                 principal
+  0197a1c4.preview.example…   prévia
+
+  Nenhum domínio adicional
+  O endereço de prévia mostra o site
+  mesmo antes de os domínios
+  apontarem para a BladeCP.
+
+  Adicione um domínio com:
+  › bladecp domains add 0197a1c4 <host>"
+`;
+
+exports[`screen: 'domains list main only' > pt-BR 80 color 1`] = `
+"
+  DOMÍNIO                        TIPO
+ ━━━━━━━━━━━━━━━━━━━━━━─────────────────────
+  example.com                    principal
+  0197a1c4.preview.example.net   prévia
+
+  Nenhum domínio adicional
+  O endereço de prévia mostra o site mesmo antes de os domínios apontarem
+  para a BladeCP.
+
+  Adicione um domínio com:
+  › bladecp domains add 0197a1c4 <host>
+
+--- styles ---
+1: 2-29 f8b8b98 | 33-36 f8b8b98
+2: 1-1 fc6b4fc | 2-2 fd1c4fc | 3-3 fddd4fd | 4-4 fe9e3fe | 5-5 fe5dffe | 6-6 fdacffd | 7-7 fcec0fc | 8-8 fc3b0fc | 9-9 fb7a1fb | 10-10 fac91fa | 11-11 fa188f9 | 12-12 f9682f8 | 13-13 f8b7cf6 | 14-14 f8076f5 | 15-15 f7570f3 | 16-16 f6b6af2 | 17-17 f6265f1 | 18-18 f5f60ef | 19-19 f5c5bed | 20-20 f5956eb | 21-21 f5651e9 | 22-22 f534de7 | 23-23 f5048e6 | 24-24 f4d44dd | 25-25 f4841ce | 26-26 f443dc0 | 27-27 f403ab3 | 28-28 f3c37a5 | 29-29 f383398 | 30-30 f34308a | 31-31 f302d7e | 32-32 f2e2b73 | 33-33 f2b2968 | 34-34 f29275d | 35-35 f262553 | 36-36 f242349 | 37-37 f22213f | 38-38 f1f1f37 | 39-39 f1e1d2f | 40-43 f1c1c28
+3: 33-41 fa78bfa
+4: 2-29 f8b8b98 | 33-38 f8b8b98
+6: 2-25 f8b8b98
+7: 2-72 f8b8b98
+8: 2-16 f8b8b98
+10: 2-25 f8b8b98
+11: 2-2 fa78bfa | 4-10 f6366f1 | 12-18 f6366f1 | 20-22 f6366f1 | 24-31 f6366f1 | 33-38 f6366f1"
+`;
+
+exports[`screen: 'domains list main only' > pt-BR 80 plain 1`] = `
+"
+  DOMÍNIO                        TIPO
+ ───────────────────────────────────────────
+  example.com                    principal
+  0197a1c4.preview.example.net   prévia
+
+  Nenhum domínio adicional
+  O endereço de prévia mostra o site mesmo antes de os domínios apontarem
+  para a BladeCP.
+
+  Adicione um domínio com:
+  › bladecp domains add 0197a1c4 <host>"
+`;
+
+exports[`screen: 'domains list main only' > pt-BR 120 color 1`] = `
+"
+  DOMÍNIO                        TIPO
+ ━━━━━━━━━━━━━━━━━━━━━━─────────────────────
+  example.com                    principal
+  0197a1c4.preview.example.net   prévia
+
+  Nenhum domínio adicional
+  O endereço de prévia mostra o site mesmo antes de os domínios apontarem
+  para a BladeCP.
+
+  Adicione um domínio com:
+  › bladecp domains add 0197a1c4 <host>
+
+--- styles ---
+1: 2-29 f8b8b98 | 33-36 f8b8b98
+2: 1-1 fc6b4fc | 2-2 fd1c4fc | 3-3 fddd4fd | 4-4 fe9e3fe | 5-5 fe5dffe | 6-6 fdacffd | 7-7 fcec0fc | 8-8 fc3b0fc | 9-9 fb7a1fb | 10-10 fac91fa | 11-11 fa188f9 | 12-12 f9682f8 | 13-13 f8b7cf6 | 14-14 f8076f5 | 15-15 f7570f3 | 16-16 f6b6af2 | 17-17 f6265f1 | 18-18 f5f60ef | 19-19 f5c5bed | 20-20 f5956eb | 21-21 f5651e9 | 22-22 f534de7 | 23-23 f5048e6 | 24-24 f4d44dd | 25-25 f4841ce | 26-26 f443dc0 | 27-27 f403ab3 | 28-28 f3c37a5 | 29-29 f383398 | 30-30 f34308a | 31-31 f302d7e | 32-32 f2e2b73 | 33-33 f2b2968 | 34-34 f29275d | 35-35 f262553 | 36-36 f242349 | 37-37 f22213f | 38-38 f1f1f37 | 39-39 f1e1d2f | 40-43 f1c1c28
+3: 33-41 fa78bfa
+4: 2-29 f8b8b98 | 33-38 f8b8b98
+6: 2-25 f8b8b98
+7: 2-72 f8b8b98
+8: 2-16 f8b8b98
+10: 2-25 f8b8b98
+11: 2-2 fa78bfa | 4-10 f6366f1 | 12-18 f6366f1 | 20-22 f6366f1 | 24-31 f6366f1 | 33-38 f6366f1"
+`;
+
+exports[`screen: 'domains list main only' > pt-BR 120 plain 1`] = `
+"
+  DOMÍNIO                        TIPO
+ ───────────────────────────────────────────
+  example.com                    principal
+  0197a1c4.preview.example.net   prévia
+
+  Nenhum domínio adicional
+  O endereço de prévia mostra o site mesmo antes de os domínios apontarem
+  para a BladeCP.
+
+  Adicione um domínio com:
+  › bladecp domains add 0197a1c4 <host>"
+`;
+
+exports[`screen: 'domains list' > en 40 color 1`] = `
+"
+  DOMAIN                     TYPE
+ ━━━━━━━━━━━━━━━━━━━━───────────────────
+  example.com                main
+  blog.example.com           additional
+  loja.example.com.br        additional
+  0197a1c4.preview.exampl…   preview
+
+  2 additional domains
+  The preview address shows the site
+  even before its domains point to
+  BladeCP.
+
+  Add a domain with:
+  › bladecp domains add 0197a1c4 <host>
+
+--- styles ---
+1: 2-25 f8b8b98 | 29-32 f8b8b98
+2: 1-1 fc6b4fc | 2-2 fd3c6fc | 3-3 fe0d7fd | 4-4 fece8fe | 5-5 fe1d8fd | 6-6 fd4c7fd | 7-7 fc7b6fc | 8-8 fbaa5fb | 9-9 fae94fa | 10-10 fa188f9 | 11-11 f9581f8 | 12-12 f897bf6 | 13-13 f7d74f4 | 14-14 f716ef3 | 15-15 f6668f1 | 16-16 f6062ef | 17-17 f5d5ced | 18-18 f5a57eb | 19-19 f5652e9 | 20-20 f534de7 | 21-21 f5047e6 | 22-22 f4c43da | 23-23 f4740ca | 24-24 f423cbb | 25-25 f3e38ab | 26-26 f39359c | 27-27 f35318e | 28-28 f312e80 | 29-29 f2e2b73 | 30-30 f2b2967 | 31-31 f28265b | 32-32 f252450 | 33-33 f232245 | 34-34 f20203b | 35-35 f1e1e32 | 36-36 f1c1c2a | 37-39 f1c1c28
+3: 29-32 fa78bfa
+4: 29-38 f8b8b98
+5: 29-38 f8b8b98
+6: 2-25 f8b8b98 | 29-35 f8b8b98
+8: 2-21 f8b8b98
+9: 2-35 f8b8b98
+10: 2-33 f8b8b98
+11: 2-9 f8b8b98
+13: 2-19 f8b8b98
+14: 2-2 fa78bfa | 4-10 f6366f1 | 12-18 f6366f1 | 20-22 f6366f1 | 24-31 f6366f1 | 33-38 f6366f1"
+`;
+
+exports[`screen: 'domains list' > en 40 plain 1`] = `
+"
+  DOMAIN                     TYPE
+ ───────────────────────────────────────
+  example.com                main
+  blog.example.com           additional
+  loja.example.com.br        additional
+  0197a1c4.preview.exampl…   preview
+
+  2 additional domains
+  The preview address shows the site
+  even before its domains point to
+  BladeCP.
+
+  Add a domain with:
+  › bladecp domains add 0197a1c4 <host>"
+`;
+
+exports[`screen: 'domains list' > en 80 color 1`] = `
+"
+  DOMAIN                         TYPE
+ ━━━━━━━━━━━━━━━━━━━━━━━─────────────────────
+  example.com                    main
+  blog.example.com               additional
+  loja.example.com.br            additional
+  0197a1c4.preview.example.net   preview
+
+  2 additional domains
+  The preview address shows the site even before its domains point to
+  BladeCP.
+
+  Add a domain with:
+  › bladecp domains add 0197a1c4 <host>
+
+--- styles ---
+1: 2-29 f8b8b98 | 33-36 f8b8b98
+2: 1-1 fc6b4fc | 2-2 fd1c4fc | 3-3 fddd3fd | 4-4 fe8e2fe | 5-5 fe7e0fe | 6-6 fdbd1fd | 7-7 fd0c2fc | 8-8 fc5b3fc | 9-9 fb9a4fb | 10-10 fae95fa | 11-11 fa389f9 | 12-12 f9883f8 | 13-13 f8e7df7 | 14-14 f8378f5 | 15-15 f7972f4 | 16-16 f6e6cf3 | 17-17 f6467f1 | 18-18 f6062ef | 19-19 f5d5dee | 20-20 f5a58ec | 21-21 f5754ea | 22-22 f554fe8 | 23-23 f524ae7 | 24-24 f4f46e4 | 25-25 f4b42d6 | 26-26 f463fc9 | 27-27 f423cbb | 28-28 f3e39ad | 29-29 f3a35a0 | 30-30 f363293 | 31-31 f332f86 | 32-32 f302d7b | 33-33 f2d2b70 | 34-34 f2a2865 | 35-35 f28265b | 36-36 f262451 | 37-37 f232247 | 38-38 f21203e | 39-39 f1f1f36 | 40-40 f1d1d2e | 41-44 f1c1c28
+3: 33-36 fa78bfa
+4: 33-42 f8b8b98
+5: 33-42 f8b8b98
+6: 2-29 f8b8b98 | 33-39 f8b8b98
+8: 2-21 f8b8b98
+9: 2-68 f8b8b98
+10: 2-9 f8b8b98
+12: 2-19 f8b8b98
+13: 2-2 fa78bfa | 4-10 f6366f1 | 12-18 f6366f1 | 20-22 f6366f1 | 24-31 f6366f1 | 33-38 f6366f1"
+`;
+
+exports[`screen: 'domains list' > en 80 plain 1`] = `
+"
+  DOMAIN                         TYPE
+ ────────────────────────────────────────────
+  example.com                    main
+  blog.example.com               additional
+  loja.example.com.br            additional
+  0197a1c4.preview.example.net   preview
+
+  2 additional domains
+  The preview address shows the site even before its domains point to
+  BladeCP.
+
+  Add a domain with:
+  › bladecp domains add 0197a1c4 <host>"
+`;
+
+exports[`screen: 'domains list' > en 120 color 1`] = `
+"
+  DOMAIN                         TYPE
+ ━━━━━━━━━━━━━━━━━━━━━━━─────────────────────
+  example.com                    main
+  blog.example.com               additional
+  loja.example.com.br            additional
+  0197a1c4.preview.example.net   preview
+
+  2 additional domains
+  The preview address shows the site even before its domains point to
+  BladeCP.
+
+  Add a domain with:
+  › bladecp domains add 0197a1c4 <host>
+
+--- styles ---
+1: 2-29 f8b8b98 | 33-36 f8b8b98
+2: 1-1 fc6b4fc | 2-2 fd1c4fc | 3-3 fddd3fd | 4-4 fe8e2fe | 5-5 fe7e0fe | 6-6 fdbd1fd | 7-7 fd0c2fc | 8-8 fc5b3fc | 9-9 fb9a4fb | 10-10 fae95fa | 11-11 fa389f9 | 12-12 f9883f8 | 13-13 f8e7df7 | 14-14 f8378f5 | 15-15 f7972f4 | 16-16 f6e6cf3 | 17-17 f6467f1 | 18-18 f6062ef | 19-19 f5d5dee | 20-20 f5a58ec | 21-21 f5754ea | 22-22 f554fe8 | 23-23 f524ae7 | 24-24 f4f46e4 | 25-25 f4b42d6 | 26-26 f463fc9 | 27-27 f423cbb | 28-28 f3e39ad | 29-29 f3a35a0 | 30-30 f363293 | 31-31 f332f86 | 32-32 f302d7b | 33-33 f2d2b70 | 34-34 f2a2865 | 35-35 f28265b | 36-36 f262451 | 37-37 f232247 | 38-38 f21203e | 39-39 f1f1f36 | 40-40 f1d1d2e | 41-44 f1c1c28
+3: 33-36 fa78bfa
+4: 33-42 f8b8b98
+5: 33-42 f8b8b98
+6: 2-29 f8b8b98 | 33-39 f8b8b98
+8: 2-21 f8b8b98
+9: 2-68 f8b8b98
+10: 2-9 f8b8b98
+12: 2-19 f8b8b98
+13: 2-2 fa78bfa | 4-10 f6366f1 | 12-18 f6366f1 | 20-22 f6366f1 | 24-31 f6366f1 | 33-38 f6366f1"
+`;
+
+exports[`screen: 'domains list' > en 120 plain 1`] = `
+"
+  DOMAIN                         TYPE
+ ────────────────────────────────────────────
+  example.com                    main
+  blog.example.com               additional
+  loja.example.com.br            additional
+  0197a1c4.preview.example.net   preview
+
+  2 additional domains
+  The preview address shows the site even before its domains point to
+  BladeCP.
+
+  Add a domain with:
+  › bladecp domains add 0197a1c4 <host>"
+`;
+
+exports[`screen: 'domains list' > es 40 color 1`] = `
+"
+  DOMINIO                  TIPO
+ ━━━━━━━━━━━━━━━━━━━━───────────────────
+  example.com              principal
+  blog.example.com         adicional
+  loja.example.com.br      adicional
+  0197a1c4.preview.exam…   vista previa
+
+  2 dominios adicionales
+  La dirección de vista previa
+  muestra el sitio incluso antes de
+  que sus dominios apunten a
+  BladeCP.
+
+  Agrega un dominio con:
+  › bladecp domains add 0197a1c4 <host>
+
+--- styles ---
+1: 2-23 f8b8b98 | 27-30 f8b8b98
+2: 1-1 fc6b4fc | 2-2 fd3c6fc | 3-3 fe0d7fd | 4-4 fece8fe | 5-5 fe1d8fd | 6-6 fd4c7fd | 7-7 fc7b6fc | 8-8 fbaa5fb | 9-9 fae94fa | 10-10 fa188f9 | 11-11 f9581f8 | 12-12 f897bf6 | 13-13 f7d74f4 | 14-14 f716ef3 | 15-15 f6668f1 | 16-16 f6062ef | 17-17 f5d5ced | 18-18 f5a57eb | 19-19 f5652e9 | 20-20 f534de7 | 21-21 f5047e6 | 22-22 f4c43da | 23-23 f4740ca | 24-24 f423cbb | 25-25 f3e38ab | 26-26 f39359c | 27-27 f35318e | 28-28 f312e80 | 29-29 f2e2b73 | 30-30 f2b2967 | 31-31 f28265b | 32-32 f252450 | 33-33 f232245 | 34-34 f20203b | 35-35 f1e1e32 | 36-36 f1c1c2a | 37-39 f1c1c28
+3: 27-35 fa78bfa
+4: 27-35 f8b8b98
+5: 27-35 f8b8b98
+6: 2-23 f8b8b98 | 27-38 f8b8b98
+8: 2-23 f8b8b98
+9: 2-29 f8b8b98
+10: 2-34 f8b8b98
+11: 2-27 f8b8b98
+12: 2-9 f8b8b98
+14: 2-23 f8b8b98
+15: 2-2 fa78bfa | 4-10 f6366f1 | 12-18 f6366f1 | 20-22 f6366f1 | 24-31 f6366f1 | 33-38 f6366f1"
+`;
+
+exports[`screen: 'domains list' > es 40 plain 1`] = `
+"
+  DOMINIO                  TIPO
+ ───────────────────────────────────────
+  example.com              principal
+  blog.example.com         adicional
+  loja.example.com.br      adicional
+  0197a1c4.preview.exam…   vista previa
+
+  2 dominios adicionales
+  La dirección de vista previa
+  muestra el sitio incluso antes de
+  que sus dominios apunten a
+  BladeCP.
+
+  Agrega un dominio con:
+  › bladecp domains add 0197a1c4 <host>"
+`;
+
+exports[`screen: 'domains list' > es 80 color 1`] = `
+"
+  DOMINIO                        TIPO
+ ━━━━━━━━━━━━━━━━━━━━━━━━──────────────────────
+  example.com                    principal
+  blog.example.com               adicional
+  loja.example.com.br            adicional
+  0197a1c4.preview.example.net   vista previa
+
+  2 dominios adicionales
+  La dirección de vista previa muestra el sitio incluso antes de que sus
+  dominios apunten a BladeCP.
+
+  Agrega un dominio con:
+  › bladecp domains add 0197a1c4 <host>
+
+--- styles ---
+1: 2-29 f8b8b98 | 33-36 f8b8b98
+2: 1-1 fc6b4fc | 2-2 fd1c3fc | 3-3 fdcd2fd | 4-4 fe6e0fe | 5-5 fe9e3fe | 6-6 fded4fd | 7-7 fd3c6fd | 8-8 fc8b7fc | 9-9 fbda9fb | 10-10 fb39bfb | 11-11 fa88cfa | 12-12 f9e86f9 | 13-13 f9380f7 | 14-14 f897bf6 | 15-15 f7f75f5 | 16-16 f7570f3 | 17-17 f6b6bf2 | 18-18 f6365f1 | 19-19 f6061ef | 20-20 f5d5ced | 21-21 f5a58ec | 22-22 f5753ea | 23-23 f554fe8 | 24-24 f524ae7 | 25-25 f4f46e5 | 26-26 f4b43d8 | 27-27 f4740cb | 28-28 f433dbe | 29-29 f3f39b1 | 30-30 f3c36a4 | 31-31 f383398 | 32-32 f34308b | 33-33 f312e7f | 34-34 f2e2c75 | 35-35 f2c296b | 36-36 f292760 | 37-37 f272557 | 38-38 f25244d | 39-39 f232244 | 40-40 f21203c | 41-41 f1f1e34 | 42-42 f1d1d2d | 43-46 f1c1c28
+3: 33-41 fa78bfa
+4: 33-41 f8b8b98
+5: 33-41 f8b8b98
+6: 2-29 f8b8b98 | 33-44 f8b8b98
+8: 2-23 f8b8b98
+9: 2-71 f8b8b98
+10: 2-28 f8b8b98
+12: 2-23 f8b8b98
+13: 2-2 fa78bfa | 4-10 f6366f1 | 12-18 f6366f1 | 20-22 f6366f1 | 24-31 f6366f1 | 33-38 f6366f1"
+`;
+
+exports[`screen: 'domains list' > es 80 plain 1`] = `
+"
+  DOMINIO                        TIPO
+ ──────────────────────────────────────────────
+  example.com                    principal
+  blog.example.com               adicional
+  loja.example.com.br            adicional
+  0197a1c4.preview.example.net   vista previa
+
+  2 dominios adicionales
+  La dirección de vista previa muestra el sitio incluso antes de que sus
+  dominios apunten a BladeCP.
+
+  Agrega un dominio con:
+  › bladecp domains add 0197a1c4 <host>"
+`;
+
+exports[`screen: 'domains list' > es 120 color 1`] = `
+"
+  DOMINIO                        TIPO
+ ━━━━━━━━━━━━━━━━━━━━━━━━──────────────────────
+  example.com                    principal
+  blog.example.com               adicional
+  loja.example.com.br            adicional
+  0197a1c4.preview.example.net   vista previa
+
+  2 dominios adicionales
+  La dirección de vista previa muestra el sitio incluso antes de que sus
+  dominios apunten a BladeCP.
+
+  Agrega un dominio con:
+  › bladecp domains add 0197a1c4 <host>
+
+--- styles ---
+1: 2-29 f8b8b98 | 33-36 f8b8b98
+2: 1-1 fc6b4fc | 2-2 fd1c3fc | 3-3 fdcd2fd | 4-4 fe6e0fe | 5-5 fe9e3fe | 6-6 fded4fd | 7-7 fd3c6fd | 8-8 fc8b7fc | 9-9 fbda9fb | 10-10 fb39bfb | 11-11 fa88cfa | 12-12 f9e86f9 | 13-13 f9380f7 | 14-14 f897bf6 | 15-15 f7f75f5 | 16-16 f7570f3 | 17-17 f6b6bf2 | 18-18 f6365f1 | 19-19 f6061ef | 20-20 f5d5ced | 21-21 f5a58ec | 22-22 f5753ea | 23-23 f554fe8 | 24-24 f524ae7 | 25-25 f4f46e5 | 26-26 f4b43d8 | 27-27 f4740cb | 28-28 f433dbe | 29-29 f3f39b1 | 30-30 f3c36a4 | 31-31 f383398 | 32-32 f34308b | 33-33 f312e7f | 34-34 f2e2c75 | 35-35 f2c296b | 36-36 f292760 | 37-37 f272557 | 38-38 f25244d | 39-39 f232244 | 40-40 f21203c | 41-41 f1f1e34 | 42-42 f1d1d2d | 43-46 f1c1c28
+3: 33-41 fa78bfa
+4: 33-41 f8b8b98
+5: 33-41 f8b8b98
+6: 2-29 f8b8b98 | 33-44 f8b8b98
+8: 2-23 f8b8b98
+9: 2-71 f8b8b98
+10: 2-28 f8b8b98
+12: 2-23 f8b8b98
+13: 2-2 fa78bfa | 4-10 f6366f1 | 12-18 f6366f1 | 20-22 f6366f1 | 24-31 f6366f1 | 33-38 f6366f1"
+`;
+
+exports[`screen: 'domains list' > es 120 plain 1`] = `
+"
+  DOMINIO                        TIPO
+ ──────────────────────────────────────────────
+  example.com                    principal
+  blog.example.com               adicional
+  loja.example.com.br            adicional
+  0197a1c4.preview.example.net   vista previa
+
+  2 dominios adicionales
+  La dirección de vista previa muestra el sitio incluso antes de que sus
+  dominios apunten a BladeCP.
+
+  Agrega un dominio con:
+  › bladecp domains add 0197a1c4 <host>"
+`;
+
+exports[`screen: 'domains list' > pt-BR 40 color 1`] = `
+"
+  DOMÍNIO                     TIPO
+ ━━━━━━━━━━━━━━━━━━━━───────────────────
+  example.com                 principal
+  blog.example.com            adicional
+  loja.example.com.br         adicional
+  0197a1c4.preview.example…   prévia
+
+  2 domínios adicionais
+  O endereço de prévia mostra o site
+  mesmo antes de os domínios
+  apontarem para a BladeCP.
+
+  Adicione um domínio com:
+  › bladecp domains add 0197a1c4 <host>
+
+--- styles ---
+1: 2-26 f8b8b98 | 30-33 f8b8b98
+2: 1-1 fc6b4fc | 2-2 fd3c6fc | 3-3 fe0d7fd | 4-4 fece8fe | 5-5 fe1d8fd | 6-6 fd4c7fd | 7-7 fc7b6fc | 8-8 fbaa5fb | 9-9 fae94fa | 10-10 fa188f9 | 11-11 f9581f8 | 12-12 f897bf6 | 13-13 f7d74f4 | 14-14 f716ef3 | 15-15 f6668f1 | 16-16 f6062ef | 17-17 f5d5ced | 18-18 f5a57eb | 19-19 f5652e9 | 20-20 f534de7 | 21-21 f5047e6 | 22-22 f4c43da | 23-23 f4740ca | 24-24 f423cbb | 25-25 f3e38ab | 26-26 f39359c | 27-27 f35318e | 28-28 f312e80 | 29-29 f2e2b73 | 30-30 f2b2967 | 31-31 f28265b | 32-32 f252450 | 33-33 f232245 | 34-34 f20203b | 35-35 f1e1e32 | 36-36 f1c1c2a | 37-39 f1c1c28
+3: 30-38 fa78bfa
+4: 30-38 f8b8b98
+5: 30-38 f8b8b98
+6: 2-26 f8b8b98 | 30-35 f8b8b98
+8: 2-22 f8b8b98
+9: 2-35 f8b8b98
+10: 2-27 f8b8b98
+11: 2-26 f8b8b98
+13: 2-25 f8b8b98
+14: 2-2 fa78bfa | 4-10 f6366f1 | 12-18 f6366f1 | 20-22 f6366f1 | 24-31 f6366f1 | 33-38 f6366f1"
+`;
+
+exports[`screen: 'domains list' > pt-BR 40 plain 1`] = `
+"
+  DOMÍNIO                     TIPO
+ ───────────────────────────────────────
+  example.com                 principal
+  blog.example.com            adicional
+  loja.example.com.br         adicional
+  0197a1c4.preview.example…   prévia
+
+  2 domínios adicionais
+  O endereço de prévia mostra o site
+  mesmo antes de os domínios
+  apontarem para a BladeCP.
+
+  Adicione um domínio com:
+  › bladecp domains add 0197a1c4 <host>"
+`;
+
+exports[`screen: 'domains list' > pt-BR 80 color 1`] = `
+"
+  DOMÍNIO                        TIPO
+ ━━━━━━━━━━━━━━━━━━━━━━─────────────────────
+  example.com                    principal
+  blog.example.com               adicional
+  loja.example.com.br            adicional
+  0197a1c4.preview.example.net   prévia
+
+  2 domínios adicionais
+  O endereço de prévia mostra o site mesmo antes de os domínios apontarem
+  para a BladeCP.
+
+  Adicione um domínio com:
+  › bladecp domains add 0197a1c4 <host>
+
+--- styles ---
+1: 2-29 f8b8b98 | 33-36 f8b8b98
+2: 1-1 fc6b4fc | 2-2 fd1c4fc | 3-3 fddd4fd | 4-4 fe9e3fe | 5-5 fe5dffe | 6-6 fdacffd | 7-7 fcec0fc | 8-8 fc3b0fc | 9-9 fb7a1fb | 10-10 fac91fa | 11-11 fa188f9 | 12-12 f9682f8 | 13-13 f8b7cf6 | 14-14 f8076f5 | 15-15 f7570f3 | 16-16 f6b6af2 | 17-17 f6265f1 | 18-18 f5f60ef | 19-19 f5c5bed | 20-20 f5956eb | 21-21 f5651e9 | 22-22 f534de7 | 23-23 f5048e6 | 24-24 f4d44dd | 25-25 f4841ce | 26-26 f443dc0 | 27-27 f403ab3 | 28-28 f3c37a5 | 29-29 f383398 | 30-30 f34308a | 31-31 f302d7e | 32-32 f2e2b73 | 33-33 f2b2968 | 34-34 f29275d | 35-35 f262553 | 36-36 f242349 | 37-37 f22213f | 38-38 f1f1f37 | 39-39 f1e1d2f | 40-43 f1c1c28
+3: 33-41 fa78bfa
+4: 33-41 f8b8b98
+5: 33-41 f8b8b98
+6: 2-29 f8b8b98 | 33-38 f8b8b98
+8: 2-22 f8b8b98
+9: 2-72 f8b8b98
+10: 2-16 f8b8b98
+12: 2-25 f8b8b98
+13: 2-2 fa78bfa | 4-10 f6366f1 | 12-18 f6366f1 | 20-22 f6366f1 | 24-31 f6366f1 | 33-38 f6366f1"
+`;
+
+exports[`screen: 'domains list' > pt-BR 80 plain 1`] = `
+"
+  DOMÍNIO                        TIPO
+ ───────────────────────────────────────────
+  example.com                    principal
+  blog.example.com               adicional
+  loja.example.com.br            adicional
+  0197a1c4.preview.example.net   prévia
+
+  2 domínios adicionais
+  O endereço de prévia mostra o site mesmo antes de os domínios apontarem
+  para a BladeCP.
+
+  Adicione um domínio com:
+  › bladecp domains add 0197a1c4 <host>"
+`;
+
+exports[`screen: 'domains list' > pt-BR 120 color 1`] = `
+"
+  DOMÍNIO                        TIPO
+ ━━━━━━━━━━━━━━━━━━━━━━─────────────────────
+  example.com                    principal
+  blog.example.com               adicional
+  loja.example.com.br            adicional
+  0197a1c4.preview.example.net   prévia
+
+  2 domínios adicionais
+  O endereço de prévia mostra o site mesmo antes de os domínios apontarem
+  para a BladeCP.
+
+  Adicione um domínio com:
+  › bladecp domains add 0197a1c4 <host>
+
+--- styles ---
+1: 2-29 f8b8b98 | 33-36 f8b8b98
+2: 1-1 fc6b4fc | 2-2 fd1c4fc | 3-3 fddd4fd | 4-4 fe9e3fe | 5-5 fe5dffe | 6-6 fdacffd | 7-7 fcec0fc | 8-8 fc3b0fc | 9-9 fb7a1fb | 10-10 fac91fa | 11-11 fa188f9 | 12-12 f9682f8 | 13-13 f8b7cf6 | 14-14 f8076f5 | 15-15 f7570f3 | 16-16 f6b6af2 | 17-17 f6265f1 | 18-18 f5f60ef | 19-19 f5c5bed | 20-20 f5956eb | 21-21 f5651e9 | 22-22 f534de7 | 23-23 f5048e6 | 24-24 f4d44dd | 25-25 f4841ce | 26-26 f443dc0 | 27-27 f403ab3 | 28-28 f3c37a5 | 29-29 f383398 | 30-30 f34308a | 31-31 f302d7e | 32-32 f2e2b73 | 33-33 f2b2968 | 34-34 f29275d | 35-35 f262553 | 36-36 f242349 | 37-37 f22213f | 38-38 f1f1f37 | 39-39 f1e1d2f | 40-43 f1c1c28
+3: 33-41 fa78bfa
+4: 33-41 f8b8b98
+5: 33-41 f8b8b98
+6: 2-29 f8b8b98 | 33-38 f8b8b98
+8: 2-22 f8b8b98
+9: 2-72 f8b8b98
+10: 2-16 f8b8b98
+12: 2-25 f8b8b98
+13: 2-2 fa78bfa | 4-10 f6366f1 | 12-18 f6366f1 | 20-22 f6366f1 | 24-31 f6366f1 | 33-38 f6366f1"
+`;
+
+exports[`screen: 'domains list' > pt-BR 120 plain 1`] = `
+"
+  DOMÍNIO                        TIPO
+ ───────────────────────────────────────────
+  example.com                    principal
+  blog.example.com               adicional
+  loja.example.com.br            adicional
+  0197a1c4.preview.example.net   prévia
+
+  2 domínios adicionais
+  O endereço de prévia mostra o site mesmo antes de os domínios apontarem
+  para a BladeCP.
+
+  Adicione um domínio com:
+  › bladecp domains add 0197a1c4 <host>"
+`;
+
+exports[`screen: 'domains remove question' > en 40 color 1`] = `
+"
+  ◇  Remove blog.example.com? no
+  │
+  ◇  Nothing was changed.
+
+--- styles ---
+1: 2-2 f62627a | 30-31 f8b8b98
+2: 2-2 f4a4a5e
+3: 2-2 f62627a"
+`;
+
+exports[`screen: 'domains remove question' > en 40 plain 1`] = `
+"
+  ◇  Remove blog.example.com? no
+  │
+  ◇  Nothing was changed."
+`;
+
+exports[`screen: 'domains remove question' > en 80 color 1`] = `
+"
+  ◇  Remove blog.example.com? no
+  │
+  ◇  Nothing was changed.
+
+--- styles ---
+1: 2-2 f62627a | 30-31 f8b8b98
+2: 2-2 f4a4a5e
+3: 2-2 f62627a"
+`;
+
+exports[`screen: 'domains remove question' > en 80 plain 1`] = `
+"
+  ◇  Remove blog.example.com? no
+  │
+  ◇  Nothing was changed."
+`;
+
+exports[`screen: 'domains remove question' > en 120 color 1`] = `
+"
+  ◇  Remove blog.example.com? no
+  │
+  ◇  Nothing was changed.
+
+--- styles ---
+1: 2-2 f62627a | 30-31 f8b8b98
+2: 2-2 f4a4a5e
+3: 2-2 f62627a"
+`;
+
+exports[`screen: 'domains remove question' > en 120 plain 1`] = `
+"
+  ◇  Remove blog.example.com? no
+  │
+  ◇  Nothing was changed."
+`;
+
+exports[`screen: 'domains remove question' > es 40 color 1`] = `
+"
+  ◇  ¿Quitar blog.example.com? no
+  │
+  ◇  No se cambió nada.
+
+--- styles ---
+1: 2-2 f62627a | 31-32 f8b8b98
+2: 2-2 f4a4a5e
+3: 2-2 f62627a"
+`;
+
+exports[`screen: 'domains remove question' > es 40 plain 1`] = `
+"
+  ◇  ¿Quitar blog.example.com? no
+  │
+  ◇  No se cambió nada."
+`;
+
+exports[`screen: 'domains remove question' > es 80 color 1`] = `
+"
+  ◇  ¿Quitar blog.example.com? no
+  │
+  ◇  No se cambió nada.
+
+--- styles ---
+1: 2-2 f62627a | 31-32 f8b8b98
+2: 2-2 f4a4a5e
+3: 2-2 f62627a"
+`;
+
+exports[`screen: 'domains remove question' > es 80 plain 1`] = `
+"
+  ◇  ¿Quitar blog.example.com? no
+  │
+  ◇  No se cambió nada."
+`;
+
+exports[`screen: 'domains remove question' > es 120 color 1`] = `
+"
+  ◇  ¿Quitar blog.example.com? no
+  │
+  ◇  No se cambió nada.
+
+--- styles ---
+1: 2-2 f62627a | 31-32 f8b8b98
+2: 2-2 f4a4a5e
+3: 2-2 f62627a"
+`;
+
+exports[`screen: 'domains remove question' > es 120 plain 1`] = `
+"
+  ◇  ¿Quitar blog.example.com? no
+  │
+  ◇  No se cambió nada."
+`;
+
+exports[`screen: 'domains remove question' > pt-BR 40 color 1`] = `
+"
+  ◇  Remover blog.example.com? não
+  │
+  ◇  Nada foi alterado.
+
+--- styles ---
+1: 2-2 f62627a | 31-33 f8b8b98
+2: 2-2 f4a4a5e
+3: 2-2 f62627a"
+`;
+
+exports[`screen: 'domains remove question' > pt-BR 40 plain 1`] = `
+"
+  ◇  Remover blog.example.com? não
+  │
+  ◇  Nada foi alterado."
+`;
+
+exports[`screen: 'domains remove question' > pt-BR 80 color 1`] = `
+"
+  ◇  Remover blog.example.com? não
+  │
+  ◇  Nada foi alterado.
+
+--- styles ---
+1: 2-2 f62627a | 31-33 f8b8b98
+2: 2-2 f4a4a5e
+3: 2-2 f62627a"
+`;
+
+exports[`screen: 'domains remove question' > pt-BR 80 plain 1`] = `
+"
+  ◇  Remover blog.example.com? não
+  │
+  ◇  Nada foi alterado."
+`;
+
+exports[`screen: 'domains remove question' > pt-BR 120 color 1`] = `
+"
+  ◇  Remover blog.example.com? não
+  │
+  ◇  Nada foi alterado.
+
+--- styles ---
+1: 2-2 f62627a | 31-33 f8b8b98
+2: 2-2 f4a4a5e
+3: 2-2 f62627a"
+`;
+
+exports[`screen: 'domains remove question' > pt-BR 120 plain 1`] = `
+"
+  ◇  Remover blog.example.com? não
+  │
+  ◇  Nada foi alterado."
+`;
+
+exports[`screen: 'domains remove' > en 40 color 1`] = `
+"
+  ◇  Remove blog.example.com? yes
+  │
+  ◇  blog.example.com was removed from
+     the server.
+  │  See the domains that stay with:
+  └  bladecp domains list 0197a1c4
+
+--- styles ---
+1: 2-2 f22c55e | 30-32 f8b8b98
+2: 2-2 f4a4a5e
+3: 2-2 f22c55e
+5: 2-2 f4a4a5e | 5-35 f8b8b98
+6: 2-2 f4a4a5e | 5-11 f6366f1 | 13-19 f6366f1 | 21-24 f6366f1 | 26-33 f6366f1"
+`;
+
+exports[`screen: 'domains remove' > en 40 plain 1`] = `
+"
+  ◇  Remove blog.example.com? yes
+  │
+  ◇  blog.example.com was removed from
+     the server.
+  │  See the domains that stay with:
+  └  bladecp domains list 0197a1c4"
+`;
+
+exports[`screen: 'domains remove' > en 80 color 1`] = `
+"
+  ◇  Remove blog.example.com? yes
+  │
+  ◇  blog.example.com was removed from the server.
+  │  See the domains that stay with:
+  └  bladecp domains list 0197a1c4
+
+--- styles ---
+1: 2-2 f22c55e | 30-32 f8b8b98
+2: 2-2 f4a4a5e
+3: 2-2 f22c55e
+4: 2-2 f4a4a5e | 5-35 f8b8b98
+5: 2-2 f4a4a5e | 5-11 f6366f1 | 13-19 f6366f1 | 21-24 f6366f1 | 26-33 f6366f1"
+`;
+
+exports[`screen: 'domains remove' > en 80 plain 1`] = `
+"
+  ◇  Remove blog.example.com? yes
+  │
+  ◇  blog.example.com was removed from the server.
+  │  See the domains that stay with:
+  └  bladecp domains list 0197a1c4"
+`;
+
+exports[`screen: 'domains remove' > en 120 color 1`] = `
+"
+  ◇  Remove blog.example.com? yes
+  │
+  ◇  blog.example.com was removed from the server.
+  │  See the domains that stay with:
+  └  bladecp domains list 0197a1c4
+
+--- styles ---
+1: 2-2 f22c55e | 30-32 f8b8b98
+2: 2-2 f4a4a5e
+3: 2-2 f22c55e
+4: 2-2 f4a4a5e | 5-35 f8b8b98
+5: 2-2 f4a4a5e | 5-11 f6366f1 | 13-19 f6366f1 | 21-24 f6366f1 | 26-33 f6366f1"
+`;
+
+exports[`screen: 'domains remove' > en 120 plain 1`] = `
+"
+  ◇  Remove blog.example.com? yes
+  │
+  ◇  blog.example.com was removed from the server.
+  │  See the domains that stay with:
+  └  bladecp domains list 0197a1c4"
+`;
+
+exports[`screen: 'domains remove' > es 40 color 1`] = `
+"
+  ◇  ¿Quitar blog.example.com? sí
+  │
+  ◇  blog.example.com se quitó del
+     servidor.
+  │  Ve los dominios que quedan con:
+  └  bladecp domains list 0197a1c4
+
+--- styles ---
+1: 2-2 f22c55e | 31-32 f8b8b98
+2: 2-2 f4a4a5e
+3: 2-2 f22c55e
+5: 2-2 f4a4a5e | 5-35 f8b8b98
+6: 2-2 f4a4a5e | 5-11 f6366f1 | 13-19 f6366f1 | 21-24 f6366f1 | 26-33 f6366f1"
+`;
+
+exports[`screen: 'domains remove' > es 40 plain 1`] = `
+"
+  ◇  ¿Quitar blog.example.com? sí
+  │
+  ◇  blog.example.com se quitó del
+     servidor.
+  │  Ve los dominios que quedan con:
+  └  bladecp domains list 0197a1c4"
+`;
+
+exports[`screen: 'domains remove' > es 80 color 1`] = `
+"
+  ◇  ¿Quitar blog.example.com? sí
+  │
+  ◇  blog.example.com se quitó del servidor.
+  │  Ve los dominios que quedan con:
+  └  bladecp domains list 0197a1c4
+
+--- styles ---
+1: 2-2 f22c55e | 31-32 f8b8b98
+2: 2-2 f4a4a5e
+3: 2-2 f22c55e
+4: 2-2 f4a4a5e | 5-35 f8b8b98
+5: 2-2 f4a4a5e | 5-11 f6366f1 | 13-19 f6366f1 | 21-24 f6366f1 | 26-33 f6366f1"
+`;
+
+exports[`screen: 'domains remove' > es 80 plain 1`] = `
+"
+  ◇  ¿Quitar blog.example.com? sí
+  │
+  ◇  blog.example.com se quitó del servidor.
+  │  Ve los dominios que quedan con:
+  └  bladecp domains list 0197a1c4"
+`;
+
+exports[`screen: 'domains remove' > es 120 color 1`] = `
+"
+  ◇  ¿Quitar blog.example.com? sí
+  │
+  ◇  blog.example.com se quitó del servidor.
+  │  Ve los dominios que quedan con:
+  └  bladecp domains list 0197a1c4
+
+--- styles ---
+1: 2-2 f22c55e | 31-32 f8b8b98
+2: 2-2 f4a4a5e
+3: 2-2 f22c55e
+4: 2-2 f4a4a5e | 5-35 f8b8b98
+5: 2-2 f4a4a5e | 5-11 f6366f1 | 13-19 f6366f1 | 21-24 f6366f1 | 26-33 f6366f1"
+`;
+
+exports[`screen: 'domains remove' > es 120 plain 1`] = `
+"
+  ◇  ¿Quitar blog.example.com? sí
+  │
+  ◇  blog.example.com se quitó del servidor.
+  │  Ve los dominios que quedan con:
+  └  bladecp domains list 0197a1c4"
+`;
+
+exports[`screen: 'domains remove' > pt-BR 40 color 1`] = `
+"
+  ◇  Remover blog.example.com? sim
+  │
+  ◇  blog.example.com foi removido do
+     servidor.
+  │  Veja os domínios que ficaram com:
+  └  bladecp domains list 0197a1c4
+
+--- styles ---
+1: 2-2 f22c55e | 31-33 f8b8b98
+2: 2-2 f4a4a5e
+3: 2-2 f22c55e
+5: 2-2 f4a4a5e | 5-37 f8b8b98
+6: 2-2 f4a4a5e | 5-11 f6366f1 | 13-19 f6366f1 | 21-24 f6366f1 | 26-33 f6366f1"
+`;
+
+exports[`screen: 'domains remove' > pt-BR 40 plain 1`] = `
+"
+  ◇  Remover blog.example.com? sim
+  │
+  ◇  blog.example.com foi removido do
+     servidor.
+  │  Veja os domínios que ficaram com:
+  └  bladecp domains list 0197a1c4"
+`;
+
+exports[`screen: 'domains remove' > pt-BR 80 color 1`] = `
+"
+  ◇  Remover blog.example.com? sim
+  │
+  ◇  blog.example.com foi removido do servidor.
+  │  Veja os domínios que ficaram com:
+  └  bladecp domains list 0197a1c4
+
+--- styles ---
+1: 2-2 f22c55e | 31-33 f8b8b98
+2: 2-2 f4a4a5e
+3: 2-2 f22c55e
+4: 2-2 f4a4a5e | 5-37 f8b8b98
+5: 2-2 f4a4a5e | 5-11 f6366f1 | 13-19 f6366f1 | 21-24 f6366f1 | 26-33 f6366f1"
+`;
+
+exports[`screen: 'domains remove' > pt-BR 80 plain 1`] = `
+"
+  ◇  Remover blog.example.com? sim
+  │
+  ◇  blog.example.com foi removido do servidor.
+  │  Veja os domínios que ficaram com:
+  └  bladecp domains list 0197a1c4"
+`;
+
+exports[`screen: 'domains remove' > pt-BR 120 color 1`] = `
+"
+  ◇  Remover blog.example.com? sim
+  │
+  ◇  blog.example.com foi removido do servidor.
+  │  Veja os domínios que ficaram com:
+  └  bladecp domains list 0197a1c4
+
+--- styles ---
+1: 2-2 f22c55e | 31-33 f8b8b98
+2: 2-2 f4a4a5e
+3: 2-2 f22c55e
+4: 2-2 f4a4a5e | 5-37 f8b8b98
+5: 2-2 f4a4a5e | 5-11 f6366f1 | 13-19 f6366f1 | 21-24 f6366f1 | 26-33 f6366f1"
+`;
+
+exports[`screen: 'domains remove' > pt-BR 120 plain 1`] = `
+"
+  ◇  Remover blog.example.com? sim
+  │
+  ◇  blog.example.com foi removido do servidor.
+  │  Veja os domínios que ficaram com:
+  └  bladecp domains list 0197a1c4"
+`;
+
+exports[`screen: 'help domains add' > en 40 color 1`] = `
+"  bladecp domains add <server> <host>
+ ━━━━━━━━━━━━──────────────────────────
+  Adds a domain to a server, next to
+  its main domain. The site answers at
+  the new address once the DNS of the
+  domain points to BladeCP.
+
+  Usage ────────────────────────────────
+  bladecp domains add <server> <host>
+
+  Arguments ───────────────────────────
+  <server>   The server: its ID, or its
+             first characters (at least
+             4).
+  <host>     The domain, for example
+             blog.example.com.
+
+  Examples ────────────────────────────
+  › bladecp domains check
+    blog.example.com
+    Check a domain before you add it
+  › bladecp domains add 0197a1c4
+    blog.example.com
+    Add another domain to it
+
+  Global options ──────────────────────
+  --json
+    Print machine-readable JSON (no
+    colors, no prompts)
+  --api-url <url>
+    API address (default
+    https://api.bladecp.com)
+  --lang <en|pt-BR|es>
+    Language for messages
+  --debug
+    Describe each request on stderr
+    (the key is never shown)
+  --verbose
+    Same as --debug
+  -h, --help
+    Show help
+  -v, --version
+    Show the version
+
+  See also  bladecp domains list
+  <server>
+
+--- styles ---
+0: 2-8 B | 10-16 B | 18-20 B | 22-36 fa78bfa
+1: 1-1 f6264f0 | 2-2 f7c74f4 | 3-3 f9b84f8 | 4-4 fbba6fb | 5-5 fddd4fd | 6-6 fd9cefd | 7-7 fb7a1fb | 8-8 f9782f8 | 9-9 f7972f4 | 10-10 f6163f0 | 11-11 f5956eb | 12-12 f524ae7 | 13-13 f4941d0 | 14-14 f3f39b0 | 15-15 f363292 | 16-16 f2f2c79 | 17-17 f2a2863 | 18-18 f262451 | 19-19 f222141 | 20-20 f1f1f35 | 21-21 f1d1d2c | 22-38 f1c1c28
+2: 2-35 f8b8b98
+3: 2-37 f8b8b98
+4: 2-36 f8b8b98
+5: 2-26 f8b8b98
+7: 8-8 f4b4b62 | 9-9 f4a4a60 | 10-10 f48485e | 11-11 f47475d | 12-12 f45455b | 13-13 f444459 | 14-14 f424257 | 15-15 f414155 | 16-16 f3f3f54 | 17-17 f3e3e52 | 18-18 f3c3c50 | 19-19 f3b3b4e | 20-20 f39394c | 21-21 f38384a | 22-22 f363649 | 23-23 f353547 | 24-24 f343445 | 25-25 f323243 | 26-26 f313141 | 27-27 f2f2f40 | 28-28 f2e2e3e | 29-29 f2c2c3c | 30-30 f2b2b3a | 31-31 f292938 | 32-32 f282837 | 33-33 f262635 | 34-34 f252533 | 35-35 f232331 | 36-36 f22222f | 37-37 f20202d | 38-38 f1f1f2c | 39-39 f1d1d2a
+10: 12-12 f4b4b62 | 13-13 f494960 | 14-14 f48485e | 15-15 f46465c | 16-16 f444459 | 17-17 f424257 | 18-18 f414155 | 19-19 f3f3f53 | 20-20 f3d3d51 | 21-21 f3b3b4f | 22-22 f3a3a4d | 23-23 f38384a | 24-24 f363648 | 25-25 f343446 | 26-26 f333344 | 27-27 f313142 | 28-28 f2f2f40 | 29-29 f2d2d3d | 30-30 f2c2c3b | 31-31 f2a2a39 | 32-32 f282837 | 33-33 f262635 | 34-34 f252533 | 35-35 f232331 | 36-36 f21212e | 37-37 f1f1f2c | 38-38 f1e1e2a
+11: 2-9 fa78bfa
+14: 2-7 fa78bfa
+17: 11-11 f4b4b62 | 12-12 f494960 | 13-13 f48485e | 14-14 f46465c | 15-15 f44445a | 16-16 f434358 | 17-17 f414156 | 18-18 f3f3f54 | 19-19 f3e3e51 | 20-20 f3c3c4f | 21-21 f3a3a4d | 22-22 f39394b | 23-23 f373749 | 24-24 f353547 | 25-25 f343445 | 26-26 f323243 | 27-27 f303041 | 28-28 f2e2e3f | 29-29 f2d2d3d | 30-30 f2b2b3b | 31-31 f292939 | 32-32 f282837 | 33-33 f262634 | 34-34 f242432 | 35-35 f232330 | 36-36 f21212e | 37-37 f1f1f2c | 38-38 f1e1e2a
+18: 2-2 fa78bfa
+20: 4-35 f8b8b98
+21: 2-2 fa78bfa
+23: 4-27 f8b8b98
+25: 17-17 f4b4b62 | 18-18 f49495f | 19-19 f47475d | 20-20 f45455a | 21-21 f424257 | 22-22 f404055 | 23-23 f3e3e52 | 24-24 f3c3c50 | 25-25 f3a3a4d | 26-26 f38384a | 27-27 f363648 | 28-28 f343445 | 29-29 f313142 | 30-30 f2f2f40 | 31-31 f2d2d3d | 32-32 f2b2b3a | 33-33 f292938 | 34-34 f272735 | 35-35 f252533 | 36-36 f222230 | 37-37 f20202d | 38-38 f1e1e2b
+26: 2-7 f6366f1
+27: 4-34 f8b8b98
+28: 4-22 f8b8b98
+29: 2-10 f6366f1 | 12-16 f6366f1
+30: 4-23 f8b8b98
+31: 4-27 f8b8b98
+32: 2-7 f6366f1 | 9-21 f6366f1
+33: 4-24 f8b8b98
+34: 2-8 f6366f1
+35: 4-34 f8b8b98
+36: 4-27 f8b8b98
+37: 2-10 f6366f1
+38: 4-18 f8b8b98
+39: 2-4 f6366f1 | 6-11 f6366f1
+40: 4-12 f8b8b98
+41: 2-4 f6366f1 | 6-14 f6366f1
+42: 4-19 f8b8b98
+44: 2-9 f8b8b98 | 12-18 f6366f1 | 20-26 f6366f1 | 28-31 f6366f1
+45: 2-9 f6366f1"
+`;
+
+exports[`screen: 'help domains add' > en 40 plain 1`] = `
+"  bladecp domains add <server> <host>
+ ──────────────────────────────────────
+  Adds a domain to a server, next to
+  its main domain. The site answers at
+  the new address once the DNS of the
+  domain points to BladeCP.
+
+  Usage ────────────────────────────────
+  bladecp domains add <server> <host>
+
+  Arguments ───────────────────────────
+  <server>   The server: its ID, or its
+             first characters (at least
+             4).
+  <host>     The domain, for example
+             blog.example.com.
+
+  Examples ────────────────────────────
+  › bladecp domains check
+    blog.example.com
+    Check a domain before you add it
+  › bladecp domains add 0197a1c4
+    blog.example.com
+    Add another domain to it
+
+  Global options ──────────────────────
+  --json
+    Print machine-readable JSON (no
+    colors, no prompts)
+  --api-url <url>
+    API address (default
+    https://api.bladecp.com)
+  --lang <en|pt-BR|es>
+    Language for messages
+  --debug
+    Describe each request on stderr
+    (the key is never shown)
+  --verbose
+    Same as --debug
+  -h, --help
+    Show help
+  -v, --version
+    Show the version
+
+  See also  bladecp domains list
+  <server>"
+`;
+
+exports[`screen: 'help domains add' > en 80 color 1`] = `
+"  bladecp domains add <server> <host>
+ ━━━━━━━━━━━━━━━━━━━━━━━━──────────────────────────────────────────────────────
+  Adds a domain to a server, next to its main domain. The site answers at the
+  new address once the DNS of the domain points to BladeCP.
+
+  Usage ──────────────────────────────────────
+  bladecp domains add <server> <host>
+
+  Arguments ──────────────────────────────────
+  <server>   The server: its ID, or its first characters (at least 4).
+  <host>     The domain, for example blog.example.com.
+
+  Examples ───────────────────────────────────
+  › bladecp domains check blog.example.com
+    Check a domain before you add it
+  › bladecp domains add 0197a1c4 blog.example.com
+    Add another domain to it
+
+  Global options ─────────────────────────────
+  --json                 Print machine-readable JSON (no colors, no prompts)
+  --api-url <url>        API address (default https://api.bladecp.com)
+  --lang <en|pt-BR|es>   Language for messages
+  --debug                Describe each request on stderr (the key is never
+                         shown)
+  --verbose              Same as --debug
+  -h, --help             Show help
+  -v, --version          Show the version
+
+  See also  bladecp domains list <server>
+
+--- styles ---
+0: 2-8 B | 10-16 B | 18-20 B | 22-36 fa78bfa
+1: 1-1 f6264f0 | 2-2 f6d6cf2 | 3-3 f7b73f4 | 4-4 f8a7bf6 | 5-5 f9883f8 | 6-6 fa78bfa | 7-7 fb7a1fb | 8-8 fc7b7fc | 9-9 fd8cdfd | 10-10 fe9e3fe | 11-11 fe0d8fd | 12-12 fcfc1fc | 13-13 fbfabfb | 14-14 faf96fa | 15-15 f9f87f9 | 16-16 f917ff7 | 17-17 f8277f5 | 18-18 f746ff3 | 19-19 f6668f1 | 20-20 f6061ef | 21-21 f5c5bed | 22-22 f5855eb | 23-23 f554fe8 | 24-24 f514ae6 | 25-25 f4d45e0 | 26-26 f4841cf | 27-27 f443dc0 | 28-28 f3f39b0 | 29-29 f3b36a2 | 30-30 f373394 | 31-31 f332f87 | 32-32 f302d7b | 33-33 f2d2b70 | 34-34 f2b2966 | 35-35 f28275d | 36-36 f262554 | 37-37 f24234c | 38-38 f232245 | 39-39 f21203e | 40-40 f201f38 | 41-41 f1f1e33 | 42-42 f1e1d2f | 43-43 f1d1d2b | 44-44 f1c1c29 | 45-78 f1c1c28
+2: 2-76 f8b8b98
+3: 2-58 f8b8b98
+5: 8-8 f4b4b62 | 9-9 f4a4a60 | 10-10 f49495f | 11-11 f47475d | 12-12 f46465c | 13-13 f45455a | 14-14 f444459 | 15-15 f424257 | 16-16 f414156 | 17-17 f404054 | 18-18 f3f3f53 | 19-19 f3d3d51 | 20-20 f3c3c50 | 21-21 f3b3b4e | 22-22 f3a3a4d | 23-23 f38384b | 24-24 f37374a | 25-25 f363648 | 26-26 f353547 | 27-27 f343445 | 28-28 f323243 | 29-29 f313142 | 30-30 f303040 | 31-31 f2f2f3f | 32-32 f2d2d3d | 33-33 f2c2c3c | 34-34 f2b2b3a | 35-35 f2a2a39 | 36-36 f282837 | 37-37 f272736 | 38-38 f262634 | 39-39 f252533 | 40-40 f232331 | 41-41 f222230 | 42-42 f21212e | 43-43 f20202d | 44-44 f1e1e2b | 45-45 f1d1d2a
+8: 12-12 f4b4b62 | 13-13 f4a4a60 | 14-14 f48485f | 15-15 f47475d | 16-16 f45455b | 17-17 f444459 | 18-18 f434358 | 19-19 f414156 | 20-20 f404054 | 21-21 f3f3f53 | 22-22 f3d3d51 | 23-23 f3c3c4f | 24-24 f3a3a4e | 25-25 f39394c | 26-26 f38384a | 27-27 f363648 | 28-28 f353547 | 29-29 f343445 | 30-30 f323243 | 31-31 f313142 | 32-32 f2f2f40 | 33-33 f2e2e3e | 34-34 f2d2d3c | 35-35 f2b2b3b | 36-36 f2a2a39 | 37-37 f282837 | 38-38 f272736 | 39-39 f262634 | 40-40 f242432 | 41-41 f232331 | 42-42 f22222f | 43-43 f20202d | 44-44 f1f1f2b | 45-45 f1d1d2a
+9: 2-9 fa78bfa
+10: 2-7 fa78bfa
+12: 11-11 f4b4b62 | 12-12 f4a4a60 | 13-13 f48485f | 14-14 f47475d | 15-15 f46465b | 16-16 f44445a | 17-17 f434358 | 18-18 f424256 | 19-19 f404055 | 20-20 f3f3f53 | 21-21 f3e3e51 | 22-22 f3c3c50 | 23-23 f3b3b4e | 24-24 f3a3a4c | 25-25 f38384b | 26-26 f373749 | 27-27 f363647 | 28-28 f343446 | 29-29 f333344 | 30-30 f313143 | 31-31 f303041 | 32-32 f2f2f3f | 33-33 f2d2d3e | 34-34 f2c2c3c | 35-35 f2b2b3a | 36-36 f292939 | 37-37 f282837 | 38-38 f272735 | 39-39 f252534 | 40-40 f242432 | 41-41 f232330 | 42-42 f21212f | 43-43 f20202d | 44-44 f1f1f2b | 45-45 f1d1d2a
+13: 2-2 fa78bfa
+14: 4-35 f8b8b98
+15: 2-2 fa78bfa
+16: 4-27 f8b8b98
+18: 17-17 f4b4b62 | 18-18 f494960 | 19-19 f48485e | 20-20 f46465c | 21-21 f45455a | 22-22 f434358 | 23-23 f414156 | 24-24 f404054 | 25-25 f3e3e52 | 26-26 f3c3c50 | 27-27 f3b3b4e | 28-28 f39394c | 29-29 f38384a | 30-30 f363648 | 31-31 f343446 | 32-32 f333344 | 33-33 f313142 | 34-34 f2f2f40 | 35-35 f2e2e3e | 36-36 f2c2c3c | 37-37 f2b2b3a | 38-38 f292938 | 39-39 f272736 | 40-40 f262634 | 41-41 f242432 | 42-42 f222230 | 43-43 f21212e | 44-44 f1f1f2c | 45-45 f1e1e2a
+19: 2-7 f6366f1 | 25-75 f8b8b98
+20: 2-10 f6366f1 | 12-16 f6366f1 | 25-69 f8b8b98
+21: 2-7 f6366f1 | 9-21 f6366f1 | 25-45 f8b8b98
+22: 2-8 f6366f1 | 25-73 f8b8b98
+23: 25-30 f8b8b98
+24: 2-10 f6366f1 | 25-39 f8b8b98
+25: 2-4 f6366f1 | 6-11 f6366f1 | 25-33 f8b8b98
+26: 2-4 f6366f1 | 6-14 f6366f1 | 25-40 f8b8b98
+28: 2-9 f8b8b98 | 12-18 f6366f1 | 20-26 f6366f1 | 28-31 f6366f1 | 33-40 f6366f1"
+`;
+
+exports[`screen: 'help domains add' > en 80 plain 1`] = `
+"  bladecp domains add <server> <host>
+ ──────────────────────────────────────────────────────────────────────────────
+  Adds a domain to a server, next to its main domain. The site answers at the
+  new address once the DNS of the domain points to BladeCP.
+
+  Usage ──────────────────────────────────────
+  bladecp domains add <server> <host>
+
+  Arguments ──────────────────────────────────
+  <server>   The server: its ID, or its first characters (at least 4).
+  <host>     The domain, for example blog.example.com.
+
+  Examples ───────────────────────────────────
+  › bladecp domains check blog.example.com
+    Check a domain before you add it
+  › bladecp domains add 0197a1c4 blog.example.com
+    Add another domain to it
+
+  Global options ─────────────────────────────
+  --json                 Print machine-readable JSON (no colors, no prompts)
+  --api-url <url>        API address (default https://api.bladecp.com)
+  --lang <en|pt-BR|es>   Language for messages
+  --debug                Describe each request on stderr (the key is never
+                         shown)
+  --verbose              Same as --debug
+  -h, --help             Show help
+  -v, --version          Show the version
+
+  See also  bladecp domains list <server>"
+`;
+
+exports[`screen: 'help domains add' > en 120 color 1`] = `
+"  bladecp domains add <server> <host>
+ ━━━━━━━━━━━━━━━━━━━━━━━━──────────────────────────────────────────────────────
+  Adds a domain to a server, next to its main domain. The site answers at the new address once the
+  DNS of the domain points to BladeCP.
+
+  Usage ──────────────────────────────────────
+  bladecp domains add <server> <host>
+
+  Arguments ──────────────────────────────────
+  <server>   The server: its ID, or its first characters (at least 4).
+  <host>     The domain, for example blog.example.com.
+
+  Examples ───────────────────────────────────
+  › bladecp domains check blog.example.com
+    Check a domain before you add it
+  › bladecp domains add 0197a1c4 blog.example.com
+    Add another domain to it
+
+  Global options ─────────────────────────────
+  --json                 Print machine-readable JSON (no colors, no prompts)
+  --api-url <url>        API address (default https://api.bladecp.com)
+  --lang <en|pt-BR|es>   Language for messages
+  --debug                Describe each request on stderr (the key is never shown)
+  --verbose              Same as --debug
+  -h, --help             Show help
+  -v, --version          Show the version
+
+  See also  bladecp domains list <server>
+
+--- styles ---
+0: 2-8 B | 10-16 B | 18-20 B | 22-36 fa78bfa
+1: 1-1 f6264f0 | 2-2 f6d6cf2 | 3-3 f7b73f4 | 4-4 f8a7bf6 | 5-5 f9883f8 | 6-6 fa78bfa | 7-7 fb7a1fb | 8-8 fc7b7fc | 9-9 fd8cdfd | 10-10 fe9e3fe | 11-11 fe0d8fd | 12-12 fcfc1fc | 13-13 fbfabfb | 14-14 faf96fa | 15-15 f9f87f9 | 16-16 f917ff7 | 17-17 f8277f5 | 18-18 f746ff3 | 19-19 f6668f1 | 20-20 f6061ef | 21-21 f5c5bed | 22-22 f5855eb | 23-23 f554fe8 | 24-24 f514ae6 | 25-25 f4d45e0 | 26-26 f4841cf | 27-27 f443dc0 | 28-28 f3f39b0 | 29-29 f3b36a2 | 30-30 f373394 | 31-31 f332f87 | 32-32 f302d7b | 33-33 f2d2b70 | 34-34 f2b2966 | 35-35 f28275d | 36-36 f262554 | 37-37 f24234c | 38-38 f232245 | 39-39 f21203e | 40-40 f201f38 | 41-41 f1f1e33 | 42-42 f1e1d2f | 43-43 f1d1d2b | 44-44 f1c1c29 | 45-78 f1c1c28
+2: 2-97 f8b8b98
+3: 2-37 f8b8b98
+5: 8-8 f4b4b62 | 9-9 f4a4a60 | 10-10 f49495f | 11-11 f47475d | 12-12 f46465c | 13-13 f45455a | 14-14 f444459 | 15-15 f424257 | 16-16 f414156 | 17-17 f404054 | 18-18 f3f3f53 | 19-19 f3d3d51 | 20-20 f3c3c50 | 21-21 f3b3b4e | 22-22 f3a3a4d | 23-23 f38384b | 24-24 f37374a | 25-25 f363648 | 26-26 f353547 | 27-27 f343445 | 28-28 f323243 | 29-29 f313142 | 30-30 f303040 | 31-31 f2f2f3f | 32-32 f2d2d3d | 33-33 f2c2c3c | 34-34 f2b2b3a | 35-35 f2a2a39 | 36-36 f282837 | 37-37 f272736 | 38-38 f262634 | 39-39 f252533 | 40-40 f232331 | 41-41 f222230 | 42-42 f21212e | 43-43 f20202d | 44-44 f1e1e2b | 45-45 f1d1d2a
+8: 12-12 f4b4b62 | 13-13 f4a4a60 | 14-14 f48485f | 15-15 f47475d | 16-16 f45455b | 17-17 f444459 | 18-18 f434358 | 19-19 f414156 | 20-20 f404054 | 21-21 f3f3f53 | 22-22 f3d3d51 | 23-23 f3c3c4f | 24-24 f3a3a4e | 25-25 f39394c | 26-26 f38384a | 27-27 f363648 | 28-28 f353547 | 29-29 f343445 | 30-30 f323243 | 31-31 f313142 | 32-32 f2f2f40 | 33-33 f2e2e3e | 34-34 f2d2d3c | 35-35 f2b2b3b | 36-36 f2a2a39 | 37-37 f282837 | 38-38 f272736 | 39-39 f262634 | 40-40 f242432 | 41-41 f232331 | 42-42 f22222f | 43-43 f20202d | 44-44 f1f1f2b | 45-45 f1d1d2a
+9: 2-9 fa78bfa
+10: 2-7 fa78bfa
+12: 11-11 f4b4b62 | 12-12 f4a4a60 | 13-13 f48485f | 14-14 f47475d | 15-15 f46465b | 16-16 f44445a | 17-17 f434358 | 18-18 f424256 | 19-19 f404055 | 20-20 f3f3f53 | 21-21 f3e3e51 | 22-22 f3c3c50 | 23-23 f3b3b4e | 24-24 f3a3a4c | 25-25 f38384b | 26-26 f373749 | 27-27 f363647 | 28-28 f343446 | 29-29 f333344 | 30-30 f313143 | 31-31 f303041 | 32-32 f2f2f3f | 33-33 f2d2d3e | 34-34 f2c2c3c | 35-35 f2b2b3a | 36-36 f292939 | 37-37 f282837 | 38-38 f272735 | 39-39 f252534 | 40-40 f242432 | 41-41 f232330 | 42-42 f21212f | 43-43 f20202d | 44-44 f1f1f2b | 45-45 f1d1d2a
+13: 2-2 fa78bfa
+14: 4-35 f8b8b98
+15: 2-2 fa78bfa
+16: 4-27 f8b8b98
+18: 17-17 f4b4b62 | 18-18 f494960 | 19-19 f48485e | 20-20 f46465c | 21-21 f45455a | 22-22 f434358 | 23-23 f414156 | 24-24 f404054 | 25-25 f3e3e52 | 26-26 f3c3c50 | 27-27 f3b3b4e | 28-28 f39394c | 29-29 f38384a | 30-30 f363648 | 31-31 f343446 | 32-32 f333344 | 33-33 f313142 | 34-34 f2f2f40 | 35-35 f2e2e3e | 36-36 f2c2c3c | 37-37 f2b2b3a | 38-38 f292938 | 39-39 f272736 | 40-40 f262634 | 41-41 f242432 | 42-42 f222230 | 43-43 f21212e | 44-44 f1f1f2c | 45-45 f1e1e2a
+19: 2-7 f6366f1 | 25-75 f8b8b98
+20: 2-10 f6366f1 | 12-16 f6366f1 | 25-69 f8b8b98
+21: 2-7 f6366f1 | 9-21 f6366f1 | 25-45 f8b8b98
+22: 2-8 f6366f1 | 25-80 f8b8b98
+23: 2-10 f6366f1 | 25-39 f8b8b98
+24: 2-4 f6366f1 | 6-11 f6366f1 | 25-33 f8b8b98
+25: 2-4 f6366f1 | 6-14 f6366f1 | 25-40 f8b8b98
+27: 2-9 f8b8b98 | 12-18 f6366f1 | 20-26 f6366f1 | 28-31 f6366f1 | 33-40 f6366f1"
+`;
+
+exports[`screen: 'help domains add' > en 120 plain 1`] = `
+"  bladecp domains add <server> <host>
+ ──────────────────────────────────────────────────────────────────────────────
+  Adds a domain to a server, next to its main domain. The site answers at the new address once the
+  DNS of the domain points to BladeCP.
+
+  Usage ──────────────────────────────────────
+  bladecp domains add <server> <host>
+
+  Arguments ──────────────────────────────────
+  <server>   The server: its ID, or its first characters (at least 4).
+  <host>     The domain, for example blog.example.com.
+
+  Examples ───────────────────────────────────
+  › bladecp domains check blog.example.com
+    Check a domain before you add it
+  › bladecp domains add 0197a1c4 blog.example.com
+    Add another domain to it
+
+  Global options ─────────────────────────────
+  --json                 Print machine-readable JSON (no colors, no prompts)
+  --api-url <url>        API address (default https://api.bladecp.com)
+  --lang <en|pt-BR|es>   Language for messages
+  --debug                Describe each request on stderr (the key is never shown)
+  --verbose              Same as --debug
+  -h, --help             Show help
+  -v, --version          Show the version
+
+  See also  bladecp domains list <server>"
+`;
+
+exports[`screen: 'help domains add' > es 40 color 1`] = `
+"  bladecp domains add <server> <host>
+ ━━━━━━━━━━━━──────────────────────────
+  Agrega un dominio a un servidor,
+  junto a su dominio principal. El
+  sitio responde en la nueva dirección
+  cuando el DNS del dominio apunta a
+  BladeCP.
+
+  Uso ──────────────────────────────────
+  bladecp domains add <server> <host>
+
+  Argumentos ──────────────────────────
+  <server>   El servidor: su ID, o sus
+             primeros caracteres (al
+             menos 4).
+  <host>     El dominio, por ejemplo
+             blog.example.com.
+
+  Ejemplos ────────────────────────────
+  › bladecp domains check
+    blog.example.com
+    Comprobar un dominio antes de
+    agregarlo
+  › bladecp domains add 0197a1c4
+    blog.example.com
+    Agregarle otro dominio
+
+  Opciones globales ───────────────────
+  --json
+    Imprimir JSON para máquinas (sin
+    colores ni preguntas)
+  --api-url <url>
+    Dirección de la API (predeterminada
+    https://api.bladecp.com)
+  --lang <en|pt-BR|es>
+    Idioma de los mensajes
+  --debug
+    Describir cada solicitud en stderr
+    (la clave nunca aparece)
+  --verbose
+    Lo mismo que --debug
+  -h, --help
+    Mostrar la ayuda
+  -v, --version
+    Mostrar la versión
+
+  Ver también  bladecp domains list
+  <server>
+
+--- styles ---
+0: 2-8 B | 10-16 B | 18-20 B | 22-36 fa78bfa
+1: 1-1 f6264f0 | 2-2 f7c74f4 | 3-3 f9b84f8 | 4-4 fbba6fb | 5-5 fddd4fd | 6-6 fd9cefd | 7-7 fb7a1fb | 8-8 f9782f8 | 9-9 f7972f4 | 10-10 f6163f0 | 11-11 f5956eb | 12-12 f524ae7 | 13-13 f4941d0 | 14-14 f3f39b0 | 15-15 f363292 | 16-16 f2f2c79 | 17-17 f2a2863 | 18-18 f262451 | 19-19 f222141 | 20-20 f1f1f35 | 21-21 f1d1d2c | 22-38 f1c1c28
+2: 2-33 f8b8b98
+3: 2-33 f8b8b98
+4: 2-37 f8b8b98
+5: 2-35 f8b8b98
+6: 2-9 f8b8b98
+8: 6-6 f4b4b62 | 7-7 f4a4a60 | 8-8 f48485f | 9-9 f47475d | 10-10 f45455b | 11-11 f444459 | 12-12 f434358 | 13-13 f414156 | 14-14 f404054 | 15-15 f3f3f53 | 16-16 f3d3d51 | 17-17 f3c3c4f | 18-18 f3a3a4e | 19-19 f39394c | 20-20 f38384a | 21-21 f363648 | 22-22 f353547 | 23-23 f343445 | 24-24 f323243 | 25-25 f313142 | 26-26 f2f2f40 | 27-27 f2e2e3e | 28-28 f2d2d3c | 29-29 f2b2b3b | 30-30 f2a2a39 | 31-31 f282837 | 32-32 f272736 | 33-33 f262634 | 34-34 f242432 | 35-35 f232331 | 36-36 f22222f | 37-37 f20202d | 38-38 f1f1f2b | 39-39 f1d1d2a
+11: 13-13 f4b4b62 | 14-14 f494960 | 15-15 f47475e | 16-16 f46465b | 17-17 f444459 | 18-18 f424257 | 19-19 f404055 | 20-20 f3e3e52 | 21-21 f3d3d50 | 22-22 f3b3b4e | 23-23 f39394c | 24-24 f373749 | 25-25 f353547 | 26-26 f343445 | 27-27 f323243 | 28-28 f303041 | 29-29 f2e2e3e | 30-30 f2c2c3c | 31-31 f2a2a3a | 32-32 f292938 | 33-33 f272735 | 34-34 f252533 | 35-35 f232331 | 36-36 f21212f | 37-37 f20202c | 38-38 f1e1e2a
+12: 2-9 fa78bfa
+15: 2-7 fa78bfa
+18: 11-11 f4b4b62 | 12-12 f494960 | 13-13 f48485e | 14-14 f46465c | 15-15 f44445a | 16-16 f434358 | 17-17 f414156 | 18-18 f3f3f54 | 19-19 f3e3e51 | 20-20 f3c3c4f | 21-21 f3a3a4d | 22-22 f39394b | 23-23 f373749 | 24-24 f353547 | 25-25 f343445 | 26-26 f323243 | 27-27 f303041 | 28-28 f2e2e3f | 29-29 f2d2d3d | 30-30 f2b2b3b | 31-31 f292939 | 32-32 f282837 | 33-33 f262634 | 34-34 f242432 | 35-35 f232330 | 36-36 f21212e | 37-37 f1f1f2c | 38-38 f1e1e2a
+19: 2-2 fa78bfa
+21: 4-32 f8b8b98
+22: 4-12 f8b8b98
+23: 2-2 fa78bfa
+25: 4-25 f8b8b98
+27: 20-20 f4b4b62 | 21-21 f49495f | 22-22 f46465c | 23-23 f444459 | 24-24 f414156 | 25-25 f3f3f53 | 26-26 f3c3c50 | 27-27 f3a3a4d | 28-28 f37374a | 29-29 f353547 | 30-30 f323243 | 31-31 f303040 | 32-32 f2d2d3d | 33-33 f2b2b3a | 34-34 f282837 | 35-35 f262634 | 36-36 f232331 | 37-37 f21212e | 38-38 f1e1e2b
+28: 2-7 f6366f1
+29: 4-35 f8b8b98
+30: 4-24 f8b8b98
+31: 2-10 f6366f1 | 12-16 f6366f1
+32: 4-38 f8b8b98
+33: 4-27 f8b8b98
+34: 2-7 f6366f1 | 9-21 f6366f1
+35: 4-25 f8b8b98
+36: 2-8 f6366f1
+37: 4-37 f8b8b98
+38: 4-27 f8b8b98
+39: 2-10 f6366f1
+40: 4-23 f8b8b98
+41: 2-4 f6366f1 | 6-11 f6366f1
+42: 4-19 f8b8b98
+43: 2-4 f6366f1 | 6-14 f6366f1
+44: 4-21 f8b8b98
+46: 2-12 f8b8b98 | 15-21 f6366f1 | 23-29 f6366f1 | 31-34 f6366f1
+47: 2-9 f6366f1"
+`;
+
+exports[`screen: 'help domains add' > es 40 plain 1`] = `
+"  bladecp domains add <server> <host>
+ ──────────────────────────────────────
+  Agrega un dominio a un servidor,
+  junto a su dominio principal. El
+  sitio responde en la nueva dirección
+  cuando el DNS del dominio apunta a
+  BladeCP.
+
+  Uso ──────────────────────────────────
+  bladecp domains add <server> <host>
+
+  Argumentos ──────────────────────────
+  <server>   El servidor: su ID, o sus
+             primeros caracteres (al
+             menos 4).
+  <host>     El dominio, por ejemplo
+             blog.example.com.
+
+  Ejemplos ────────────────────────────
+  › bladecp domains check
+    blog.example.com
+    Comprobar un dominio antes de
+    agregarlo
+  › bladecp domains add 0197a1c4
+    blog.example.com
+    Agregarle otro dominio
+
+  Opciones globales ───────────────────
+  --json
+    Imprimir JSON para máquinas (sin
+    colores ni preguntas)
+  --api-url <url>
+    Dirección de la API (predeterminada
+    https://api.bladecp.com)
+  --lang <en|pt-BR|es>
+    Idioma de los mensajes
+  --debug
+    Describir cada solicitud en stderr
+    (la clave nunca aparece)
+  --verbose
+    Lo mismo que --debug
+  -h, --help
+    Mostrar la ayuda
+  -v, --version
+    Mostrar la versión
+
+  Ver también  bladecp domains list
+  <server>"
+`;
+
+exports[`screen: 'help domains add' > es 80 color 1`] = `
+"  bladecp domains add <server> <host>
+ ━━━━━━━━━━━━━━━━━━━━━━━━──────────────────────────────────────────────────────
+  Agrega un dominio a un servidor, junto a su dominio principal. El sitio
+  responde en la nueva dirección cuando el DNS del dominio apunta a BladeCP.
+
+  Uso ────────────────────────────────────────
+  bladecp domains add <server> <host>
+
+  Argumentos ─────────────────────────────────
+  <server>   El servidor: su ID, o sus primeros caracteres (al menos 4).
+  <host>     El dominio, por ejemplo blog.example.com.
+
+  Ejemplos ───────────────────────────────────
+  › bladecp domains check blog.example.com
+    Comprobar un dominio antes de agregarlo
+  › bladecp domains add 0197a1c4 blog.example.com
+    Agregarle otro dominio
+
+  Opciones globales ──────────────────────────
+  --json                 Imprimir JSON para máquinas (sin colores ni preguntas)
+  --api-url <url>        Dirección de la API (predeterminada
+                         https://api.bladecp.com)
+  --lang <en|pt-BR|es>   Idioma de los mensajes
+  --debug                Describir cada solicitud en stderr (la clave nunca
+                         aparece)
+  --verbose              Lo mismo que --debug
+  -h, --help             Mostrar la ayuda
+  -v, --version          Mostrar la versión
+
+  Ver también  bladecp domains list <server>
+
+--- styles ---
+0: 2-8 B | 10-16 B | 18-20 B | 22-36 fa78bfa
+1: 1-1 f6264f0 | 2-2 f6d6cf2 | 3-3 f7b73f4 | 4-4 f8a7bf6 | 5-5 f9883f8 | 6-6 fa78bfa | 7-7 fb7a1fb | 8-8 fc7b7fc | 9-9 fd8cdfd | 10-10 fe9e3fe | 11-11 fe0d8fd | 12-12 fcfc1fc | 13-13 fbfabfb | 14-14 faf96fa | 15-15 f9f87f9 | 16-16 f917ff7 | 17-17 f8277f5 | 18-18 f746ff3 | 19-19 f6668f1 | 20-20 f6061ef | 21-21 f5c5bed | 22-22 f5855eb | 23-23 f554fe8 | 24-24 f514ae6 | 25-25 f4d45e0 | 26-26 f4841cf | 27-27 f443dc0 | 28-28 f3f39b0 | 29-29 f3b36a2 | 30-30 f373394 | 31-31 f332f87 | 32-32 f302d7b | 33-33 f2d2b70 | 34-34 f2b2966 | 35-35 f28275d | 36-36 f262554 | 37-37 f24234c | 38-38 f232245 | 39-39 f21203e | 40-40 f201f38 | 41-41 f1f1e33 | 42-42 f1e1d2f | 43-43 f1d1d2b | 44-44 f1c1c29 | 45-78 f1c1c28
+2: 2-72 f8b8b98
+3: 2-75 f8b8b98
+5: 6-6 f4b4b62 | 7-7 f4a4a61 | 8-8 f49495f | 9-9 f47475e | 10-10 f46465c | 11-11 f45455b | 12-12 f444459 | 13-13 f434358 | 14-14 f424256 | 15-15 f404055 | 16-16 f3f3f54 | 17-17 f3e3e52 | 18-18 f3d3d51 | 19-19 f3c3c4f | 20-20 f3b3b4e | 21-21 f39394c | 22-22 f38384b | 23-23 f373749 | 24-24 f363648 | 25-25 f353546 | 26-26 f343445 | 27-27 f323244 | 28-28 f313142 | 29-29 f303041 | 30-30 f2f2f3f | 31-31 f2e2e3e | 32-32 f2c2c3c | 33-33 f2b2b3b | 34-34 f2a2a39 | 35-35 f292938 | 36-36 f282837 | 37-37 f272735 | 38-38 f252534 | 39-39 f242432 | 40-40 f232331 | 41-41 f22222f | 42-42 f21212e | 43-43 f20202c | 44-44 f1e1e2b | 45-45 f1d1d29
+8: 13-13 f4b4b62 | 14-14 f4a4a60 | 15-15 f48485e | 16-16 f47475d | 17-17 f45455b | 18-18 f444459 | 19-19 f424257 | 20-20 f414156 | 21-21 f404054 | 22-22 f3e3e52 | 23-23 f3d3d50 | 24-24 f3b3b4f | 25-25 f3a3a4d | 26-26 f38384b | 27-27 f373749 | 28-28 f363648 | 29-29 f343446 | 30-30 f333344 | 31-31 f313142 | 32-32 f303041 | 33-33 f2f2f3f | 34-34 f2d2d3d | 35-35 f2c2c3b | 36-36 f2a2a3a | 37-37 f292938 | 38-38 f272736 | 39-39 f262634 | 40-40 f252533 | 41-41 f232331 | 42-42 f22222f | 43-43 f20202d | 44-44 f1f1f2c | 45-45 f1d1d2a
+9: 2-9 fa78bfa
+10: 2-7 fa78bfa
+12: 11-11 f4b4b62 | 12-12 f4a4a60 | 13-13 f48485f | 14-14 f47475d | 15-15 f46465b | 16-16 f44445a | 17-17 f434358 | 18-18 f424256 | 19-19 f404055 | 20-20 f3f3f53 | 21-21 f3e3e51 | 22-22 f3c3c50 | 23-23 f3b3b4e | 24-24 f3a3a4c | 25-25 f38384b | 26-26 f373749 | 27-27 f363647 | 28-28 f343446 | 29-29 f333344 | 30-30 f313143 | 31-31 f303041 | 32-32 f2f2f3f | 33-33 f2d2d3e | 34-34 f2c2c3c | 35-35 f2b2b3a | 36-36 f292939 | 37-37 f282837 | 38-38 f272735 | 39-39 f252534 | 40-40 f242432 | 41-41 f232330 | 42-42 f21212f | 43-43 f20202d | 44-44 f1f1f2b | 45-45 f1d1d2a
+13: 2-2 fa78bfa
+14: 4-42 f8b8b98
+15: 2-2 fa78bfa
+16: 4-25 f8b8b98
+18: 20-20 f4b4b62 | 21-21 f494960 | 22-22 f47475e | 23-23 f46465b | 24-24 f444459 | 25-25 f424257 | 26-26 f404055 | 27-27 f3e3e52 | 28-28 f3d3d50 | 29-29 f3b3b4e | 30-30 f39394c | 31-31 f373749 | 32-32 f353547 | 33-33 f343445 | 34-34 f323243 | 35-35 f303041 | 36-36 f2e2e3e | 37-37 f2c2c3c | 38-38 f2a2a3a | 39-39 f292938 | 40-40 f272735 | 41-41 f252533 | 42-42 f232331 | 43-43 f21212f | 44-44 f20202c | 45-45 f1e1e2a
+19: 2-7 f6366f1 | 25-78 f8b8b98
+20: 2-10 f6366f1 | 12-16 f6366f1 | 25-59 f8b8b98
+21: 25-48 f8b8b98
+22: 2-7 f6366f1 | 9-21 f6366f1 | 25-46 f8b8b98
+23: 2-8 f6366f1 | 25-74 f8b8b98
+24: 25-32 f8b8b98
+25: 2-10 f6366f1 | 25-44 f8b8b98
+26: 2-4 f6366f1 | 6-11 f6366f1 | 25-40 f8b8b98
+27: 2-4 f6366f1 | 6-14 f6366f1 | 25-42 f8b8b98
+29: 2-12 f8b8b98 | 15-21 f6366f1 | 23-29 f6366f1 | 31-34 f6366f1 | 36-43 f6366f1"
+`;
+
+exports[`screen: 'help domains add' > es 80 plain 1`] = `
+"  bladecp domains add <server> <host>
+ ──────────────────────────────────────────────────────────────────────────────
+  Agrega un dominio a un servidor, junto a su dominio principal. El sitio
+  responde en la nueva dirección cuando el DNS del dominio apunta a BladeCP.
+
+  Uso ────────────────────────────────────────
+  bladecp domains add <server> <host>
+
+  Argumentos ─────────────────────────────────
+  <server>   El servidor: su ID, o sus primeros caracteres (al menos 4).
+  <host>     El dominio, por ejemplo blog.example.com.
+
+  Ejemplos ───────────────────────────────────
+  › bladecp domains check blog.example.com
+    Comprobar un dominio antes de agregarlo
+  › bladecp domains add 0197a1c4 blog.example.com
+    Agregarle otro dominio
+
+  Opciones globales ──────────────────────────
+  --json                 Imprimir JSON para máquinas (sin colores ni preguntas)
+  --api-url <url>        Dirección de la API (predeterminada
+                         https://api.bladecp.com)
+  --lang <en|pt-BR|es>   Idioma de los mensajes
+  --debug                Describir cada solicitud en stderr (la clave nunca
+                         aparece)
+  --verbose              Lo mismo que --debug
+  -h, --help             Mostrar la ayuda
+  -v, --version          Mostrar la versión
+
+  Ver también  bladecp domains list <server>"
+`;
+
+exports[`screen: 'help domains add' > es 120 color 1`] = `
+"  bladecp domains add <server> <host>
+ ━━━━━━━━━━━━━━━━━━━━━━━━──────────────────────────────────────────────────────
+  Agrega un dominio a un servidor, junto a su dominio principal. El sitio responde en la nueva
+  dirección cuando el DNS del dominio apunta a BladeCP.
+
+  Uso ────────────────────────────────────────
+  bladecp domains add <server> <host>
+
+  Argumentos ─────────────────────────────────
+  <server>   El servidor: su ID, o sus primeros caracteres (al menos 4).
+  <host>     El dominio, por ejemplo blog.example.com.
+
+  Ejemplos ───────────────────────────────────
+  › bladecp domains check blog.example.com
+    Comprobar un dominio antes de agregarlo
+  › bladecp domains add 0197a1c4 blog.example.com
+    Agregarle otro dominio
+
+  Opciones globales ──────────────────────────
+  --json                 Imprimir JSON para máquinas (sin colores ni preguntas)
+  --api-url <url>        Dirección de la API (predeterminada https://api.bladecp.com)
+  --lang <en|pt-BR|es>   Idioma de los mensajes
+  --debug                Describir cada solicitud en stderr (la clave nunca aparece)
+  --verbose              Lo mismo que --debug
+  -h, --help             Mostrar la ayuda
+  -v, --version          Mostrar la versión
+
+  Ver también  bladecp domains list <server>
+
+--- styles ---
+0: 2-8 B | 10-16 B | 18-20 B | 22-36 fa78bfa
+1: 1-1 f6264f0 | 2-2 f6d6cf2 | 3-3 f7b73f4 | 4-4 f8a7bf6 | 5-5 f9883f8 | 6-6 fa78bfa | 7-7 fb7a1fb | 8-8 fc7b7fc | 9-9 fd8cdfd | 10-10 fe9e3fe | 11-11 fe0d8fd | 12-12 fcfc1fc | 13-13 fbfabfb | 14-14 faf96fa | 15-15 f9f87f9 | 16-16 f917ff7 | 17-17 f8277f5 | 18-18 f746ff3 | 19-19 f6668f1 | 20-20 f6061ef | 21-21 f5c5bed | 22-22 f5855eb | 23-23 f554fe8 | 24-24 f514ae6 | 25-25 f4d45e0 | 26-26 f4841cf | 27-27 f443dc0 | 28-28 f3f39b0 | 29-29 f3b36a2 | 30-30 f373394 | 31-31 f332f87 | 32-32 f302d7b | 33-33 f2d2b70 | 34-34 f2b2966 | 35-35 f28275d | 36-36 f262554 | 37-37 f24234c | 38-38 f232245 | 39-39 f21203e | 40-40 f201f38 | 41-41 f1f1e33 | 42-42 f1e1d2f | 43-43 f1d1d2b | 44-44 f1c1c29 | 45-78 f1c1c28
+2: 2-93 f8b8b98
+3: 2-54 f8b8b98
+5: 6-6 f4b4b62 | 7-7 f4a4a61 | 8-8 f49495f | 9-9 f47475e | 10-10 f46465c | 11-11 f45455b | 12-12 f444459 | 13-13 f434358 | 14-14 f424256 | 15-15 f404055 | 16-16 f3f3f54 | 17-17 f3e3e52 | 18-18 f3d3d51 | 19-19 f3c3c4f | 20-20 f3b3b4e | 21-21 f39394c | 22-22 f38384b | 23-23 f373749 | 24-24 f363648 | 25-25 f353546 | 26-26 f343445 | 27-27 f323244 | 28-28 f313142 | 29-29 f303041 | 30-30 f2f2f3f | 31-31 f2e2e3e | 32-32 f2c2c3c | 33-33 f2b2b3b | 34-34 f2a2a39 | 35-35 f292938 | 36-36 f282837 | 37-37 f272735 | 38-38 f252534 | 39-39 f242432 | 40-40 f232331 | 41-41 f22222f | 42-42 f21212e | 43-43 f20202c | 44-44 f1e1e2b | 45-45 f1d1d29
+8: 13-13 f4b4b62 | 14-14 f4a4a60 | 15-15 f48485e | 16-16 f47475d | 17-17 f45455b | 18-18 f444459 | 19-19 f424257 | 20-20 f414156 | 21-21 f404054 | 22-22 f3e3e52 | 23-23 f3d3d50 | 24-24 f3b3b4f | 25-25 f3a3a4d | 26-26 f38384b | 27-27 f373749 | 28-28 f363648 | 29-29 f343446 | 30-30 f333344 | 31-31 f313142 | 32-32 f303041 | 33-33 f2f2f3f | 34-34 f2d2d3d | 35-35 f2c2c3b | 36-36 f2a2a3a | 37-37 f292938 | 38-38 f272736 | 39-39 f262634 | 40-40 f252533 | 41-41 f232331 | 42-42 f22222f | 43-43 f20202d | 44-44 f1f1f2c | 45-45 f1d1d2a
+9: 2-9 fa78bfa
+10: 2-7 fa78bfa
+12: 11-11 f4b4b62 | 12-12 f4a4a60 | 13-13 f48485f | 14-14 f47475d | 15-15 f46465b | 16-16 f44445a | 17-17 f434358 | 18-18 f424256 | 19-19 f404055 | 20-20 f3f3f53 | 21-21 f3e3e51 | 22-22 f3c3c50 | 23-23 f3b3b4e | 24-24 f3a3a4c | 25-25 f38384b | 26-26 f373749 | 27-27 f363647 | 28-28 f343446 | 29-29 f333344 | 30-30 f313143 | 31-31 f303041 | 32-32 f2f2f3f | 33-33 f2d2d3e | 34-34 f2c2c3c | 35-35 f2b2b3a | 36-36 f292939 | 37-37 f282837 | 38-38 f272735 | 39-39 f252534 | 40-40 f242432 | 41-41 f232330 | 42-42 f21212f | 43-43 f20202d | 44-44 f1f1f2b | 45-45 f1d1d2a
+13: 2-2 fa78bfa
+14: 4-42 f8b8b98
+15: 2-2 fa78bfa
+16: 4-25 f8b8b98
+18: 20-20 f4b4b62 | 21-21 f494960 | 22-22 f47475e | 23-23 f46465b | 24-24 f444459 | 25-25 f424257 | 26-26 f404055 | 27-27 f3e3e52 | 28-28 f3d3d50 | 29-29 f3b3b4e | 30-30 f39394c | 31-31 f373749 | 32-32 f353547 | 33-33 f343445 | 34-34 f323243 | 35-35 f303041 | 36-36 f2e2e3e | 37-37 f2c2c3c | 38-38 f2a2a3a | 39-39 f292938 | 40-40 f272735 | 41-41 f252533 | 42-42 f232331 | 43-43 f21212f | 44-44 f20202c | 45-45 f1e1e2a
+19: 2-7 f6366f1 | 25-78 f8b8b98
+20: 2-10 f6366f1 | 12-16 f6366f1 | 25-84 f8b8b98
+21: 2-7 f6366f1 | 9-21 f6366f1 | 25-46 f8b8b98
+22: 2-8 f6366f1 | 25-83 f8b8b98
+23: 2-10 f6366f1 | 25-44 f8b8b98
+24: 2-4 f6366f1 | 6-11 f6366f1 | 25-40 f8b8b98
+25: 2-4 f6366f1 | 6-14 f6366f1 | 25-42 f8b8b98
+27: 2-12 f8b8b98 | 15-21 f6366f1 | 23-29 f6366f1 | 31-34 f6366f1 | 36-43 f6366f1"
+`;
+
+exports[`screen: 'help domains add' > es 120 plain 1`] = `
+"  bladecp domains add <server> <host>
+ ──────────────────────────────────────────────────────────────────────────────
+  Agrega un dominio a un servidor, junto a su dominio principal. El sitio responde en la nueva
+  dirección cuando el DNS del dominio apunta a BladeCP.
+
+  Uso ────────────────────────────────────────
+  bladecp domains add <server> <host>
+
+  Argumentos ─────────────────────────────────
+  <server>   El servidor: su ID, o sus primeros caracteres (al menos 4).
+  <host>     El dominio, por ejemplo blog.example.com.
+
+  Ejemplos ───────────────────────────────────
+  › bladecp domains check blog.example.com
+    Comprobar un dominio antes de agregarlo
+  › bladecp domains add 0197a1c4 blog.example.com
+    Agregarle otro dominio
+
+  Opciones globales ──────────────────────────
+  --json                 Imprimir JSON para máquinas (sin colores ni preguntas)
+  --api-url <url>        Dirección de la API (predeterminada https://api.bladecp.com)
+  --lang <en|pt-BR|es>   Idioma de los mensajes
+  --debug                Describir cada solicitud en stderr (la clave nunca aparece)
+  --verbose              Lo mismo que --debug
+  -h, --help             Mostrar la ayuda
+  -v, --version          Mostrar la versión
+
+  Ver también  bladecp domains list <server>"
+`;
+
+exports[`screen: 'help domains add' > pt-BR 40 color 1`] = `
+"  bladecp domains add <server> <host>
+ ━━━━━━━━━━━━──────────────────────────
+  Adiciona um domínio a um servidor, ao
+  lado do domínio principal. O site
+  responde no novo endereço quando o
+  DNS do domínio aponta para a BladeCP.
+
+  Uso ──────────────────────────────────
+  bladecp domains add <server> <host>
+
+  Argumentos ──────────────────────────
+  <server>   O servidor: o ID dele, ou
+             os primeiros caracteres
+             (pelo menos 4).
+  <host>     O domínio, por exemplo
+             blog.example.com.
+
+  Exemplos ────────────────────────────
+  › bladecp domains check
+    blog.example.com
+    Conferir um domínio antes de
+    adicioná-lo
+  › bladecp domains add 0197a1c4
+    blog.example.com
+    Adicionar mais um domínio a ele
+
+  Opções globais ──────────────────────
+  --json
+    Imprimir JSON para máquinas (sem
+    cores e sem perguntas)
+  --api-url <url>
+    Endereço da API (padrão
+    https://api.bladecp.com)
+  --lang <en|pt-BR|es>
+    Idioma das mensagens
+  --debug
+    Descrever cada requisição no stderr
+    (a chave nunca aparece)
+  --verbose
+    O mesmo que --debug
+  -h, --help
+    Mostrar a ajuda
+  -v, --version
+    Mostrar a versão
+
+  Veja também  bladecp domains list
+  <server>
+
+--- styles ---
+0: 2-8 B | 10-16 B | 18-20 B | 22-36 fa78bfa
+1: 1-1 f6264f0 | 2-2 f7c74f4 | 3-3 f9b84f8 | 4-4 fbba6fb | 5-5 fddd4fd | 6-6 fd9cefd | 7-7 fb7a1fb | 8-8 f9782f8 | 9-9 f7972f4 | 10-10 f6163f0 | 11-11 f5956eb | 12-12 f524ae7 | 13-13 f4941d0 | 14-14 f3f39b0 | 15-15 f363292 | 16-16 f2f2c79 | 17-17 f2a2863 | 18-18 f262451 | 19-19 f222141 | 20-20 f1f1f35 | 21-21 f1d1d2c | 22-38 f1c1c28
+2: 2-38 f8b8b98
+3: 2-34 f8b8b98
+4: 2-35 f8b8b98
+5: 2-38 f8b8b98
+7: 6-6 f4b4b62 | 7-7 f4a4a60 | 8-8 f48485f | 9-9 f47475d | 10-10 f45455b | 11-11 f444459 | 12-12 f434358 | 13-13 f414156 | 14-14 f404054 | 15-15 f3f3f53 | 16-16 f3d3d51 | 17-17 f3c3c4f | 18-18 f3a3a4e | 19-19 f39394c | 20-20 f38384a | 21-21 f363648 | 22-22 f353547 | 23-23 f343445 | 24-24 f323243 | 25-25 f313142 | 26-26 f2f2f40 | 27-27 f2e2e3e | 28-28 f2d2d3c | 29-29 f2b2b3b | 30-30 f2a2a39 | 31-31 f282837 | 32-32 f272736 | 33-33 f262634 | 34-34 f242432 | 35-35 f232331 | 36-36 f22222f | 37-37 f20202d | 38-38 f1f1f2b | 39-39 f1d1d2a
+10: 13-13 f4b4b62 | 14-14 f494960 | 15-15 f47475e | 16-16 f46465b | 17-17 f444459 | 18-18 f424257 | 19-19 f404055 | 20-20 f3e3e52 | 21-21 f3d3d50 | 22-22 f3b3b4e | 23-23 f39394c | 24-24 f373749 | 25-25 f353547 | 26-26 f343445 | 27-27 f323243 | 28-28 f303041 | 29-29 f2e2e3e | 30-30 f2c2c3c | 31-31 f2a2a3a | 32-32 f292938 | 33-33 f272735 | 34-34 f252533 | 35-35 f232331 | 36-36 f21212f | 37-37 f20202c | 38-38 f1e1e2a
+11: 2-9 fa78bfa
+14: 2-7 fa78bfa
+17: 11-11 f4b4b62 | 12-12 f494960 | 13-13 f48485e | 14-14 f46465c | 15-15 f44445a | 16-16 f434358 | 17-17 f414156 | 18-18 f3f3f54 | 19-19 f3e3e51 | 20-20 f3c3c4f | 21-21 f3a3a4d | 22-22 f39394b | 23-23 f373749 | 24-24 f353547 | 25-25 f343445 | 26-26 f323243 | 27-27 f303041 | 28-28 f2e2e3f | 29-29 f2d2d3d | 30-30 f2b2b3b | 31-31 f292939 | 32-32 f282837 | 33-33 f262634 | 34-34 f242432 | 35-35 f232330 | 36-36 f21212e | 37-37 f1f1f2c | 38-38 f1e1e2a
+18: 2-2 fa78bfa
+20: 4-31 f8b8b98
+21: 4-14 f8b8b98
+22: 2-2 fa78bfa
+24: 4-34 f8b8b98
+26: 17-17 f4b4b62 | 18-18 f49495f | 19-19 f47475d | 20-20 f45455a | 21-21 f424257 | 22-22 f404055 | 23-23 f3e3e52 | 24-24 f3c3c50 | 25-25 f3a3a4d | 26-26 f38384a | 27-27 f363648 | 28-28 f343445 | 29-29 f313142 | 30-30 f2f2f40 | 31-31 f2d2d3d | 32-32 f2b2b3a | 33-33 f292938 | 34-34 f272735 | 35-35 f252533 | 36-36 f222230 | 37-37 f20202d | 38-38 f1e1e2b
+27: 2-7 f6366f1
+28: 4-35 f8b8b98
+29: 4-25 f8b8b98
+30: 2-10 f6366f1 | 12-16 f6366f1
+31: 4-26 f8b8b98
+32: 4-27 f8b8b98
+33: 2-7 f6366f1 | 9-21 f6366f1
+34: 4-23 f8b8b98
+35: 2-8 f6366f1
+36: 4-38 f8b8b98
+37: 4-26 f8b8b98
+38: 2-10 f6366f1
+39: 4-22 f8b8b98
+40: 2-4 f6366f1 | 6-11 f6366f1
+41: 4-18 f8b8b98
+42: 2-4 f6366f1 | 6-14 f6366f1
+43: 4-19 f8b8b98
+45: 2-12 f8b8b98 | 15-21 f6366f1 | 23-29 f6366f1 | 31-34 f6366f1
+46: 2-9 f6366f1"
+`;
+
+exports[`screen: 'help domains add' > pt-BR 40 plain 1`] = `
+"  bladecp domains add <server> <host>
+ ──────────────────────────────────────
+  Adiciona um domínio a um servidor, ao
+  lado do domínio principal. O site
+  responde no novo endereço quando o
+  DNS do domínio aponta para a BladeCP.
+
+  Uso ──────────────────────────────────
+  bladecp domains add <server> <host>
+
+  Argumentos ──────────────────────────
+  <server>   O servidor: o ID dele, ou
+             os primeiros caracteres
+             (pelo menos 4).
+  <host>     O domínio, por exemplo
+             blog.example.com.
+
+  Exemplos ────────────────────────────
+  › bladecp domains check
+    blog.example.com
+    Conferir um domínio antes de
+    adicioná-lo
+  › bladecp domains add 0197a1c4
+    blog.example.com
+    Adicionar mais um domínio a ele
+
+  Opções globais ──────────────────────
+  --json
+    Imprimir JSON para máquinas (sem
+    cores e sem perguntas)
+  --api-url <url>
+    Endereço da API (padrão
+    https://api.bladecp.com)
+  --lang <en|pt-BR|es>
+    Idioma das mensagens
+  --debug
+    Descrever cada requisição no stderr
+    (a chave nunca aparece)
+  --verbose
+    O mesmo que --debug
+  -h, --help
+    Mostrar a ajuda
+  -v, --version
+    Mostrar a versão
+
+  Veja também  bladecp domains list
+  <server>"
+`;
+
+exports[`screen: 'help domains add' > pt-BR 80 color 1`] = `
+"  bladecp domains add <server> <host>
+ ━━━━━━━━━━━━━━━━━━━━━━━━──────────────────────────────────────────────────────
+  Adiciona um domínio a um servidor, ao lado do domínio principal. O site
+  responde no novo endereço quando o DNS do domínio aponta para a BladeCP.
+
+  Uso ────────────────────────────────────────
+  bladecp domains add <server> <host>
+
+  Argumentos ─────────────────────────────────
+  <server>   O servidor: o ID dele, ou os primeiros caracteres (pelo menos 4).
+  <host>     O domínio, por exemplo blog.example.com.
+
+  Exemplos ───────────────────────────────────
+  › bladecp domains check blog.example.com
+    Conferir um domínio antes de adicioná-lo
+  › bladecp domains add 0197a1c4 blog.example.com
+    Adicionar mais um domínio a ele
+
+  Opções globais ─────────────────────────────
+  --json                 Imprimir JSON para máquinas (sem cores e sem
+                         perguntas)
+  --api-url <url>        Endereço da API (padrão https://api.bladecp.com)
+  --lang <en|pt-BR|es>   Idioma das mensagens
+  --debug                Descrever cada requisição no stderr (a chave nunca
+                         aparece)
+  --verbose              O mesmo que --debug
+  -h, --help             Mostrar a ajuda
+  -v, --version          Mostrar a versão
+
+  Veja também  bladecp domains list <server>
+
+--- styles ---
+0: 2-8 B | 10-16 B | 18-20 B | 22-36 fa78bfa
+1: 1-1 f6264f0 | 2-2 f6d6cf2 | 3-3 f7b73f4 | 4-4 f8a7bf6 | 5-5 f9883f8 | 6-6 fa78bfa | 7-7 fb7a1fb | 8-8 fc7b7fc | 9-9 fd8cdfd | 10-10 fe9e3fe | 11-11 fe0d8fd | 12-12 fcfc1fc | 13-13 fbfabfb | 14-14 faf96fa | 15-15 f9f87f9 | 16-16 f917ff7 | 17-17 f8277f5 | 18-18 f746ff3 | 19-19 f6668f1 | 20-20 f6061ef | 21-21 f5c5bed | 22-22 f5855eb | 23-23 f554fe8 | 24-24 f514ae6 | 25-25 f4d45e0 | 26-26 f4841cf | 27-27 f443dc0 | 28-28 f3f39b0 | 29-29 f3b36a2 | 30-30 f373394 | 31-31 f332f87 | 32-32 f302d7b | 33-33 f2d2b70 | 34-34 f2b2966 | 35-35 f28275d | 36-36 f262554 | 37-37 f24234c | 38-38 f232245 | 39-39 f21203e | 40-40 f201f38 | 41-41 f1f1e33 | 42-42 f1e1d2f | 43-43 f1d1d2b | 44-44 f1c1c29 | 45-78 f1c1c28
+2: 2-72 f8b8b98
+3: 2-73 f8b8b98
+5: 6-6 f4b4b62 | 7-7 f4a4a61 | 8-8 f49495f | 9-9 f47475e | 10-10 f46465c | 11-11 f45455b | 12-12 f444459 | 13-13 f434358 | 14-14 f424256 | 15-15 f404055 | 16-16 f3f3f54 | 17-17 f3e3e52 | 18-18 f3d3d51 | 19-19 f3c3c4f | 20-20 f3b3b4e | 21-21 f39394c | 22-22 f38384b | 23-23 f373749 | 24-24 f363648 | 25-25 f353546 | 26-26 f343445 | 27-27 f323244 | 28-28 f313142 | 29-29 f303041 | 30-30 f2f2f3f | 31-31 f2e2e3e | 32-32 f2c2c3c | 33-33 f2b2b3b | 34-34 f2a2a39 | 35-35 f292938 | 36-36 f282837 | 37-37 f272735 | 38-38 f252534 | 39-39 f242432 | 40-40 f232331 | 41-41 f22222f | 42-42 f21212e | 43-43 f20202c | 44-44 f1e1e2b | 45-45 f1d1d29
+8: 13-13 f4b4b62 | 14-14 f4a4a60 | 15-15 f48485e | 16-16 f47475d | 17-17 f45455b | 18-18 f444459 | 19-19 f424257 | 20-20 f414156 | 21-21 f404054 | 22-22 f3e3e52 | 23-23 f3d3d50 | 24-24 f3b3b4f | 25-25 f3a3a4d | 26-26 f38384b | 27-27 f373749 | 28-28 f363648 | 29-29 f343446 | 30-30 f333344 | 31-31 f313142 | 32-32 f303041 | 33-33 f2f2f3f | 34-34 f2d2d3d | 35-35 f2c2c3b | 36-36 f2a2a3a | 37-37 f292938 | 38-38 f272736 | 39-39 f262634 | 40-40 f252533 | 41-41 f232331 | 42-42 f22222f | 43-43 f20202d | 44-44 f1f1f2c | 45-45 f1d1d2a
+9: 2-9 fa78bfa
+10: 2-7 fa78bfa
+12: 11-11 f4b4b62 | 12-12 f4a4a60 | 13-13 f48485f | 14-14 f47475d | 15-15 f46465b | 16-16 f44445a | 17-17 f434358 | 18-18 f424256 | 19-19 f404055 | 20-20 f3f3f53 | 21-21 f3e3e51 | 22-22 f3c3c50 | 23-23 f3b3b4e | 24-24 f3a3a4c | 25-25 f38384b | 26-26 f373749 | 27-27 f363647 | 28-28 f343446 | 29-29 f333344 | 30-30 f313143 | 31-31 f303041 | 32-32 f2f2f3f | 33-33 f2d2d3e | 34-34 f2c2c3c | 35-35 f2b2b3a | 36-36 f292939 | 37-37 f282837 | 38-38 f272735 | 39-39 f252534 | 40-40 f242432 | 41-41 f232330 | 42-42 f21212f | 43-43 f20202d | 44-44 f1f1f2b | 45-45 f1d1d2a
+13: 2-2 fa78bfa
+14: 4-43 f8b8b98
+15: 2-2 fa78bfa
+16: 4-34 f8b8b98
+18: 17-17 f4b4b62 | 18-18 f494960 | 19-19 f48485e | 20-20 f46465c | 21-21 f45455a | 22-22 f434358 | 23-23 f414156 | 24-24 f404054 | 25-25 f3e3e52 | 26-26 f3c3c50 | 27-27 f3b3b4e | 28-28 f39394c | 29-29 f38384a | 30-30 f363648 | 31-31 f343446 | 32-32 f333344 | 33-33 f313142 | 34-34 f2f2f40 | 35-35 f2e2e3e | 36-36 f2c2c3c | 37-37 f2b2b3a | 38-38 f292938 | 39-39 f272736 | 40-40 f262634 | 41-41 f242432 | 42-42 f222230 | 43-43 f21212e | 44-44 f1f1f2c | 45-45 f1e1e2a
+19: 2-7 f6366f1 | 25-68 f8b8b98
+20: 25-34 f8b8b98
+21: 2-10 f6366f1 | 12-16 f6366f1 | 25-72 f8b8b98
+22: 2-7 f6366f1 | 9-21 f6366f1 | 25-44 f8b8b98
+23: 2-8 f6366f1 | 25-74 f8b8b98
+24: 25-32 f8b8b98
+25: 2-10 f6366f1 | 25-43 f8b8b98
+26: 2-4 f6366f1 | 6-11 f6366f1 | 25-39 f8b8b98
+27: 2-4 f6366f1 | 6-14 f6366f1 | 25-40 f8b8b98
+29: 2-12 f8b8b98 | 15-21 f6366f1 | 23-29 f6366f1 | 31-34 f6366f1 | 36-43 f6366f1"
+`;
+
+exports[`screen: 'help domains add' > pt-BR 80 plain 1`] = `
+"  bladecp domains add <server> <host>
+ ──────────────────────────────────────────────────────────────────────────────
+  Adiciona um domínio a um servidor, ao lado do domínio principal. O site
+  responde no novo endereço quando o DNS do domínio aponta para a BladeCP.
+
+  Uso ────────────────────────────────────────
+  bladecp domains add <server> <host>
+
+  Argumentos ─────────────────────────────────
+  <server>   O servidor: o ID dele, ou os primeiros caracteres (pelo menos 4).
+  <host>     O domínio, por exemplo blog.example.com.
+
+  Exemplos ───────────────────────────────────
+  › bladecp domains check blog.example.com
+    Conferir um domínio antes de adicioná-lo
+  › bladecp domains add 0197a1c4 blog.example.com
+    Adicionar mais um domínio a ele
+
+  Opções globais ─────────────────────────────
+  --json                 Imprimir JSON para máquinas (sem cores e sem
+                         perguntas)
+  --api-url <url>        Endereço da API (padrão https://api.bladecp.com)
+  --lang <en|pt-BR|es>   Idioma das mensagens
+  --debug                Descrever cada requisição no stderr (a chave nunca
+                         aparece)
+  --verbose              O mesmo que --debug
+  -h, --help             Mostrar a ajuda
+  -v, --version          Mostrar a versão
+
+  Veja também  bladecp domains list <server>"
+`;
+
+exports[`screen: 'help domains add' > pt-BR 120 color 1`] = `
+"  bladecp domains add <server> <host>
+ ━━━━━━━━━━━━━━━━━━━━━━━━──────────────────────────────────────────────────────
+  Adiciona um domínio a um servidor, ao lado do domínio principal. O site responde no novo endereço
+  quando o DNS do domínio aponta para a BladeCP.
+
+  Uso ────────────────────────────────────────
+  bladecp domains add <server> <host>
+
+  Argumentos ─────────────────────────────────
+  <server>   O servidor: o ID dele, ou os primeiros caracteres (pelo menos 4).
+  <host>     O domínio, por exemplo blog.example.com.
+
+  Exemplos ───────────────────────────────────
+  › bladecp domains check blog.example.com
+    Conferir um domínio antes de adicioná-lo
+  › bladecp domains add 0197a1c4 blog.example.com
+    Adicionar mais um domínio a ele
+
+  Opções globais ─────────────────────────────
+  --json                 Imprimir JSON para máquinas (sem cores e sem perguntas)
+  --api-url <url>        Endereço da API (padrão https://api.bladecp.com)
+  --lang <en|pt-BR|es>   Idioma das mensagens
+  --debug                Descrever cada requisição no stderr (a chave nunca aparece)
+  --verbose              O mesmo que --debug
+  -h, --help             Mostrar a ajuda
+  -v, --version          Mostrar a versão
+
+  Veja também  bladecp domains list <server>
+
+--- styles ---
+0: 2-8 B | 10-16 B | 18-20 B | 22-36 fa78bfa
+1: 1-1 f6264f0 | 2-2 f6d6cf2 | 3-3 f7b73f4 | 4-4 f8a7bf6 | 5-5 f9883f8 | 6-6 fa78bfa | 7-7 fb7a1fb | 8-8 fc7b7fc | 9-9 fd8cdfd | 10-10 fe9e3fe | 11-11 fe0d8fd | 12-12 fcfc1fc | 13-13 fbfabfb | 14-14 faf96fa | 15-15 f9f87f9 | 16-16 f917ff7 | 17-17 f8277f5 | 18-18 f746ff3 | 19-19 f6668f1 | 20-20 f6061ef | 21-21 f5c5bed | 22-22 f5855eb | 23-23 f554fe8 | 24-24 f514ae6 | 25-25 f4d45e0 | 26-26 f4841cf | 27-27 f443dc0 | 28-28 f3f39b0 | 29-29 f3b36a2 | 30-30 f373394 | 31-31 f332f87 | 32-32 f302d7b | 33-33 f2d2b70 | 34-34 f2b2966 | 35-35 f28275d | 36-36 f262554 | 37-37 f24234c | 38-38 f232245 | 39-39 f21203e | 40-40 f201f38 | 41-41 f1f1e33 | 42-42 f1e1d2f | 43-43 f1d1d2b | 44-44 f1c1c29 | 45-78 f1c1c28
+2: 2-98 f8b8b98
+3: 2-47 f8b8b98
+5: 6-6 f4b4b62 | 7-7 f4a4a61 | 8-8 f49495f | 9-9 f47475e | 10-10 f46465c | 11-11 f45455b | 12-12 f444459 | 13-13 f434358 | 14-14 f424256 | 15-15 f404055 | 16-16 f3f3f54 | 17-17 f3e3e52 | 18-18 f3d3d51 | 19-19 f3c3c4f | 20-20 f3b3b4e | 21-21 f39394c | 22-22 f38384b | 23-23 f373749 | 24-24 f363648 | 25-25 f353546 | 26-26 f343445 | 27-27 f323244 | 28-28 f313142 | 29-29 f303041 | 30-30 f2f2f3f | 31-31 f2e2e3e | 32-32 f2c2c3c | 33-33 f2b2b3b | 34-34 f2a2a39 | 35-35 f292938 | 36-36 f282837 | 37-37 f272735 | 38-38 f252534 | 39-39 f242432 | 40-40 f232331 | 41-41 f22222f | 42-42 f21212e | 43-43 f20202c | 44-44 f1e1e2b | 45-45 f1d1d29
+8: 13-13 f4b4b62 | 14-14 f4a4a60 | 15-15 f48485e | 16-16 f47475d | 17-17 f45455b | 18-18 f444459 | 19-19 f424257 | 20-20 f414156 | 21-21 f404054 | 22-22 f3e3e52 | 23-23 f3d3d50 | 24-24 f3b3b4f | 25-25 f3a3a4d | 26-26 f38384b | 27-27 f373749 | 28-28 f363648 | 29-29 f343446 | 30-30 f333344 | 31-31 f313142 | 32-32 f303041 | 33-33 f2f2f3f | 34-34 f2d2d3d | 35-35 f2c2c3b | 36-36 f2a2a3a | 37-37 f292938 | 38-38 f272736 | 39-39 f262634 | 40-40 f252533 | 41-41 f232331 | 42-42 f22222f | 43-43 f20202d | 44-44 f1f1f2c | 45-45 f1d1d2a
+9: 2-9 fa78bfa
+10: 2-7 fa78bfa
+12: 11-11 f4b4b62 | 12-12 f4a4a60 | 13-13 f48485f | 14-14 f47475d | 15-15 f46465b | 16-16 f44445a | 17-17 f434358 | 18-18 f424256 | 19-19 f404055 | 20-20 f3f3f53 | 21-21 f3e3e51 | 22-22 f3c3c50 | 23-23 f3b3b4e | 24-24 f3a3a4c | 25-25 f38384b | 26-26 f373749 | 27-27 f363647 | 28-28 f343446 | 29-29 f333344 | 30-30 f313143 | 31-31 f303041 | 32-32 f2f2f3f | 33-33 f2d2d3e | 34-34 f2c2c3c | 35-35 f2b2b3a | 36-36 f292939 | 37-37 f282837 | 38-38 f272735 | 39-39 f252534 | 40-40 f242432 | 41-41 f232330 | 42-42 f21212f | 43-43 f20202d | 44-44 f1f1f2b | 45-45 f1d1d2a
+13: 2-2 fa78bfa
+14: 4-43 f8b8b98
+15: 2-2 fa78bfa
+16: 4-34 f8b8b98
+18: 17-17 f4b4b62 | 18-18 f494960 | 19-19 f48485e | 20-20 f46465c | 21-21 f45455a | 22-22 f434358 | 23-23 f414156 | 24-24 f404054 | 25-25 f3e3e52 | 26-26 f3c3c50 | 27-27 f3b3b4e | 28-28 f39394c | 29-29 f38384a | 30-30 f363648 | 31-31 f343446 | 32-32 f333344 | 33-33 f313142 | 34-34 f2f2f40 | 35-35 f2e2e3e | 36-36 f2c2c3c | 37-37 f2b2b3a | 38-38 f292938 | 39-39 f272736 | 40-40 f262634 | 41-41 f242432 | 42-42 f222230 | 43-43 f21212e | 44-44 f1f1f2c | 45-45 f1e1e2a
+19: 2-7 f6366f1 | 25-79 f8b8b98
+20: 2-10 f6366f1 | 12-16 f6366f1 | 25-72 f8b8b98
+21: 2-7 f6366f1 | 9-21 f6366f1 | 25-44 f8b8b98
+22: 2-8 f6366f1 | 25-83 f8b8b98
+23: 2-10 f6366f1 | 25-43 f8b8b98
+24: 2-4 f6366f1 | 6-11 f6366f1 | 25-39 f8b8b98
+25: 2-4 f6366f1 | 6-14 f6366f1 | 25-40 f8b8b98
+27: 2-12 f8b8b98 | 15-21 f6366f1 | 23-29 f6366f1 | 31-34 f6366f1 | 36-43 f6366f1"
+`;
+
+exports[`screen: 'help domains add' > pt-BR 120 plain 1`] = `
+"  bladecp domains add <server> <host>
+ ──────────────────────────────────────────────────────────────────────────────
+  Adiciona um domínio a um servidor, ao lado do domínio principal. O site responde no novo endereço
+  quando o DNS do domínio aponta para a BladeCP.
+
+  Uso ────────────────────────────────────────
+  bladecp domains add <server> <host>
+
+  Argumentos ─────────────────────────────────
+  <server>   O servidor: o ID dele, ou os primeiros caracteres (pelo menos 4).
+  <host>     O domínio, por exemplo blog.example.com.
+
+  Exemplos ───────────────────────────────────
+  › bladecp domains check blog.example.com
+    Conferir um domínio antes de adicioná-lo
+  › bladecp domains add 0197a1c4 blog.example.com
+    Adicionar mais um domínio a ele
+
+  Opções globais ─────────────────────────────
+  --json                 Imprimir JSON para máquinas (sem cores e sem perguntas)
+  --api-url <url>        Endereço da API (padrão https://api.bladecp.com)
+  --lang <en|pt-BR|es>   Idioma das mensagens
+  --debug                Descrever cada requisição no stderr (a chave nunca aparece)
+  --verbose              O mesmo que --debug
+  -h, --help             Mostrar a ajuda
+  -v, --version          Mostrar a versão
+
+  Veja também  bladecp domains list <server>"
+`;
+
+exports[`screen: 'help domains' > en 40 color 1`] = `
+"  bladecp domains
+ ━━━━━━━━━━━━──────────────────────────
+  See, add and remove the domains of a
+  server
+
+  Usage: bladecp domains <command>
+  [options]
+
+  Commands ────────────────────────────
+  list <server>
+    List the domains of a server
+  add <server> <host>
+    Add a domain to a server
+  remove <server> <host>
+    Remove a domain from a server
+  check <host>
+    Check whether a domain can be used
+    on BladeCP
+
+  Details of a command: bladecp domains
+  <command> --help
+
+--- styles ---
+0: 2-8 B | 10-16 B
+1: 1-1 f6264f0 | 2-2 f7c74f4 | 3-3 f9b84f8 | 4-4 fbba6fb | 5-5 fddd4fd | 6-6 fd9cefd | 7-7 fb7a1fb | 8-8 f9782f8 | 9-9 f7972f4 | 10-10 f6163f0 | 11-11 f5956eb | 12-12 f524ae7 | 13-13 f4941d0 | 14-14 f3f39b0 | 15-15 f363292 | 16-16 f2f2c79 | 17-17 f2a2863 | 18-18 f262451 | 19-19 f222141 | 20-20 f1f1f35 | 21-21 f1d1d2c | 22-38 f1c1c28
+2: 2-37 f8b8b98
+3: 2-7 f8b8b98
+5: 2-7 f8b8b98 | 25-33 f6366f1
+6: 2-10 f8b8b98
+8: 11-11 f4b4b62 | 12-12 f494960 | 13-13 f48485e | 14-14 f46465c | 15-15 f44445a | 16-16 f434358 | 17-17 f414156 | 18-18 f3f3f54 | 19-19 f3e3e51 | 20-20 f3c3c4f | 21-21 f3a3a4d | 22-22 f39394b | 23-23 f373749 | 24-24 f353547 | 25-25 f343445 | 26-26 f323243 | 27-27 f303041 | 28-28 f2e2e3f | 29-29 f2d2d3d | 30-30 f2b2b3b | 31-31 f292939 | 32-32 f282837 | 33-33 f262634 | 34-34 f242432 | 35-35 f232330 | 36-36 f21212e | 37-37 f1f1f2c | 38-38 f1e1e2a
+9: 2-5 f6366f1 | 7-14 fa78bfa
+11: 2-4 f6366f1 | 6-20 fa78bfa
+13: 2-7 f6366f1 | 9-23 fa78bfa
+15: 2-6 f6366f1 | 8-13 fa78bfa
+19: 2-38 f8b8b98
+20: 2-17 f8b8b98"
+`;
+
+exports[`screen: 'help domains' > en 40 plain 1`] = `
+"  bladecp domains
+ ──────────────────────────────────────
+  See, add and remove the domains of a
+  server
+
+  Usage: bladecp domains <command>
+  [options]
+
+  Commands ────────────────────────────
+  list <server>
+    List the domains of a server
+  add <server> <host>
+    Add a domain to a server
+  remove <server> <host>
+    Remove a domain from a server
+  check <host>
+    Check whether a domain can be used
+    on BladeCP
+
+  Details of a command: bladecp domains
+  <command> --help"
+`;
+
+exports[`screen: 'help domains' > en 80 color 1`] = `
+"  bladecp domains
+ ━━━━━━━━━━━━━━━━━━━━━━━━──────────────────────────────────────────────────────
+  See, add and remove the domains of a server
+
+  Usage: bladecp domains <command> [options]
+
+  Commands ───────────────────────────────────
+  list <server>            List the domains of a server
+  add <server> <host>      Add a domain to a server
+  remove <server> <host>   Remove a domain from a server
+  check <host>             Check whether a domain can be used on BladeCP
+
+  Details of a command: bladecp domains <command> --help
+
+--- styles ---
+0: 2-8 B | 10-16 B
+1: 1-1 f6264f0 | 2-2 f6d6cf2 | 3-3 f7b73f4 | 4-4 f8a7bf6 | 5-5 f9883f8 | 6-6 fa78bfa | 7-7 fb7a1fb | 8-8 fc7b7fc | 9-9 fd8cdfd | 10-10 fe9e3fe | 11-11 fe0d8fd | 12-12 fcfc1fc | 13-13 fbfabfb | 14-14 faf96fa | 15-15 f9f87f9 | 16-16 f917ff7 | 17-17 f8277f5 | 18-18 f746ff3 | 19-19 f6668f1 | 20-20 f6061ef | 21-21 f5c5bed | 22-22 f5855eb | 23-23 f554fe8 | 24-24 f514ae6 | 25-25 f4d45e0 | 26-26 f4841cf | 27-27 f443dc0 | 28-28 f3f39b0 | 29-29 f3b36a2 | 30-30 f373394 | 31-31 f332f87 | 32-32 f302d7b | 33-33 f2d2b70 | 34-34 f2b2966 | 35-35 f28275d | 36-36 f262554 | 37-37 f24234c | 38-38 f232245 | 39-39 f21203e | 40-40 f201f38 | 41-41 f1f1e33 | 42-42 f1e1d2f | 43-43 f1d1d2b | 44-44 f1c1c29 | 45-78 f1c1c28
+2: 2-44 f8b8b98
+4: 2-7 f8b8b98 | 25-33 f6366f1 | 35-43 f8b8b98
+6: 11-11 f4b4b62 | 12-12 f4a4a60 | 13-13 f48485f | 14-14 f47475d | 15-15 f46465b | 16-16 f44445a | 17-17 f434358 | 18-18 f424256 | 19-19 f404055 | 20-20 f3f3f53 | 21-21 f3e3e51 | 22-22 f3c3c50 | 23-23 f3b3b4e | 24-24 f3a3a4c | 25-25 f38384b | 26-26 f373749 | 27-27 f363647 | 28-28 f343446 | 29-29 f333344 | 30-30 f313143 | 31-31 f303041 | 32-32 f2f2f3f | 33-33 f2d2d3e | 34-34 f2c2c3c | 35-35 f2b2b3a | 36-36 f292939 | 37-37 f282837 | 38-38 f272735 | 39-39 f252534 | 40-40 f242432 | 41-41 f232330 | 42-42 f21212f | 43-43 f20202d | 44-44 f1f1f2b | 45-45 f1d1d2a
+7: 2-5 f6366f1 | 7-14 fa78bfa
+8: 2-4 f6366f1 | 6-20 fa78bfa
+9: 2-7 f6366f1 | 9-23 fa78bfa
+10: 2-6 f6366f1 | 8-13 fa78bfa
+12: 2-55 f8b8b98"
+`;
+
+exports[`screen: 'help domains' > en 80 plain 1`] = `
+"  bladecp domains
+ ──────────────────────────────────────────────────────────────────────────────
+  See, add and remove the domains of a server
+
+  Usage: bladecp domains <command> [options]
+
+  Commands ───────────────────────────────────
+  list <server>            List the domains of a server
+  add <server> <host>      Add a domain to a server
+  remove <server> <host>   Remove a domain from a server
+  check <host>             Check whether a domain can be used on BladeCP
+
+  Details of a command: bladecp domains <command> --help"
+`;
+
+exports[`screen: 'help domains' > en 120 color 1`] = `
+"  bladecp domains
+ ━━━━━━━━━━━━━━━━━━━━━━━━──────────────────────────────────────────────────────
+  See, add and remove the domains of a server
+
+  Usage: bladecp domains <command> [options]
+
+  Commands ───────────────────────────────────
+  list <server>            List the domains of a server
+  add <server> <host>      Add a domain to a server
+  remove <server> <host>   Remove a domain from a server
+  check <host>             Check whether a domain can be used on BladeCP
+
+  Details of a command: bladecp domains <command> --help
+
+--- styles ---
+0: 2-8 B | 10-16 B
+1: 1-1 f6264f0 | 2-2 f6d6cf2 | 3-3 f7b73f4 | 4-4 f8a7bf6 | 5-5 f9883f8 | 6-6 fa78bfa | 7-7 fb7a1fb | 8-8 fc7b7fc | 9-9 fd8cdfd | 10-10 fe9e3fe | 11-11 fe0d8fd | 12-12 fcfc1fc | 13-13 fbfabfb | 14-14 faf96fa | 15-15 f9f87f9 | 16-16 f917ff7 | 17-17 f8277f5 | 18-18 f746ff3 | 19-19 f6668f1 | 20-20 f6061ef | 21-21 f5c5bed | 22-22 f5855eb | 23-23 f554fe8 | 24-24 f514ae6 | 25-25 f4d45e0 | 26-26 f4841cf | 27-27 f443dc0 | 28-28 f3f39b0 | 29-29 f3b36a2 | 30-30 f373394 | 31-31 f332f87 | 32-32 f302d7b | 33-33 f2d2b70 | 34-34 f2b2966 | 35-35 f28275d | 36-36 f262554 | 37-37 f24234c | 38-38 f232245 | 39-39 f21203e | 40-40 f201f38 | 41-41 f1f1e33 | 42-42 f1e1d2f | 43-43 f1d1d2b | 44-44 f1c1c29 | 45-78 f1c1c28
+2: 2-44 f8b8b98
+4: 2-7 f8b8b98 | 25-33 f6366f1 | 35-43 f8b8b98
+6: 11-11 f4b4b62 | 12-12 f4a4a60 | 13-13 f48485f | 14-14 f47475d | 15-15 f46465b | 16-16 f44445a | 17-17 f434358 | 18-18 f424256 | 19-19 f404055 | 20-20 f3f3f53 | 21-21 f3e3e51 | 22-22 f3c3c50 | 23-23 f3b3b4e | 24-24 f3a3a4c | 25-25 f38384b | 26-26 f373749 | 27-27 f363647 | 28-28 f343446 | 29-29 f333344 | 30-30 f313143 | 31-31 f303041 | 32-32 f2f2f3f | 33-33 f2d2d3e | 34-34 f2c2c3c | 35-35 f2b2b3a | 36-36 f292939 | 37-37 f282837 | 38-38 f272735 | 39-39 f252534 | 40-40 f242432 | 41-41 f232330 | 42-42 f21212f | 43-43 f20202d | 44-44 f1f1f2b | 45-45 f1d1d2a
+7: 2-5 f6366f1 | 7-14 fa78bfa
+8: 2-4 f6366f1 | 6-20 fa78bfa
+9: 2-7 f6366f1 | 9-23 fa78bfa
+10: 2-6 f6366f1 | 8-13 fa78bfa
+12: 2-55 f8b8b98"
+`;
+
+exports[`screen: 'help domains' > en 120 plain 1`] = `
+"  bladecp domains
+ ──────────────────────────────────────────────────────────────────────────────
+  See, add and remove the domains of a server
+
+  Usage: bladecp domains <command> [options]
+
+  Commands ───────────────────────────────────
+  list <server>            List the domains of a server
+  add <server> <host>      Add a domain to a server
+  remove <server> <host>   Remove a domain from a server
+  check <host>             Check whether a domain can be used on BladeCP
+
+  Details of a command: bladecp domains <command> --help"
+`;
+
+exports[`screen: 'help domains' > es 40 color 1`] = `
+"  bladecp domains
+ ━━━━━━━━━━━━──────────────────────────
+  Ver, agregar y quitar los dominios de
+  un servidor
+
+  Uso: bladecp domains <comando>
+  [opciones]
+
+  Comandos ────────────────────────────
+  list <server>
+    Listar los dominios de un servidor
+  add <server> <host>
+    Agregar un dominio a un servidor
+  remove <server> <host>
+    Quitar un dominio de un servidor
+  check <host>
+    Comprobar si un dominio se puede
+    usar en BladeCP
+
+  Detalles de un comando: bladecp
+  domains <comando> --help
+
+--- styles ---
+0: 2-8 B | 10-16 B
+1: 1-1 f6264f0 | 2-2 f7c74f4 | 3-3 f9b84f8 | 4-4 fbba6fb | 5-5 fddd4fd | 6-6 fd9cefd | 7-7 fb7a1fb | 8-8 f9782f8 | 9-9 f7972f4 | 10-10 f6163f0 | 11-11 f5956eb | 12-12 f524ae7 | 13-13 f4941d0 | 14-14 f3f39b0 | 15-15 f363292 | 16-16 f2f2c79 | 17-17 f2a2863 | 18-18 f262451 | 19-19 f222141 | 20-20 f1f1f35 | 21-21 f1d1d2c | 22-38 f1c1c28
+2: 2-38 f8b8b98
+3: 2-12 f8b8b98
+5: 2-5 f8b8b98 | 23-31 f6366f1
+6: 2-11 f8b8b98
+8: 11-11 f4b4b62 | 12-12 f494960 | 13-13 f48485e | 14-14 f46465c | 15-15 f44445a | 16-16 f434358 | 17-17 f414156 | 18-18 f3f3f54 | 19-19 f3e3e51 | 20-20 f3c3c4f | 21-21 f3a3a4d | 22-22 f39394b | 23-23 f373749 | 24-24 f353547 | 25-25 f343445 | 26-26 f323243 | 27-27 f303041 | 28-28 f2e2e3f | 29-29 f2d2d3d | 30-30 f2b2b3b | 31-31 f292939 | 32-32 f282837 | 33-33 f262634 | 34-34 f242432 | 35-35 f232330 | 36-36 f21212e | 37-37 f1f1f2c | 38-38 f1e1e2a
+9: 2-5 f6366f1 | 7-14 fa78bfa
+11: 2-4 f6366f1 | 6-20 fa78bfa
+13: 2-7 f6366f1 | 9-23 fa78bfa
+15: 2-6 f6366f1 | 8-13 fa78bfa
+19: 2-32 f8b8b98
+20: 2-25 f8b8b98"
+`;
+
+exports[`screen: 'help domains' > es 40 plain 1`] = `
+"  bladecp domains
+ ──────────────────────────────────────
+  Ver, agregar y quitar los dominios de
+  un servidor
+
+  Uso: bladecp domains <comando>
+  [opciones]
+
+  Comandos ────────────────────────────
+  list <server>
+    Listar los dominios de un servidor
+  add <server> <host>
+    Agregar un dominio a un servidor
+  remove <server> <host>
+    Quitar un dominio de un servidor
+  check <host>
+    Comprobar si un dominio se puede
+    usar en BladeCP
+
+  Detalles de un comando: bladecp
+  domains <comando> --help"
+`;
+
+exports[`screen: 'help domains' > es 80 color 1`] = `
+"  bladecp domains
+ ━━━━━━━━━━━━━━━━━━━━━━━━──────────────────────────────────────────────────────
+  Ver, agregar y quitar los dominios de un servidor
+
+  Uso: bladecp domains <comando> [opciones]
+
+  Comandos ───────────────────────────────────
+  list <server>            Listar los dominios de un servidor
+  add <server> <host>      Agregar un dominio a un servidor
+  remove <server> <host>   Quitar un dominio de un servidor
+  check <host>             Comprobar si un dominio se puede usar en BladeCP
+
+  Detalles de un comando: bladecp domains <comando> --help
+
+--- styles ---
+0: 2-8 B | 10-16 B
+1: 1-1 f6264f0 | 2-2 f6d6cf2 | 3-3 f7b73f4 | 4-4 f8a7bf6 | 5-5 f9883f8 | 6-6 fa78bfa | 7-7 fb7a1fb | 8-8 fc7b7fc | 9-9 fd8cdfd | 10-10 fe9e3fe | 11-11 fe0d8fd | 12-12 fcfc1fc | 13-13 fbfabfb | 14-14 faf96fa | 15-15 f9f87f9 | 16-16 f917ff7 | 17-17 f8277f5 | 18-18 f746ff3 | 19-19 f6668f1 | 20-20 f6061ef | 21-21 f5c5bed | 22-22 f5855eb | 23-23 f554fe8 | 24-24 f514ae6 | 25-25 f4d45e0 | 26-26 f4841cf | 27-27 f443dc0 | 28-28 f3f39b0 | 29-29 f3b36a2 | 30-30 f373394 | 31-31 f332f87 | 32-32 f302d7b | 33-33 f2d2b70 | 34-34 f2b2966 | 35-35 f28275d | 36-36 f262554 | 37-37 f24234c | 38-38 f232245 | 39-39 f21203e | 40-40 f201f38 | 41-41 f1f1e33 | 42-42 f1e1d2f | 43-43 f1d1d2b | 44-44 f1c1c29 | 45-78 f1c1c28
+2: 2-50 f8b8b98
+4: 2-5 f8b8b98 | 23-31 f6366f1 | 33-42 f8b8b98
+6: 11-11 f4b4b62 | 12-12 f4a4a60 | 13-13 f48485f | 14-14 f47475d | 15-15 f46465b | 16-16 f44445a | 17-17 f434358 | 18-18 f424256 | 19-19 f404055 | 20-20 f3f3f53 | 21-21 f3e3e51 | 22-22 f3c3c50 | 23-23 f3b3b4e | 24-24 f3a3a4c | 25-25 f38384b | 26-26 f373749 | 27-27 f363647 | 28-28 f343446 | 29-29 f333344 | 30-30 f313143 | 31-31 f303041 | 32-32 f2f2f3f | 33-33 f2d2d3e | 34-34 f2c2c3c | 35-35 f2b2b3a | 36-36 f292939 | 37-37 f282837 | 38-38 f272735 | 39-39 f252534 | 40-40 f242432 | 41-41 f232330 | 42-42 f21212f | 43-43 f20202d | 44-44 f1f1f2b | 45-45 f1d1d2a
+7: 2-5 f6366f1 | 7-14 fa78bfa
+8: 2-4 f6366f1 | 6-20 fa78bfa
+9: 2-7 f6366f1 | 9-23 fa78bfa
+10: 2-6 f6366f1 | 8-13 fa78bfa
+12: 2-57 f8b8b98"
+`;
+
+exports[`screen: 'help domains' > es 80 plain 1`] = `
+"  bladecp domains
+ ──────────────────────────────────────────────────────────────────────────────
+  Ver, agregar y quitar los dominios de un servidor
+
+  Uso: bladecp domains <comando> [opciones]
+
+  Comandos ───────────────────────────────────
+  list <server>            Listar los dominios de un servidor
+  add <server> <host>      Agregar un dominio a un servidor
+  remove <server> <host>   Quitar un dominio de un servidor
+  check <host>             Comprobar si un dominio se puede usar en BladeCP
+
+  Detalles de un comando: bladecp domains <comando> --help"
+`;
+
+exports[`screen: 'help domains' > es 120 color 1`] = `
+"  bladecp domains
+ ━━━━━━━━━━━━━━━━━━━━━━━━──────────────────────────────────────────────────────
+  Ver, agregar y quitar los dominios de un servidor
+
+  Uso: bladecp domains <comando> [opciones]
+
+  Comandos ───────────────────────────────────
+  list <server>            Listar los dominios de un servidor
+  add <server> <host>      Agregar un dominio a un servidor
+  remove <server> <host>   Quitar un dominio de un servidor
+  check <host>             Comprobar si un dominio se puede usar en BladeCP
+
+  Detalles de un comando: bladecp domains <comando> --help
+
+--- styles ---
+0: 2-8 B | 10-16 B
+1: 1-1 f6264f0 | 2-2 f6d6cf2 | 3-3 f7b73f4 | 4-4 f8a7bf6 | 5-5 f9883f8 | 6-6 fa78bfa | 7-7 fb7a1fb | 8-8 fc7b7fc | 9-9 fd8cdfd | 10-10 fe9e3fe | 11-11 fe0d8fd | 12-12 fcfc1fc | 13-13 fbfabfb | 14-14 faf96fa | 15-15 f9f87f9 | 16-16 f917ff7 | 17-17 f8277f5 | 18-18 f746ff3 | 19-19 f6668f1 | 20-20 f6061ef | 21-21 f5c5bed | 22-22 f5855eb | 23-23 f554fe8 | 24-24 f514ae6 | 25-25 f4d45e0 | 26-26 f4841cf | 27-27 f443dc0 | 28-28 f3f39b0 | 29-29 f3b36a2 | 30-30 f373394 | 31-31 f332f87 | 32-32 f302d7b | 33-33 f2d2b70 | 34-34 f2b2966 | 35-35 f28275d | 36-36 f262554 | 37-37 f24234c | 38-38 f232245 | 39-39 f21203e | 40-40 f201f38 | 41-41 f1f1e33 | 42-42 f1e1d2f | 43-43 f1d1d2b | 44-44 f1c1c29 | 45-78 f1c1c28
+2: 2-50 f8b8b98
+4: 2-5 f8b8b98 | 23-31 f6366f1 | 33-42 f8b8b98
+6: 11-11 f4b4b62 | 12-12 f4a4a60 | 13-13 f48485f | 14-14 f47475d | 15-15 f46465b | 16-16 f44445a | 17-17 f434358 | 18-18 f424256 | 19-19 f404055 | 20-20 f3f3f53 | 21-21 f3e3e51 | 22-22 f3c3c50 | 23-23 f3b3b4e | 24-24 f3a3a4c | 25-25 f38384b | 26-26 f373749 | 27-27 f363647 | 28-28 f343446 | 29-29 f333344 | 30-30 f313143 | 31-31 f303041 | 32-32 f2f2f3f | 33-33 f2d2d3e | 34-34 f2c2c3c | 35-35 f2b2b3a | 36-36 f292939 | 37-37 f282837 | 38-38 f272735 | 39-39 f252534 | 40-40 f242432 | 41-41 f232330 | 42-42 f21212f | 43-43 f20202d | 44-44 f1f1f2b | 45-45 f1d1d2a
+7: 2-5 f6366f1 | 7-14 fa78bfa
+8: 2-4 f6366f1 | 6-20 fa78bfa
+9: 2-7 f6366f1 | 9-23 fa78bfa
+10: 2-6 f6366f1 | 8-13 fa78bfa
+12: 2-57 f8b8b98"
+`;
+
+exports[`screen: 'help domains' > es 120 plain 1`] = `
+"  bladecp domains
+ ──────────────────────────────────────────────────────────────────────────────
+  Ver, agregar y quitar los dominios de un servidor
+
+  Uso: bladecp domains <comando> [opciones]
+
+  Comandos ───────────────────────────────────
+  list <server>            Listar los dominios de un servidor
+  add <server> <host>      Agregar un dominio a un servidor
+  remove <server> <host>   Quitar un dominio de un servidor
+  check <host>             Comprobar si un dominio se puede usar en BladeCP
+
+  Detalles de un comando: bladecp domains <comando> --help"
+`;
+
+exports[`screen: 'help domains' > pt-BR 40 color 1`] = `
+"  bladecp domains
+ ━━━━━━━━━━━━──────────────────────────
+  Ver, adicionar e remover os domínios
+  de um servidor
+
+  Uso: bladecp domains <comando>
+  [opções]
+
+  Comandos ────────────────────────────
+  list <server>
+    Listar os domínios de um servidor
+  add <server> <host>
+    Adicionar um domínio a um servidor
+  remove <server> <host>
+    Remover um domínio de um servidor
+  check <host>
+    Ver se um domínio pode ser usado na
+    BladeCP
+
+  Detalhes de um comando: bladecp
+  domains <comando> --help
+
+--- styles ---
+0: 2-8 B | 10-16 B
+1: 1-1 f6264f0 | 2-2 f7c74f4 | 3-3 f9b84f8 | 4-4 fbba6fb | 5-5 fddd4fd | 6-6 fd9cefd | 7-7 fb7a1fb | 8-8 f9782f8 | 9-9 f7972f4 | 10-10 f6163f0 | 11-11 f5956eb | 12-12 f524ae7 | 13-13 f4941d0 | 14-14 f3f39b0 | 15-15 f363292 | 16-16 f2f2c79 | 17-17 f2a2863 | 18-18 f262451 | 19-19 f222141 | 20-20 f1f1f35 | 21-21 f1d1d2c | 22-38 f1c1c28
+2: 2-37 f8b8b98
+3: 2-15 f8b8b98
+5: 2-5 f8b8b98 | 23-31 f6366f1
+6: 2-9 f8b8b98
+8: 11-11 f4b4b62 | 12-12 f494960 | 13-13 f48485e | 14-14 f46465c | 15-15 f44445a | 16-16 f434358 | 17-17 f414156 | 18-18 f3f3f54 | 19-19 f3e3e51 | 20-20 f3c3c4f | 21-21 f3a3a4d | 22-22 f39394b | 23-23 f373749 | 24-24 f353547 | 25-25 f343445 | 26-26 f323243 | 27-27 f303041 | 28-28 f2e2e3f | 29-29 f2d2d3d | 30-30 f2b2b3b | 31-31 f292939 | 32-32 f282837 | 33-33 f262634 | 34-34 f242432 | 35-35 f232330 | 36-36 f21212e | 37-37 f1f1f2c | 38-38 f1e1e2a
+9: 2-5 f6366f1 | 7-14 fa78bfa
+11: 2-4 f6366f1 | 6-20 fa78bfa
+13: 2-7 f6366f1 | 9-23 fa78bfa
+15: 2-6 f6366f1 | 8-13 fa78bfa
+19: 2-32 f8b8b98
+20: 2-25 f8b8b98"
+`;
+
+exports[`screen: 'help domains' > pt-BR 40 plain 1`] = `
+"  bladecp domains
+ ──────────────────────────────────────
+  Ver, adicionar e remover os domínios
+  de um servidor
+
+  Uso: bladecp domains <comando>
+  [opções]
+
+  Comandos ────────────────────────────
+  list <server>
+    Listar os domínios de um servidor
+  add <server> <host>
+    Adicionar um domínio a um servidor
+  remove <server> <host>
+    Remover um domínio de um servidor
+  check <host>
+    Ver se um domínio pode ser usado na
+    BladeCP
+
+  Detalhes de um comando: bladecp
+  domains <comando> --help"
+`;
+
+exports[`screen: 'help domains' > pt-BR 80 color 1`] = `
+"  bladecp domains
+ ━━━━━━━━━━━━━━━━━━━━━━━━──────────────────────────────────────────────────────
+  Ver, adicionar e remover os domínios de um servidor
+
+  Uso: bladecp domains <comando> [opções]
+
+  Comandos ───────────────────────────────────
+  list <server>            Listar os domínios de um servidor
+  add <server> <host>      Adicionar um domínio a um servidor
+  remove <server> <host>   Remover um domínio de um servidor
+  check <host>             Ver se um domínio pode ser usado na BladeCP
+
+  Detalhes de um comando: bladecp domains <comando> --help
+
+--- styles ---
+0: 2-8 B | 10-16 B
+1: 1-1 f6264f0 | 2-2 f6d6cf2 | 3-3 f7b73f4 | 4-4 f8a7bf6 | 5-5 f9883f8 | 6-6 fa78bfa | 7-7 fb7a1fb | 8-8 fc7b7fc | 9-9 fd8cdfd | 10-10 fe9e3fe | 11-11 fe0d8fd | 12-12 fcfc1fc | 13-13 fbfabfb | 14-14 faf96fa | 15-15 f9f87f9 | 16-16 f917ff7 | 17-17 f8277f5 | 18-18 f746ff3 | 19-19 f6668f1 | 20-20 f6061ef | 21-21 f5c5bed | 22-22 f5855eb | 23-23 f554fe8 | 24-24 f514ae6 | 25-25 f4d45e0 | 26-26 f4841cf | 27-27 f443dc0 | 28-28 f3f39b0 | 29-29 f3b36a2 | 30-30 f373394 | 31-31 f332f87 | 32-32 f302d7b | 33-33 f2d2b70 | 34-34 f2b2966 | 35-35 f28275d | 36-36 f262554 | 37-37 f24234c | 38-38 f232245 | 39-39 f21203e | 40-40 f201f38 | 41-41 f1f1e33 | 42-42 f1e1d2f | 43-43 f1d1d2b | 44-44 f1c1c29 | 45-78 f1c1c28
+2: 2-52 f8b8b98
+4: 2-5 f8b8b98 | 23-31 f6366f1 | 33-40 f8b8b98
+6: 11-11 f4b4b62 | 12-12 f4a4a60 | 13-13 f48485f | 14-14 f47475d | 15-15 f46465b | 16-16 f44445a | 17-17 f434358 | 18-18 f424256 | 19-19 f404055 | 20-20 f3f3f53 | 21-21 f3e3e51 | 22-22 f3c3c50 | 23-23 f3b3b4e | 24-24 f3a3a4c | 25-25 f38384b | 26-26 f373749 | 27-27 f363647 | 28-28 f343446 | 29-29 f333344 | 30-30 f313143 | 31-31 f303041 | 32-32 f2f2f3f | 33-33 f2d2d3e | 34-34 f2c2c3c | 35-35 f2b2b3a | 36-36 f292939 | 37-37 f282837 | 38-38 f272735 | 39-39 f252534 | 40-40 f242432 | 41-41 f232330 | 42-42 f21212f | 43-43 f20202d | 44-44 f1f1f2b | 45-45 f1d1d2a
+7: 2-5 f6366f1 | 7-14 fa78bfa
+8: 2-4 f6366f1 | 6-20 fa78bfa
+9: 2-7 f6366f1 | 9-23 fa78bfa
+10: 2-6 f6366f1 | 8-13 fa78bfa
+12: 2-57 f8b8b98"
+`;
+
+exports[`screen: 'help domains' > pt-BR 80 plain 1`] = `
+"  bladecp domains
+ ──────────────────────────────────────────────────────────────────────────────
+  Ver, adicionar e remover os domínios de um servidor
+
+  Uso: bladecp domains <comando> [opções]
+
+  Comandos ───────────────────────────────────
+  list <server>            Listar os domínios de um servidor
+  add <server> <host>      Adicionar um domínio a um servidor
+  remove <server> <host>   Remover um domínio de um servidor
+  check <host>             Ver se um domínio pode ser usado na BladeCP
+
+  Detalhes de um comando: bladecp domains <comando> --help"
+`;
+
+exports[`screen: 'help domains' > pt-BR 120 color 1`] = `
+"  bladecp domains
+ ━━━━━━━━━━━━━━━━━━━━━━━━──────────────────────────────────────────────────────
+  Ver, adicionar e remover os domínios de um servidor
+
+  Uso: bladecp domains <comando> [opções]
+
+  Comandos ───────────────────────────────────
+  list <server>            Listar os domínios de um servidor
+  add <server> <host>      Adicionar um domínio a um servidor
+  remove <server> <host>   Remover um domínio de um servidor
+  check <host>             Ver se um domínio pode ser usado na BladeCP
+
+  Detalhes de um comando: bladecp domains <comando> --help
+
+--- styles ---
+0: 2-8 B | 10-16 B
+1: 1-1 f6264f0 | 2-2 f6d6cf2 | 3-3 f7b73f4 | 4-4 f8a7bf6 | 5-5 f9883f8 | 6-6 fa78bfa | 7-7 fb7a1fb | 8-8 fc7b7fc | 9-9 fd8cdfd | 10-10 fe9e3fe | 11-11 fe0d8fd | 12-12 fcfc1fc | 13-13 fbfabfb | 14-14 faf96fa | 15-15 f9f87f9 | 16-16 f917ff7 | 17-17 f8277f5 | 18-18 f746ff3 | 19-19 f6668f1 | 20-20 f6061ef | 21-21 f5c5bed | 22-22 f5855eb | 23-23 f554fe8 | 24-24 f514ae6 | 25-25 f4d45e0 | 26-26 f4841cf | 27-27 f443dc0 | 28-28 f3f39b0 | 29-29 f3b36a2 | 30-30 f373394 | 31-31 f332f87 | 32-32 f302d7b | 33-33 f2d2b70 | 34-34 f2b2966 | 35-35 f28275d | 36-36 f262554 | 37-37 f24234c | 38-38 f232245 | 39-39 f21203e | 40-40 f201f38 | 41-41 f1f1e33 | 42-42 f1e1d2f | 43-43 f1d1d2b | 44-44 f1c1c29 | 45-78 f1c1c28
+2: 2-52 f8b8b98
+4: 2-5 f8b8b98 | 23-31 f6366f1 | 33-40 f8b8b98
+6: 11-11 f4b4b62 | 12-12 f4a4a60 | 13-13 f48485f | 14-14 f47475d | 15-15 f46465b | 16-16 f44445a | 17-17 f434358 | 18-18 f424256 | 19-19 f404055 | 20-20 f3f3f53 | 21-21 f3e3e51 | 22-22 f3c3c50 | 23-23 f3b3b4e | 24-24 f3a3a4c | 25-25 f38384b | 26-26 f373749 | 27-27 f363647 | 28-28 f343446 | 29-29 f333344 | 30-30 f313143 | 31-31 f303041 | 32-32 f2f2f3f | 33-33 f2d2d3e | 34-34 f2c2c3c | 35-35 f2b2b3a | 36-36 f292939 | 37-37 f282837 | 38-38 f272735 | 39-39 f252534 | 40-40 f242432 | 41-41 f232330 | 42-42 f21212f | 43-43 f20202d | 44-44 f1f1f2b | 45-45 f1d1d2a
+7: 2-5 f6366f1 | 7-14 fa78bfa
+8: 2-4 f6366f1 | 6-20 fa78bfa
+9: 2-7 f6366f1 | 9-23 fa78bfa
+10: 2-6 f6366f1 | 8-13 fa78bfa
+12: 2-57 f8b8b98"
+`;
+
+exports[`screen: 'help domains' > pt-BR 120 plain 1`] = `
+"  bladecp domains
+ ──────────────────────────────────────────────────────────────────────────────
+  Ver, adicionar e remover os domínios de um servidor
+
+  Uso: bladecp domains <comando> [opções]
+
+  Comandos ───────────────────────────────────
+  list <server>            Listar os domínios de um servidor
+  add <server> <host>      Adicionar um domínio a um servidor
+  remove <server> <host>   Remover um domínio de um servidor
+  check <host>             Ver se um domínio pode ser usado na BladeCP
+
+  Detalhes de um comando: bladecp domains <comando> --help"
+`;

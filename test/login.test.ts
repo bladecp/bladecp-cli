@@ -222,6 +222,33 @@ describe('login with a key', () => {
     expect(savedConfig().credentials.apiKey).toBe(LIVE_KEY);
   });
 
+  it('a pasted key with the terminal paste markers is accepted', async () => {
+    const result = await runCli(['login', '--token', `\u001b[200~${LIVE_KEY}\u001b[201~`], {
+      configDir: dir.path,
+      apiUrl: api.baseUrl,
+    });
+    expect(result.code).toBe(0);
+    expect(savedConfig().credentials.apiKey).toBe(LIVE_KEY);
+  });
+
+  it('a partner key gets the partner tools as next steps, every scope in words', async () => {
+    api.setPartner();
+    api.me = {
+      ...api.me,
+      scopes: [...api.me.scopes, 'provisions:write', 'webhooks:write', 'vibe:sso'],
+    };
+    const result = await runCli(['login', '--token', LIVE_KEY], {
+      configDir: dir.path,
+      apiUrl: api.baseUrl,
+      tty: true,
+      columns: 100,
+    });
+    expect(result.code).toBe(0);
+    const screen = result.stdout + result.stderr;
+    expect(screen).toContain('bladecp partner servers');
+    expect(screen).not.toMatch(/partner:read|provisions:write|webhooks:write|vibe:sso/);
+  });
+
   it('refuses a value that is not a BladeCP key without calling the API', async () => {
     const result = await runCli(['login', '--token', 'not-a-key'], {
       configDir: dir.path,

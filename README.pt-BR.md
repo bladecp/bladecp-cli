@@ -45,17 +45,23 @@
 </p>
 
 > [!NOTE]
-> **Versão `0.3.2`.** `bladecp analyze` mostra o que um backup do cPanel tem e
-> o que vem para a BladeCP antes de migrar, no seu computador e sem enviar
-> nada, e o analisador também é uma biblioteca (`@bladecp/cli/analyzer`). Os
-> códigos de saída, o envelope `--json` e os códigos de erro são um contrato
-> público: esta versão só acrescenta.
+> **Versão `0.4.0`.** A CLI agora alcança toda a Customer API: domínios, apps,
+> WordPress e componentes dos seus servidores, `bladecp api` para qualquer
+> rota e as ferramentas de parceiro (catálogo, servidores dos clientes, contas
+> do Vibe, marketplace, webhooks e migrações do Fast Deploy). Os códigos de
+> saída, o envelope `--json` e os códigos de erro são um contrato público:
+> esta versão só acrescenta.
 
 A BladeCP CLI é o cliente oficial de terminal da Customer API da BladeCP. Ela
 faz o login pelo navegador, lista seus servidores e os destinos disponíveis para
 migração, e leva um site para a BladeCP a partir de um backup completo do
 cPanel: envia o backup em partes, acompanha a migração e para na prévia,
 esperando a sua aprovação.
+
+Ela também alcança o resto da Customer API: os domínios, apps, WordPress e
+componentes dos seus servidores, qualquer rota pelo `bladecp api` e, com uma
+chave de parceiro, as ferramentas que os parceiros da BladeCP usam para operar
+os serviços dos clientes.
 
 Antes de migrar, `bladecp analyze` lê o backup no seu computador e mostra o
 que ele tem, o que vem para a BladeCP, o que fica e o menor plano necessário.
@@ -94,6 +100,86 @@ ela nunca pergunta e responde em JSON.
 | `bladecp migrations retry <uuid>` | Tentar de novo uma migração que falhou |
 | `bladecp update [--check] [--yes]` | Ver o que mudou e atualizar a CLI |
 | `bladecp config list` / `get <chave>` / `set <chave> <valor>` | Preferências: `auto-update`, `update-check`, `lang` |
+
+#### Sites
+
+| Comando | O que faz |
+| --- | --- |
+| `bladecp domains list <server>` | Listar os domínios de um servidor |
+| `bladecp domains add <server> <host>` | Adicionar um domínio a um servidor |
+| `bladecp domains remove <server> <host> [--yes]` | Remover um domínio de um servidor |
+| `bladecp domains check <host>` | Ver se um domínio pode ser usado na BladeCP |
+| `bladecp apps list` | Listar os apps que a BladeCP instala para você |
+| `bladecp apps show <app>` | Mostrar um app e as configurações que ele pede |
+| `bladecp apps install <server> <app> [--domain <host>] [--app-version <version>] [--option <id>=<value>]... [--yes]` | Instalar um app em um domínio de um servidor |
+| `bladecp wordpress status <server> [--external-id <id>]` | Ver se as ferramentas do WordPress funcionam em um servidor |
+| `bladecp wordpress dashboard <server> [--external-id <id>] [--wait]` | Ver a versão, os plugins e os temas do WordPress de um servidor |
+| `bladecp wordpress update core <server> [--external-id <id>] [--wait] [--yes]` | Atualizar o próprio WordPress para a versão mais nova |
+| `bladecp wordpress update plugin <server> <plugin> [--external-id <id>] [--wait] [--yes]` | Atualizar um plugin para a versão mais nova |
+| `bladecp wordpress update theme <server> <theme> [--external-id <id>] [--wait] [--yes]` | Atualizar um tema para a versão mais nova |
+| `bladecp wordpress task <server> <task> [--external-id <id>] [--wait]` | Ver como foi uma tarefa do WordPress |
+| `bladecp components list` | Listar os componentes do catálogo da BladeCP |
+
+#### Parceiros (chaves de parceiro)
+
+| Comando | O que faz |
+| --- | --- |
+| `bladecp partner plans [--currency <code>]` | Listar os planos que você vende, com os preços |
+| `bladecp partner locations [--plan <id>]` | Listar onde cada plano pode rodar |
+| `bladecp partner options [--plan <id>] [--currency <code>]` | Listar as opções configuráveis e os valores delas |
+| `bladecp partner branding` | Mostrar o nome, o logo e o favicon da sua marca |
+| `bladecp partner servers list [--status <status>] [--domain <host>] [--external-id <id>] [--page <n>] [--limit <n>]` | Listar os servidores dos seus clientes, com filtros |
+| `bladecp partner servers create --plan <id> --location <id> --domain <host> --email <email> --name <name> [--external-id <id>] [--option <id>=<value>]... [--component <slug>]... [--contract <months>] [--yes]` | Criar um servidor para um cliente |
+| `bladecp partner servers plan <server> <plan> [--yes]` | Mudar o plano de um servidor |
+| `bladecp partner servers options <server> --option <id>=<value>... [--yes]` | Substituir as opções configuráveis de um servidor |
+| `bladecp partner servers suspend <server> [--yes]` | Suspender um servidor (nada é apagado) |
+| `bladecp partner servers unsuspend <server> [--yes]` | Reativar um servidor suspenso |
+| `bladecp partner servers cancel <server> [--now] [--reason <text>] [--reason-category <category>] [--yes]` | Cancelar um servidor agora ou no fim do ciclo |
+| `bladecp partner servers delete <server> [--yes]` | Apagar um servidor e tudo o que há nele |
+| `bladecp partner servers open <server>` | Abrir o painel do cliente com um link de uso único |
+| `bladecp partner vibe find <external-id>` | Encontrar a conta Vibe de um serviço seu |
+| `bladecp partner vibe show <account>` | Mostrar uma conta Vibe |
+| `bladecp partner vibe create --external-id <id> --plan <id> --email <email> --name <name> [--email-verification <verified|not-required>] [--yes]` | Criar a conta Vibe de um serviço |
+| `bladecp partner vibe plan <account> <plan> [--yes]` | Mudar o plano de uma conta Vibe |
+| `bladecp partner vibe suspend <account> [--yes]` | Suspender uma conta Vibe |
+| `bladecp partner vibe reactivate <account> [--yes]` | Reativar uma conta Vibe suspensa |
+| `bladecp partner vibe resume <account> [--yes]` | Colocar uma conta Vibe no ar de novo após inatividade |
+| `bladecp partner vibe terminate <account> [--yes]` | Encerrar uma conta Vibe de vez |
+| `bladecp partner vibe open <account> [--no-browser]` | Entrar no Vibe como dono da conta, com um link de uso único |
+| `bladecp partner marketplace summary` | Mostrar os ganhos por moeda e quanto do servidor-base eles já cobrem |
+| `bladecp partner marketplace orders [--status <status>] [--page <n>] [--limit <n>]` | Listar as vendas que a BladeCP fez dos seus planos |
+| `bladecp partner marketplace commissions [--status <status>] [--page <n>] [--limit <n>]` | Listar cada fatura paga: a venda, a comissão da BladeCP e o que você recebe |
+| `bladecp partner marketplace statements` | Listar os extratos mensais: seus ganhos compensados com o servidor-base |
+| `bladecp partner marketplace statement <statement>` | Mostrar um extrato e as linhas de comissão dele |
+| `bladecp partner marketplace invoices` | Listar as faturas em aberto do seu servidor-base |
+| `bladecp partner webhooks list` | Listar seus endpoints de webhook |
+| `bladecp partner webhooks show <endpoint>` | Mostrar um endpoint: endereço, eventos e status |
+| `bladecp partner webhooks create --url <url> --event <type>... [--name <name>]` | Adicionar um endpoint e receber o segredo de assinatura dele |
+| `bladecp partner webhooks update <endpoint> [--url <url>] [--event <type>...] [--name <name>] [--yes]` | Mudar o endereço, os eventos ou o nome de um endpoint |
+| `bladecp partner webhooks pause <endpoint> [--yes]` | Parar de enviar eventos a um endpoint por enquanto |
+| `bladecp partner webhooks resume <endpoint> [--yes]` | Voltar a enviar eventos a um endpoint pausado |
+| `bladecp partner webhooks delete <endpoint> [--yes]` | Excluir um endpoint |
+| `bladecp partner webhooks rotate-secret <endpoint> [--yes]` | Trocar o segredo de assinatura de um endpoint |
+| `bladecp partner webhooks deliveries [--endpoint <id>] [--status <status>] [--page <n>] [--limit <n>]` | Listar o que a BladeCP enviou e o que o seu sistema respondeu |
+| `bladecp partner webhooks replay <delivery> [--yes]` | Enviar uma entrega de novo, com o mesmo ID de evento |
+| `bladecp partner migrations list --installation <id> [--client <id>] [--limit <n>] [--all]` | Listar as solicitações de Fast Deploy de uma instalação do WHMCS |
+| `bladecp partner migrations show <request> --installation <id> --client <id> [--watch]` | Mostrar uma solicitação: etapa, componentes, prévia e cobrança |
+| `bladecp partner migrations review <request> --installation <id> --client <id> --domain <host>` | Confirmar o domínio do site encontrado no backup |
+| `bladecp partner migrations approve <request> --installation <id> --client <id> [--yes]` | Aprovar a prévia para a BladeCP concluir a migração |
+| `bladecp partner migrations cancel <request> --installation <id> --client <id> [--reason <text>] [--yes]` | Cancelar uma solicitação ainda não aprovada |
+| `bladecp partner migrations retry <request> --installation <id> --client <id>` | Tentar de novo uma migração que falhou, quando é seguro |
+| `bladecp partner migrations billing-queue [--limit <n>] [--all]` | Listar as solicitações que aguardam o WHMCS de cobrança |
+| `bladecp partner migrations billing-link <request> --installation <id> --client <id> --external-id <id> --email <email> --name <name> [--company <name>] [--yes]` | Vincular uma solicitação ao cliente e ao serviço no WHMCS de cobrança |
+| `bladecp partner migrations claim-url <request> --installation <id> --client <id>` | Obter o endereço onde o titular confirma a conta |
+
+#### Automação
+
+| Comando | O que faz |
+| --- | --- |
+| `bladecp api <path> [-X <method>] [--data <json> | --input <file>] [--yes]` | Chamar qualquer rota da Customer API com o seu login |
+| `bladecp api list` | Listar todas as rotas da API e o comando que cobre cada uma |
+
+Os comandos de parceiro precisam de uma chave com a permissão `partner:read`; com uma chave de cliente, param com `partner_only` (saída 4). Os comandos de WordPress precisam de `--external-id`, o ID do serviço no sistema de cobrança.
 
 Opções globais: `--json`, `--api-url <url>` (ou `BLADECP_API_URL`, padrão
 `https://api.bladecp.com`), `--lang en|pt-BR|es`, `--debug` (ou `--verbose`),

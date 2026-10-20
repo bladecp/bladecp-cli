@@ -1,0 +1,1223 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`screen: 'components list empty' > en 40 color 1`] = `
+"
+  ○  The component catalog is empty.
+
+--- styles ---
+1: 2-2 f62627a"
+`;
+
+exports[`screen: 'components list empty' > en 40 plain 1`] = `
+"
+  ○  The component catalog is empty."
+`;
+
+exports[`screen: 'components list empty' > en 80 color 1`] = `
+"
+  ○  The component catalog is empty.
+
+--- styles ---
+1: 2-2 f62627a"
+`;
+
+exports[`screen: 'components list empty' > en 80 plain 1`] = `
+"
+  ○  The component catalog is empty."
+`;
+
+exports[`screen: 'components list empty' > en 120 color 1`] = `
+"
+  ○  The component catalog is empty.
+
+--- styles ---
+1: 2-2 f62627a"
+`;
+
+exports[`screen: 'components list empty' > en 120 plain 1`] = `
+"
+  ○  The component catalog is empty."
+`;
+
+exports[`screen: 'components list empty' > es 40 color 1`] = `
+"
+  ○  El catálogo de componentes está
+     vacío.
+
+--- styles ---
+1: 2-2 f62627a"
+`;
+
+exports[`screen: 'components list empty' > es 40 plain 1`] = `
+"
+  ○  El catálogo de componentes está
+     vacío."
+`;
+
+exports[`screen: 'components list empty' > es 80 color 1`] = `
+"
+  ○  El catálogo de componentes está vacío.
+
+--- styles ---
+1: 2-2 f62627a"
+`;
+
+exports[`screen: 'components list empty' > es 80 plain 1`] = `
+"
+  ○  El catálogo de componentes está vacío."
+`;
+
+exports[`screen: 'components list empty' > es 120 color 1`] = `
+"
+  ○  El catálogo de componentes está vacío.
+
+--- styles ---
+1: 2-2 f62627a"
+`;
+
+exports[`screen: 'components list empty' > es 120 plain 1`] = `
+"
+  ○  El catálogo de componentes está vacío."
+`;
+
+exports[`screen: 'components list empty' > pt-BR 40 color 1`] = `
+"
+  ○  O catálogo de componentes está
+     vazio.
+
+--- styles ---
+1: 2-2 f62627a"
+`;
+
+exports[`screen: 'components list empty' > pt-BR 40 plain 1`] = `
+"
+  ○  O catálogo de componentes está
+     vazio."
+`;
+
+exports[`screen: 'components list empty' > pt-BR 80 color 1`] = `
+"
+  ○  O catálogo de componentes está vazio.
+
+--- styles ---
+1: 2-2 f62627a"
+`;
+
+exports[`screen: 'components list empty' > pt-BR 80 plain 1`] = `
+"
+  ○  O catálogo de componentes está vazio."
+`;
+
+exports[`screen: 'components list empty' > pt-BR 120 color 1`] = `
+"
+  ○  O catálogo de componentes está vazio.
+
+--- styles ---
+1: 2-2 f62627a"
+`;
+
+exports[`screen: 'components list empty' > pt-BR 120 plain 1`] = `
+"
+  ○  O catálogo de componentes está vazio."
+`;
+
+exports[`screen: 'components list outside the plan' > en 40 color 1`] = `
+"
+  COMPONENT        PLAN
+ ━━━━━━━━━━━━━━━━━━━━──────────────────
+  php              ● included
+  mysql            ● included
+  redis            ○ not in your plan
+  nodejs           ● included
+  wp-cli-toolkit   ● included
+
+  5 components
+  Which components a server accepts
+  depends on its product.
+
+--- styles ---
+1: 2-15 f8b8b98 | 19-22 f8b8b98
+2: 1-1 fc6b4fc | 2-2 fd3c6fd | 3-3 fe0d8fd | 4-4 fece8fe | 5-5 fdfd6fd | 6-6 fd2c5fc | 7-7 fc5b3fc | 8-8 fb8a2fb | 9-9 fab90fa | 10-10 f9e86f9 | 11-11 f927ff7 | 12-12 f8679f6 | 13-13 f7972f4 | 14-14 f6d6cf2 | 15-15 f6365f1 | 16-16 f5f60ef | 17-17 f5c5aed | 18-18 f5855eb | 19-19 f554fe8 | 20-20 f514ae6 | 21-21 f4e45e1 | 22-22 f4941d1 | 23-23 f443dc1 | 24-24 f3f3ab1 | 25-25 f3b36a2 | 26-26 f363293 | 27-27 f322f84 | 28-28 f2f2c77 | 29-29 f2c296a | 30-30 f29275e | 31-31 f262552 | 32-32 f232247 | 33-33 f21203c | 34-34 f1f1e33 | 35-35 f1d1c2a | 36-38 f1c1c28
+3: 2-4 fa78bfa | 19-19 f22c55e
+4: 2-6 fa78bfa | 19-19 f22c55e
+5: 2-6 fa78bfa | 19-19 f62627a | 20-36 f8b8b98
+6: 2-7 fa78bfa | 19-19 f22c55e
+7: 2-15 fa78bfa | 19-19 f22c55e
+9: 2-13 f8b8b98
+10: 2-34 f8b8b98
+11: 2-24 f8b8b98"
+`;
+
+exports[`screen: 'components list outside the plan' > en 40 plain 1`] = `
+"
+  COMPONENT        PLAN
+ ──────────────────────────────────────
+  php              ● included
+  mysql            ● included
+  redis            ○ not in your plan
+  nodejs           ● included
+  wp-cli-toolkit   ● included
+
+  5 components
+  Which components a server accepts
+  depends on its product."
+`;
+
+exports[`screen: 'components list outside the plan' > en 80 color 1`] = `
+"
+  COMPONENT        NAME                TYPE       VERSION   PLAN
+ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━──────────────────────────────────────
+  php              PHP                 Runtime    3.0.2     ● included
+  mysql            MySQL               Database   2.0.1     ● included
+  redis            Redis               Cache      1.0.0     ○ not in your plan
+  nodejs           Node.js             Runtime    2.0.1     ● included
+  wp-cli-toolkit   WordPress Toolkit   Tools      1.0.0     ● included
+
+  5 components
+  Which components a server accepts depends on its product.
+
+--- styles ---
+1: 2-15 f8b8b98 | 19-35 f8b8b98 | 39-46 f8b8b98 | 50-56 f8b8b98 | 60-63 f8b8b98
+2: 1-1 fc6b4fc | 2-2 fccbdfc | 3-3 fd2c5fc | 4-4 fd9cefd | 5-5 fdfd6fd | 6-6 fe5defe | 7-7 febe7fe | 8-8 fe8e3fe | 9-9 fe2dafd | 10-10 fdcd2fd | 11-11 fd5c9fd | 12-12 fcfc1fc | 13-13 fc9b8fc | 14-14 fc3b0fc | 15-15 fbca8fb | 16-16 fb6a0fb | 17-17 fb097fb | 18-18 faa8ffa | 19-19 fa489fa | 20-20 f9e86f9 | 21-21 f9883f8 | 22-22 f9280f7 | 23-23 f8c7df6 | 24-24 f8779f6 | 25-25 f8176f5 | 26-26 f7b73f4 | 27-27 f7570f3 | 28-28 f706df3 | 29-29 f6a6af2 | 30-30 f6467f1 | 31-31 f6264f0 | 32-32 f6061ef | 33-33 f5e5fee | 34-34 f5d5ced | 35-35 f5b59ec | 36-36 f5a57eb | 37-37 f5854ea | 38-38 f5652e9 | 39-39 f554fe8 | 40-40 f534de7 | 41-41 f524ae7 | 42-42 f5048e6 | 43-43 f4e45e2 | 44-44 f4c43db | 45-45 f4a42d3 | 46-46 f4740cb | 47-47 f453ec4 | 48-48 f433cbc | 49-49 f413ab5 | 50-50 f3e39ad | 51-51 f3c37a6 | 52-52 f3a359f | 53-53 f383398 | 54-54 f363290 | 55-55 f343089 | 56-56 f312e82 | 57-57 f302d7c | 58-58 f2e2c76 | 59-59 f2d2b70 | 60-60 f2c296a | 61-61 f2a2864 | 62-62 f29275f | 63-63 f282659 | 64-64 f262553 | 65-65 f25244e | 66-66 f242349 | 67-67 f232244 | 68-68 f21213f | 69-69 f20203a | 70-70 f1f1f35 | 71-71 f1e1e31 | 72-72 f1d1d2d | 73-73 f1c1c29 | 74-79 f1c1c28
+3: 2-4 fa78bfa | 39-45 f8b8b98 | 50-54 f8b8b98 | 60-60 f22c55e
+4: 2-6 fa78bfa | 39-46 f8b8b98 | 50-54 f8b8b98 | 60-60 f22c55e
+5: 2-6 fa78bfa | 39-43 f8b8b98 | 50-54 f8b8b98 | 60-60 f62627a | 61-77 f8b8b98
+6: 2-7 fa78bfa | 39-45 f8b8b98 | 50-54 f8b8b98 | 60-60 f22c55e
+7: 2-15 fa78bfa | 39-43 f8b8b98 | 50-54 f8b8b98 | 60-60 f22c55e
+9: 2-13 f8b8b98
+10: 2-58 f8b8b98"
+`;
+
+exports[`screen: 'components list outside the plan' > en 80 plain 1`] = `
+"
+  COMPONENT        NAME                TYPE       VERSION   PLAN
+ ───────────────────────────────────────────────────────────────────────────────
+  php              PHP                 Runtime    3.0.2     ● included
+  mysql            MySQL               Database   2.0.1     ● included
+  redis            Redis               Cache      1.0.0     ○ not in your plan
+  nodejs           Node.js             Runtime    2.0.1     ● included
+  wp-cli-toolkit   WordPress Toolkit   Tools      1.0.0     ● included
+
+  5 components
+  Which components a server accepts depends on its product."
+`;
+
+exports[`screen: 'components list outside the plan' > en 120 color 1`] = `
+"
+  COMPONENT        NAME                TYPE       VERSION   PLAN
+ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━──────────────────────────────────────
+  php              PHP                 Runtime    3.0.2     ● included
+  mysql            MySQL               Database   2.0.1     ● included
+  redis            Redis               Cache      1.0.0     ○ not in your plan
+  nodejs           Node.js             Runtime    2.0.1     ● included
+  wp-cli-toolkit   WordPress Toolkit   Tools      1.0.0     ● included
+
+  5 components
+  Which components a server accepts depends on its product.
+
+--- styles ---
+1: 2-15 f8b8b98 | 19-35 f8b8b98 | 39-46 f8b8b98 | 50-56 f8b8b98 | 60-63 f8b8b98
+2: 1-1 fc6b4fc | 2-2 fccbdfc | 3-3 fd2c5fc | 4-4 fd9cefd | 5-5 fdfd6fd | 6-6 fe5defe | 7-7 febe7fe | 8-8 fe8e3fe | 9-9 fe2dafd | 10-10 fdcd2fd | 11-11 fd5c9fd | 12-12 fcfc1fc | 13-13 fc9b8fc | 14-14 fc3b0fc | 15-15 fbca8fb | 16-16 fb6a0fb | 17-17 fb097fb | 18-18 faa8ffa | 19-19 fa489fa | 20-20 f9e86f9 | 21-21 f9883f8 | 22-22 f9280f7 | 23-23 f8c7df6 | 24-24 f8779f6 | 25-25 f8176f5 | 26-26 f7b73f4 | 27-27 f7570f3 | 28-28 f706df3 | 29-29 f6a6af2 | 30-30 f6467f1 | 31-31 f6264f0 | 32-32 f6061ef | 33-33 f5e5fee | 34-34 f5d5ced | 35-35 f5b59ec | 36-36 f5a57eb | 37-37 f5854ea | 38-38 f5652e9 | 39-39 f554fe8 | 40-40 f534de7 | 41-41 f524ae7 | 42-42 f5048e6 | 43-43 f4e45e2 | 44-44 f4c43db | 45-45 f4a42d3 | 46-46 f4740cb | 47-47 f453ec4 | 48-48 f433cbc | 49-49 f413ab5 | 50-50 f3e39ad | 51-51 f3c37a6 | 52-52 f3a359f | 53-53 f383398 | 54-54 f363290 | 55-55 f343089 | 56-56 f312e82 | 57-57 f302d7c | 58-58 f2e2c76 | 59-59 f2d2b70 | 60-60 f2c296a | 61-61 f2a2864 | 62-62 f29275f | 63-63 f282659 | 64-64 f262553 | 65-65 f25244e | 66-66 f242349 | 67-67 f232244 | 68-68 f21213f | 69-69 f20203a | 70-70 f1f1f35 | 71-71 f1e1e31 | 72-72 f1d1d2d | 73-73 f1c1c29 | 74-79 f1c1c28
+3: 2-4 fa78bfa | 39-45 f8b8b98 | 50-54 f8b8b98 | 60-60 f22c55e
+4: 2-6 fa78bfa | 39-46 f8b8b98 | 50-54 f8b8b98 | 60-60 f22c55e
+5: 2-6 fa78bfa | 39-43 f8b8b98 | 50-54 f8b8b98 | 60-60 f62627a | 61-77 f8b8b98
+6: 2-7 fa78bfa | 39-45 f8b8b98 | 50-54 f8b8b98 | 60-60 f22c55e
+7: 2-15 fa78bfa | 39-43 f8b8b98 | 50-54 f8b8b98 | 60-60 f22c55e
+9: 2-13 f8b8b98
+10: 2-58 f8b8b98"
+`;
+
+exports[`screen: 'components list outside the plan' > en 120 plain 1`] = `
+"
+  COMPONENT        NAME                TYPE       VERSION   PLAN
+ ───────────────────────────────────────────────────────────────────────────────
+  php              PHP                 Runtime    3.0.2     ● included
+  mysql            MySQL               Database   2.0.1     ● included
+  redis            Redis               Cache      1.0.0     ○ not in your plan
+  nodejs           Node.js             Runtime    2.0.1     ● included
+  wp-cli-toolkit   WordPress Toolkit   Tools      1.0.0     ● included
+
+  5 components
+  Which components a server accepts depends on its product."
+`;
+
+exports[`screen: 'components list outside the plan' > es 40 color 1`] = `
+"
+  COMPONENTE       PLAN
+ ━━━━━━━━━━━━━━━━━━━━──────────────────
+  php              ● incluido
+  mysql            ● incluido
+  redis            ○ fuera de tu plan
+  nodejs           ● incluido
+  wp-cli-toolkit   ● incluido
+
+  5 componentes
+  Los componentes que acepta un
+  servidor dependen de su producto.
+
+--- styles ---
+1: 2-15 f8b8b98 | 19-22 f8b8b98
+2: 1-1 fc6b4fc | 2-2 fd3c6fd | 3-3 fe0d8fd | 4-4 fece8fe | 5-5 fdfd6fd | 6-6 fd2c5fc | 7-7 fc5b3fc | 8-8 fb8a2fb | 9-9 fab90fa | 10-10 f9e86f9 | 11-11 f927ff7 | 12-12 f8679f6 | 13-13 f7972f4 | 14-14 f6d6cf2 | 15-15 f6365f1 | 16-16 f5f60ef | 17-17 f5c5aed | 18-18 f5855eb | 19-19 f554fe8 | 20-20 f514ae6 | 21-21 f4e45e1 | 22-22 f4941d1 | 23-23 f443dc1 | 24-24 f3f3ab1 | 25-25 f3b36a2 | 26-26 f363293 | 27-27 f322f84 | 28-28 f2f2c77 | 29-29 f2c296a | 30-30 f29275e | 31-31 f262552 | 32-32 f232247 | 33-33 f21203c | 34-34 f1f1e33 | 35-35 f1d1c2a | 36-38 f1c1c28
+3: 2-4 fa78bfa | 19-19 f22c55e
+4: 2-6 fa78bfa | 19-19 f22c55e
+5: 2-6 fa78bfa | 19-19 f62627a | 20-36 f8b8b98
+6: 2-7 fa78bfa | 19-19 f22c55e
+7: 2-15 fa78bfa | 19-19 f22c55e
+9: 2-14 f8b8b98
+10: 2-30 f8b8b98
+11: 2-34 f8b8b98"
+`;
+
+exports[`screen: 'components list outside the plan' > es 40 plain 1`] = `
+"
+  COMPONENTE       PLAN
+ ──────────────────────────────────────
+  php              ● incluido
+  mysql            ● incluido
+  redis            ○ fuera de tu plan
+  nodejs           ● incluido
+  wp-cli-toolkit   ● incluido
+
+  5 componentes
+  Los componentes que acepta un
+  servidor dependen de su producto."
+`;
+
+exports[`screen: 'components list outside the plan' > es 80 color 1`] = `
+"
+  COMPONENTE       NOMBRE              TIPO       VERSIÓN   PLAN
+ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━──────────────────────────────────────
+  php              PHP                 Runtime    3.0.2     ● incluido
+  mysql            MySQL               Database   2.0.1     ● incluido
+  redis            Redis               Caché      1.0.0     ○ fuera de tu plan
+  nodejs           Node.js             Runtime    2.0.1     ● incluido
+  wp-cli-toolkit   WordPress Toolkit   Tools      1.0.0     ● incluido
+
+  5 componentes
+  Los componentes que acepta un servidor dependen de su producto.
+
+--- styles ---
+1: 2-15 f8b8b98 | 19-35 f8b8b98 | 39-46 f8b8b98 | 50-56 f8b8b98 | 60-63 f8b8b98
+2: 1-1 fc6b4fc | 2-2 fccbdfc | 3-3 fd2c5fc | 4-4 fd9cefd | 5-5 fdfd6fd | 6-6 fe5defe | 7-7 febe7fe | 8-8 fe8e3fe | 9-9 fe2dafd | 10-10 fdcd2fd | 11-11 fd5c9fd | 12-12 fcfc1fc | 13-13 fc9b8fc | 14-14 fc3b0fc | 15-15 fbca8fb | 16-16 fb6a0fb | 17-17 fb097fb | 18-18 faa8ffa | 19-19 fa489fa | 20-20 f9e86f9 | 21-21 f9883f8 | 22-22 f9280f7 | 23-23 f8c7df6 | 24-24 f8779f6 | 25-25 f8176f5 | 26-26 f7b73f4 | 27-27 f7570f3 | 28-28 f706df3 | 29-29 f6a6af2 | 30-30 f6467f1 | 31-31 f6264f0 | 32-32 f6061ef | 33-33 f5e5fee | 34-34 f5d5ced | 35-35 f5b59ec | 36-36 f5a57eb | 37-37 f5854ea | 38-38 f5652e9 | 39-39 f554fe8 | 40-40 f534de7 | 41-41 f524ae7 | 42-42 f5048e6 | 43-43 f4e45e2 | 44-44 f4c43db | 45-45 f4a42d3 | 46-46 f4740cb | 47-47 f453ec4 | 48-48 f433cbc | 49-49 f413ab5 | 50-50 f3e39ad | 51-51 f3c37a6 | 52-52 f3a359f | 53-53 f383398 | 54-54 f363290 | 55-55 f343089 | 56-56 f312e82 | 57-57 f302d7c | 58-58 f2e2c76 | 59-59 f2d2b70 | 60-60 f2c296a | 61-61 f2a2864 | 62-62 f29275f | 63-63 f282659 | 64-64 f262553 | 65-65 f25244e | 66-66 f242349 | 67-67 f232244 | 68-68 f21213f | 69-69 f20203a | 70-70 f1f1f35 | 71-71 f1e1e31 | 72-72 f1d1d2d | 73-73 f1c1c29 | 74-79 f1c1c28
+3: 2-4 fa78bfa | 39-45 f8b8b98 | 50-54 f8b8b98 | 60-60 f22c55e
+4: 2-6 fa78bfa | 39-46 f8b8b98 | 50-54 f8b8b98 | 60-60 f22c55e
+5: 2-6 fa78bfa | 39-43 f8b8b98 | 50-54 f8b8b98 | 60-60 f62627a | 61-77 f8b8b98
+6: 2-7 fa78bfa | 39-45 f8b8b98 | 50-54 f8b8b98 | 60-60 f22c55e
+7: 2-15 fa78bfa | 39-43 f8b8b98 | 50-54 f8b8b98 | 60-60 f22c55e
+9: 2-14 f8b8b98
+10: 2-64 f8b8b98"
+`;
+
+exports[`screen: 'components list outside the plan' > es 80 plain 1`] = `
+"
+  COMPONENTE       NOMBRE              TIPO       VERSIÓN   PLAN
+ ───────────────────────────────────────────────────────────────────────────────
+  php              PHP                 Runtime    3.0.2     ● incluido
+  mysql            MySQL               Database   2.0.1     ● incluido
+  redis            Redis               Caché      1.0.0     ○ fuera de tu plan
+  nodejs           Node.js             Runtime    2.0.1     ● incluido
+  wp-cli-toolkit   WordPress Toolkit   Tools      1.0.0     ● incluido
+
+  5 componentes
+  Los componentes que acepta un servidor dependen de su producto."
+`;
+
+exports[`screen: 'components list outside the plan' > es 120 color 1`] = `
+"
+  COMPONENTE       NOMBRE              TIPO       VERSIÓN   PLAN
+ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━──────────────────────────────────────
+  php              PHP                 Runtime    3.0.2     ● incluido
+  mysql            MySQL               Database   2.0.1     ● incluido
+  redis            Redis               Caché      1.0.0     ○ fuera de tu plan
+  nodejs           Node.js             Runtime    2.0.1     ● incluido
+  wp-cli-toolkit   WordPress Toolkit   Tools      1.0.0     ● incluido
+
+  5 componentes
+  Los componentes que acepta un servidor dependen de su producto.
+
+--- styles ---
+1: 2-15 f8b8b98 | 19-35 f8b8b98 | 39-46 f8b8b98 | 50-56 f8b8b98 | 60-63 f8b8b98
+2: 1-1 fc6b4fc | 2-2 fccbdfc | 3-3 fd2c5fc | 4-4 fd9cefd | 5-5 fdfd6fd | 6-6 fe5defe | 7-7 febe7fe | 8-8 fe8e3fe | 9-9 fe2dafd | 10-10 fdcd2fd | 11-11 fd5c9fd | 12-12 fcfc1fc | 13-13 fc9b8fc | 14-14 fc3b0fc | 15-15 fbca8fb | 16-16 fb6a0fb | 17-17 fb097fb | 18-18 faa8ffa | 19-19 fa489fa | 20-20 f9e86f9 | 21-21 f9883f8 | 22-22 f9280f7 | 23-23 f8c7df6 | 24-24 f8779f6 | 25-25 f8176f5 | 26-26 f7b73f4 | 27-27 f7570f3 | 28-28 f706df3 | 29-29 f6a6af2 | 30-30 f6467f1 | 31-31 f6264f0 | 32-32 f6061ef | 33-33 f5e5fee | 34-34 f5d5ced | 35-35 f5b59ec | 36-36 f5a57eb | 37-37 f5854ea | 38-38 f5652e9 | 39-39 f554fe8 | 40-40 f534de7 | 41-41 f524ae7 | 42-42 f5048e6 | 43-43 f4e45e2 | 44-44 f4c43db | 45-45 f4a42d3 | 46-46 f4740cb | 47-47 f453ec4 | 48-48 f433cbc | 49-49 f413ab5 | 50-50 f3e39ad | 51-51 f3c37a6 | 52-52 f3a359f | 53-53 f383398 | 54-54 f363290 | 55-55 f343089 | 56-56 f312e82 | 57-57 f302d7c | 58-58 f2e2c76 | 59-59 f2d2b70 | 60-60 f2c296a | 61-61 f2a2864 | 62-62 f29275f | 63-63 f282659 | 64-64 f262553 | 65-65 f25244e | 66-66 f242349 | 67-67 f232244 | 68-68 f21213f | 69-69 f20203a | 70-70 f1f1f35 | 71-71 f1e1e31 | 72-72 f1d1d2d | 73-73 f1c1c29 | 74-79 f1c1c28
+3: 2-4 fa78bfa | 39-45 f8b8b98 | 50-54 f8b8b98 | 60-60 f22c55e
+4: 2-6 fa78bfa | 39-46 f8b8b98 | 50-54 f8b8b98 | 60-60 f22c55e
+5: 2-6 fa78bfa | 39-43 f8b8b98 | 50-54 f8b8b98 | 60-60 f62627a | 61-77 f8b8b98
+6: 2-7 fa78bfa | 39-45 f8b8b98 | 50-54 f8b8b98 | 60-60 f22c55e
+7: 2-15 fa78bfa | 39-43 f8b8b98 | 50-54 f8b8b98 | 60-60 f22c55e
+9: 2-14 f8b8b98
+10: 2-64 f8b8b98"
+`;
+
+exports[`screen: 'components list outside the plan' > es 120 plain 1`] = `
+"
+  COMPONENTE       NOMBRE              TIPO       VERSIÓN   PLAN
+ ───────────────────────────────────────────────────────────────────────────────
+  php              PHP                 Runtime    3.0.2     ● incluido
+  mysql            MySQL               Database   2.0.1     ● incluido
+  redis            Redis               Caché      1.0.0     ○ fuera de tu plan
+  nodejs           Node.js             Runtime    2.0.1     ● incluido
+  wp-cli-toolkit   WordPress Toolkit   Tools      1.0.0     ● incluido
+
+  5 componentes
+  Los componentes que acepta un servidor dependen de su producto."
+`;
+
+exports[`screen: 'components list outside the plan' > pt-BR 40 color 1`] = `
+"
+  COMPONENTE       PLANO
+ ━━━━━━━━━━━━━━━━━━━━───────────────────
+  php              ● incluído
+  mysql            ● incluído
+  redis            ○ fora do seu plano
+  nodejs           ● incluído
+  wp-cli-toolkit   ● incluído
+
+  5 componentes
+  Os componentes que um servidor
+  aceita dependem do produto dele.
+
+--- styles ---
+1: 2-15 f8b8b98 | 19-23 f8b8b98
+2: 1-1 fc6b4fc | 2-2 fd3c6fc | 3-3 fe0d7fd | 4-4 fece8fe | 5-5 fe1d8fd | 6-6 fd4c7fd | 7-7 fc7b6fc | 8-8 fbaa5fb | 9-9 fae94fa | 10-10 fa188f9 | 11-11 f9581f8 | 12-12 f897bf6 | 13-13 f7d74f4 | 14-14 f716ef3 | 15-15 f6668f1 | 16-16 f6062ef | 17-17 f5d5ced | 18-18 f5a57eb | 19-19 f5652e9 | 20-20 f534de7 | 21-21 f5047e6 | 22-22 f4c43da | 23-23 f4740ca | 24-24 f423cbb | 25-25 f3e38ab | 26-26 f39359c | 27-27 f35318e | 28-28 f312e80 | 29-29 f2e2b73 | 30-30 f2b2967 | 31-31 f28265b | 32-32 f252450 | 33-33 f232245 | 34-34 f20203b | 35-35 f1e1e32 | 36-36 f1c1c2a | 37-39 f1c1c28
+3: 2-4 fa78bfa | 19-19 f22c55e
+4: 2-6 fa78bfa | 19-19 f22c55e
+5: 2-6 fa78bfa | 19-19 f62627a | 20-37 f8b8b98
+6: 2-7 fa78bfa | 19-19 f22c55e
+7: 2-15 fa78bfa | 19-19 f22c55e
+9: 2-14 f8b8b98
+10: 2-31 f8b8b98
+11: 2-33 f8b8b98"
+`;
+
+exports[`screen: 'components list outside the plan' > pt-BR 40 plain 1`] = `
+"
+  COMPONENTE       PLANO
+ ───────────────────────────────────────
+  php              ● incluído
+  mysql            ● incluído
+  redis            ○ fora do seu plano
+  nodejs           ● incluído
+  wp-cli-toolkit   ● incluído
+
+  5 componentes
+  Os componentes que um servidor
+  aceita dependem do produto dele."
+`;
+
+exports[`screen: 'components list outside the plan' > pt-BR 80 color 1`] = `
+"
+  COMPONENTE       NOME                TIPO       VERSÃO   PLANO
+ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━──────────────────────────────────────
+  php              PHP                 Runtime    3.0.2    ● incluído
+  mysql            MySQL               Database   2.0.1    ● incluído
+  redis            Redis               Cache      1.0.0    ○ fora do seu plano
+  nodejs           Node.js             Runtime    2.0.1    ● incluído
+  wp-cli-toolkit   WordPress Toolkit   Tools      1.0.0    ● incluído
+
+  5 componentes
+  Os componentes que um servidor aceita dependem do produto dele.
+
+--- styles ---
+1: 2-15 f8b8b98 | 19-35 f8b8b98 | 39-46 f8b8b98 | 50-55 f8b8b98 | 59-63 f8b8b98
+2: 1-1 fc6b4fc | 2-2 fccbdfc | 3-3 fd2c5fc | 4-4 fd9cefd | 5-5 fdfd6fd | 6-6 fe5defe | 7-7 febe7fe | 8-8 fe8e3fe | 9-9 fe2dafd | 10-10 fdcd2fd | 11-11 fd5c9fd | 12-12 fcfc1fc | 13-13 fc9b8fc | 14-14 fc3b0fc | 15-15 fbca8fb | 16-16 fb6a0fb | 17-17 fb097fb | 18-18 faa8ffa | 19-19 fa489fa | 20-20 f9e86f9 | 21-21 f9883f8 | 22-22 f9280f7 | 23-23 f8c7df6 | 24-24 f8779f6 | 25-25 f8176f5 | 26-26 f7b73f4 | 27-27 f7570f3 | 28-28 f706df3 | 29-29 f6a6af2 | 30-30 f6467f1 | 31-31 f6264f0 | 32-32 f6061ef | 33-33 f5e5fee | 34-34 f5d5ced | 35-35 f5b59ec | 36-36 f5a57eb | 37-37 f5854ea | 38-38 f5652e9 | 39-39 f554fe8 | 40-40 f534de7 | 41-41 f524ae7 | 42-42 f5048e6 | 43-43 f4e45e2 | 44-44 f4c43db | 45-45 f4a42d3 | 46-46 f4740cb | 47-47 f453ec4 | 48-48 f433cbc | 49-49 f413ab5 | 50-50 f3e39ad | 51-51 f3c37a6 | 52-52 f3a359f | 53-53 f383398 | 54-54 f363290 | 55-55 f343089 | 56-56 f312e82 | 57-57 f302d7c | 58-58 f2e2c76 | 59-59 f2d2b70 | 60-60 f2c296a | 61-61 f2a2864 | 62-62 f29275f | 63-63 f282659 | 64-64 f262553 | 65-65 f25244e | 66-66 f242349 | 67-67 f232244 | 68-68 f21213f | 69-69 f20203a | 70-70 f1f1f35 | 71-71 f1e1e31 | 72-72 f1d1d2d | 73-73 f1c1c29 | 74-79 f1c1c28
+3: 2-4 fa78bfa | 39-45 f8b8b98 | 50-54 f8b8b98 | 59-59 f22c55e
+4: 2-6 fa78bfa | 39-46 f8b8b98 | 50-54 f8b8b98 | 59-59 f22c55e
+5: 2-6 fa78bfa | 39-43 f8b8b98 | 50-54 f8b8b98 | 59-59 f62627a | 60-77 f8b8b98
+6: 2-7 fa78bfa | 39-45 f8b8b98 | 50-54 f8b8b98 | 59-59 f22c55e
+7: 2-15 fa78bfa | 39-43 f8b8b98 | 50-54 f8b8b98 | 59-59 f22c55e
+9: 2-14 f8b8b98
+10: 2-64 f8b8b98"
+`;
+
+exports[`screen: 'components list outside the plan' > pt-BR 80 plain 1`] = `
+"
+  COMPONENTE       NOME                TIPO       VERSÃO   PLANO
+ ───────────────────────────────────────────────────────────────────────────────
+  php              PHP                 Runtime    3.0.2    ● incluído
+  mysql            MySQL               Database   2.0.1    ● incluído
+  redis            Redis               Cache      1.0.0    ○ fora do seu plano
+  nodejs           Node.js             Runtime    2.0.1    ● incluído
+  wp-cli-toolkit   WordPress Toolkit   Tools      1.0.0    ● incluído
+
+  5 componentes
+  Os componentes que um servidor aceita dependem do produto dele."
+`;
+
+exports[`screen: 'components list outside the plan' > pt-BR 120 color 1`] = `
+"
+  COMPONENTE       NOME                TIPO       VERSÃO   PLANO
+ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━──────────────────────────────────────
+  php              PHP                 Runtime    3.0.2    ● incluído
+  mysql            MySQL               Database   2.0.1    ● incluído
+  redis            Redis               Cache      1.0.0    ○ fora do seu plano
+  nodejs           Node.js             Runtime    2.0.1    ● incluído
+  wp-cli-toolkit   WordPress Toolkit   Tools      1.0.0    ● incluído
+
+  5 componentes
+  Os componentes que um servidor aceita dependem do produto dele.
+
+--- styles ---
+1: 2-15 f8b8b98 | 19-35 f8b8b98 | 39-46 f8b8b98 | 50-55 f8b8b98 | 59-63 f8b8b98
+2: 1-1 fc6b4fc | 2-2 fccbdfc | 3-3 fd2c5fc | 4-4 fd9cefd | 5-5 fdfd6fd | 6-6 fe5defe | 7-7 febe7fe | 8-8 fe8e3fe | 9-9 fe2dafd | 10-10 fdcd2fd | 11-11 fd5c9fd | 12-12 fcfc1fc | 13-13 fc9b8fc | 14-14 fc3b0fc | 15-15 fbca8fb | 16-16 fb6a0fb | 17-17 fb097fb | 18-18 faa8ffa | 19-19 fa489fa | 20-20 f9e86f9 | 21-21 f9883f8 | 22-22 f9280f7 | 23-23 f8c7df6 | 24-24 f8779f6 | 25-25 f8176f5 | 26-26 f7b73f4 | 27-27 f7570f3 | 28-28 f706df3 | 29-29 f6a6af2 | 30-30 f6467f1 | 31-31 f6264f0 | 32-32 f6061ef | 33-33 f5e5fee | 34-34 f5d5ced | 35-35 f5b59ec | 36-36 f5a57eb | 37-37 f5854ea | 38-38 f5652e9 | 39-39 f554fe8 | 40-40 f534de7 | 41-41 f524ae7 | 42-42 f5048e6 | 43-43 f4e45e2 | 44-44 f4c43db | 45-45 f4a42d3 | 46-46 f4740cb | 47-47 f453ec4 | 48-48 f433cbc | 49-49 f413ab5 | 50-50 f3e39ad | 51-51 f3c37a6 | 52-52 f3a359f | 53-53 f383398 | 54-54 f363290 | 55-55 f343089 | 56-56 f312e82 | 57-57 f302d7c | 58-58 f2e2c76 | 59-59 f2d2b70 | 60-60 f2c296a | 61-61 f2a2864 | 62-62 f29275f | 63-63 f282659 | 64-64 f262553 | 65-65 f25244e | 66-66 f242349 | 67-67 f232244 | 68-68 f21213f | 69-69 f20203a | 70-70 f1f1f35 | 71-71 f1e1e31 | 72-72 f1d1d2d | 73-73 f1c1c29 | 74-79 f1c1c28
+3: 2-4 fa78bfa | 39-45 f8b8b98 | 50-54 f8b8b98 | 59-59 f22c55e
+4: 2-6 fa78bfa | 39-46 f8b8b98 | 50-54 f8b8b98 | 59-59 f22c55e
+5: 2-6 fa78bfa | 39-43 f8b8b98 | 50-54 f8b8b98 | 59-59 f62627a | 60-77 f8b8b98
+6: 2-7 fa78bfa | 39-45 f8b8b98 | 50-54 f8b8b98 | 59-59 f22c55e
+7: 2-15 fa78bfa | 39-43 f8b8b98 | 50-54 f8b8b98 | 59-59 f22c55e
+9: 2-14 f8b8b98
+10: 2-64 f8b8b98"
+`;
+
+exports[`screen: 'components list outside the plan' > pt-BR 120 plain 1`] = `
+"
+  COMPONENTE       NOME                TIPO       VERSÃO   PLANO
+ ───────────────────────────────────────────────────────────────────────────────
+  php              PHP                 Runtime    3.0.2    ● incluído
+  mysql            MySQL               Database   2.0.1    ● incluído
+  redis            Redis               Cache      1.0.0    ○ fora do seu plano
+  nodejs           Node.js             Runtime    2.0.1    ● incluído
+  wp-cli-toolkit   WordPress Toolkit   Tools      1.0.0    ● incluído
+
+  5 componentes
+  Os componentes que um servidor aceita dependem do produto dele."
+`;
+
+exports[`screen: 'components list' > en 40 color 1`] = `
+"
+  COMPONENT    NAME            TYPE
+ ━━━━━━━━━━━━━━━━━━━━───────────────────
+  php          PHP             Runtime
+  mysql        MySQL           Database
+  redis        Redis           Cache
+  nodejs       Node.js         Runtime
+  wp-cli-to…   WordPress To…   Tools
+
+  5 components
+  Which components a server accepts
+  depends on its product.
+
+--- styles ---
+1: 2-11 f8b8b98 | 15-27 f8b8b98 | 31-34 f8b8b98
+2: 1-1 fc6b4fc | 2-2 fd3c6fc | 3-3 fe0d7fd | 4-4 fece8fe | 5-5 fe1d8fd | 6-6 fd4c7fd | 7-7 fc7b6fc | 8-8 fbaa5fb | 9-9 fae94fa | 10-10 fa188f9 | 11-11 f9581f8 | 12-12 f897bf6 | 13-13 f7d74f4 | 14-14 f716ef3 | 15-15 f6668f1 | 16-16 f6062ef | 17-17 f5d5ced | 18-18 f5a57eb | 19-19 f5652e9 | 20-20 f534de7 | 21-21 f5047e6 | 22-22 f4c43da | 23-23 f4740ca | 24-24 f423cbb | 25-25 f3e38ab | 26-26 f39359c | 27-27 f35318e | 28-28 f312e80 | 29-29 f2e2b73 | 30-30 f2b2967 | 31-31 f28265b | 32-32 f252450 | 33-33 f232245 | 34-34 f20203b | 35-35 f1e1e32 | 36-36 f1c1c2a | 37-39 f1c1c28
+3: 2-4 fa78bfa | 31-37 f8b8b98
+4: 2-6 fa78bfa | 31-38 f8b8b98
+5: 2-6 fa78bfa | 31-35 f8b8b98
+6: 2-7 fa78bfa | 31-37 f8b8b98
+7: 2-11 fa78bfa | 31-35 f8b8b98
+9: 2-13 f8b8b98
+10: 2-34 f8b8b98
+11: 2-24 f8b8b98"
+`;
+
+exports[`screen: 'components list' > en 40 plain 1`] = `
+"
+  COMPONENT    NAME            TYPE
+ ───────────────────────────────────────
+  php          PHP             Runtime
+  mysql        MySQL           Database
+  redis        Redis           Cache
+  nodejs       Node.js         Runtime
+  wp-cli-to…   WordPress To…   Tools
+
+  5 components
+  Which components a server accepts
+  depends on its product."
+`;
+
+exports[`screen: 'components list' > en 80 color 1`] = `
+"
+  COMPONENT        NAME                TYPE       VERSION
+ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━────────────────────────────
+  php              PHP                 Runtime    3.0.2
+  mysql            MySQL               Database   2.0.1
+  redis            Redis               Cache      1.0.0
+  nodejs           Node.js             Runtime    2.0.1
+  wp-cli-toolkit   WordPress Toolkit   Tools      1.0.0
+
+  5 components
+  Which components a server accepts depends on its product.
+
+--- styles ---
+1: 2-15 f8b8b98 | 19-35 f8b8b98 | 39-46 f8b8b98 | 50-56 f8b8b98
+2: 1-1 fc6b4fc | 2-2 fcec0fc | 3-3 fd7cbfd | 4-4 fe0d7fd | 5-5 fe8e2fe | 6-6 fe9e4fe | 7-7 fe1d8fd | 8-8 fd8cdfd | 9-9 fcfc1fc | 10-10 fc7b6fc | 11-11 fbeaafb | 12-12 fb69ffb | 13-13 fae94fa | 14-14 fa58afa | 15-15 f9d86f9 | 16-16 f9581f8 | 17-17 f8d7df7 | 18-18 f8579f6 | 19-19 f7d74f4 | 20-20 f7570f3 | 21-21 f6e6cf2 | 22-22 f6668f1 | 23-23 f6264f0 | 24-24 f5f60ef | 25-25 f5d5ced | 26-26 f5b59ec | 27-27 f5955eb | 28-28 f5652e9 | 29-29 f544ee8 | 30-30 f524be7 | 31-31 f5047e6 | 32-32 f4d45df | 33-33 f4a42d4 | 34-34 f4740ca | 35-35 f443dc0 | 36-36 f413bb5 | 37-37 f3e38ab | 38-38 f3b36a1 | 39-39 f383398 | 40-40 f35318e | 41-41 f322f84 | 42-42 f302d7b | 43-43 f2e2b73 | 44-44 f2c2a6b | 45-45 f2a2863 | 46-46 f28265b | 47-47 f262554 | 48-48 f25234c | 49-49 f232245 | 50-50 f21213e | 51-51 f201f38 | 52-52 f1e1e32 | 53-53 f1d1d2c | 54-58 f1c1c28
+3: 2-4 fa78bfa | 39-45 f8b8b98 | 50-54 f8b8b98
+4: 2-6 fa78bfa | 39-46 f8b8b98 | 50-54 f8b8b98
+5: 2-6 fa78bfa | 39-43 f8b8b98 | 50-54 f8b8b98
+6: 2-7 fa78bfa | 39-45 f8b8b98 | 50-54 f8b8b98
+7: 2-15 fa78bfa | 39-43 f8b8b98 | 50-54 f8b8b98
+9: 2-13 f8b8b98
+10: 2-58 f8b8b98"
+`;
+
+exports[`screen: 'components list' > en 80 plain 1`] = `
+"
+  COMPONENT        NAME                TYPE       VERSION
+ ──────────────────────────────────────────────────────────
+  php              PHP                 Runtime    3.0.2
+  mysql            MySQL               Database   2.0.1
+  redis            Redis               Cache      1.0.0
+  nodejs           Node.js             Runtime    2.0.1
+  wp-cli-toolkit   WordPress Toolkit   Tools      1.0.0
+
+  5 components
+  Which components a server accepts depends on its product."
+`;
+
+exports[`screen: 'components list' > en 120 color 1`] = `
+"
+  COMPONENT        NAME                TYPE       VERSION
+ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━────────────────────────────
+  php              PHP                 Runtime    3.0.2
+  mysql            MySQL               Database   2.0.1
+  redis            Redis               Cache      1.0.0
+  nodejs           Node.js             Runtime    2.0.1
+  wp-cli-toolkit   WordPress Toolkit   Tools      1.0.0
+
+  5 components
+  Which components a server accepts depends on its product.
+
+--- styles ---
+1: 2-15 f8b8b98 | 19-35 f8b8b98 | 39-46 f8b8b98 | 50-56 f8b8b98
+2: 1-1 fc6b4fc | 2-2 fcec0fc | 3-3 fd7cbfd | 4-4 fe0d7fd | 5-5 fe8e2fe | 6-6 fe9e4fe | 7-7 fe1d8fd | 8-8 fd8cdfd | 9-9 fcfc1fc | 10-10 fc7b6fc | 11-11 fbeaafb | 12-12 fb69ffb | 13-13 fae94fa | 14-14 fa58afa | 15-15 f9d86f9 | 16-16 f9581f8 | 17-17 f8d7df7 | 18-18 f8579f6 | 19-19 f7d74f4 | 20-20 f7570f3 | 21-21 f6e6cf2 | 22-22 f6668f1 | 23-23 f6264f0 | 24-24 f5f60ef | 25-25 f5d5ced | 26-26 f5b59ec | 27-27 f5955eb | 28-28 f5652e9 | 29-29 f544ee8 | 30-30 f524be7 | 31-31 f5047e6 | 32-32 f4d45df | 33-33 f4a42d4 | 34-34 f4740ca | 35-35 f443dc0 | 36-36 f413bb5 | 37-37 f3e38ab | 38-38 f3b36a1 | 39-39 f383398 | 40-40 f35318e | 41-41 f322f84 | 42-42 f302d7b | 43-43 f2e2b73 | 44-44 f2c2a6b | 45-45 f2a2863 | 46-46 f28265b | 47-47 f262554 | 48-48 f25234c | 49-49 f232245 | 50-50 f21213e | 51-51 f201f38 | 52-52 f1e1e32 | 53-53 f1d1d2c | 54-58 f1c1c28
+3: 2-4 fa78bfa | 39-45 f8b8b98 | 50-54 f8b8b98
+4: 2-6 fa78bfa | 39-46 f8b8b98 | 50-54 f8b8b98
+5: 2-6 fa78bfa | 39-43 f8b8b98 | 50-54 f8b8b98
+6: 2-7 fa78bfa | 39-45 f8b8b98 | 50-54 f8b8b98
+7: 2-15 fa78bfa | 39-43 f8b8b98 | 50-54 f8b8b98
+9: 2-13 f8b8b98
+10: 2-58 f8b8b98"
+`;
+
+exports[`screen: 'components list' > en 120 plain 1`] = `
+"
+  COMPONENT        NAME                TYPE       VERSION
+ ──────────────────────────────────────────────────────────
+  php              PHP                 Runtime    3.0.2
+  mysql            MySQL               Database   2.0.1
+  redis            Redis               Cache      1.0.0
+  nodejs           Node.js             Runtime    2.0.1
+  wp-cli-toolkit   WordPress Toolkit   Tools      1.0.0
+
+  5 components
+  Which components a server accepts depends on its product."
+`;
+
+exports[`screen: 'components list' > es 40 color 1`] = `
+"
+  COMPONENTE   NOMBRE          TIPO
+ ━━━━━━━━━━━━━━━━━━━━───────────────────
+  php          PHP             Runtime
+  mysql        MySQL           Database
+  redis        Redis           Caché
+  nodejs       Node.js         Runtime
+  wp-cli-to…   WordPress To…   Tools
+
+  5 componentes
+  Los componentes que acepta un
+  servidor dependen de su producto.
+
+--- styles ---
+1: 2-11 f8b8b98 | 15-27 f8b8b98 | 31-34 f8b8b98
+2: 1-1 fc6b4fc | 2-2 fd3c6fc | 3-3 fe0d7fd | 4-4 fece8fe | 5-5 fe1d8fd | 6-6 fd4c7fd | 7-7 fc7b6fc | 8-8 fbaa5fb | 9-9 fae94fa | 10-10 fa188f9 | 11-11 f9581f8 | 12-12 f897bf6 | 13-13 f7d74f4 | 14-14 f716ef3 | 15-15 f6668f1 | 16-16 f6062ef | 17-17 f5d5ced | 18-18 f5a57eb | 19-19 f5652e9 | 20-20 f534de7 | 21-21 f5047e6 | 22-22 f4c43da | 23-23 f4740ca | 24-24 f423cbb | 25-25 f3e38ab | 26-26 f39359c | 27-27 f35318e | 28-28 f312e80 | 29-29 f2e2b73 | 30-30 f2b2967 | 31-31 f28265b | 32-32 f252450 | 33-33 f232245 | 34-34 f20203b | 35-35 f1e1e32 | 36-36 f1c1c2a | 37-39 f1c1c28
+3: 2-4 fa78bfa | 31-37 f8b8b98
+4: 2-6 fa78bfa | 31-38 f8b8b98
+5: 2-6 fa78bfa | 31-35 f8b8b98
+6: 2-7 fa78bfa | 31-37 f8b8b98
+7: 2-11 fa78bfa | 31-35 f8b8b98
+9: 2-14 f8b8b98
+10: 2-30 f8b8b98
+11: 2-34 f8b8b98"
+`;
+
+exports[`screen: 'components list' > es 40 plain 1`] = `
+"
+  COMPONENTE   NOMBRE          TIPO
+ ───────────────────────────────────────
+  php          PHP             Runtime
+  mysql        MySQL           Database
+  redis        Redis           Caché
+  nodejs       Node.js         Runtime
+  wp-cli-to…   WordPress To…   Tools
+
+  5 componentes
+  Los componentes que acepta un
+  servidor dependen de su producto."
+`;
+
+exports[`screen: 'components list' > es 80 color 1`] = `
+"
+  COMPONENTE       NOMBRE              TIPO       VERSIÓN
+ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━────────────────────────────
+  php              PHP                 Runtime    3.0.2
+  mysql            MySQL               Database   2.0.1
+  redis            Redis               Caché      1.0.0
+  nodejs           Node.js             Runtime    2.0.1
+  wp-cli-toolkit   WordPress Toolkit   Tools      1.0.0
+
+  5 componentes
+  Los componentes que acepta un servidor dependen de su producto.
+
+--- styles ---
+1: 2-15 f8b8b98 | 19-35 f8b8b98 | 39-46 f8b8b98 | 50-56 f8b8b98
+2: 1-1 fc6b4fc | 2-2 fcec0fc | 3-3 fd7cbfd | 4-4 fe0d7fd | 5-5 fe8e2fe | 6-6 fe9e4fe | 7-7 fe1d8fd | 8-8 fd8cdfd | 9-9 fcfc1fc | 10-10 fc7b6fc | 11-11 fbeaafb | 12-12 fb69ffb | 13-13 fae94fa | 14-14 fa58afa | 15-15 f9d86f9 | 16-16 f9581f8 | 17-17 f8d7df7 | 18-18 f8579f6 | 19-19 f7d74f4 | 20-20 f7570f3 | 21-21 f6e6cf2 | 22-22 f6668f1 | 23-23 f6264f0 | 24-24 f5f60ef | 25-25 f5d5ced | 26-26 f5b59ec | 27-27 f5955eb | 28-28 f5652e9 | 29-29 f544ee8 | 30-30 f524be7 | 31-31 f5047e6 | 32-32 f4d45df | 33-33 f4a42d4 | 34-34 f4740ca | 35-35 f443dc0 | 36-36 f413bb5 | 37-37 f3e38ab | 38-38 f3b36a1 | 39-39 f383398 | 40-40 f35318e | 41-41 f322f84 | 42-42 f302d7b | 43-43 f2e2b73 | 44-44 f2c2a6b | 45-45 f2a2863 | 46-46 f28265b | 47-47 f262554 | 48-48 f25234c | 49-49 f232245 | 50-50 f21213e | 51-51 f201f38 | 52-52 f1e1e32 | 53-53 f1d1d2c | 54-58 f1c1c28
+3: 2-4 fa78bfa | 39-45 f8b8b98 | 50-54 f8b8b98
+4: 2-6 fa78bfa | 39-46 f8b8b98 | 50-54 f8b8b98
+5: 2-6 fa78bfa | 39-43 f8b8b98 | 50-54 f8b8b98
+6: 2-7 fa78bfa | 39-45 f8b8b98 | 50-54 f8b8b98
+7: 2-15 fa78bfa | 39-43 f8b8b98 | 50-54 f8b8b98
+9: 2-14 f8b8b98
+10: 2-64 f8b8b98"
+`;
+
+exports[`screen: 'components list' > es 80 plain 1`] = `
+"
+  COMPONENTE       NOMBRE              TIPO       VERSIÓN
+ ──────────────────────────────────────────────────────────
+  php              PHP                 Runtime    3.0.2
+  mysql            MySQL               Database   2.0.1
+  redis            Redis               Caché      1.0.0
+  nodejs           Node.js             Runtime    2.0.1
+  wp-cli-toolkit   WordPress Toolkit   Tools      1.0.0
+
+  5 componentes
+  Los componentes que acepta un servidor dependen de su producto."
+`;
+
+exports[`screen: 'components list' > es 120 color 1`] = `
+"
+  COMPONENTE       NOMBRE              TIPO       VERSIÓN
+ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━────────────────────────────
+  php              PHP                 Runtime    3.0.2
+  mysql            MySQL               Database   2.0.1
+  redis            Redis               Caché      1.0.0
+  nodejs           Node.js             Runtime    2.0.1
+  wp-cli-toolkit   WordPress Toolkit   Tools      1.0.0
+
+  5 componentes
+  Los componentes que acepta un servidor dependen de su producto.
+
+--- styles ---
+1: 2-15 f8b8b98 | 19-35 f8b8b98 | 39-46 f8b8b98 | 50-56 f8b8b98
+2: 1-1 fc6b4fc | 2-2 fcec0fc | 3-3 fd7cbfd | 4-4 fe0d7fd | 5-5 fe8e2fe | 6-6 fe9e4fe | 7-7 fe1d8fd | 8-8 fd8cdfd | 9-9 fcfc1fc | 10-10 fc7b6fc | 11-11 fbeaafb | 12-12 fb69ffb | 13-13 fae94fa | 14-14 fa58afa | 15-15 f9d86f9 | 16-16 f9581f8 | 17-17 f8d7df7 | 18-18 f8579f6 | 19-19 f7d74f4 | 20-20 f7570f3 | 21-21 f6e6cf2 | 22-22 f6668f1 | 23-23 f6264f0 | 24-24 f5f60ef | 25-25 f5d5ced | 26-26 f5b59ec | 27-27 f5955eb | 28-28 f5652e9 | 29-29 f544ee8 | 30-30 f524be7 | 31-31 f5047e6 | 32-32 f4d45df | 33-33 f4a42d4 | 34-34 f4740ca | 35-35 f443dc0 | 36-36 f413bb5 | 37-37 f3e38ab | 38-38 f3b36a1 | 39-39 f383398 | 40-40 f35318e | 41-41 f322f84 | 42-42 f302d7b | 43-43 f2e2b73 | 44-44 f2c2a6b | 45-45 f2a2863 | 46-46 f28265b | 47-47 f262554 | 48-48 f25234c | 49-49 f232245 | 50-50 f21213e | 51-51 f201f38 | 52-52 f1e1e32 | 53-53 f1d1d2c | 54-58 f1c1c28
+3: 2-4 fa78bfa | 39-45 f8b8b98 | 50-54 f8b8b98
+4: 2-6 fa78bfa | 39-46 f8b8b98 | 50-54 f8b8b98
+5: 2-6 fa78bfa | 39-43 f8b8b98 | 50-54 f8b8b98
+6: 2-7 fa78bfa | 39-45 f8b8b98 | 50-54 f8b8b98
+7: 2-15 fa78bfa | 39-43 f8b8b98 | 50-54 f8b8b98
+9: 2-14 f8b8b98
+10: 2-64 f8b8b98"
+`;
+
+exports[`screen: 'components list' > es 120 plain 1`] = `
+"
+  COMPONENTE       NOMBRE              TIPO       VERSIÓN
+ ──────────────────────────────────────────────────────────
+  php              PHP                 Runtime    3.0.2
+  mysql            MySQL               Database   2.0.1
+  redis            Redis               Caché      1.0.0
+  nodejs           Node.js             Runtime    2.0.1
+  wp-cli-toolkit   WordPress Toolkit   Tools      1.0.0
+
+  5 componentes
+  Los componentes que acepta un servidor dependen de su producto."
+`;
+
+exports[`screen: 'components list' > pt-BR 40 color 1`] = `
+"
+  COMPONENTE   NOME            TIPO
+ ━━━━━━━━━━━━━━━━━━━━───────────────────
+  php          PHP             Runtime
+  mysql        MySQL           Database
+  redis        Redis           Cache
+  nodejs       Node.js         Runtime
+  wp-cli-to…   WordPress To…   Tools
+
+  5 componentes
+  Os componentes que um servidor
+  aceita dependem do produto dele.
+
+--- styles ---
+1: 2-11 f8b8b98 | 15-27 f8b8b98 | 31-34 f8b8b98
+2: 1-1 fc6b4fc | 2-2 fd3c6fc | 3-3 fe0d7fd | 4-4 fece8fe | 5-5 fe1d8fd | 6-6 fd4c7fd | 7-7 fc7b6fc | 8-8 fbaa5fb | 9-9 fae94fa | 10-10 fa188f9 | 11-11 f9581f8 | 12-12 f897bf6 | 13-13 f7d74f4 | 14-14 f716ef3 | 15-15 f6668f1 | 16-16 f6062ef | 17-17 f5d5ced | 18-18 f5a57eb | 19-19 f5652e9 | 20-20 f534de7 | 21-21 f5047e6 | 22-22 f4c43da | 23-23 f4740ca | 24-24 f423cbb | 25-25 f3e38ab | 26-26 f39359c | 27-27 f35318e | 28-28 f312e80 | 29-29 f2e2b73 | 30-30 f2b2967 | 31-31 f28265b | 32-32 f252450 | 33-33 f232245 | 34-34 f20203b | 35-35 f1e1e32 | 36-36 f1c1c2a | 37-39 f1c1c28
+3: 2-4 fa78bfa | 31-37 f8b8b98
+4: 2-6 fa78bfa | 31-38 f8b8b98
+5: 2-6 fa78bfa | 31-35 f8b8b98
+6: 2-7 fa78bfa | 31-37 f8b8b98
+7: 2-11 fa78bfa | 31-35 f8b8b98
+9: 2-14 f8b8b98
+10: 2-31 f8b8b98
+11: 2-33 f8b8b98"
+`;
+
+exports[`screen: 'components list' > pt-BR 40 plain 1`] = `
+"
+  COMPONENTE   NOME            TIPO
+ ───────────────────────────────────────
+  php          PHP             Runtime
+  mysql        MySQL           Database
+  redis        Redis           Cache
+  nodejs       Node.js         Runtime
+  wp-cli-to…   WordPress To…   Tools
+
+  5 componentes
+  Os componentes que um servidor
+  aceita dependem do produto dele."
+`;
+
+exports[`screen: 'components list' > pt-BR 80 color 1`] = `
+"
+  COMPONENTE       NOME                TIPO       VERSÃO
+ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━────────────────────────────
+  php              PHP                 Runtime    3.0.2
+  mysql            MySQL               Database   2.0.1
+  redis            Redis               Cache      1.0.0
+  nodejs           Node.js             Runtime    2.0.1
+  wp-cli-toolkit   WordPress Toolkit   Tools      1.0.0
+
+  5 componentes
+  Os componentes que um servidor aceita dependem do produto dele.
+
+--- styles ---
+1: 2-15 f8b8b98 | 19-35 f8b8b98 | 39-46 f8b8b98 | 50-55 f8b8b98
+2: 1-1 fc6b4fc | 2-2 fcfc0fc | 3-3 fd7ccfd | 4-4 fe0d8fd | 5-5 fe9e3fe | 6-6 fe8e3fe | 7-7 fe0d7fd | 8-8 fd7cbfd | 9-9 fcec0fc | 10-10 fc6b4fc | 11-11 fbda8fb | 12-12 fb49dfb | 13-13 fac91fa | 14-14 fa389fa | 15-15 f9b85f8 | 16-16 f9380f7 | 17-17 f8b7cf6 | 18-18 f8377f5 | 19-19 f7b73f4 | 20-20 f736ff3 | 21-21 f6b6af2 | 22-22 f6366f1 | 23-23 f6162f0 | 24-24 f5e5fee | 25-25 f5c5bed | 26-26 f5a57eb | 27-27 f5854ea | 28-28 f5550e9 | 29-29 f534de7 | 30-30 f5149e6 | 31-31 f4f46e4 | 32-32 f4b43d9 | 33-33 f4841ce | 34-34 f453ec4 | 35-35 f423cb9 | 36-36 f3f39af | 37-37 f3c37a5 | 38-38 f39349b | 39-39 f363291 | 40-40 f332f87 | 41-41 f302d7e | 42-42 f2e2c75 | 43-43 f2c2a6d | 44-44 f2a2865 | 45-45 f29275d | 46-46 f272555 | 47-47 f25244e | 48-48 f232246 | 49-49 f22213f | 50-50 f201f39 | 51-51 f1e1e32 | 52-52 f1d1d2d | 53-57 f1c1c28
+3: 2-4 fa78bfa | 39-45 f8b8b98 | 50-54 f8b8b98
+4: 2-6 fa78bfa | 39-46 f8b8b98 | 50-54 f8b8b98
+5: 2-6 fa78bfa | 39-43 f8b8b98 | 50-54 f8b8b98
+6: 2-7 fa78bfa | 39-45 f8b8b98 | 50-54 f8b8b98
+7: 2-15 fa78bfa | 39-43 f8b8b98 | 50-54 f8b8b98
+9: 2-14 f8b8b98
+10: 2-64 f8b8b98"
+`;
+
+exports[`screen: 'components list' > pt-BR 80 plain 1`] = `
+"
+  COMPONENTE       NOME                TIPO       VERSÃO
+ ─────────────────────────────────────────────────────────
+  php              PHP                 Runtime    3.0.2
+  mysql            MySQL               Database   2.0.1
+  redis            Redis               Cache      1.0.0
+  nodejs           Node.js             Runtime    2.0.1
+  wp-cli-toolkit   WordPress Toolkit   Tools      1.0.0
+
+  5 componentes
+  Os componentes que um servidor aceita dependem do produto dele."
+`;
+
+exports[`screen: 'components list' > pt-BR 120 color 1`] = `
+"
+  COMPONENTE       NOME                TIPO       VERSÃO
+ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━────────────────────────────
+  php              PHP                 Runtime    3.0.2
+  mysql            MySQL               Database   2.0.1
+  redis            Redis               Cache      1.0.0
+  nodejs           Node.js             Runtime    2.0.1
+  wp-cli-toolkit   WordPress Toolkit   Tools      1.0.0
+
+  5 componentes
+  Os componentes que um servidor aceita dependem do produto dele.
+
+--- styles ---
+1: 2-15 f8b8b98 | 19-35 f8b8b98 | 39-46 f8b8b98 | 50-55 f8b8b98
+2: 1-1 fc6b4fc | 2-2 fcfc0fc | 3-3 fd7ccfd | 4-4 fe0d8fd | 5-5 fe9e3fe | 6-6 fe8e3fe | 7-7 fe0d7fd | 8-8 fd7cbfd | 9-9 fcec0fc | 10-10 fc6b4fc | 11-11 fbda8fb | 12-12 fb49dfb | 13-13 fac91fa | 14-14 fa389fa | 15-15 f9b85f8 | 16-16 f9380f7 | 17-17 f8b7cf6 | 18-18 f8377f5 | 19-19 f7b73f4 | 20-20 f736ff3 | 21-21 f6b6af2 | 22-22 f6366f1 | 23-23 f6162f0 | 24-24 f5e5fee | 25-25 f5c5bed | 26-26 f5a57eb | 27-27 f5854ea | 28-28 f5550e9 | 29-29 f534de7 | 30-30 f5149e6 | 31-31 f4f46e4 | 32-32 f4b43d9 | 33-33 f4841ce | 34-34 f453ec4 | 35-35 f423cb9 | 36-36 f3f39af | 37-37 f3c37a5 | 38-38 f39349b | 39-39 f363291 | 40-40 f332f87 | 41-41 f302d7e | 42-42 f2e2c75 | 43-43 f2c2a6d | 44-44 f2a2865 | 45-45 f29275d | 46-46 f272555 | 47-47 f25244e | 48-48 f232246 | 49-49 f22213f | 50-50 f201f39 | 51-51 f1e1e32 | 52-52 f1d1d2d | 53-57 f1c1c28
+3: 2-4 fa78bfa | 39-45 f8b8b98 | 50-54 f8b8b98
+4: 2-6 fa78bfa | 39-46 f8b8b98 | 50-54 f8b8b98
+5: 2-6 fa78bfa | 39-43 f8b8b98 | 50-54 f8b8b98
+6: 2-7 fa78bfa | 39-45 f8b8b98 | 50-54 f8b8b98
+7: 2-15 fa78bfa | 39-43 f8b8b98 | 50-54 f8b8b98
+9: 2-14 f8b8b98
+10: 2-64 f8b8b98"
+`;
+
+exports[`screen: 'components list' > pt-BR 120 plain 1`] = `
+"
+  COMPONENTE       NOME                TIPO       VERSÃO
+ ─────────────────────────────────────────────────────────
+  php              PHP                 Runtime    3.0.2
+  mysql            MySQL               Database   2.0.1
+  redis            Redis               Cache      1.0.0
+  nodejs           Node.js             Runtime    2.0.1
+  wp-cli-toolkit   WordPress Toolkit   Tools      1.0.0
+
+  5 componentes
+  Os componentes que um servidor aceita dependem do produto dele."
+`;
+
+exports[`screen: 'help components' > en 40 color 1`] = `
+"  bladecp components
+ ━━━━━━━━━━━━──────────────────────────
+  See the components a server can run
+
+  Usage: bladecp components <command>
+  [options]
+
+  Commands ────────────────────────────
+  list   List the components of the
+         BladeCP catalog
+
+  "bladecp components" alone runs
+  "bladecp components list".
+  Details of a command: bladecp
+  components <command> --help
+
+--- styles ---
+0: 2-8 B | 10-19 B
+1: 1-1 f6264f0 | 2-2 f7c74f4 | 3-3 f9b84f8 | 4-4 fbba6fb | 5-5 fddd4fd | 6-6 fd9cefd | 7-7 fb7a1fb | 8-8 f9782f8 | 9-9 f7972f4 | 10-10 f6163f0 | 11-11 f5956eb | 12-12 f524ae7 | 13-13 f4941d0 | 14-14 f3f39b0 | 15-15 f363292 | 16-16 f2f2c79 | 17-17 f2a2863 | 18-18 f262451 | 19-19 f222141 | 20-20 f1f1f35 | 21-21 f1d1d2c | 22-38 f1c1c28
+2: 2-36 f8b8b98
+4: 2-7 f8b8b98 | 28-36 f6366f1
+5: 2-10 f8b8b98
+7: 11-11 f4b4b62 | 12-12 f494960 | 13-13 f48485e | 14-14 f46465c | 15-15 f44445a | 16-16 f434358 | 17-17 f414156 | 18-18 f3f3f54 | 19-19 f3e3e51 | 20-20 f3c3c4f | 21-21 f3a3a4d | 22-22 f39394b | 23-23 f373749 | 24-24 f353547 | 25-25 f343445 | 26-26 f323243 | 27-27 f303041 | 28-28 f2e2e3f | 29-29 f2d2d3d | 30-30 f2b2b3b | 31-31 f292939 | 32-32 f282837 | 33-33 f262634 | 34-34 f242432 | 35-35 f232330 | 36-36 f21212e | 37-37 f1f1f2c | 38-38 f1e1e2a
+8: 2-5 f6366f1
+11: 2-32 f8b8b98
+12: 2-27 f8b8b98
+13: 2-30 f8b8b98
+14: 2-28 f8b8b98"
+`;
+
+exports[`screen: 'help components' > en 40 plain 1`] = `
+"  bladecp components
+ ──────────────────────────────────────
+  See the components a server can run
+
+  Usage: bladecp components <command>
+  [options]
+
+  Commands ────────────────────────────
+  list   List the components of the
+         BladeCP catalog
+
+  "bladecp components" alone runs
+  "bladecp components list".
+  Details of a command: bladecp
+  components <command> --help"
+`;
+
+exports[`screen: 'help components' > en 80 color 1`] = `
+"  bladecp components
+ ━━━━━━━━━━━━━━━━━━━━━━━━──────────────────────────────────────────────────────
+  See the components a server can run
+
+  Usage: bladecp components <command> [options]
+
+  Commands ───────────────────────────────────
+  list   List the components of the BladeCP catalog
+
+  "bladecp components" alone runs "bladecp components list".
+  Details of a command: bladecp components <command> --help
+
+--- styles ---
+0: 2-8 B | 10-19 B
+1: 1-1 f6264f0 | 2-2 f6d6cf2 | 3-3 f7b73f4 | 4-4 f8a7bf6 | 5-5 f9883f8 | 6-6 fa78bfa | 7-7 fb7a1fb | 8-8 fc7b7fc | 9-9 fd8cdfd | 10-10 fe9e3fe | 11-11 fe0d8fd | 12-12 fcfc1fc | 13-13 fbfabfb | 14-14 faf96fa | 15-15 f9f87f9 | 16-16 f917ff7 | 17-17 f8277f5 | 18-18 f746ff3 | 19-19 f6668f1 | 20-20 f6061ef | 21-21 f5c5bed | 22-22 f5855eb | 23-23 f554fe8 | 24-24 f514ae6 | 25-25 f4d45e0 | 26-26 f4841cf | 27-27 f443dc0 | 28-28 f3f39b0 | 29-29 f3b36a2 | 30-30 f373394 | 31-31 f332f87 | 32-32 f302d7b | 33-33 f2d2b70 | 34-34 f2b2966 | 35-35 f28275d | 36-36 f262554 | 37-37 f24234c | 38-38 f232245 | 39-39 f21203e | 40-40 f201f38 | 41-41 f1f1e33 | 42-42 f1e1d2f | 43-43 f1d1d2b | 44-44 f1c1c29 | 45-78 f1c1c28
+2: 2-36 f8b8b98
+4: 2-7 f8b8b98 | 28-36 f6366f1 | 38-46 f8b8b98
+6: 11-11 f4b4b62 | 12-12 f4a4a60 | 13-13 f48485f | 14-14 f47475d | 15-15 f46465b | 16-16 f44445a | 17-17 f434358 | 18-18 f424256 | 19-19 f404055 | 20-20 f3f3f53 | 21-21 f3e3e51 | 22-22 f3c3c50 | 23-23 f3b3b4e | 24-24 f3a3a4c | 25-25 f38384b | 26-26 f373749 | 27-27 f363647 | 28-28 f343446 | 29-29 f333344 | 30-30 f313143 | 31-31 f303041 | 32-32 f2f2f3f | 33-33 f2d2d3e | 34-34 f2c2c3c | 35-35 f2b2b3a | 36-36 f292939 | 37-37 f282837 | 38-38 f272735 | 39-39 f252534 | 40-40 f242432 | 41-41 f232330 | 42-42 f21212f | 43-43 f20202d | 44-44 f1f1f2b | 45-45 f1d1d2a
+7: 2-5 f6366f1
+9: 2-59 f8b8b98
+10: 2-58 f8b8b98"
+`;
+
+exports[`screen: 'help components' > en 80 plain 1`] = `
+"  bladecp components
+ ──────────────────────────────────────────────────────────────────────────────
+  See the components a server can run
+
+  Usage: bladecp components <command> [options]
+
+  Commands ───────────────────────────────────
+  list   List the components of the BladeCP catalog
+
+  "bladecp components" alone runs "bladecp components list".
+  Details of a command: bladecp components <command> --help"
+`;
+
+exports[`screen: 'help components' > en 120 color 1`] = `
+"  bladecp components
+ ━━━━━━━━━━━━━━━━━━━━━━━━──────────────────────────────────────────────────────
+  See the components a server can run
+
+  Usage: bladecp components <command> [options]
+
+  Commands ───────────────────────────────────
+  list   List the components of the BladeCP catalog
+
+  "bladecp components" alone runs "bladecp components list".
+  Details of a command: bladecp components <command> --help
+
+--- styles ---
+0: 2-8 B | 10-19 B
+1: 1-1 f6264f0 | 2-2 f6d6cf2 | 3-3 f7b73f4 | 4-4 f8a7bf6 | 5-5 f9883f8 | 6-6 fa78bfa | 7-7 fb7a1fb | 8-8 fc7b7fc | 9-9 fd8cdfd | 10-10 fe9e3fe | 11-11 fe0d8fd | 12-12 fcfc1fc | 13-13 fbfabfb | 14-14 faf96fa | 15-15 f9f87f9 | 16-16 f917ff7 | 17-17 f8277f5 | 18-18 f746ff3 | 19-19 f6668f1 | 20-20 f6061ef | 21-21 f5c5bed | 22-22 f5855eb | 23-23 f554fe8 | 24-24 f514ae6 | 25-25 f4d45e0 | 26-26 f4841cf | 27-27 f443dc0 | 28-28 f3f39b0 | 29-29 f3b36a2 | 30-30 f373394 | 31-31 f332f87 | 32-32 f302d7b | 33-33 f2d2b70 | 34-34 f2b2966 | 35-35 f28275d | 36-36 f262554 | 37-37 f24234c | 38-38 f232245 | 39-39 f21203e | 40-40 f201f38 | 41-41 f1f1e33 | 42-42 f1e1d2f | 43-43 f1d1d2b | 44-44 f1c1c29 | 45-78 f1c1c28
+2: 2-36 f8b8b98
+4: 2-7 f8b8b98 | 28-36 f6366f1 | 38-46 f8b8b98
+6: 11-11 f4b4b62 | 12-12 f4a4a60 | 13-13 f48485f | 14-14 f47475d | 15-15 f46465b | 16-16 f44445a | 17-17 f434358 | 18-18 f424256 | 19-19 f404055 | 20-20 f3f3f53 | 21-21 f3e3e51 | 22-22 f3c3c50 | 23-23 f3b3b4e | 24-24 f3a3a4c | 25-25 f38384b | 26-26 f373749 | 27-27 f363647 | 28-28 f343446 | 29-29 f333344 | 30-30 f313143 | 31-31 f303041 | 32-32 f2f2f3f | 33-33 f2d2d3e | 34-34 f2c2c3c | 35-35 f2b2b3a | 36-36 f292939 | 37-37 f282837 | 38-38 f272735 | 39-39 f252534 | 40-40 f242432 | 41-41 f232330 | 42-42 f21212f | 43-43 f20202d | 44-44 f1f1f2b | 45-45 f1d1d2a
+7: 2-5 f6366f1
+9: 2-59 f8b8b98
+10: 2-58 f8b8b98"
+`;
+
+exports[`screen: 'help components' > en 120 plain 1`] = `
+"  bladecp components
+ ──────────────────────────────────────────────────────────────────────────────
+  See the components a server can run
+
+  Usage: bladecp components <command> [options]
+
+  Commands ───────────────────────────────────
+  list   List the components of the BladeCP catalog
+
+  "bladecp components" alone runs "bladecp components list".
+  Details of a command: bladecp components <command> --help"
+`;
+
+exports[`screen: 'help components' > es 40 color 1`] = `
+"  bladecp components
+ ━━━━━━━━━━━━──────────────────────────
+  Ver los componentes que puede
+  ejecutar un servidor
+
+  Uso: bladecp components <comando>
+  [opciones]
+
+  Comandos ────────────────────────────
+  list   Listar los componentes del
+         catálogo de BladeCP
+
+  "bladecp components" solo ejecuta
+  "bladecp components list".
+  Detalles de un comando: bladecp
+  components <comando> --help
+
+--- styles ---
+0: 2-8 B | 10-19 B
+1: 1-1 f6264f0 | 2-2 f7c74f4 | 3-3 f9b84f8 | 4-4 fbba6fb | 5-5 fddd4fd | 6-6 fd9cefd | 7-7 fb7a1fb | 8-8 f9782f8 | 9-9 f7972f4 | 10-10 f6163f0 | 11-11 f5956eb | 12-12 f524ae7 | 13-13 f4941d0 | 14-14 f3f39b0 | 15-15 f363292 | 16-16 f2f2c79 | 17-17 f2a2863 | 18-18 f262451 | 19-19 f222141 | 20-20 f1f1f35 | 21-21 f1d1d2c | 22-38 f1c1c28
+2: 2-30 f8b8b98
+3: 2-21 f8b8b98
+5: 2-5 f8b8b98 | 26-34 f6366f1
+6: 2-11 f8b8b98
+8: 11-11 f4b4b62 | 12-12 f494960 | 13-13 f48485e | 14-14 f46465c | 15-15 f44445a | 16-16 f434358 | 17-17 f414156 | 18-18 f3f3f54 | 19-19 f3e3e51 | 20-20 f3c3c4f | 21-21 f3a3a4d | 22-22 f39394b | 23-23 f373749 | 24-24 f353547 | 25-25 f343445 | 26-26 f323243 | 27-27 f303041 | 28-28 f2e2e3f | 29-29 f2d2d3d | 30-30 f2b2b3b | 31-31 f292939 | 32-32 f282837 | 33-33 f262634 | 34-34 f242432 | 35-35 f232330 | 36-36 f21212e | 37-37 f1f1f2c | 38-38 f1e1e2a
+9: 2-5 f6366f1
+12: 2-34 f8b8b98
+13: 2-27 f8b8b98
+14: 2-32 f8b8b98
+15: 2-28 f8b8b98"
+`;
+
+exports[`screen: 'help components' > es 40 plain 1`] = `
+"  bladecp components
+ ──────────────────────────────────────
+  Ver los componentes que puede
+  ejecutar un servidor
+
+  Uso: bladecp components <comando>
+  [opciones]
+
+  Comandos ────────────────────────────
+  list   Listar los componentes del
+         catálogo de BladeCP
+
+  "bladecp components" solo ejecuta
+  "bladecp components list".
+  Detalles de un comando: bladecp
+  components <comando> --help"
+`;
+
+exports[`screen: 'help components' > es 80 color 1`] = `
+"  bladecp components
+ ━━━━━━━━━━━━━━━━━━━━━━━━──────────────────────────────────────────────────────
+  Ver los componentes que puede ejecutar un servidor
+
+  Uso: bladecp components <comando> [opciones]
+
+  Comandos ───────────────────────────────────
+  list   Listar los componentes del catálogo de BladeCP
+
+  "bladecp components" solo ejecuta "bladecp components list".
+  Detalles de un comando: bladecp components <comando> --help
+
+--- styles ---
+0: 2-8 B | 10-19 B
+1: 1-1 f6264f0 | 2-2 f6d6cf2 | 3-3 f7b73f4 | 4-4 f8a7bf6 | 5-5 f9883f8 | 6-6 fa78bfa | 7-7 fb7a1fb | 8-8 fc7b7fc | 9-9 fd8cdfd | 10-10 fe9e3fe | 11-11 fe0d8fd | 12-12 fcfc1fc | 13-13 fbfabfb | 14-14 faf96fa | 15-15 f9f87f9 | 16-16 f917ff7 | 17-17 f8277f5 | 18-18 f746ff3 | 19-19 f6668f1 | 20-20 f6061ef | 21-21 f5c5bed | 22-22 f5855eb | 23-23 f554fe8 | 24-24 f514ae6 | 25-25 f4d45e0 | 26-26 f4841cf | 27-27 f443dc0 | 28-28 f3f39b0 | 29-29 f3b36a2 | 30-30 f373394 | 31-31 f332f87 | 32-32 f302d7b | 33-33 f2d2b70 | 34-34 f2b2966 | 35-35 f28275d | 36-36 f262554 | 37-37 f24234c | 38-38 f232245 | 39-39 f21203e | 40-40 f201f38 | 41-41 f1f1e33 | 42-42 f1e1d2f | 43-43 f1d1d2b | 44-44 f1c1c29 | 45-78 f1c1c28
+2: 2-51 f8b8b98
+4: 2-5 f8b8b98 | 26-34 f6366f1 | 36-45 f8b8b98
+6: 11-11 f4b4b62 | 12-12 f4a4a60 | 13-13 f48485f | 14-14 f47475d | 15-15 f46465b | 16-16 f44445a | 17-17 f434358 | 18-18 f424256 | 19-19 f404055 | 20-20 f3f3f53 | 21-21 f3e3e51 | 22-22 f3c3c50 | 23-23 f3b3b4e | 24-24 f3a3a4c | 25-25 f38384b | 26-26 f373749 | 27-27 f363647 | 28-28 f343446 | 29-29 f333344 | 30-30 f313143 | 31-31 f303041 | 32-32 f2f2f3f | 33-33 f2d2d3e | 34-34 f2c2c3c | 35-35 f2b2b3a | 36-36 f292939 | 37-37 f282837 | 38-38 f272735 | 39-39 f252534 | 40-40 f242432 | 41-41 f232330 | 42-42 f21212f | 43-43 f20202d | 44-44 f1f1f2b | 45-45 f1d1d2a
+7: 2-5 f6366f1
+9: 2-61 f8b8b98
+10: 2-60 f8b8b98"
+`;
+
+exports[`screen: 'help components' > es 80 plain 1`] = `
+"  bladecp components
+ ──────────────────────────────────────────────────────────────────────────────
+  Ver los componentes que puede ejecutar un servidor
+
+  Uso: bladecp components <comando> [opciones]
+
+  Comandos ───────────────────────────────────
+  list   Listar los componentes del catálogo de BladeCP
+
+  "bladecp components" solo ejecuta "bladecp components list".
+  Detalles de un comando: bladecp components <comando> --help"
+`;
+
+exports[`screen: 'help components' > es 120 color 1`] = `
+"  bladecp components
+ ━━━━━━━━━━━━━━━━━━━━━━━━──────────────────────────────────────────────────────
+  Ver los componentes que puede ejecutar un servidor
+
+  Uso: bladecp components <comando> [opciones]
+
+  Comandos ───────────────────────────────────
+  list   Listar los componentes del catálogo de BladeCP
+
+  "bladecp components" solo ejecuta "bladecp components list".
+  Detalles de un comando: bladecp components <comando> --help
+
+--- styles ---
+0: 2-8 B | 10-19 B
+1: 1-1 f6264f0 | 2-2 f6d6cf2 | 3-3 f7b73f4 | 4-4 f8a7bf6 | 5-5 f9883f8 | 6-6 fa78bfa | 7-7 fb7a1fb | 8-8 fc7b7fc | 9-9 fd8cdfd | 10-10 fe9e3fe | 11-11 fe0d8fd | 12-12 fcfc1fc | 13-13 fbfabfb | 14-14 faf96fa | 15-15 f9f87f9 | 16-16 f917ff7 | 17-17 f8277f5 | 18-18 f746ff3 | 19-19 f6668f1 | 20-20 f6061ef | 21-21 f5c5bed | 22-22 f5855eb | 23-23 f554fe8 | 24-24 f514ae6 | 25-25 f4d45e0 | 26-26 f4841cf | 27-27 f443dc0 | 28-28 f3f39b0 | 29-29 f3b36a2 | 30-30 f373394 | 31-31 f332f87 | 32-32 f302d7b | 33-33 f2d2b70 | 34-34 f2b2966 | 35-35 f28275d | 36-36 f262554 | 37-37 f24234c | 38-38 f232245 | 39-39 f21203e | 40-40 f201f38 | 41-41 f1f1e33 | 42-42 f1e1d2f | 43-43 f1d1d2b | 44-44 f1c1c29 | 45-78 f1c1c28
+2: 2-51 f8b8b98
+4: 2-5 f8b8b98 | 26-34 f6366f1 | 36-45 f8b8b98
+6: 11-11 f4b4b62 | 12-12 f4a4a60 | 13-13 f48485f | 14-14 f47475d | 15-15 f46465b | 16-16 f44445a | 17-17 f434358 | 18-18 f424256 | 19-19 f404055 | 20-20 f3f3f53 | 21-21 f3e3e51 | 22-22 f3c3c50 | 23-23 f3b3b4e | 24-24 f3a3a4c | 25-25 f38384b | 26-26 f373749 | 27-27 f363647 | 28-28 f343446 | 29-29 f333344 | 30-30 f313143 | 31-31 f303041 | 32-32 f2f2f3f | 33-33 f2d2d3e | 34-34 f2c2c3c | 35-35 f2b2b3a | 36-36 f292939 | 37-37 f282837 | 38-38 f272735 | 39-39 f252534 | 40-40 f242432 | 41-41 f232330 | 42-42 f21212f | 43-43 f20202d | 44-44 f1f1f2b | 45-45 f1d1d2a
+7: 2-5 f6366f1
+9: 2-61 f8b8b98
+10: 2-60 f8b8b98"
+`;
+
+exports[`screen: 'help components' > es 120 plain 1`] = `
+"  bladecp components
+ ──────────────────────────────────────────────────────────────────────────────
+  Ver los componentes que puede ejecutar un servidor
+
+  Uso: bladecp components <comando> [opciones]
+
+  Comandos ───────────────────────────────────
+  list   Listar los componentes del catálogo de BladeCP
+
+  "bladecp components" solo ejecuta "bladecp components list".
+  Detalles de un comando: bladecp components <comando> --help"
+`;
+
+exports[`screen: 'help components' > pt-BR 40 color 1`] = `
+"  bladecp components
+ ━━━━━━━━━━━━──────────────────────────
+  Ver os componentes que um servidor
+  pode rodar
+
+  Uso: bladecp components <comando>
+  [opções]
+
+  Comandos ────────────────────────────
+  list   Listar os componentes do
+         catálogo da BladeCP
+
+  "bladecp components" sozinho roda
+  "bladecp components list".
+  Detalhes de um comando: bladecp
+  components <comando> --help
+
+--- styles ---
+0: 2-8 B | 10-19 B
+1: 1-1 f6264f0 | 2-2 f7c74f4 | 3-3 f9b84f8 | 4-4 fbba6fb | 5-5 fddd4fd | 6-6 fd9cefd | 7-7 fb7a1fb | 8-8 f9782f8 | 9-9 f7972f4 | 10-10 f6163f0 | 11-11 f5956eb | 12-12 f524ae7 | 13-13 f4941d0 | 14-14 f3f39b0 | 15-15 f363292 | 16-16 f2f2c79 | 17-17 f2a2863 | 18-18 f262451 | 19-19 f222141 | 20-20 f1f1f35 | 21-21 f1d1d2c | 22-38 f1c1c28
+2: 2-35 f8b8b98
+3: 2-11 f8b8b98
+5: 2-5 f8b8b98 | 26-34 f6366f1
+6: 2-9 f8b8b98
+8: 11-11 f4b4b62 | 12-12 f494960 | 13-13 f48485e | 14-14 f46465c | 15-15 f44445a | 16-16 f434358 | 17-17 f414156 | 18-18 f3f3f54 | 19-19 f3e3e51 | 20-20 f3c3c4f | 21-21 f3a3a4d | 22-22 f39394b | 23-23 f373749 | 24-24 f353547 | 25-25 f343445 | 26-26 f323243 | 27-27 f303041 | 28-28 f2e2e3f | 29-29 f2d2d3d | 30-30 f2b2b3b | 31-31 f292939 | 32-32 f282837 | 33-33 f262634 | 34-34 f242432 | 35-35 f232330 | 36-36 f21212e | 37-37 f1f1f2c | 38-38 f1e1e2a
+9: 2-5 f6366f1
+12: 2-34 f8b8b98
+13: 2-27 f8b8b98
+14: 2-32 f8b8b98
+15: 2-28 f8b8b98"
+`;
+
+exports[`screen: 'help components' > pt-BR 40 plain 1`] = `
+"  bladecp components
+ ──────────────────────────────────────
+  Ver os componentes que um servidor
+  pode rodar
+
+  Uso: bladecp components <comando>
+  [opções]
+
+  Comandos ────────────────────────────
+  list   Listar os componentes do
+         catálogo da BladeCP
+
+  "bladecp components" sozinho roda
+  "bladecp components list".
+  Detalhes de um comando: bladecp
+  components <comando> --help"
+`;
+
+exports[`screen: 'help components' > pt-BR 80 color 1`] = `
+"  bladecp components
+ ━━━━━━━━━━━━━━━━━━━━━━━━──────────────────────────────────────────────────────
+  Ver os componentes que um servidor pode rodar
+
+  Uso: bladecp components <comando> [opções]
+
+  Comandos ───────────────────────────────────
+  list   Listar os componentes do catálogo da BladeCP
+
+  "bladecp components" sozinho roda "bladecp components list".
+  Detalhes de um comando: bladecp components <comando> --help
+
+--- styles ---
+0: 2-8 B | 10-19 B
+1: 1-1 f6264f0 | 2-2 f6d6cf2 | 3-3 f7b73f4 | 4-4 f8a7bf6 | 5-5 f9883f8 | 6-6 fa78bfa | 7-7 fb7a1fb | 8-8 fc7b7fc | 9-9 fd8cdfd | 10-10 fe9e3fe | 11-11 fe0d8fd | 12-12 fcfc1fc | 13-13 fbfabfb | 14-14 faf96fa | 15-15 f9f87f9 | 16-16 f917ff7 | 17-17 f8277f5 | 18-18 f746ff3 | 19-19 f6668f1 | 20-20 f6061ef | 21-21 f5c5bed | 22-22 f5855eb | 23-23 f554fe8 | 24-24 f514ae6 | 25-25 f4d45e0 | 26-26 f4841cf | 27-27 f443dc0 | 28-28 f3f39b0 | 29-29 f3b36a2 | 30-30 f373394 | 31-31 f332f87 | 32-32 f302d7b | 33-33 f2d2b70 | 34-34 f2b2966 | 35-35 f28275d | 36-36 f262554 | 37-37 f24234c | 38-38 f232245 | 39-39 f21203e | 40-40 f201f38 | 41-41 f1f1e33 | 42-42 f1e1d2f | 43-43 f1d1d2b | 44-44 f1c1c29 | 45-78 f1c1c28
+2: 2-46 f8b8b98
+4: 2-5 f8b8b98 | 26-34 f6366f1 | 36-43 f8b8b98
+6: 11-11 f4b4b62 | 12-12 f4a4a60 | 13-13 f48485f | 14-14 f47475d | 15-15 f46465b | 16-16 f44445a | 17-17 f434358 | 18-18 f424256 | 19-19 f404055 | 20-20 f3f3f53 | 21-21 f3e3e51 | 22-22 f3c3c50 | 23-23 f3b3b4e | 24-24 f3a3a4c | 25-25 f38384b | 26-26 f373749 | 27-27 f363647 | 28-28 f343446 | 29-29 f333344 | 30-30 f313143 | 31-31 f303041 | 32-32 f2f2f3f | 33-33 f2d2d3e | 34-34 f2c2c3c | 35-35 f2b2b3a | 36-36 f292939 | 37-37 f282837 | 38-38 f272735 | 39-39 f252534 | 40-40 f242432 | 41-41 f232330 | 42-42 f21212f | 43-43 f20202d | 44-44 f1f1f2b | 45-45 f1d1d2a
+7: 2-5 f6366f1
+9: 2-61 f8b8b98
+10: 2-60 f8b8b98"
+`;
+
+exports[`screen: 'help components' > pt-BR 80 plain 1`] = `
+"  bladecp components
+ ──────────────────────────────────────────────────────────────────────────────
+  Ver os componentes que um servidor pode rodar
+
+  Uso: bladecp components <comando> [opções]
+
+  Comandos ───────────────────────────────────
+  list   Listar os componentes do catálogo da BladeCP
+
+  "bladecp components" sozinho roda "bladecp components list".
+  Detalhes de um comando: bladecp components <comando> --help"
+`;
+
+exports[`screen: 'help components' > pt-BR 120 color 1`] = `
+"  bladecp components
+ ━━━━━━━━━━━━━━━━━━━━━━━━──────────────────────────────────────────────────────
+  Ver os componentes que um servidor pode rodar
+
+  Uso: bladecp components <comando> [opções]
+
+  Comandos ───────────────────────────────────
+  list   Listar os componentes do catálogo da BladeCP
+
+  "bladecp components" sozinho roda "bladecp components list".
+  Detalhes de um comando: bladecp components <comando> --help
+
+--- styles ---
+0: 2-8 B | 10-19 B
+1: 1-1 f6264f0 | 2-2 f6d6cf2 | 3-3 f7b73f4 | 4-4 f8a7bf6 | 5-5 f9883f8 | 6-6 fa78bfa | 7-7 fb7a1fb | 8-8 fc7b7fc | 9-9 fd8cdfd | 10-10 fe9e3fe | 11-11 fe0d8fd | 12-12 fcfc1fc | 13-13 fbfabfb | 14-14 faf96fa | 15-15 f9f87f9 | 16-16 f917ff7 | 17-17 f8277f5 | 18-18 f746ff3 | 19-19 f6668f1 | 20-20 f6061ef | 21-21 f5c5bed | 22-22 f5855eb | 23-23 f554fe8 | 24-24 f514ae6 | 25-25 f4d45e0 | 26-26 f4841cf | 27-27 f443dc0 | 28-28 f3f39b0 | 29-29 f3b36a2 | 30-30 f373394 | 31-31 f332f87 | 32-32 f302d7b | 33-33 f2d2b70 | 34-34 f2b2966 | 35-35 f28275d | 36-36 f262554 | 37-37 f24234c | 38-38 f232245 | 39-39 f21203e | 40-40 f201f38 | 41-41 f1f1e33 | 42-42 f1e1d2f | 43-43 f1d1d2b | 44-44 f1c1c29 | 45-78 f1c1c28
+2: 2-46 f8b8b98
+4: 2-5 f8b8b98 | 26-34 f6366f1 | 36-43 f8b8b98
+6: 11-11 f4b4b62 | 12-12 f4a4a60 | 13-13 f48485f | 14-14 f47475d | 15-15 f46465b | 16-16 f44445a | 17-17 f434358 | 18-18 f424256 | 19-19 f404055 | 20-20 f3f3f53 | 21-21 f3e3e51 | 22-22 f3c3c50 | 23-23 f3b3b4e | 24-24 f3a3a4c | 25-25 f38384b | 26-26 f373749 | 27-27 f363647 | 28-28 f343446 | 29-29 f333344 | 30-30 f313143 | 31-31 f303041 | 32-32 f2f2f3f | 33-33 f2d2d3e | 34-34 f2c2c3c | 35-35 f2b2b3a | 36-36 f292939 | 37-37 f282837 | 38-38 f272735 | 39-39 f252534 | 40-40 f242432 | 41-41 f232330 | 42-42 f21212f | 43-43 f20202d | 44-44 f1f1f2b | 45-45 f1d1d2a
+7: 2-5 f6366f1
+9: 2-61 f8b8b98
+10: 2-60 f8b8b98"
+`;
+
+exports[`screen: 'help components' > pt-BR 120 plain 1`] = `
+"  bladecp components
+ ──────────────────────────────────────────────────────────────────────────────
+  Ver os componentes que um servidor pode rodar
+
+  Uso: bladecp components <comando> [opções]
+
+  Comandos ───────────────────────────────────
+  list   Listar os componentes do catálogo da BladeCP
+
+  "bladecp components" sozinho roda "bladecp components list".
+  Detalhes de um comando: bladecp components <comando> --help"
+`;

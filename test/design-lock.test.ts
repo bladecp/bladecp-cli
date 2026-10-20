@@ -33,6 +33,11 @@ const isKit = (path: string) => path.startsWith('src/ui/');
 const isCatalog = (path: string) => path.startsWith('src/i18n/');
 /** Builds reference.json for the documentation; never runs in the CLI. */
 const isReference = (path: string) => path === 'src/reference.ts';
+/**
+ * The operation table generated from the published API reference: its
+ * summaries are API reference text (English), shown only by `bladecp api list`.
+ */
+const isApiReference = (path: string) => path === 'src/api/operations.ts';
 
 interface Token {
   kind: 'code' | 'string';
@@ -253,7 +258,7 @@ describe('every text a person reads comes from the catalogs', () => {
   it('no prose in string literals outside the catalogs and the reference', () => {
     const problems: string[] = [];
     for (const f of files) {
-      if (isCatalog(f.path) || isReference(f.path)) continue;
+      if (isCatalog(f.path) || isReference(f.path) || isApiReference(f.path)) continue;
       const lines = f.text.split('\n');
       for (const token of tokenize(f.text)) {
         if (token.kind !== 'string' || !PROSE.test(token.text)) continue;

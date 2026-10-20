@@ -17,6 +17,43 @@ export interface RecordedRequest {
   body: unknown;
 }
 
+/** One request as the routes of a command group (test/helpers/mock/) see it. */
+export interface MockRequest {
+  method: string;
+  /** Path under /api/v1 (for example /customer/provisions). */
+  path: string;
+  query: URLSearchParams;
+  body: unknown;
+  headers: Record<string, string | string[] | undefined>;
+}
+
+/** The answer of a group route; `body` undefined answers without content. */
+export interface MockAnswer {
+  status: number;
+  body?: unknown;
+  headers?: Record<string, string>;
+}
+
+/** Answers the paths of one group and returns undefined for the rest. */
+export type MockRoute = (
+  request: MockRequest,
+) => MockAnswer | undefined | Promise<MockAnswer | undefined>;
+
+/** The scope that makes a key a BladeCP partner key. */
+export const PARTNER_SCOPE = 'partner:read';
+
+/** The answer the API gives a key without the scope a route needs. */
+export function forbidden(scope = PARTNER_SCOPE): MockAnswer {
+  return {
+    status: 403,
+    body: { error: true, code: 'insufficient_scope', message: `Missing scope ${scope}` },
+  };
+}
+
+export function notFound(message = 'Not found'): MockAnswer {
+  return { status: 404, body: { error: true, message } };
+}
+
 export interface Failure {
   method?: string;
   path: RegExp;
@@ -74,6 +111,9 @@ export class MockApi {
   /** When set, the fake Hub answers the connect page with this callback query instead. */
   hubOverride: ((params: URLSearchParams) => string) | null = null;
   migrations = new Map<string, MockMigration>();
+  /** Routes added by the command groups (test/helpers/mock/), tried in order. */
+  routes: MockRoute[] = [];
+  private readonly groupState = new Map<string, unknown>();
   private uploadCounter = 0;
   private migrationCounter = 0;
 
@@ -278,6 +318,23 @@ export class MockApi {
     }
   }
 
+  /** The data of one command group, created on first use (tests seed it through the group helper). */
+  state<T>(name: string, init: () => T): T {
+    if (!this.groupState.has(name)) this.groupState.set(name, init());
+    return this.groupState.get(name) as T;
+  }
+
+  /** The key in use has the partner scope. */
+  get partner(): boolean {
+    return this.me.scopes.includes(PARTNER_SCOPE);
+  }
+
+  /** Makes the key in use a partner key (or a customer key again). */
+  setPartner(on = true): void {
+    const scopes = this.me.scopes.filter((scope) => scope !== PARTNER_SCOPE);
+    this.me = { ...this.me, scopes: on ? [...scopes, PARTNER_SCOPE] : scopes };
+  }
+
   private async readBody(req: IncomingMessage): Promise<Buffer> {
     const chunks: Buffer[] = [];
     for await (const chunk of req) chunks.push(chunk as Buffer);
@@ -426,6 +483,12 @@ export class MockApi {
       return;
     }
 
+    // The connectivity check answers without a key.
+    if (method === 'GET' && url.pathname === '/api/v1/customer/health') {
+      this.json(res, 200, { data: { status: 'ok' } });
+      return;
+    }
+
     const auth = req.headers.authorization ?? '';
     const key = auth.startsWith('Bearer ') ? auth.slice(7) : '';
     if (key === EXPIRED_KEY) {
@@ -448,6 +511,22 @@ export class MockApi {
         failure.body ?? { error: true, message: 'Injected failure' },
         failure.headers,
       );
+      return;
+    }
+
+    for (const route of this.routes) {
+      const answer = await route({
+        method,
+        path,
+        query: url.searchParams,
+        body,
+        headers: req.headers,
+      });
+      if (!answer) continue;
+      if (answer.body === undefined) {
+        res.writeHead(answer.status, answer.headers ?? {});
+        res.end();
+      } else this.json(res, answer.status, answer.body, answer.headers);
       return;
     }
 
@@ -680,5 +759,10 @@ export class MockApi {
 }
 
 export async function startMockApi(): Promise<MockApi> {
-  return new MockApi().start();
+  const api = new MockApi();
+  // Loaded here, not at the top: the CLI preview (tools/preview/sim) imports
+  // this file with Node's own type stripping, which cannot load the groups.
+  const { installGroupRoutes } = await import('./mock/index.js');
+  installGroupRoutes(api);
+  return api.start();
 }

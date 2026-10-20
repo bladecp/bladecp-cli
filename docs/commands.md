@@ -15,7 +15,7 @@ On an interactive terminal, `bladecp` alone shows a welcome screen: the account
 in use, what needs you right now (for example a migration ready for review) and
 the shortcuts. Without a terminal it prints the help.
 
-**Short IDs.** Every command that takes a server or migration `<uuid>` also
+**Short IDs.** Every command that takes a server or migration `<uuid>` (or a `<server>`) also
 accepts its first characters (at least 4), when only one of yours starts with
 them. When several match, the CLI says so (`ambiguous_id`, exit code 2).
 
@@ -185,6 +185,532 @@ the question.
 
 Try a failed migration again. When a new attempt is not available, the error
 says why (for example, the backup is no longer stored).
+
+## Sites
+
+Domains, apps, WordPress and components of your servers. Every command that
+takes a `<server>` accepts its first characters too.
+
+### `bladecp domains list <server>`
+
+List the domains of a server.
+
+### `bladecp domains add <server> <host>`
+
+Add a domain to a server.
+
+### `bladecp domains remove <server> <host> [--yes]`
+
+Remove a domain from a server.
+
+| Option | Meaning |
+| --- | --- |
+| `-y, --yes` | Do not ask before removing on a terminal |
+
+### `bladecp domains check <host>`
+
+Check whether a domain can be used on BladeCP.
+
+### `bladecp apps list`
+
+List the apps BladeCP can install for you.
+
+### `bladecp apps show <app>`
+
+Show an app and the settings it needs.
+
+### `bladecp apps install <server> <app> [--domain <host>] [--app-version <version>] [--option <id>=<value>]... [--yes]`
+
+Install an app on a domain of a server.
+
+| Option | Meaning |
+| --- | --- |
+| `--domain <host>` | Domain of the server to install it on (the main one when left out) |
+| `--app-version <version>` | Version to install (the recommended one when left out) |
+| `--option <id>=<value>` | A setting of the app as name=value (repeat for each one) |
+| `-y, --yes` | Do not ask before installing on a terminal |
+
+### `bladecp wordpress status <server> [--external-id <id>]`
+
+Check whether the WordPress tools work on a server.
+
+| Option | Meaning |
+| --- | --- |
+| `--external-id <id>` | ID of this service in the billing system where you bought it |
+
+### `bladecp wordpress dashboard <server> [--external-id <id>] [--wait]`
+
+See the WordPress version, plugins and themes of a server.
+
+| Option | Meaning |
+| --- | --- |
+| `--external-id <id>` | ID of this service in the billing system where you bought it |
+| `--wait` | Wait for the result and show it |
+
+### `bladecp wordpress update core <server> [--external-id <id>] [--wait] [--yes]`
+
+Update WordPress itself to its newest version.
+
+| Option | Meaning |
+| --- | --- |
+| `--external-id <id>` | ID of this service in the billing system where you bought it |
+| `--wait` | Wait until the update ends and show how it went |
+| `-y, --yes` | Do not ask before updating on a terminal |
+
+### `bladecp wordpress update plugin <server> <plugin> [--external-id <id>] [--wait] [--yes]`
+
+Update a plugin to its newest version.
+
+| Option | Meaning |
+| --- | --- |
+| `--external-id <id>` | ID of this service in the billing system where you bought it |
+| `--wait` | Wait until the update ends and show how it went |
+| `-y, --yes` | Do not ask before updating on a terminal |
+
+### `bladecp wordpress update theme <server> <theme> [--external-id <id>] [--wait] [--yes]`
+
+Update a theme to its newest version.
+
+| Option | Meaning |
+| --- | --- |
+| `--external-id <id>` | ID of this service in the billing system where you bought it |
+| `--wait` | Wait until the update ends and show how it went |
+| `-y, --yes` | Do not ask before updating on a terminal |
+
+### `bladecp wordpress task <server> <task> [--external-id <id>] [--wait]`
+
+See how a WordPress task went.
+
+| Option | Meaning |
+| --- | --- |
+| `--external-id <id>` | ID of this service in the billing system where you bought it |
+| `--wait` | Wait until the task ends |
+
+### `bladecp components list`
+
+List the components of the BladeCP catalog.
+
+## Partners
+
+For BladeCP partners: keys with the `partner:read` scope. A partner command run
+with a customer key stops with `partner_only` (exit code 4). Everything that
+suspends, cancels, deletes, terminates, rotates a secret or changes a plan asks
+first on a terminal; `--yes` skips the question, and without a terminal the
+command itself is the explicit act. One-time values (a webhook signing secret,
+a one-time sign-in link) are shown once.
+
+### `bladecp partner plans [--currency <code>]`
+
+List the plans you sell, with their prices.
+
+| Option | Meaning |
+| --- | --- |
+| `--currency <code>` | Show prices in one currency only (for example BRL or USD) |
+
+### `bladecp partner locations [--plan <id>]`
+
+List where each plan can run.
+
+| Option | Meaning |
+| --- | --- |
+| `--plan <id>` | Only the locations of this plan (ID from "bladecp partner plans") |
+
+### `bladecp partner options [--plan <id>] [--currency <code>]`
+
+List the configurable options and their values.
+
+| Option | Meaning |
+| --- | --- |
+| `--plan <id>` | Only the options of this plan: its ID or UUID from "bladecp partner plans" |
+| `--currency <code>` | Show prices in one currency only (for example BRL or USD) |
+
+### `bladecp partner branding`
+
+Show the name, logo and favicon of your brand.
+
+### `bladecp partner servers list [--status <status>] [--domain <host>] [--external-id <id>] [--page <n>] [--limit <n>]`
+
+List your customers' servers, with filters.
+
+| Option | Meaning |
+| --- | --- |
+| `--status <status>` | Only the ones with this status |
+| `--domain <host>` | Only the server with this main domain |
+| `--external-id <id>` | Only the server with this service ID of your billing system |
+| `--page <n>` | Page to show (starts at 1) |
+| `--limit <n>` | How many per page (up to 100) |
+
+### `bladecp partner servers create --plan <id> --location <id> --domain <host> --email <email> --name <name> [--external-id <id>] [--option <id>=<value>]... [--component <slug>]... [--contract <months>] [--yes]`
+
+Create a server for a customer.
+
+| Option | Meaning |
+| --- | --- |
+| `--plan <id>` | Plan ID (see "bladecp partner plans") |
+| `--location <id>` | Location ID of the plan (see "bladecp partner locations") |
+| `--domain <host>` | Main domain of the new server |
+| `--email <email>` | Email of the customer who owns the server |
+| `--name <name>` | Name of the customer who owns the server |
+| `--external-id <id>` | The service ID in your billing system, to find the server later |
+| `--option <id>=<value>` | Configurable option and value, by name or ID (see "bladecp partner options"); for a quantity, the number. Repeat for more than one |
+| `--component <slug>[@<version>]` | Component to install, with an optional version (repeat for more than one) |
+| `--contract <months>` | Contract term in months (12, 24, 36 or 48) for plans sold with a contract; records that the customer accepted the terms |
+| `-y, --yes` | Do not ask for confirmation on a terminal |
+
+### `bladecp partner servers plan <server> <plan> [--yes]`
+
+Move a server to another plan.
+
+| Option | Meaning |
+| --- | --- |
+| `-y, --yes` | Do not ask for confirmation on a terminal |
+
+### `bladecp partner servers options <server> --option <id>=<value>... [--yes]`
+
+Replace the configurable options of a server.
+
+| Option | Meaning |
+| --- | --- |
+| `--option <id>=<value>` | Configurable option and value, by name or ID (see "bladecp partner options"); for a quantity, the number. Repeat for more than one |
+| `-y, --yes` | Do not ask for confirmation on a terminal |
+
+### `bladecp partner servers suspend <server> [--yes]`
+
+Suspend a server (nothing is deleted).
+
+| Option | Meaning |
+| --- | --- |
+| `-y, --yes` | Do not ask for confirmation on a terminal |
+
+### `bladecp partner servers unsuspend <server> [--yes]`
+
+Bring a suspended server back.
+
+| Option | Meaning |
+| --- | --- |
+| `-y, --yes` | Do not ask for confirmation on a terminal |
+
+### `bladecp partner servers cancel <server> [--now] [--reason <text>] [--reason-category <category>] [--yes]`
+
+Cancel a server now or at the end of the cycle.
+
+| Option | Meaning |
+| --- | --- |
+| `--now` | Cancel right away (the server is suspended now) instead of at the end of the cycle |
+| `--reason <text>` | Why it is cancelled, at least 20 characters (kept with the request) |
+| `--reason-category <category>` | Why it is cancelled: too-expensive, no-longer-needed, technical-issues, found-better, temporary or other |
+| `-y, --yes` | Do not ask for confirmation on a terminal |
+
+### `bladecp partner servers delete <server> [--yes]`
+
+Delete a server and everything on it.
+
+| Option | Meaning |
+| --- | --- |
+| `-y, --yes` | Do not ask for confirmation on a terminal |
+
+### `bladecp partner servers open <server>`
+
+Open the customer's panel with a one-time link.
+
+### `bladecp partner vibe find <external-id>`
+
+Find the Vibe account of one of your services.
+
+### `bladecp partner vibe show <account>`
+
+Show a Vibe account.
+
+### `bladecp partner vibe create --external-id <id> --plan <id> --email <email> --name <name> [--email-verification <verified|not-required>] [--yes]`
+
+Create the Vibe account of a service.
+
+| Option | Meaning |
+| --- | --- |
+| `--external-id <id>` | Your ID for the service (for example the WHMCS service ID) |
+| `--plan <id>` | UUID of the Vibe plan (see "bladecp partner plans") |
+| `--email <email>` | Email of the account owner |
+| `--name <name>` | Name of the account owner |
+| `--email-verification <verified|not-required>` | Free plans: the owner's email was verified, or your store does not require it |
+| `-y, --yes` | Do not ask for confirmation on a terminal |
+
+### `bladecp partner vibe plan <account> <plan> [--yes]`
+
+Move a Vibe account to another plan.
+
+| Option | Meaning |
+| --- | --- |
+| `-y, --yes` | Do not ask for confirmation on a terminal |
+
+### `bladecp partner vibe suspend <account> [--yes]`
+
+Suspend a Vibe account.
+
+| Option | Meaning |
+| --- | --- |
+| `-y, --yes` | Do not ask for confirmation on a terminal |
+
+### `bladecp partner vibe reactivate <account> [--yes]`
+
+Reactivate a suspended Vibe account.
+
+| Option | Meaning |
+| --- | --- |
+| `-y, --yes` | Do not ask for confirmation on a terminal |
+
+### `bladecp partner vibe resume <account> [--yes]`
+
+Bring a Vibe account back online after inactivity.
+
+| Option | Meaning |
+| --- | --- |
+| `-y, --yes` | Do not ask for confirmation on a terminal |
+
+### `bladecp partner vibe terminate <account> [--yes]`
+
+Terminate a Vibe account for good.
+
+| Option | Meaning |
+| --- | --- |
+| `-y, --yes` | Do not ask for confirmation on a terminal |
+
+### `bladecp partner vibe open <account> [--no-browser]`
+
+Sign in to Vibe as the account owner, with a one-time link.
+
+| Option | Meaning |
+| --- | --- |
+| `--no-browser` | Print the one-time link instead of opening the browser |
+
+### `bladecp partner marketplace summary`
+
+Show earnings by currency and how much of your base server they cover.
+
+### `bladecp partner marketplace orders [--status <status>] [--page <n>] [--limit <n>]`
+
+List the sales BladeCP made of your plans.
+
+| Option | Meaning |
+| --- | --- |
+| `--status <status>` | Only sales with this status (active or churned) |
+| `--page <n>` | Page to show (starts at 1) |
+| `--limit <n>` | How many to show per page (up to 100) |
+
+### `bladecp partner marketplace commissions [--status <status>] [--page <n>] [--limit <n>]`
+
+List each paid invoice: the sale, the BladeCP commission and what you receive.
+
+| Option | Meaning |
+| --- | --- |
+| `--status <status>` | Only lines with this status: pending, confirmed, cleared, reversed or rejected |
+| `--page <n>` | Page to show (starts at 1) |
+| `--limit <n>` | How many to show per page (up to 100) |
+
+### `bladecp partner marketplace statements`
+
+List the monthly statements: your earnings netted against your base server.
+
+### `bladecp partner marketplace statement <statement>`
+
+Show one statement and its commission lines.
+
+### `bladecp partner marketplace invoices`
+
+List the open invoices of your base server.
+
+### `bladecp partner webhooks list`
+
+List your webhook endpoints.
+
+### `bladecp partner webhooks show <endpoint>`
+
+Show an endpoint: address, events and status.
+
+### `bladecp partner webhooks create --url <url> --event <type>... [--name <name>]`
+
+Add an endpoint and get its signing secret.
+
+| Option | Meaning |
+| --- | --- |
+| `--url <url>` | Address that receives the events (https) |
+| `--event <type>` | Event type to send (repeat it, or separate with commas) |
+| `--name <name>` | A name to tell the endpoint apart (for example Production WHMCS) |
+
+### `bladecp partner webhooks update <endpoint> [--url <url>] [--event <type>...] [--name <name>] [--yes]`
+
+Change the address, events or name of an endpoint.
+
+| Option | Meaning |
+| --- | --- |
+| `--url <url>` | Address that receives the events (https) |
+| `--event <type>` | Event types to send, replacing the current list (repeat it, or separate with commas) |
+| `--name <name>` | New name of the endpoint ("" removes it) |
+| `-y, --yes` | Do not ask for confirmation |
+
+### `bladecp partner webhooks pause <endpoint> [--yes]`
+
+Stop sending events to an endpoint for now.
+
+| Option | Meaning |
+| --- | --- |
+| `-y, --yes` | Pause without asking |
+
+### `bladecp partner webhooks resume <endpoint> [--yes]`
+
+Send events to a paused endpoint again.
+
+| Option | Meaning |
+| --- | --- |
+| `-y, --yes` | Do not ask for confirmation |
+
+### `bladecp partner webhooks delete <endpoint> [--yes]`
+
+Delete an endpoint.
+
+| Option | Meaning |
+| --- | --- |
+| `-y, --yes` | Delete without asking |
+
+### `bladecp partner webhooks rotate-secret <endpoint> [--yes]`
+
+Replace the signing secret of an endpoint.
+
+| Option | Meaning |
+| --- | --- |
+| `-y, --yes` | Replace the secret without asking |
+
+### `bladecp partner webhooks deliveries [--endpoint <id>] [--status <status>] [--page <n>] [--limit <n>]`
+
+List what BladeCP sent and what your system answered.
+
+| Option | Meaning |
+| --- | --- |
+| `--endpoint <id>` | Only the deliveries of this endpoint |
+| `--status <status>` | Only deliveries in this state: pending, delivering, succeeded, failed or dead |
+| `--page <n>` | Page to show (starts at 1) |
+| `--limit <n>` | How many to show per page (up to 100) |
+
+### `bladecp partner webhooks replay <delivery> [--yes]`
+
+Send a delivery again, with the same event ID.
+
+| Option | Meaning |
+| --- | --- |
+| `-y, --yes` | Do not ask for confirmation |
+
+### `bladecp partner migrations list --installation <id> [--client <id>] [--limit <n>] [--all]`
+
+List the Fast Deploy requests of a WHMCS installation.
+
+| Option | Meaning |
+| --- | --- |
+| `--installation <id>` | The WHMCS installation that made the request (its BladeCP installation ID, a UUID) |
+| `--client <id>` | Only the requests of this client (its ID in WHMCS) |
+| `--limit <n>` | How many to show per page (1 to 100, 50 by default) |
+| `-a, --all` | Read every page, not only the first one |
+
+### `bladecp partner migrations show <request> --installation <id> --client <id> [--watch]`
+
+Show a request: phase, components, preview and billing.
+
+| Option | Meaning |
+| --- | --- |
+| `--installation <id>` | The WHMCS installation that made the request (its BladeCP installation ID, a UUID) |
+| `--client <id>` | The client of that installation the request belongs to (its client ID in WHMCS) |
+| `-w, --watch` | Keep following the request until it needs someone or ends |
+
+### `bladecp partner migrations review <request> --installation <id> --client <id> --domain <host>`
+
+Confirm the domain of the site found in the backup.
+
+| Option | Meaning |
+| --- | --- |
+| `--installation <id>` | The WHMCS installation that made the request (its BladeCP installation ID, a UUID) |
+| `--client <id>` | The client of that installation the request belongs to (its client ID in WHMCS) |
+| `--domain <host>` | Domain the migrated site will use |
+
+### `bladecp partner migrations approve <request> --installation <id> --client <id> [--yes]`
+
+Approve the preview so BladeCP finishes the migration.
+
+| Option | Meaning |
+| --- | --- |
+| `--installation <id>` | The WHMCS installation that made the request (its BladeCP installation ID, a UUID) |
+| `--client <id>` | The client of that installation the request belongs to (its client ID in WHMCS) |
+| `-y, --yes` | Do not ask for confirmation on a terminal |
+
+### `bladecp partner migrations cancel <request> --installation <id> --client <id> [--reason <text>] [--yes]`
+
+Cancel a request that is not approved yet.
+
+| Option | Meaning |
+| --- | --- |
+| `--installation <id>` | The WHMCS installation that made the request (its BladeCP installation ID, a UUID) |
+| `--client <id>` | The client of that installation the request belongs to (its client ID in WHMCS) |
+| `--reason <text>` | Optional note about why you are cancelling |
+| `-y, --yes` | Do not ask for confirmation on a terminal |
+
+### `bladecp partner migrations retry <request> --installation <id> --client <id>`
+
+Try a failed migration again, when that is safe.
+
+| Option | Meaning |
+| --- | --- |
+| `--installation <id>` | The WHMCS installation that made the request (its BladeCP installation ID, a UUID) |
+| `--client <id>` | The client of that installation the request belongs to (its client ID in WHMCS) |
+
+### `bladecp partner migrations billing-queue [--limit <n>] [--all]`
+
+List the requests waiting for the billing WHMCS.
+
+| Option | Meaning |
+| --- | --- |
+| `--limit <n>` | How many to show per page (1 to 100, 50 by default) |
+| `-a, --all` | Read every page, not only the first one |
+
+### `bladecp partner migrations billing-link <request> --installation <id> --client <id> --external-id <id> --email <email> --name <name> [--company <name>] [--yes]`
+
+Link a request to its client and service in the billing WHMCS.
+
+| Option | Meaning |
+| --- | --- |
+| `--installation <id>` | The billing WHMCS that links the request (its BladeCP installation ID) |
+| `--client <id>` | The client ID in the billing WHMCS |
+| `--external-id <id>` | The service ID in the billing WHMCS |
+| `--email <email>` | Email of the client (BladeCP finds or creates the account by it) |
+| `--name <name>` | Name of the client: the first word is the first name, the rest the last name |
+| `--company <name>` | Company of the client, when there is one |
+| `-y, --yes` | Do not ask for confirmation on a terminal |
+
+### `bladecp partner migrations claim-url <request> --installation <id> --client <id>`
+
+Get the address where the account holder confirms the account.
+
+| Option | Meaning |
+| --- | --- |
+| `--installation <id>` | The WHMCS installation that made the request (its BladeCP installation ID, a UUID) |
+| `--client <id>` | The client of that installation the request belongs to (its client ID in WHMCS) |
+
+## Any route
+
+`bladecp api` reaches every Customer API route with the key in use, including
+the ones without a command of their own; `bladecp api list` shows every route
+and the command that covers it.
+
+### `bladecp api <path> [-X <method>] [--data <json> | --input <file>] [--yes]`
+
+Call any Customer API route with your sign-in.
+
+| Option | Meaning |
+| --- | --- |
+| `-X, --method <method>` | HTTP method: GET, POST, PUT, PATCH or DELETE |
+| `--data <json>` | JSON body of the request |
+| `--input <file>` | File with the JSON body ("-" reads stdin) |
+| `-y, --yes` | Do not ask before a DELETE on a terminal |
+
+### `bladecp api list`
+
+List every API route and the command that covers it.
 
 ## The CLI
 

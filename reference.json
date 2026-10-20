@@ -2,7 +2,7 @@
   "format": 1,
   "name": "BladeCP CLI",
   "binary": "bladecp",
-  "version": "0.3.2",
+  "version": "0.4.0",
   "languages": [
     "en",
     "pt-BR",
@@ -19,6 +19,7 @@
         "no-browser"
       ],
       "signInRequired": false,
+      "partner": false,
       "summary": {
         "en": "Sign in with your browser or an API key",
         "pt-BR": "Entrar pelo navegador ou com uma chave de API",
@@ -32,6 +33,7 @@
       "arguments": [],
       "options": [],
       "signInRequired": false,
+      "partner": false,
       "summary": {
         "en": "Remove the saved sign-in from this computer",
         "pt-BR": "Remover o login salvo neste computador",
@@ -45,6 +47,7 @@
       "arguments": [],
       "options": [],
       "signInRequired": true,
+      "partner": false,
       "summary": {
         "en": "Show the account and key in use",
         "pt-BR": "Mostrar a conta e a chave em uso",
@@ -60,6 +63,7 @@
         "all"
       ],
       "signInRequired": true,
+      "partner": false,
       "summary": {
         "en": "List your servers",
         "pt-BR": "Listar seus servidores",
@@ -75,6 +79,7 @@
       ],
       "options": [],
       "signInRequired": true,
+      "partner": false,
       "summary": {
         "en": "Show a server and its resource usage",
         "pt-BR": "Mostrar um servidor e o uso de recursos",
@@ -90,6 +95,7 @@
         "currency"
       ],
       "signInRequired": true,
+      "partner": false,
       "summary": {
         "en": "List the plans and locations available for migrations",
         "pt-BR": "Listar os planos e locais disponíveis para migração",
@@ -108,6 +114,7 @@
         "currency"
       ],
       "signInRequired": false,
+      "partner": false,
       "summary": {
         "en": "See what a cPanel backup holds and what comes to BladeCP, on this computer",
         "pt-BR": "Ver o que um backup do cPanel tem e o que vem para a BladeCP, neste computador",
@@ -129,6 +136,7 @@
         "no-wait"
       ],
       "signInRequired": true,
+      "partner": false,
       "summary": {
         "en": "Upload a cPanel backup and migrate the site to BladeCP",
         "pt-BR": "Enviar um backup do cPanel e migrar o site para a BladeCP",
@@ -142,6 +150,7 @@
       "arguments": [],
       "options": [],
       "signInRequired": true,
+      "partner": false,
       "summary": {
         "en": "List your migrations",
         "pt-BR": "Listar suas migrações",
@@ -159,6 +168,7 @@
         "watch"
       ],
       "signInRequired": true,
+      "partner": false,
       "summary": {
         "en": "Show a migration (add --watch to follow it)",
         "pt-BR": "Mostrar uma migração (use --watch para acompanhar)",
@@ -176,6 +186,7 @@
         "domain"
       ],
       "signInRequired": true,
+      "partner": false,
       "summary": {
         "en": "Confirm which domain a migration uses",
         "pt-BR": "Confirmar o domínio de uma migração",
@@ -193,6 +204,7 @@
         "yes"
       ],
       "signInRequired": true,
+      "partner": false,
       "summary": {
         "en": "Approve a migration after checking the preview",
         "pt-BR": "Aprovar uma migração depois de conferir a prévia",
@@ -211,6 +223,7 @@
         "yes"
       ],
       "signInRequired": true,
+      "partner": false,
       "summary": {
         "en": "Cancel a migration",
         "pt-BR": "Cancelar uma migração",
@@ -226,6 +239,7 @@
       ],
       "options": [],
       "signInRequired": true,
+      "partner": false,
       "summary": {
         "en": "Try a failed migration again",
         "pt-BR": "Tentar de novo uma migração que falhou",
@@ -242,6 +256,7 @@
         "yes"
       ],
       "signInRequired": false,
+      "partner": false,
       "summary": {
         "en": "Update the CLI to the latest version",
         "pt-BR": "Atualizar a CLI para a versão mais recente",
@@ -255,6 +270,7 @@
       "arguments": [],
       "options": [],
       "signInRequired": false,
+      "partner": false,
       "summary": {
         "en": "Show your preferences",
         "pt-BR": "Mostrar suas preferências",
@@ -270,6 +286,7 @@
       ],
       "options": [],
       "signInRequired": false,
+      "partner": false,
       "summary": {
         "en": "Show one preference",
         "pt-BR": "Mostrar uma preferência",
@@ -286,10 +303,1149 @@
       ],
       "options": [],
       "signInRequired": false,
+      "partner": false,
       "summary": {
         "en": "Change a preference",
         "pt-BR": "Mudar uma preferência",
         "es": "Cambiar una preferencia"
+      }
+    },
+    {
+      "id": "api",
+      "command": "api",
+      "usage": "bladecp api <path> [-X <method>] [--data <json> | --input <file>] [--yes]",
+      "arguments": [
+        "<path>"
+      ],
+      "options": [
+        "method",
+        "data",
+        "input",
+        "yes"
+      ],
+      "signInRequired": true,
+      "partner": false,
+      "summary": {
+        "en": "Call any Customer API route with your sign-in",
+        "pt-BR": "Chamar qualquer rota da Customer API com o seu login",
+        "es": "Llamar a cualquier ruta de la Customer API con tu sesión"
+      }
+    },
+    {
+      "id": "api.list",
+      "command": "api list",
+      "usage": "bladecp api list",
+      "arguments": [],
+      "options": [],
+      "signInRequired": false,
+      "partner": false,
+      "summary": {
+        "en": "List every API route and the command that covers it",
+        "pt-BR": "Listar todas as rotas da API e o comando que cobre cada uma",
+        "es": "Listar todas las rutas de la API y el comando que cubre cada una"
+      }
+    },
+    {
+      "id": "domains.list",
+      "command": "domains list",
+      "usage": "bladecp domains list <server>",
+      "arguments": [
+        "<server>"
+      ],
+      "options": [],
+      "signInRequired": true,
+      "partner": false,
+      "summary": {
+        "en": "List the domains of a server",
+        "pt-BR": "Listar os domínios de um servidor",
+        "es": "Listar los dominios de un servidor"
+      }
+    },
+    {
+      "id": "domains.add",
+      "command": "domains add",
+      "usage": "bladecp domains add <server> <host>",
+      "arguments": [
+        "<server>",
+        "<host>"
+      ],
+      "options": [],
+      "signInRequired": true,
+      "partner": false,
+      "summary": {
+        "en": "Add a domain to a server",
+        "pt-BR": "Adicionar um domínio a um servidor",
+        "es": "Agregar un dominio a un servidor"
+      }
+    },
+    {
+      "id": "domains.remove",
+      "command": "domains remove",
+      "usage": "bladecp domains remove <server> <host> [--yes]",
+      "arguments": [
+        "<server>",
+        "<host>"
+      ],
+      "options": [
+        "yes"
+      ],
+      "signInRequired": true,
+      "partner": false,
+      "summary": {
+        "en": "Remove a domain from a server",
+        "pt-BR": "Remover um domínio de um servidor",
+        "es": "Quitar un dominio de un servidor"
+      }
+    },
+    {
+      "id": "domains.check",
+      "command": "domains check",
+      "usage": "bladecp domains check <host>",
+      "arguments": [
+        "<host>"
+      ],
+      "options": [],
+      "signInRequired": true,
+      "partner": false,
+      "summary": {
+        "en": "Check whether a domain can be used on BladeCP",
+        "pt-BR": "Ver se um domínio pode ser usado na BladeCP",
+        "es": "Comprobar si un dominio se puede usar en BladeCP"
+      }
+    },
+    {
+      "id": "apps.list",
+      "command": "apps list",
+      "usage": "bladecp apps list",
+      "arguments": [],
+      "options": [],
+      "signInRequired": true,
+      "partner": false,
+      "summary": {
+        "en": "List the apps BladeCP can install for you",
+        "pt-BR": "Listar os apps que a BladeCP instala para você",
+        "es": "Listar las apps que BladeCP instala por ti"
+      }
+    },
+    {
+      "id": "apps.show",
+      "command": "apps show",
+      "usage": "bladecp apps show <app>",
+      "arguments": [
+        "<app>"
+      ],
+      "options": [],
+      "signInRequired": true,
+      "partner": false,
+      "summary": {
+        "en": "Show an app and the settings it needs",
+        "pt-BR": "Mostrar um app e as configurações que ele pede",
+        "es": "Mostrar una app y los ajustes que pide"
+      }
+    },
+    {
+      "id": "apps.install",
+      "command": "apps install",
+      "usage": "bladecp apps install <server> <app> [--domain <host>] [--app-version <version>] [--option <id>=<value>]... [--yes]",
+      "arguments": [
+        "<server>",
+        "<app>"
+      ],
+      "options": [
+        "domain",
+        "app-version",
+        "option",
+        "yes"
+      ],
+      "signInRequired": true,
+      "partner": false,
+      "summary": {
+        "en": "Install an app on a domain of a server",
+        "pt-BR": "Instalar um app em um domínio de um servidor",
+        "es": "Instalar una app en un dominio de un servidor"
+      }
+    },
+    {
+      "id": "wordpress.status",
+      "command": "wordpress status",
+      "usage": "bladecp wordpress status <server> [--external-id <id>]",
+      "arguments": [
+        "<server>"
+      ],
+      "options": [
+        "external-id"
+      ],
+      "signInRequired": true,
+      "partner": false,
+      "summary": {
+        "en": "Check whether the WordPress tools work on a server",
+        "pt-BR": "Ver se as ferramentas do WordPress funcionam em um servidor",
+        "es": "Comprobar si las herramientas de WordPress funcionan en un servidor"
+      }
+    },
+    {
+      "id": "wordpress.dashboard",
+      "command": "wordpress dashboard",
+      "usage": "bladecp wordpress dashboard <server> [--external-id <id>] [--wait]",
+      "arguments": [
+        "<server>"
+      ],
+      "options": [
+        "external-id",
+        "wait"
+      ],
+      "signInRequired": true,
+      "partner": false,
+      "summary": {
+        "en": "See the WordPress version, plugins and themes of a server",
+        "pt-BR": "Ver a versão, os plugins e os temas do WordPress de um servidor",
+        "es": "Ver la versión, los plugins y los temas del WordPress de un servidor"
+      }
+    },
+    {
+      "id": "wordpress.update.core",
+      "command": "wordpress update core",
+      "usage": "bladecp wordpress update core <server> [--external-id <id>] [--wait] [--yes]",
+      "arguments": [
+        "<server>"
+      ],
+      "options": [
+        "external-id",
+        "wait",
+        "yes"
+      ],
+      "signInRequired": true,
+      "partner": false,
+      "summary": {
+        "en": "Update WordPress itself to its newest version",
+        "pt-BR": "Atualizar o próprio WordPress para a versão mais nova",
+        "es": "Actualizar el propio WordPress a su versión más nueva"
+      }
+    },
+    {
+      "id": "wordpress.update.plugin",
+      "command": "wordpress update plugin",
+      "usage": "bladecp wordpress update plugin <server> <plugin> [--external-id <id>] [--wait] [--yes]",
+      "arguments": [
+        "<server>",
+        "<plugin>"
+      ],
+      "options": [
+        "external-id",
+        "wait",
+        "yes"
+      ],
+      "signInRequired": true,
+      "partner": false,
+      "summary": {
+        "en": "Update a plugin to its newest version",
+        "pt-BR": "Atualizar um plugin para a versão mais nova",
+        "es": "Actualizar un plugin a su versión más nueva"
+      }
+    },
+    {
+      "id": "wordpress.update.theme",
+      "command": "wordpress update theme",
+      "usage": "bladecp wordpress update theme <server> <theme> [--external-id <id>] [--wait] [--yes]",
+      "arguments": [
+        "<server>",
+        "<theme>"
+      ],
+      "options": [
+        "external-id",
+        "wait",
+        "yes"
+      ],
+      "signInRequired": true,
+      "partner": false,
+      "summary": {
+        "en": "Update a theme to its newest version",
+        "pt-BR": "Atualizar um tema para a versão mais nova",
+        "es": "Actualizar un tema a su versión más nueva"
+      }
+    },
+    {
+      "id": "wordpress.task",
+      "command": "wordpress task",
+      "usage": "bladecp wordpress task <server> <task> [--external-id <id>] [--wait]",
+      "arguments": [
+        "<server>",
+        "<task>"
+      ],
+      "options": [
+        "external-id",
+        "wait"
+      ],
+      "signInRequired": true,
+      "partner": false,
+      "summary": {
+        "en": "See how a WordPress task went",
+        "pt-BR": "Ver como foi uma tarefa do WordPress",
+        "es": "Ver cómo fue una tarea de WordPress"
+      }
+    },
+    {
+      "id": "components.list",
+      "command": "components list",
+      "usage": "bladecp components list",
+      "arguments": [],
+      "options": [],
+      "signInRequired": true,
+      "partner": false,
+      "summary": {
+        "en": "List the components of the BladeCP catalog",
+        "pt-BR": "Listar os componentes do catálogo da BladeCP",
+        "es": "Listar los componentes del catálogo de BladeCP"
+      }
+    },
+    {
+      "id": "partner.plans",
+      "command": "partner plans",
+      "usage": "bladecp partner plans [--currency <code>]",
+      "arguments": [],
+      "options": [
+        "currency"
+      ],
+      "signInRequired": true,
+      "partner": true,
+      "summary": {
+        "en": "List the plans you sell, with their prices",
+        "pt-BR": "Listar os planos que você vende, com os preços",
+        "es": "Listar los planes que vendes, con sus precios"
+      }
+    },
+    {
+      "id": "partner.locations",
+      "command": "partner locations",
+      "usage": "bladecp partner locations [--plan <id>]",
+      "arguments": [],
+      "options": [
+        "plan"
+      ],
+      "signInRequired": true,
+      "partner": true,
+      "summary": {
+        "en": "List where each plan can run",
+        "pt-BR": "Listar onde cada plano pode rodar",
+        "es": "Listar dónde puede funcionar cada plan"
+      }
+    },
+    {
+      "id": "partner.options",
+      "command": "partner options",
+      "usage": "bladecp partner options [--plan <id>] [--currency <code>]",
+      "arguments": [],
+      "options": [
+        "plan",
+        "currency"
+      ],
+      "signInRequired": true,
+      "partner": true,
+      "summary": {
+        "en": "List the configurable options and their values",
+        "pt-BR": "Listar as opções configuráveis e os valores delas",
+        "es": "Listar las opciones configurables y sus valores"
+      }
+    },
+    {
+      "id": "partner.branding",
+      "command": "partner branding",
+      "usage": "bladecp partner branding",
+      "arguments": [],
+      "options": [],
+      "signInRequired": true,
+      "partner": true,
+      "summary": {
+        "en": "Show the name, logo and favicon of your brand",
+        "pt-BR": "Mostrar o nome, o logo e o favicon da sua marca",
+        "es": "Mostrar el nombre, el logotipo y el favicon de tu marca"
+      }
+    },
+    {
+      "id": "partner.servers.list",
+      "command": "partner servers list",
+      "usage": "bladecp partner servers list [--status <status>] [--domain <host>] [--external-id <id>] [--page <n>] [--limit <n>]",
+      "arguments": [],
+      "options": [
+        "status",
+        "domain",
+        "external-id",
+        "page",
+        "limit"
+      ],
+      "signInRequired": true,
+      "partner": true,
+      "summary": {
+        "en": "List your customers' servers, with filters",
+        "pt-BR": "Listar os servidores dos seus clientes, com filtros",
+        "es": "Listar los servidores de tus clientes, con filtros"
+      }
+    },
+    {
+      "id": "partner.servers.create",
+      "command": "partner servers create",
+      "usage": "bladecp partner servers create --plan <id> --location <id> --domain <host> --email <email> --name <name> [--external-id <id>] [--option <id>=<value>]... [--component <slug>]... [--contract <months>] [--yes]",
+      "arguments": [],
+      "options": [
+        "plan",
+        "location",
+        "domain",
+        "email",
+        "name",
+        "external-id",
+        "option",
+        "component",
+        "contract",
+        "yes"
+      ],
+      "signInRequired": true,
+      "partner": true,
+      "summary": {
+        "en": "Create a server for a customer",
+        "pt-BR": "Criar um servidor para um cliente",
+        "es": "Crear un servidor para un cliente"
+      }
+    },
+    {
+      "id": "partner.servers.plan",
+      "command": "partner servers plan",
+      "usage": "bladecp partner servers plan <server> <plan> [--yes]",
+      "arguments": [
+        "<server>",
+        "<plan>"
+      ],
+      "options": [
+        "yes"
+      ],
+      "signInRequired": true,
+      "partner": true,
+      "summary": {
+        "en": "Move a server to another plan",
+        "pt-BR": "Mudar o plano de um servidor",
+        "es": "Cambiar el plan de un servidor"
+      }
+    },
+    {
+      "id": "partner.servers.options",
+      "command": "partner servers options",
+      "usage": "bladecp partner servers options <server> --option <id>=<value>... [--yes]",
+      "arguments": [
+        "<server>"
+      ],
+      "options": [
+        "option",
+        "yes"
+      ],
+      "signInRequired": true,
+      "partner": true,
+      "summary": {
+        "en": "Replace the configurable options of a server",
+        "pt-BR": "Substituir as opções configuráveis de um servidor",
+        "es": "Reemplazar las opciones configurables de un servidor"
+      }
+    },
+    {
+      "id": "partner.servers.suspend",
+      "command": "partner servers suspend",
+      "usage": "bladecp partner servers suspend <server> [--yes]",
+      "arguments": [
+        "<server>"
+      ],
+      "options": [
+        "yes"
+      ],
+      "signInRequired": true,
+      "partner": true,
+      "summary": {
+        "en": "Suspend a server (nothing is deleted)",
+        "pt-BR": "Suspender um servidor (nada é apagado)",
+        "es": "Suspender un servidor (no se elimina nada)"
+      }
+    },
+    {
+      "id": "partner.servers.unsuspend",
+      "command": "partner servers unsuspend",
+      "usage": "bladecp partner servers unsuspend <server> [--yes]",
+      "arguments": [
+        "<server>"
+      ],
+      "options": [
+        "yes"
+      ],
+      "signInRequired": true,
+      "partner": true,
+      "summary": {
+        "en": "Bring a suspended server back",
+        "pt-BR": "Reativar um servidor suspenso",
+        "es": "Reactivar un servidor suspendido"
+      }
+    },
+    {
+      "id": "partner.servers.cancel",
+      "command": "partner servers cancel",
+      "usage": "bladecp partner servers cancel <server> [--now] [--reason <text>] [--reason-category <category>] [--yes]",
+      "arguments": [
+        "<server>"
+      ],
+      "options": [
+        "now",
+        "reason",
+        "reason-category",
+        "yes"
+      ],
+      "signInRequired": true,
+      "partner": true,
+      "summary": {
+        "en": "Cancel a server now or at the end of the cycle",
+        "pt-BR": "Cancelar um servidor agora ou no fim do ciclo",
+        "es": "Cancelar un servidor ahora o al final del ciclo"
+      }
+    },
+    {
+      "id": "partner.servers.delete",
+      "command": "partner servers delete",
+      "usage": "bladecp partner servers delete <server> [--yes]",
+      "arguments": [
+        "<server>"
+      ],
+      "options": [
+        "yes"
+      ],
+      "signInRequired": true,
+      "partner": true,
+      "summary": {
+        "en": "Delete a server and everything on it",
+        "pt-BR": "Apagar um servidor e tudo o que há nele",
+        "es": "Eliminar un servidor y todo lo que contiene"
+      }
+    },
+    {
+      "id": "partner.servers.open",
+      "command": "partner servers open",
+      "usage": "bladecp partner servers open <server>",
+      "arguments": [
+        "<server>"
+      ],
+      "options": [],
+      "signInRequired": true,
+      "partner": true,
+      "summary": {
+        "en": "Open the customer's panel with a one-time link",
+        "pt-BR": "Abrir o painel do cliente com um link de uso único",
+        "es": "Abrir el panel del cliente con un enlace de un solo uso"
+      }
+    },
+    {
+      "id": "partner.vibe.find",
+      "command": "partner vibe find",
+      "usage": "bladecp partner vibe find <external-id>",
+      "arguments": [
+        "<external-id>"
+      ],
+      "options": [],
+      "signInRequired": true,
+      "partner": true,
+      "summary": {
+        "en": "Find the Vibe account of one of your services",
+        "pt-BR": "Encontrar a conta Vibe de um serviço seu",
+        "es": "Buscar la cuenta Vibe de uno de tus servicios"
+      }
+    },
+    {
+      "id": "partner.vibe.show",
+      "command": "partner vibe show",
+      "usage": "bladecp partner vibe show <account>",
+      "arguments": [
+        "<account>"
+      ],
+      "options": [],
+      "signInRequired": true,
+      "partner": true,
+      "summary": {
+        "en": "Show a Vibe account",
+        "pt-BR": "Mostrar uma conta Vibe",
+        "es": "Mostrar una cuenta Vibe"
+      }
+    },
+    {
+      "id": "partner.vibe.create",
+      "command": "partner vibe create",
+      "usage": "bladecp partner vibe create --external-id <id> --plan <id> --email <email> --name <name> [--email-verification <verified|not-required>] [--yes]",
+      "arguments": [],
+      "options": [
+        "external-id",
+        "plan",
+        "email",
+        "name",
+        "email-verification",
+        "yes"
+      ],
+      "signInRequired": true,
+      "partner": true,
+      "summary": {
+        "en": "Create the Vibe account of a service",
+        "pt-BR": "Criar a conta Vibe de um serviço",
+        "es": "Crear la cuenta Vibe de un servicio"
+      }
+    },
+    {
+      "id": "partner.vibe.plan",
+      "command": "partner vibe plan",
+      "usage": "bladecp partner vibe plan <account> <plan> [--yes]",
+      "arguments": [
+        "<account>",
+        "<plan>"
+      ],
+      "options": [
+        "yes"
+      ],
+      "signInRequired": true,
+      "partner": true,
+      "summary": {
+        "en": "Move a Vibe account to another plan",
+        "pt-BR": "Mudar o plano de uma conta Vibe",
+        "es": "Cambiar el plan de una cuenta Vibe"
+      }
+    },
+    {
+      "id": "partner.vibe.suspend",
+      "command": "partner vibe suspend",
+      "usage": "bladecp partner vibe suspend <account> [--yes]",
+      "arguments": [
+        "<account>"
+      ],
+      "options": [
+        "yes"
+      ],
+      "signInRequired": true,
+      "partner": true,
+      "summary": {
+        "en": "Suspend a Vibe account",
+        "pt-BR": "Suspender uma conta Vibe",
+        "es": "Suspender una cuenta Vibe"
+      }
+    },
+    {
+      "id": "partner.vibe.reactivate",
+      "command": "partner vibe reactivate",
+      "usage": "bladecp partner vibe reactivate <account> [--yes]",
+      "arguments": [
+        "<account>"
+      ],
+      "options": [
+        "yes"
+      ],
+      "signInRequired": true,
+      "partner": true,
+      "summary": {
+        "en": "Reactivate a suspended Vibe account",
+        "pt-BR": "Reativar uma conta Vibe suspensa",
+        "es": "Reactivar una cuenta Vibe suspendida"
+      }
+    },
+    {
+      "id": "partner.vibe.resume",
+      "command": "partner vibe resume",
+      "usage": "bladecp partner vibe resume <account> [--yes]",
+      "arguments": [
+        "<account>"
+      ],
+      "options": [
+        "yes"
+      ],
+      "signInRequired": true,
+      "partner": true,
+      "summary": {
+        "en": "Bring a Vibe account back online after inactivity",
+        "pt-BR": "Colocar uma conta Vibe no ar de novo após inatividade",
+        "es": "Volver a poner en línea una cuenta Vibe tras la inactividad"
+      }
+    },
+    {
+      "id": "partner.vibe.terminate",
+      "command": "partner vibe terminate",
+      "usage": "bladecp partner vibe terminate <account> [--yes]",
+      "arguments": [
+        "<account>"
+      ],
+      "options": [
+        "yes"
+      ],
+      "signInRequired": true,
+      "partner": true,
+      "summary": {
+        "en": "Terminate a Vibe account for good",
+        "pt-BR": "Encerrar uma conta Vibe de vez",
+        "es": "Cerrar una cuenta Vibe de forma definitiva"
+      }
+    },
+    {
+      "id": "partner.vibe.open",
+      "command": "partner vibe open",
+      "usage": "bladecp partner vibe open <account> [--no-browser]",
+      "arguments": [
+        "<account>"
+      ],
+      "options": [
+        "no-browser"
+      ],
+      "signInRequired": true,
+      "partner": true,
+      "summary": {
+        "en": "Sign in to Vibe as the account owner, with a one-time link",
+        "pt-BR": "Entrar no Vibe como dono da conta, com um link de uso único",
+        "es": "Entrar en Vibe como titular de la cuenta, con un enlace de un solo uso"
+      }
+    },
+    {
+      "id": "partner.marketplace.summary",
+      "command": "partner marketplace summary",
+      "usage": "bladecp partner marketplace summary",
+      "arguments": [],
+      "options": [],
+      "signInRequired": true,
+      "partner": true,
+      "summary": {
+        "en": "Show earnings by currency and how much of your base server they cover",
+        "pt-BR": "Mostrar os ganhos por moeda e quanto do servidor-base eles já cobrem",
+        "es": "Mostrar las ganancias por moneda y cuánto del servidor base ya cubren"
+      }
+    },
+    {
+      "id": "partner.marketplace.orders",
+      "command": "partner marketplace orders",
+      "usage": "bladecp partner marketplace orders [--status <status>] [--page <n>] [--limit <n>]",
+      "arguments": [],
+      "options": [
+        "status",
+        "page",
+        "limit"
+      ],
+      "signInRequired": true,
+      "partner": true,
+      "summary": {
+        "en": "List the sales BladeCP made of your plans",
+        "pt-BR": "Listar as vendas que a BladeCP fez dos seus planos",
+        "es": "Listar las ventas que BladeCP hizo de tus planes"
+      }
+    },
+    {
+      "id": "partner.marketplace.commissions",
+      "command": "partner marketplace commissions",
+      "usage": "bladecp partner marketplace commissions [--status <status>] [--page <n>] [--limit <n>]",
+      "arguments": [],
+      "options": [
+        "status",
+        "page",
+        "limit"
+      ],
+      "signInRequired": true,
+      "partner": true,
+      "summary": {
+        "en": "List each paid invoice: the sale, the BladeCP commission and what you receive",
+        "pt-BR": "Listar cada fatura paga: a venda, a comissão da BladeCP e o que você recebe",
+        "es": "Listar cada factura pagada: la venta, la comisión de BladeCP y lo que recibes"
+      }
+    },
+    {
+      "id": "partner.marketplace.statements",
+      "command": "partner marketplace statements",
+      "usage": "bladecp partner marketplace statements",
+      "arguments": [],
+      "options": [],
+      "signInRequired": true,
+      "partner": true,
+      "summary": {
+        "en": "List the monthly statements: your earnings netted against your base server",
+        "pt-BR": "Listar os extratos mensais: seus ganhos compensados com o servidor-base",
+        "es": "Listar los extractos mensuales: tus ganancias compensadas con el servidor base"
+      }
+    },
+    {
+      "id": "partner.marketplace.statement",
+      "command": "partner marketplace statement",
+      "usage": "bladecp partner marketplace statement <statement>",
+      "arguments": [
+        "<statement>"
+      ],
+      "options": [],
+      "signInRequired": true,
+      "partner": true,
+      "summary": {
+        "en": "Show one statement and its commission lines",
+        "pt-BR": "Mostrar um extrato e as linhas de comissão dele",
+        "es": "Mostrar un extracto y sus líneas de comisión"
+      }
+    },
+    {
+      "id": "partner.marketplace.invoices",
+      "command": "partner marketplace invoices",
+      "usage": "bladecp partner marketplace invoices",
+      "arguments": [],
+      "options": [],
+      "signInRequired": true,
+      "partner": true,
+      "summary": {
+        "en": "List the open invoices of your base server",
+        "pt-BR": "Listar as faturas em aberto do seu servidor-base",
+        "es": "Listar las facturas pendientes de tu servidor base"
+      }
+    },
+    {
+      "id": "partner.webhooks.list",
+      "command": "partner webhooks list",
+      "usage": "bladecp partner webhooks list",
+      "arguments": [],
+      "options": [],
+      "signInRequired": true,
+      "partner": true,
+      "summary": {
+        "en": "List your webhook endpoints",
+        "pt-BR": "Listar seus endpoints de webhook",
+        "es": "Listar tus endpoints de webhook"
+      }
+    },
+    {
+      "id": "partner.webhooks.show",
+      "command": "partner webhooks show",
+      "usage": "bladecp partner webhooks show <endpoint>",
+      "arguments": [
+        "<endpoint>"
+      ],
+      "options": [],
+      "signInRequired": true,
+      "partner": true,
+      "summary": {
+        "en": "Show an endpoint: address, events and status",
+        "pt-BR": "Mostrar um endpoint: endereço, eventos e status",
+        "es": "Mostrar un endpoint: dirección, eventos y estado"
+      }
+    },
+    {
+      "id": "partner.webhooks.create",
+      "command": "partner webhooks create",
+      "usage": "bladecp partner webhooks create --url <url> --event <type>... [--name <name>]",
+      "arguments": [],
+      "options": [
+        "url",
+        "event",
+        "name"
+      ],
+      "signInRequired": true,
+      "partner": true,
+      "summary": {
+        "en": "Add an endpoint and get its signing secret",
+        "pt-BR": "Adicionar um endpoint e receber o segredo de assinatura dele",
+        "es": "Añadir un endpoint y recibir su secreto de firma"
+      }
+    },
+    {
+      "id": "partner.webhooks.update",
+      "command": "partner webhooks update",
+      "usage": "bladecp partner webhooks update <endpoint> [--url <url>] [--event <type>...] [--name <name>] [--yes]",
+      "arguments": [
+        "<endpoint>"
+      ],
+      "options": [
+        "url",
+        "event",
+        "name",
+        "yes"
+      ],
+      "signInRequired": true,
+      "partner": true,
+      "summary": {
+        "en": "Change the address, events or name of an endpoint",
+        "pt-BR": "Mudar o endereço, os eventos ou o nome de um endpoint",
+        "es": "Cambiar la dirección, los eventos o el nombre de un endpoint"
+      }
+    },
+    {
+      "id": "partner.webhooks.pause",
+      "command": "partner webhooks pause",
+      "usage": "bladecp partner webhooks pause <endpoint> [--yes]",
+      "arguments": [
+        "<endpoint>"
+      ],
+      "options": [
+        "yes"
+      ],
+      "signInRequired": true,
+      "partner": true,
+      "summary": {
+        "en": "Stop sending events to an endpoint for now",
+        "pt-BR": "Parar de enviar eventos a um endpoint por enquanto",
+        "es": "Dejar de enviar eventos a un endpoint por ahora"
+      }
+    },
+    {
+      "id": "partner.webhooks.resume",
+      "command": "partner webhooks resume",
+      "usage": "bladecp partner webhooks resume <endpoint> [--yes]",
+      "arguments": [
+        "<endpoint>"
+      ],
+      "options": [
+        "yes"
+      ],
+      "signInRequired": true,
+      "partner": true,
+      "summary": {
+        "en": "Send events to a paused endpoint again",
+        "pt-BR": "Voltar a enviar eventos a um endpoint pausado",
+        "es": "Volver a enviar eventos a un endpoint pausado"
+      }
+    },
+    {
+      "id": "partner.webhooks.delete",
+      "command": "partner webhooks delete",
+      "usage": "bladecp partner webhooks delete <endpoint> [--yes]",
+      "arguments": [
+        "<endpoint>"
+      ],
+      "options": [
+        "yes"
+      ],
+      "signInRequired": true,
+      "partner": true,
+      "summary": {
+        "en": "Delete an endpoint",
+        "pt-BR": "Excluir um endpoint",
+        "es": "Eliminar un endpoint"
+      }
+    },
+    {
+      "id": "partner.webhooks.rotate-secret",
+      "command": "partner webhooks rotate-secret",
+      "usage": "bladecp partner webhooks rotate-secret <endpoint> [--yes]",
+      "arguments": [
+        "<endpoint>"
+      ],
+      "options": [
+        "yes"
+      ],
+      "signInRequired": true,
+      "partner": true,
+      "summary": {
+        "en": "Replace the signing secret of an endpoint",
+        "pt-BR": "Trocar o segredo de assinatura de um endpoint",
+        "es": "Cambiar el secreto de firma de un endpoint"
+      }
+    },
+    {
+      "id": "partner.webhooks.deliveries",
+      "command": "partner webhooks deliveries",
+      "usage": "bladecp partner webhooks deliveries [--endpoint <id>] [--status <status>] [--page <n>] [--limit <n>]",
+      "arguments": [],
+      "options": [
+        "endpoint",
+        "status",
+        "page",
+        "limit"
+      ],
+      "signInRequired": true,
+      "partner": true,
+      "summary": {
+        "en": "List what BladeCP sent and what your system answered",
+        "pt-BR": "Listar o que a BladeCP enviou e o que o seu sistema respondeu",
+        "es": "Listar lo que BladeCP envió y lo que respondió tu sistema"
+      }
+    },
+    {
+      "id": "partner.webhooks.replay",
+      "command": "partner webhooks replay",
+      "usage": "bladecp partner webhooks replay <delivery> [--yes]",
+      "arguments": [
+        "<delivery>"
+      ],
+      "options": [
+        "yes"
+      ],
+      "signInRequired": true,
+      "partner": true,
+      "summary": {
+        "en": "Send a delivery again, with the same event ID",
+        "pt-BR": "Enviar uma entrega de novo, com o mesmo ID de evento",
+        "es": "Enviar una entrega otra vez, con el mismo ID de evento"
+      }
+    },
+    {
+      "id": "partner.migrations.list",
+      "command": "partner migrations list",
+      "usage": "bladecp partner migrations list --installation <id> [--client <id>] [--limit <n>] [--all]",
+      "arguments": [],
+      "options": [
+        "installation",
+        "client",
+        "limit",
+        "all"
+      ],
+      "signInRequired": true,
+      "partner": true,
+      "summary": {
+        "en": "List the Fast Deploy requests of a WHMCS installation",
+        "pt-BR": "Listar as solicitações de Fast Deploy de uma instalação do WHMCS",
+        "es": "Listar las solicitudes de Fast Deploy de una instalación de WHMCS"
+      }
+    },
+    {
+      "id": "partner.migrations.show",
+      "command": "partner migrations show",
+      "usage": "bladecp partner migrations show <request> --installation <id> --client <id> [--watch]",
+      "arguments": [
+        "<request>"
+      ],
+      "options": [
+        "installation",
+        "client",
+        "watch"
+      ],
+      "signInRequired": true,
+      "partner": true,
+      "summary": {
+        "en": "Show a request: phase, components, preview and billing",
+        "pt-BR": "Mostrar uma solicitação: etapa, componentes, prévia e cobrança",
+        "es": "Mostrar una solicitud: etapa, componentes, vista previa y facturación"
+      }
+    },
+    {
+      "id": "partner.migrations.review",
+      "command": "partner migrations review",
+      "usage": "bladecp partner migrations review <request> --installation <id> --client <id> --domain <host>",
+      "arguments": [
+        "<request>"
+      ],
+      "options": [
+        "installation",
+        "client",
+        "domain"
+      ],
+      "signInRequired": true,
+      "partner": true,
+      "summary": {
+        "en": "Confirm the domain of the site found in the backup",
+        "pt-BR": "Confirmar o domínio do site encontrado no backup",
+        "es": "Confirmar el dominio del sitio encontrado en el respaldo"
+      }
+    },
+    {
+      "id": "partner.migrations.approve",
+      "command": "partner migrations approve",
+      "usage": "bladecp partner migrations approve <request> --installation <id> --client <id> [--yes]",
+      "arguments": [
+        "<request>"
+      ],
+      "options": [
+        "installation",
+        "client",
+        "yes"
+      ],
+      "signInRequired": true,
+      "partner": true,
+      "summary": {
+        "en": "Approve the preview so BladeCP finishes the migration",
+        "pt-BR": "Aprovar a prévia para a BladeCP concluir a migração",
+        "es": "Aprobar la vista previa para que BladeCP termine la migración"
+      }
+    },
+    {
+      "id": "partner.migrations.cancel",
+      "command": "partner migrations cancel",
+      "usage": "bladecp partner migrations cancel <request> --installation <id> --client <id> [--reason <text>] [--yes]",
+      "arguments": [
+        "<request>"
+      ],
+      "options": [
+        "installation",
+        "client",
+        "reason",
+        "yes"
+      ],
+      "signInRequired": true,
+      "partner": true,
+      "summary": {
+        "en": "Cancel a request that is not approved yet",
+        "pt-BR": "Cancelar uma solicitação ainda não aprovada",
+        "es": "Cancelar una solicitud que aún no está aprobada"
+      }
+    },
+    {
+      "id": "partner.migrations.retry",
+      "command": "partner migrations retry",
+      "usage": "bladecp partner migrations retry <request> --installation <id> --client <id>",
+      "arguments": [
+        "<request>"
+      ],
+      "options": [
+        "installation",
+        "client"
+      ],
+      "signInRequired": true,
+      "partner": true,
+      "summary": {
+        "en": "Try a failed migration again, when that is safe",
+        "pt-BR": "Tentar de novo uma migração que falhou, quando é seguro",
+        "es": "Reintentar una migración que falló, cuando es seguro"
+      }
+    },
+    {
+      "id": "partner.migrations.billing-queue",
+      "command": "partner migrations billing-queue",
+      "usage": "bladecp partner migrations billing-queue [--limit <n>] [--all]",
+      "arguments": [],
+      "options": [
+        "limit",
+        "all"
+      ],
+      "signInRequired": true,
+      "partner": true,
+      "summary": {
+        "en": "List the requests waiting for the billing WHMCS",
+        "pt-BR": "Listar as solicitações que aguardam o WHMCS de cobrança",
+        "es": "Listar las solicitudes que esperan al WHMCS de facturación"
+      }
+    },
+    {
+      "id": "partner.migrations.billing-link",
+      "command": "partner migrations billing-link",
+      "usage": "bladecp partner migrations billing-link <request> --installation <id> --client <id> --external-id <id> --email <email> --name <name> [--company <name>] [--yes]",
+      "arguments": [
+        "<request>"
+      ],
+      "options": [
+        "installation",
+        "client",
+        "external-id",
+        "email",
+        "name",
+        "company",
+        "yes"
+      ],
+      "signInRequired": true,
+      "partner": true,
+      "summary": {
+        "en": "Link a request to its client and service in the billing WHMCS",
+        "pt-BR": "Vincular uma solicitação ao cliente e ao serviço no WHMCS de cobrança",
+        "es": "Vincular una solicitud a su cliente y servicio en el WHMCS de facturación"
+      }
+    },
+    {
+      "id": "partner.migrations.claim-url",
+      "command": "partner migrations claim-url",
+      "usage": "bladecp partner migrations claim-url <request> --installation <id> --client <id>",
+      "arguments": [
+        "<request>"
+      ],
+      "options": [
+        "installation",
+        "client"
+      ],
+      "signInRequired": true,
+      "partner": true,
+      "summary": {
+        "en": "Get the address where the account holder confirms the account",
+        "pt-BR": "Obter o endereço onde o titular confirma a conta",
+        "es": "Obtener la dirección donde el titular confirma la cuenta"
       }
     }
   ],
@@ -425,7 +1581,8 @@
       "type": "boolean",
       "global": false,
       "commands": [
-        "login"
+        "login",
+        "partner.vibe.open"
       ],
       "description": {
         "en": "Do not open the browser; print the sign-in address instead",
@@ -442,7 +1599,11 @@
       "type": "string",
       "global": false,
       "commands": [
-        "migrate"
+        "migrate",
+        "partner.locations",
+        "partner.options",
+        "partner.servers.create",
+        "partner.vibe.create"
       ],
       "description": {
         "en": "Destination plan ID (see \"bladecp destinations list\")",
@@ -459,7 +1620,8 @@
       "type": "string",
       "global": false,
       "commands": [
-        "migrate"
+        "migrate",
+        "partner.servers.create"
       ],
       "description": {
         "en": "Destination location ID (see \"bladecp destinations list\")",
@@ -477,7 +1639,11 @@
       "global": false,
       "commands": [
         "migrate",
-        "migrations.review"
+        "migrations.review",
+        "apps.install",
+        "partner.servers.list",
+        "partner.servers.create",
+        "partner.migrations.review"
       ],
       "description": {
         "en": "Domain the migrated site will use",
@@ -497,7 +1663,35 @@
         "migrate",
         "migrations.approve",
         "migrations.cancel",
-        "update"
+        "update",
+        "api",
+        "domains.remove",
+        "apps.install",
+        "wordpress.update.core",
+        "wordpress.update.plugin",
+        "wordpress.update.theme",
+        "partner.servers.create",
+        "partner.servers.plan",
+        "partner.servers.options",
+        "partner.servers.suspend",
+        "partner.servers.unsuspend",
+        "partner.servers.cancel",
+        "partner.servers.delete",
+        "partner.vibe.create",
+        "partner.vibe.plan",
+        "partner.vibe.suspend",
+        "partner.vibe.reactivate",
+        "partner.vibe.resume",
+        "partner.vibe.terminate",
+        "partner.webhooks.update",
+        "partner.webhooks.pause",
+        "partner.webhooks.resume",
+        "partner.webhooks.delete",
+        "partner.webhooks.rotate-secret",
+        "partner.webhooks.replay",
+        "partner.migrations.approve",
+        "partner.migrations.cancel",
+        "partner.migrations.billing-link"
       ],
       "description": {
         "en": "Do not ask for confirmation; accept the domain found in the backup and, when it is the only one, the destination",
@@ -531,7 +1725,8 @@
       "type": "boolean",
       "global": false,
       "commands": [
-        "migrations.status"
+        "migrations.status",
+        "partner.migrations.show"
       ],
       "description": {
         "en": "Keep following the migration until it needs you or finishes",
@@ -548,7 +1743,9 @@
       "type": "string",
       "global": false,
       "commands": [
-        "migrations.cancel"
+        "migrations.cancel",
+        "partner.servers.cancel",
+        "partner.migrations.cancel"
       ],
       "description": {
         "en": "Optional note about why you are cancelling",
@@ -566,7 +1763,9 @@
       "global": false,
       "commands": [
         "destinations.list",
-        "analyze"
+        "analyze",
+        "partner.plans",
+        "partner.options"
       ],
       "description": {
         "en": "Show plans and prices in one currency (for example USD or BRL)",
@@ -583,7 +1782,9 @@
       "type": "boolean",
       "global": false,
       "commands": [
-        "servers.list"
+        "servers.list",
+        "partner.migrations.list",
+        "partner.migrations.billing-queue"
       ],
       "description": {
         "en": "Also list deleted servers",
@@ -624,6 +1825,445 @@
         "pt-BR": "Mostrar também os planos que cabem e os preços de agora (pede login)",
         "es": "Mostrar también los planes que caben y sus precios de ahora (requiere iniciar sesión)"
       }
+    },
+    {
+      "name": "status",
+      "flag": "--status",
+      "short": null,
+      "syntax": "--status <status>",
+      "value": "<status>",
+      "type": "string",
+      "global": false,
+      "commands": [
+        "partner.servers.list",
+        "partner.marketplace.orders",
+        "partner.marketplace.commissions",
+        "partner.webhooks.deliveries"
+      ],
+      "description": {
+        "en": "Only the ones with this status",
+        "pt-BR": "Só os que estão neste status",
+        "es": "Solo los que tienen este estado"
+      }
+    },
+    {
+      "name": "limit",
+      "flag": "--limit",
+      "short": null,
+      "syntax": "--limit <n>",
+      "value": "<n>",
+      "type": "string",
+      "global": false,
+      "commands": [
+        "partner.servers.list",
+        "partner.marketplace.orders",
+        "partner.marketplace.commissions",
+        "partner.webhooks.deliveries",
+        "partner.migrations.list",
+        "partner.migrations.billing-queue"
+      ],
+      "description": {
+        "en": "How many to show per page",
+        "pt-BR": "Quantos mostrar por página",
+        "es": "Cuántos mostrar por página"
+      }
+    },
+    {
+      "name": "page",
+      "flag": "--page",
+      "short": null,
+      "syntax": "--page <n>",
+      "value": "<n>",
+      "type": "string",
+      "global": false,
+      "commands": [
+        "partner.servers.list",
+        "partner.marketplace.orders",
+        "partner.marketplace.commissions",
+        "partner.webhooks.deliveries"
+      ],
+      "description": {
+        "en": "Page to show (starts at 1)",
+        "pt-BR": "Página a mostrar (começa em 1)",
+        "es": "Página a mostrar (empieza en 1)"
+      }
+    },
+    {
+      "name": "external-id",
+      "flag": "--external-id",
+      "short": null,
+      "syntax": "--external-id <id>",
+      "value": "<id>",
+      "type": "string",
+      "global": false,
+      "commands": [
+        "wordpress.status",
+        "wordpress.dashboard",
+        "wordpress.update.core",
+        "wordpress.update.plugin",
+        "wordpress.update.theme",
+        "wordpress.task",
+        "partner.servers.list",
+        "partner.servers.create",
+        "partner.vibe.create",
+        "partner.migrations.billing-link"
+      ],
+      "description": {
+        "en": "Your own ID for it (for example the service ID in your billing system)",
+        "pt-BR": "O seu próprio ID para ele (por exemplo, o ID do serviço no seu sistema de cobrança)",
+        "es": "Tu propio ID para él (por ejemplo, el ID del servicio en tu sistema de facturación)"
+      }
+    },
+    {
+      "name": "name",
+      "flag": "--name",
+      "short": null,
+      "syntax": "--name <name>",
+      "value": "<name>",
+      "type": "string",
+      "global": false,
+      "commands": [
+        "partner.servers.create",
+        "partner.vibe.create",
+        "partner.webhooks.create",
+        "partner.webhooks.update",
+        "partner.migrations.billing-link"
+      ],
+      "description": {
+        "en": "Name",
+        "pt-BR": "Nome",
+        "es": "Nombre"
+      }
+    },
+    {
+      "name": "email",
+      "flag": "--email",
+      "short": null,
+      "syntax": "--email <email>",
+      "value": "<email>",
+      "type": "string",
+      "global": false,
+      "commands": [
+        "partner.servers.create",
+        "partner.vibe.create",
+        "partner.migrations.billing-link"
+      ],
+      "description": {
+        "en": "Email address",
+        "pt-BR": "Endereço de e-mail",
+        "es": "Correo electrónico"
+      }
+    },
+    {
+      "name": "url",
+      "flag": "--url",
+      "short": null,
+      "syntax": "--url <url>",
+      "value": "<url>",
+      "type": "string",
+      "global": false,
+      "commands": [
+        "partner.webhooks.create",
+        "partner.webhooks.update"
+      ],
+      "description": {
+        "en": "Address (https)",
+        "pt-BR": "Endereço (https)",
+        "es": "Dirección (https)"
+      }
+    },
+    {
+      "name": "event",
+      "flag": "--event",
+      "short": null,
+      "syntax": "--event <type>",
+      "value": "<type>",
+      "type": "string",
+      "global": false,
+      "commands": [
+        "partner.webhooks.create",
+        "partner.webhooks.update"
+      ],
+      "description": {
+        "en": "Event type (repeat the option for more than one)",
+        "pt-BR": "Tipo de evento (repita a opção para mais de um)",
+        "es": "Tipo de evento (repite la opción para más de uno)"
+      }
+    },
+    {
+      "name": "option",
+      "flag": "--option",
+      "short": null,
+      "syntax": "--option <id>=<value>",
+      "value": "<id>=<value>",
+      "type": "string",
+      "global": false,
+      "commands": [
+        "apps.install",
+        "partner.servers.create",
+        "partner.servers.options"
+      ],
+      "description": {
+        "en": "Configurable option and its value (repeat for more than one)",
+        "pt-BR": "Opção configurável e o valor dela (repita para mais de uma)",
+        "es": "Opción configurable y su valor (repite para más de una)"
+      }
+    },
+    {
+      "name": "wait",
+      "flag": "--wait",
+      "short": null,
+      "syntax": "--wait",
+      "value": null,
+      "type": "boolean",
+      "global": false,
+      "commands": [
+        "wordpress.dashboard",
+        "wordpress.update.core",
+        "wordpress.update.plugin",
+        "wordpress.update.theme",
+        "wordpress.task"
+      ],
+      "description": {
+        "en": "Wait until it finishes and show the result",
+        "pt-BR": "Esperar terminar e mostrar o resultado",
+        "es": "Esperar a que termine y mostrar el resultado"
+      }
+    },
+    {
+      "name": "method",
+      "flag": "--method",
+      "short": "-X",
+      "syntax": "-X, --method <method>",
+      "value": "<method>",
+      "type": "string",
+      "global": false,
+      "commands": [
+        "api"
+      ],
+      "description": {
+        "en": "HTTP method: GET, POST, PUT, PATCH or DELETE",
+        "pt-BR": "Método HTTP: GET, POST, PUT, PATCH ou DELETE",
+        "es": "Método HTTP: GET, POST, PUT, PATCH o DELETE"
+      }
+    },
+    {
+      "name": "data",
+      "flag": "--data",
+      "short": null,
+      "syntax": "--data <json>",
+      "value": "<json>",
+      "type": "string",
+      "global": false,
+      "commands": [
+        "api"
+      ],
+      "description": {
+        "en": "JSON body of the request",
+        "pt-BR": "Corpo da requisição em JSON",
+        "es": "Cuerpo de la solicitud en JSON"
+      }
+    },
+    {
+      "name": "input",
+      "flag": "--input",
+      "short": null,
+      "syntax": "--input <file>",
+      "value": "<file>",
+      "type": "string",
+      "global": false,
+      "commands": [
+        "api"
+      ],
+      "description": {
+        "en": "File with the JSON body (\"-\" reads stdin)",
+        "pt-BR": "Arquivo com o corpo em JSON (\"-\" lê da entrada padrão)",
+        "es": "Archivo con el cuerpo en JSON (\"-\" lee la entrada estándar)"
+      }
+    },
+    {
+      "name": "app-version",
+      "flag": "--app-version",
+      "short": null,
+      "syntax": "--app-version <version>",
+      "value": "<version>",
+      "type": "string",
+      "global": false,
+      "commands": [
+        "apps.install"
+      ],
+      "description": {
+        "en": "Version to install (the recommended one when left out)",
+        "pt-BR": "Versão a instalar (a recomendada, se omitida)",
+        "es": "Versión a instalar (la recomendada si se omite)"
+      }
+    },
+    {
+      "name": "component",
+      "flag": "--component",
+      "short": null,
+      "syntax": "--component <slug>[@<version>]",
+      "value": "<slug>[@<version>]",
+      "type": "string",
+      "global": false,
+      "commands": [
+        "partner.servers.create"
+      ],
+      "description": {
+        "en": "Component to install, with an optional version (repeat for more than one)",
+        "pt-BR": "Componente a instalar, com a versão se quiser (repita para mais de um)",
+        "es": "Componente a instalar, con la versión si quieres (repite para más de uno)"
+      }
+    },
+    {
+      "name": "contract",
+      "flag": "--contract",
+      "short": null,
+      "syntax": "--contract <months>",
+      "value": "<months>",
+      "type": "string",
+      "global": false,
+      "commands": [
+        "partner.servers.create"
+      ],
+      "description": {
+        "en": "Contract term in months (12, 24, 36 or 48) for plans sold with a contract; records that the customer accepted the terms",
+        "pt-BR": "Prazo do contrato em meses (12, 24, 36 ou 48) para planos vendidos com contrato; registra que o cliente aceitou os termos",
+        "es": "Plazo del contrato en meses (12, 24, 36 o 48) para planes vendidos con contrato; registra que el cliente aceptó los términos"
+      }
+    },
+    {
+      "name": "now",
+      "flag": "--now",
+      "short": null,
+      "syntax": "--now",
+      "value": null,
+      "type": "boolean",
+      "global": false,
+      "commands": [
+        "partner.servers.cancel"
+      ],
+      "description": {
+        "en": "Cancel right away (the server is suspended now) instead of at the end of the cycle",
+        "pt-BR": "Cancelar na hora (o servidor é suspenso agora) em vez de no fim do ciclo",
+        "es": "Cancelar en el acto (el servidor se suspende ahora) en vez de al final del ciclo"
+      }
+    },
+    {
+      "name": "reason-category",
+      "flag": "--reason-category",
+      "short": null,
+      "syntax": "--reason-category <category>",
+      "value": "<category>",
+      "type": "string",
+      "global": false,
+      "commands": [
+        "partner.servers.cancel"
+      ],
+      "description": {
+        "en": "Why it is cancelled: too-expensive, no-longer-needed, technical-issues, found-better, temporary or other",
+        "pt-BR": "Por que é cancelado: too-expensive, no-longer-needed, technical-issues, found-better, temporary ou other",
+        "es": "Por qué se cancela: too-expensive, no-longer-needed, technical-issues, found-better, temporary u other"
+      }
+    },
+    {
+      "name": "email-verification",
+      "flag": "--email-verification",
+      "short": null,
+      "syntax": "--email-verification <verified|not-required>",
+      "value": "<verified|not-required>",
+      "type": "string",
+      "global": false,
+      "commands": [
+        "partner.vibe.create"
+      ],
+      "description": {
+        "en": "Free plans: the owner's email was verified, or your store does not require it",
+        "pt-BR": "Planos Free: o e-mail do dono foi verificado, ou a sua loja não exige verificação",
+        "es": "Planes Free: el correo del titular se verificó, o tu tienda no exige verificación"
+      }
+    },
+    {
+      "name": "endpoint",
+      "flag": "--endpoint",
+      "short": null,
+      "syntax": "--endpoint <id>",
+      "value": "<id>",
+      "type": "string",
+      "global": false,
+      "commands": [
+        "partner.webhooks.deliveries"
+      ],
+      "description": {
+        "en": "Only the deliveries of this endpoint",
+        "pt-BR": "Só as entregas deste endpoint",
+        "es": "Solo las entregas de este endpoint"
+      }
+    },
+    {
+      "name": "installation",
+      "flag": "--installation",
+      "short": null,
+      "syntax": "--installation <id>",
+      "value": "<id>",
+      "type": "string",
+      "global": false,
+      "commands": [
+        "partner.migrations.list",
+        "partner.migrations.show",
+        "partner.migrations.review",
+        "partner.migrations.approve",
+        "partner.migrations.cancel",
+        "partner.migrations.retry",
+        "partner.migrations.billing-link",
+        "partner.migrations.claim-url"
+      ],
+      "description": {
+        "en": "The WHMCS installation that made the request (its BladeCP installation ID, a UUID)",
+        "pt-BR": "A instalação do WHMCS que fez a solicitação (o ID dela na BladeCP, um UUID)",
+        "es": "La instalación de WHMCS que hizo la solicitud (su ID en BladeCP, un UUID)"
+      }
+    },
+    {
+      "name": "client",
+      "flag": "--client",
+      "short": null,
+      "syntax": "--client <id>",
+      "value": "<id>",
+      "type": "string",
+      "global": false,
+      "commands": [
+        "partner.migrations.list",
+        "partner.migrations.show",
+        "partner.migrations.review",
+        "partner.migrations.approve",
+        "partner.migrations.cancel",
+        "partner.migrations.retry",
+        "partner.migrations.billing-link",
+        "partner.migrations.claim-url"
+      ],
+      "description": {
+        "en": "The client of that installation the request belongs to (its client ID in WHMCS)",
+        "pt-BR": "O cliente dessa instalação a quem a solicitação pertence (o ID dele no WHMCS)",
+        "es": "El cliente de esa instalación al que pertenece la solicitud (su ID en WHMCS)"
+      }
+    },
+    {
+      "name": "company",
+      "flag": "--company",
+      "short": null,
+      "syntax": "--company <name>",
+      "value": "<name>",
+      "type": "string",
+      "global": false,
+      "commands": [
+        "partner.migrations.billing-link"
+      ],
+      "description": {
+        "en": "Company of the client, when there is one",
+        "pt-BR": "Empresa do cliente, quando houver",
+        "es": "Empresa del cliente, si la hay"
+      }
     }
   ],
   "globalOptions": [
@@ -662,6 +2302,11 @@
       "target": "--all"
     },
     {
+      "kind": "short-option",
+      "alias": "-X",
+      "target": "--method"
+    },
+    {
       "kind": "help-command",
       "alias": "bladecp help <command>",
       "target": "bladecp <command> --help"
@@ -685,6 +2330,31 @@
       "kind": "group-default",
       "alias": "bladecp config",
       "target": "bladecp config list"
+    },
+    {
+      "kind": "group-default",
+      "alias": "bladecp apps",
+      "target": "bladecp apps list"
+    },
+    {
+      "kind": "group-default",
+      "alias": "bladecp components",
+      "target": "bladecp components list"
+    },
+    {
+      "kind": "group-default",
+      "alias": "bladecp partner servers",
+      "target": "bladecp partner servers list"
+    },
+    {
+      "kind": "group-default",
+      "alias": "bladecp partner marketplace",
+      "target": "bladecp partner marketplace summary"
+    },
+    {
+      "kind": "group-default",
+      "alias": "bladecp partner webhooks",
+      "target": "bladecp partner webhooks list"
     }
   ],
   "exitCodes": [
@@ -1296,6 +2966,23 @@
       "hint": null
     },
     {
+      "code": "partner_only",
+      "origin": "cli",
+      "exitCodes": [
+        4
+      ],
+      "message": {
+        "en": "This command is for BladeCP partners, and this API key is not a partner key.",
+        "pt-BR": "Este comando é para parceiros da BladeCP, e esta chave de API não é de parceiro.",
+        "es": "Este comando es para socios de BladeCP, y esta clave de API no es de socio."
+      },
+      "hint": {
+        "en": "Sign in with a partner key. Keys are managed at {url}.",
+        "pt-BR": "Entre com uma chave de parceiro. As chaves ficam em {url}.",
+        "es": "Inicia sesión con una clave de socio. Las claves se gestionan en {url}."
+      }
+    },
+    {
       "code": "not_found",
       "origin": "api",
       "exitCodes": [
@@ -1426,6 +3113,19 @@
         "en": "BladeCP already received a different request for this upload. Run the command again.",
         "pt-BR": "A BladeCP já recebeu um pedido diferente para este envio. Rode o comando de novo.",
         "es": "BladeCP ya recibió una solicitud diferente para esta subida. Ejecuta el comando de nuevo."
+      },
+      "hint": null
+    },
+    {
+      "code": "external_service_id_required",
+      "origin": "api",
+      "exitCodes": [
+        6
+      ],
+      "message": {
+        "en": "This server is not yours, so BladeCP needs the ID of its service in your billing system.",
+        "pt-BR": "Este servidor não é seu, então a BladeCP precisa do ID do serviço dele no seu sistema de cobrança.",
+        "es": "Este servidor no es tuyo, así que BladeCP necesita el ID de su servicio en tu sistema de facturación."
       },
       "hint": null
     },

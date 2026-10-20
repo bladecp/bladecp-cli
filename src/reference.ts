@@ -7,7 +7,7 @@
 
 import { BLOCKER_CODES, REPORT_SCHEMA, WARNING_CODES } from './analyzer/index.js';
 import {
-  argumentSyntax,
+  argumentsSyntax,
   COMMANDS,
   GLOBAL_OPTIONS,
   GROUP_DEFAULTS,
@@ -235,6 +235,12 @@ export const ERROR_CODES: readonly ErrorCodeSpec[] = [
     message: 'error.idempotencyConflict',
   },
   {
+    code: 'external_service_id_required',
+    origin: 'api',
+    exitCodes: [E.REJECTED],
+    message: 'error.externalServiceRequired',
+  },
+  {
     code: 'phase_conflict',
     origin: 'api',
     exitCodes: [E.REJECTED],
@@ -311,6 +317,13 @@ export const ERROR_CODES: readonly ErrorCodeSpec[] = [
     hint: 'hint.update',
   },
   { code: 'interrupted', origin: 'cli', exitCodes: [E.INTERRUPTED], message: 'error.interrupted' },
+  {
+    code: 'partner_only',
+    origin: 'cli',
+    exitCodes: [E.FORBIDDEN],
+    message: 'error.partnerOnly',
+    hint: 'hint.partnerOnly',
+  },
 ];
 
 /**
@@ -350,9 +363,10 @@ export function buildReference() {
       id: spec.id,
       command: spec.path.join(' '),
       usage: spec.usage,
-      arguments: spec.args.map(argumentSyntax),
+      arguments: argumentsSyntax(spec),
       options: [...spec.options],
       signInRequired: !spec.public,
+      partner: Boolean(spec.partner),
       summary: localized(spec.summary),
     })),
     options: optionNames.map((name) => {

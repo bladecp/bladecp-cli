@@ -341,3 +341,11 @@ export function cutAnsi(text: string, width: number): string {
   }
   return `${out}${inLink ? SEQ.linkClose : ''}${SEQ.reset}`;
 }
+
+/**
+ * Text pasted while a program (not the shell editor) reads the terminal comes
+ * wrapped in the bracketed-paste markers ESC [200~ and ESC [201~: removed here.
+ */
+export function stripPasteMarkers(text: string): string {
+  return text.replace(/\u001b\[20[01]~/g, '');
+}

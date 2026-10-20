@@ -219,7 +219,8 @@ const userFacing = (file) =>
   file.startsWith('.github/') ||
   /^(README(\.[A-Za-z-]+)?\.md|CHANGELOG\.md|SECURITY\.md|CONTRIBUTING\.md|assets\/README\.md|assets\/[a-z-]+\.[A-Za-z-]+\.svg)$/.test(file);
 const emDash = new RegExp(String.fromCodePoint(0x2014));
-const editorial = /(^|[^A-Za-z0-9_])(TODO|FIXME|DRAFT|TBD)([^A-Za-z0-9_]|$)/;
+// Letters of any language count as word characters: MÉTODO is a word, not a TODO.
+const editorial = /(^|[^\p{L}\p{N}_])(TODO|FIXME|DRAFT|TBD)([^\p{L}\p{N}_]|$)/u;
 const keyLike = /bcp_(?:live|sand)_([A-Za-z0-9_-]{20,})/g;
 const tokens = [
   /gh[pousr]_[A-Za-z0-9]{36,}/,

@@ -1,3 +1,5 @@
+import { GROUP_CATALOGS } from './groups/index.js';
+
 // Base catalog. Every key must exist in pt-BR.ts and es.ts with the same
 // {placeholders}; `pnpm test` enforces it. Never use the em dash here.
 export const en = {
@@ -122,6 +124,8 @@ export const en = {
     'The backup of this migration is no longer available. Start a new migration.',
   'error.idempotencyConflict':
     'BladeCP already received a different request for this upload. Run the command again.',
+  'error.externalServiceRequired':
+    'This server is not yours, so BladeCP needs the ID of its service in your billing system.',
   'error.configInvalid':
     'The configuration file {path} is damaged. Run "bladecp logout" and sign in again.',
   'error.invalidApiUrl': 'Invalid API address: {address}',
@@ -153,6 +157,7 @@ export const en = {
   'error.loginNoCode': 'The browser did not send a sign-in code. Run "bladecp login" again.',
 
   // login / logout / whoami
+  'login.pasteKey': 'Paste the API key and press Enter.',
   'login.browserOpened':
     'Your browser was opened to authorize the BladeCP CLI. If it did not open, visit:',
   'login.openThisUrl': 'Open this address in your browser to authorize the BladeCP CLI:',
@@ -338,6 +343,21 @@ export const en = {
   'scope.provisionsRead': 'read servers',
   'scope.migrationsRead': 'follow migrations',
   'scope.migrationsWrite': 'create and approve migrations',
+  'scope.provisionsWrite': 'create and change servers',
+  'scope.provisionsLifecycle': 'suspend and reactivate servers',
+  'scope.provisionsSso': 'open the customer panel',
+  'scope.domainsWrite': 'add and remove domains',
+  'scope.wordpressWrite': 'update WordPress',
+  'scope.partnerRead': 'partner tools',
+  'scope.componentsRead': 'read the component catalog',
+  'scope.webhooksRead': 'read webhooks',
+  'scope.webhooksWrite': 'manage webhooks',
+  'scope.appsRead': 'read the app catalog',
+  'scope.appsInstall': 'install apps',
+  'scope.vibeRead': 'read Vibe accounts',
+  'scope.vibeWrite': 'create and change Vibe accounts',
+  'scope.vibeLifecycle': 'suspend and reactivate Vibe accounts',
+  'scope.vibeSso': 'open Vibe as the account holder',
   'serverStatus.active': 'active',
   'serverStatus.pending': 'pending',
   'serverStatus.provisioning': 'being prepared',
@@ -346,6 +366,7 @@ export const en = {
   'serverStatus.deleted': 'deleted',
   'serverStatus.terminated': 'terminated',
   'serverStatus.cancelled': 'cancelled',
+  'serverStatus.deleting': 'being deleted',
   'componentStatus.notRun': 'not run',
   'componentStatus.stopped': 'stopped',
   'ui.yes': 'yes',
@@ -406,6 +427,13 @@ export const en = {
   'help.group.servers': 'Servers',
   'help.group.migrations': 'Migrations',
   'help.group.cli': 'CLI',
+  'help.group.sites': 'Sites',
+  'help.group.partner': 'Partners',
+  'help.group.automation': 'Automation',
+  'help.topicsLabel': 'Groups',
+  'error.partnerOnly':
+    'This command is for BladeCP partners, and this API key is not a partner key.',
+  'hint.partnerOnly': 'Sign in with a partner key. Keys are managed at {url}.',
   'help.examples': 'Examples',
   'help.seeAlso': 'See also',
   'help.json':
@@ -484,6 +512,12 @@ export const en = {
   'next.help': 'every command',
   'next.migrations': 'follow migrations',
   'next.destinations': 'plans and locations',
+  'home.partner': 'Partner',
+  'next.partnerServers': "your customers' servers",
+  'next.partnerPlans': 'the plans you sell',
+  'next.partnerVibe': 'Vibe accounts',
+  'next.partnerMarketplace': 'sales and commissions',
+  'next.partnerHelp': 'every partner command',
   'login.title': 'Connect this CLI to your account',
   'login.browser': 'Your browser was opened so you can authorize this CLI',
   'login.openThis': 'Open this address in your browser to authorize this CLI',
@@ -637,6 +671,7 @@ export const en = {
   'serverStatusMany.deleted': 'deleted',
   'serverStatusMany.terminated': 'terminated',
   'serverStatusMany.cancelled': 'cancelled',
+  'serverStatusMany.deleting': 'being deleted',
   'servers.hiddenOne': '1 deleted hidden · add --all to see it',
   'migrations.needYouOne': '1 needs you',
   'upload.startingOne': 'Uploading the backup ({size}, 1 part).',
@@ -651,6 +686,16 @@ export const en = {
   'help.analyze': 'See what a cPanel backup holds and what comes to BladeCP, on this computer',
   'help.ex.analyze': 'check a backup before migrating, offline',
   'option.prices': 'Also show the plans that fit and their prices now (needs sign-in)',
+  'option.status': 'Only the ones with this status',
+  'option.limit': 'How many to show per page',
+  'option.page': 'Page to show (starts at 1)',
+  'option.externalId': 'Your own ID for it (for example the service ID in your billing system)',
+  'option.name': 'Name',
+  'option.email': 'Email address',
+  'option.url': 'Address (https)',
+  'option.event': 'Event type (repeat the option for more than one)',
+  'option.option': 'Configurable option and its value (repeat for more than one)',
+  'option.wait': 'Wait until it finishes and show the result',
   'ahelp.desc':
     'Reads a full cPanel backup on this computer and shows what it holds, what comes to BladeCP, what stays behind and the smallest plan it needs. Nothing is sent: the file never leaves this computer. With --prices it also asks BladeCP for the plans of your account, sending only the currency.',
   'ahelp.backupArg': 'full backup made by cPanel (cpmove-user.tar.gz), up to 50 GB',
@@ -837,4 +882,16 @@ export const en = {
   'analyze.warn.work_volume_tight':
     'The backup and its database together are close to the 75 GB the import holds at once.',
   'analyze.warn.other': 'Note: {code}',
+  // The command groups (src/i18n/groups/).
+  ...GROUP_CATALOGS.api.en,
+  ...GROUP_CATALOGS.domains.en,
+  ...GROUP_CATALOGS.apps.en,
+  ...GROUP_CATALOGS.wordpress.en,
+  ...GROUP_CATALOGS.components.en,
+  ...GROUP_CATALOGS.partner.en,
+  ...GROUP_CATALOGS.partnerServers.en,
+  ...GROUP_CATALOGS.partnerVibe.en,
+  ...GROUP_CATALOGS.partnerMarketplace.en,
+  ...GROUP_CATALOGS.partnerWebhooks.en,
+  ...GROUP_CATALOGS.partnerMigrations.en,
 } as const;

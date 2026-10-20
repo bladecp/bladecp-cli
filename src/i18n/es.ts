@@ -1,4 +1,5 @@
 import type { en } from './en.js';
+import { GROUP_CATALOGS } from './groups/index.js';
 
 // Español. Mantén los mismos {placeholders} del inglés y nunca uses la raya.
 export const es: Record<keyof typeof en, string> = {
@@ -123,6 +124,8 @@ export const es: Record<keyof typeof en, string> = {
     'El respaldo de esta migración ya no está disponible. Comienza una nueva migración.',
   'error.idempotencyConflict':
     'BladeCP ya recibió una solicitud diferente para esta subida. Ejecuta el comando de nuevo.',
+  'error.externalServiceRequired':
+    'Este servidor no es tuyo, así que BladeCP necesita el ID de su servicio en tu sistema de facturación.',
   'error.configInvalid':
     'El archivo de configuración {path} está dañado. Ejecuta "bladecp logout" e inicia sesión de nuevo.',
   'error.invalidApiUrl': 'Dirección de API no válida: {address}',
@@ -158,6 +161,7 @@ export const es: Record<keyof typeof en, string> = {
   'error.loginNoCode':
     'El navegador no envió el código de inicio de sesión. Ejecuta "bladecp login" de nuevo.',
 
+  'login.pasteKey': 'Pega la clave de API y pulsa Enter.',
   'login.browserOpened':
     'Se abrió tu navegador para autorizar BladeCP CLI. Si no se abrió, visita:',
   'login.openThisUrl': 'Abre esta dirección en tu navegador para autorizar BladeCP CLI:',
@@ -343,6 +347,21 @@ export const es: Record<keyof typeof en, string> = {
   'scope.provisionsRead': 'ver servidores',
   'scope.migrationsRead': 'seguir migraciones',
   'scope.migrationsWrite': 'crear y aprobar migraciones',
+  'scope.provisionsWrite': 'crear y cambiar servidores',
+  'scope.provisionsLifecycle': 'suspender y reactivar servidores',
+  'scope.provisionsSso': 'abrir el panel del cliente',
+  'scope.domainsWrite': 'añadir y quitar dominios',
+  'scope.wordpressWrite': 'actualizar WordPress',
+  'scope.partnerRead': 'herramientas de socio',
+  'scope.componentsRead': 'ver el catálogo de componentes',
+  'scope.webhooksRead': 'ver webhooks',
+  'scope.webhooksWrite': 'gestionar webhooks',
+  'scope.appsRead': 'ver el catálogo de apps',
+  'scope.appsInstall': 'instalar apps',
+  'scope.vibeRead': 'ver cuentas de Vibe',
+  'scope.vibeWrite': 'crear y cambiar cuentas de Vibe',
+  'scope.vibeLifecycle': 'suspender y reactivar cuentas de Vibe',
+  'scope.vibeSso': 'abrir Vibe como titular de la cuenta',
   'serverStatus.active': 'activo',
   'serverStatus.pending': 'pendiente',
   'serverStatus.provisioning': 'en preparación',
@@ -351,6 +370,7 @@ export const es: Record<keyof typeof en, string> = {
   'serverStatus.deleted': 'eliminado',
   'serverStatus.terminated': 'finalizado',
   'serverStatus.cancelled': 'cancelado',
+  'serverStatus.deleting': 'eliminándose',
   'componentStatus.notRun': 'no ejecutado',
   'componentStatus.stopped': 'detenido',
   'ui.yes': 'sí',
@@ -412,6 +432,13 @@ export const es: Record<keyof typeof en, string> = {
   'help.group.servers': 'Servidores',
   'help.group.migrations': 'Migraciones',
   'help.group.cli': 'CLI',
+  'help.group.sites': 'Sitios',
+  'help.group.partner': 'Socios',
+  'help.group.automation': 'Automatización',
+  'help.topicsLabel': 'Grupos',
+  'error.partnerOnly':
+    'Este comando es para socios de BladeCP, y esta clave de API no es de socio.',
+  'hint.partnerOnly': 'Inicia sesión con una clave de socio. Las claves se gestionan en {url}.',
   'help.examples': 'Ejemplos',
   'help.seeAlso': 'Ver también',
   'help.json':
@@ -492,6 +519,12 @@ export const es: Record<keyof typeof en, string> = {
   'next.help': 'todos los comandos',
   'next.migrations': 'seguir migraciones',
   'next.destinations': 'planes y ubicaciones',
+  'home.partner': 'Socio',
+  'next.partnerServers': 'los servidores de tus clientes',
+  'next.partnerPlans': 'los planes que vendes',
+  'next.partnerVibe': 'cuentas de Vibe',
+  'next.partnerMarketplace': 'ventas y comisiones',
+  'next.partnerHelp': 'todos los comandos de socio',
   'login.title': 'Conectar esta CLI a tu cuenta',
   'login.browser': 'Se abrió tu navegador para que autorices esta CLI',
   'login.openThis': 'Abre esta dirección en tu navegador para autorizar esta CLI',
@@ -646,6 +679,7 @@ export const es: Record<keyof typeof en, string> = {
   'serverStatusMany.deleted': 'eliminados',
   'serverStatusMany.terminated': 'finalizados',
   'serverStatusMany.cancelled': 'cancelados',
+  'serverStatusMany.deleting': 'eliminándose',
   'servers.hiddenOne': '1 eliminado oculto · usa --all para verlo',
   'migrations.needYouOne': '1 te necesita',
   'upload.startingOne': 'Subiendo el respaldo ({size}, 1 parte).',
@@ -662,6 +696,17 @@ export const es: Record<keyof typeof en, string> = {
   'help.ex.analyze': 'revisar un respaldo antes de migrar, sin internet',
   'option.prices':
     'Mostrar también los planes que caben y sus precios de ahora (requiere iniciar sesión)',
+  'option.status': 'Solo los que tienen este estado',
+  'option.limit': 'Cuántos mostrar por página',
+  'option.page': 'Página a mostrar (empieza en 1)',
+  'option.externalId':
+    'Tu propio ID para él (por ejemplo, el ID del servicio en tu sistema de facturación)',
+  'option.name': 'Nombre',
+  'option.email': 'Correo electrónico',
+  'option.url': 'Dirección (https)',
+  'option.event': 'Tipo de evento (repite la opción para más de uno)',
+  'option.option': 'Opción configurable y su valor (repite para más de una)',
+  'option.wait': 'Esperar a que termine y mostrar el resultado',
   'ahelp.desc':
     'Lee un respaldo completo de cPanel en este equipo y muestra qué tiene, qué llega a BladeCP, qué se queda y el plan más chico que necesita. No se envía nada: el archivo no sale de este equipo. Con --prices también pide a BladeCP los planes de tu cuenta, enviando solo la moneda.',
   'ahelp.backupArg': 'respaldo completo hecho por cPanel (cpmove-usuario.tar.gz), hasta 50 GB',
@@ -850,4 +895,16 @@ export const es: Record<keyof typeof en, string> = {
   'analyze.warn.work_volume_tight':
     'El respaldo y la base de datos juntos se acercan a los 75 GB que la importación admite de una vez.',
   'analyze.warn.other': 'Aviso: {code}',
+  // The command groups (src/i18n/groups/).
+  ...GROUP_CATALOGS.api.es,
+  ...GROUP_CATALOGS.domains.es,
+  ...GROUP_CATALOGS.apps.es,
+  ...GROUP_CATALOGS.wordpress.es,
+  ...GROUP_CATALOGS.components.es,
+  ...GROUP_CATALOGS.partner.es,
+  ...GROUP_CATALOGS.partnerServers.es,
+  ...GROUP_CATALOGS.partnerVibe.es,
+  ...GROUP_CATALOGS.partnerMarketplace.es,
+  ...GROUP_CATALOGS.partnerWebhooks.es,
+  ...GROUP_CATALOGS.partnerMigrations.es,
 };

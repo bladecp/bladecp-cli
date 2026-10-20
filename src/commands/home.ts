@@ -22,6 +22,7 @@ import { kit } from '../ui/kit.js';
 import { twoColumns } from '../ui/layout.js';
 import { findLocalUpload } from '../upload/state.js';
 import { cliVersion } from '../version.js';
+import { isPartnerScopes } from './common.js';
 import { discoveredDomain } from './follow.js';
 
 function quickApi(ctx: Ctx, apiKey: string): BladecpApi {
@@ -146,29 +147,51 @@ export async function homeCommand(ctx: Ctx): Promise<number> {
     );
   }
 
+  const shortcuts: [string, string][] = [
+    ['bladecp migrate <backup.tar.gz>', t('next.migrate')],
+    ['bladecp migrations', t('next.migrations')],
+    ['bladecp servers', t('next.servers')],
+    ['bladecp destinations', t('next.destinations')],
+    ['bladecp --help', t('next.help')],
+  ];
+  // A partner key (partner:read) also gets the partner tools.
+  const partner = me !== null && isPartnerScopes(me.scopes);
+  const partnerShortcuts: [string, string][] = partner
+    ? [
+        ['bladecp partner servers', t('next.partnerServers')],
+        ['bladecp partner vibe', t('next.partnerVibe')],
+        ['bladecp partner marketplace', t('next.partnerMarketplace')],
+        ['bladecp partner --help', t('next.partnerHelp')],
+      ]
+    : [];
+  const shortcutWidth = Math.max(
+    ...[...shortcuts, ...partnerShortcuts].map(([command]) => command.length),
+  );
   lines.push(
     '',
     `  ${k.ruler(t('home.shortcuts'))}`,
-    ...twoColumns(
-      ctx.out,
-      [
-        ['bladecp migrate <backup.tar.gz>', t('next.migrate')],
-        ['bladecp migrations', t('next.migrations')],
-        ['bladecp servers', t('next.servers')],
-        ['bladecp destinations', t('next.destinations')],
-        ['bladecp --help', t('next.help')],
-      ],
-      {
+    ...twoColumns(ctx.out, shortcuts, {
+      width: k.width + 2,
+      minLeft: shortcutWidth,
+      paintLeft: k.accent,
+      paintRight: k.muted,
+      wrap: (s, w) => k.wrap(s, w, ''),
+    }),
+  );
+  if (partner) {
+    lines.push(
+      '',
+      `  ${k.ruler(t('home.partner'))}`,
+      ...twoColumns(ctx.out, partnerShortcuts, {
         width: k.width + 2,
+        minLeft: shortcutWidth,
         paintLeft: k.accent,
         paintRight: k.muted,
         wrap: (s, w) => k.wrap(s, w, ''),
-      },
-    ),
-    '',
-    `  ${k.ruler(t('home.tip'))}`,
-    ...k.wrap(t('home.tipText'), k.width + 2, '  '),
-  );
+      }),
+    );
+  }
+  lines.push('', `  ${k.ruler(t('home.tip'))}`, ...k.wrap(t('home.tipText'), k.width + 2, '  '));
   ctx.out.lines(lines);
   return ExitCode.OK;
 }

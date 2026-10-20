@@ -1,4 +1,5 @@
 import type { en } from './en.js';
+import { GROUP_CATALOGS } from './groups/index.js';
 
 // Português do Brasil. Mantenha os mesmos {placeholders} do inglês e nunca
 // use travessão.
@@ -123,6 +124,8 @@ export const ptBR: Record<keyof typeof en, string> = {
     'O backup desta migração não está mais disponível. Comece uma nova migração.',
   'error.idempotencyConflict':
     'A BladeCP já recebeu um pedido diferente para este envio. Rode o comando de novo.',
+  'error.externalServiceRequired':
+    'Este servidor não é seu, então a BladeCP precisa do ID do serviço dele no seu sistema de cobrança.',
   'error.configInvalid':
     'O arquivo de configuração {path} está corrompido. Rode "bladecp logout" e entre de novo.',
   'error.invalidApiUrl': 'Endereço de API inválido: {address}',
@@ -157,6 +160,7 @@ export const ptBR: Record<keyof typeof en, string> = {
     'O navegador respondeu com um login que este terminal não iniciou, então ele foi ignorado. Rode "bladecp login" de novo.',
   'error.loginNoCode': 'O navegador não enviou o código de login. Rode "bladecp login" de novo.',
 
+  'login.pasteKey': 'Cole a chave de API e tecle Enter.',
   'login.browserOpened':
     'Seu navegador foi aberto para autorizar a BladeCP CLI. Se ele não abriu, acesse:',
   'login.openThisUrl': 'Abra este endereço no navegador para autorizar a BladeCP CLI:',
@@ -342,6 +346,21 @@ export const ptBR: Record<keyof typeof en, string> = {
   'scope.provisionsRead': 'ver servidores',
   'scope.migrationsRead': 'acompanhar migrações',
   'scope.migrationsWrite': 'criar e aprovar migrações',
+  'scope.provisionsWrite': 'criar e alterar servidores',
+  'scope.provisionsLifecycle': 'suspender e reativar servidores',
+  'scope.provisionsSso': 'abrir o painel do cliente',
+  'scope.domainsWrite': 'adicionar e remover domínios',
+  'scope.wordpressWrite': 'atualizar o WordPress',
+  'scope.partnerRead': 'ferramentas de parceiro',
+  'scope.componentsRead': 'ver o catálogo de componentes',
+  'scope.webhooksRead': 'ver webhooks',
+  'scope.webhooksWrite': 'gerenciar webhooks',
+  'scope.appsRead': 'ver o catálogo de apps',
+  'scope.appsInstall': 'instalar apps',
+  'scope.vibeRead': 'ver contas do Vibe',
+  'scope.vibeWrite': 'criar e alterar contas do Vibe',
+  'scope.vibeLifecycle': 'suspender e reativar contas do Vibe',
+  'scope.vibeSso': 'abrir o Vibe como dono da conta',
   'serverStatus.active': 'ativo',
   'serverStatus.pending': 'pendente',
   'serverStatus.provisioning': 'em preparação',
@@ -350,6 +369,7 @@ export const ptBR: Record<keyof typeof en, string> = {
   'serverStatus.deleted': 'apagado',
   'serverStatus.terminated': 'encerrado',
   'serverStatus.cancelled': 'cancelado',
+  'serverStatus.deleting': 'sendo apagado',
   'componentStatus.notRun': 'não executado',
   'componentStatus.stopped': 'interrompido',
   'ui.yes': 'sim',
@@ -410,6 +430,13 @@ export const ptBR: Record<keyof typeof en, string> = {
   'help.group.servers': 'Servidores',
   'help.group.migrations': 'Migrações',
   'help.group.cli': 'CLI',
+  'help.group.sites': 'Sites',
+  'help.group.partner': 'Parceiros',
+  'help.group.automation': 'Automação',
+  'help.topicsLabel': 'Grupos',
+  'error.partnerOnly':
+    'Este comando é para parceiros da BladeCP, e esta chave de API não é de parceiro.',
+  'hint.partnerOnly': 'Entre com uma chave de parceiro. As chaves ficam em {url}.',
   'help.examples': 'Exemplos',
   'help.seeAlso': 'Veja também',
   'help.json':
@@ -487,6 +514,12 @@ export const ptBR: Record<keyof typeof en, string> = {
   'next.help': 'todos os comandos',
   'next.migrations': 'acompanhar migrações',
   'next.destinations': 'planos e locais',
+  'home.partner': 'Parceiro',
+  'next.partnerServers': 'os servidores dos seus clientes',
+  'next.partnerPlans': 'os planos que você vende',
+  'next.partnerVibe': 'contas do Vibe',
+  'next.partnerMarketplace': 'vendas e comissões',
+  'next.partnerHelp': 'todos os comandos de parceiro',
   'login.title': 'Conectar esta CLI à sua conta',
   'login.browser': 'O navegador foi aberto para você autorizar esta CLI',
   'login.openThis': 'Abra este endereço no navegador para autorizar esta CLI',
@@ -640,6 +673,7 @@ export const ptBR: Record<keyof typeof en, string> = {
   'serverStatusMany.deleted': 'apagados',
   'serverStatusMany.terminated': 'encerrados',
   'serverStatusMany.cancelled': 'cancelados',
+  'serverStatusMany.deleting': 'sendo apagados',
   'servers.hiddenOne': '1 apagado oculto · use --all para vê-lo',
   'migrations.needYouOne': '1 precisa de você',
   'upload.startingOne': 'Enviando o backup ({size}, 1 parte).',
@@ -654,6 +688,17 @@ export const ptBR: Record<keyof typeof en, string> = {
   'help.analyze': 'Ver o que um backup do cPanel tem e o que vem para a BladeCP, neste computador',
   'help.ex.analyze': 'conferir um backup antes de migrar, sem internet',
   'option.prices': 'Mostrar também os planos que cabem e os preços de agora (pede login)',
+  'option.status': 'Só os que estão neste status',
+  'option.limit': 'Quantos mostrar por página',
+  'option.page': 'Página a mostrar (começa em 1)',
+  'option.externalId':
+    'O seu próprio ID para ele (por exemplo, o ID do serviço no seu sistema de cobrança)',
+  'option.name': 'Nome',
+  'option.email': 'Endereço de e-mail',
+  'option.url': 'Endereço (https)',
+  'option.event': 'Tipo de evento (repita a opção para mais de um)',
+  'option.option': 'Opção configurável e o valor dela (repita para mais de uma)',
+  'option.wait': 'Esperar terminar e mostrar o resultado',
   'ahelp.desc':
     'Lê um backup completo do cPanel neste computador e mostra o que ele tem, o que vem para a BladeCP, o que fica e o menor plano necessário. Nada é enviado: o arquivo não sai deste computador. Com --prices, também pede à BladeCP os planos da sua conta, enviando só a moeda.',
   'ahelp.backupArg': 'backup completo feito pelo cPanel (cpmove-usuario.tar.gz), até 50 GB',
@@ -839,4 +884,16 @@ export const ptBR: Record<keyof typeof en, string> = {
   'analyze.warn.work_volume_tight':
     'O backup e o banco juntos chegam perto dos 75 GB que o import comporta de uma vez.',
   'analyze.warn.other': 'Aviso: {code}',
+  // The command groups (src/i18n/groups/).
+  ...GROUP_CATALOGS.api.ptBR,
+  ...GROUP_CATALOGS.domains.ptBR,
+  ...GROUP_CATALOGS.apps.ptBR,
+  ...GROUP_CATALOGS.wordpress.ptBR,
+  ...GROUP_CATALOGS.components.ptBR,
+  ...GROUP_CATALOGS.partner.ptBR,
+  ...GROUP_CATALOGS.partnerServers.ptBR,
+  ...GROUP_CATALOGS.partnerVibe.ptBR,
+  ...GROUP_CATALOGS.partnerMarketplace.ptBR,
+  ...GROUP_CATALOGS.partnerWebhooks.ptBR,
+  ...GROUP_CATALOGS.partnerMigrations.ptBR,
 };

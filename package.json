@@ -1,14 +1,18 @@
 {
   "name": "@bladecp/cli",
-  "version": "0.3.2",
-  "description": "BladeCP CLI: sign in, list your servers, analyze and migrate cPanel backups to BladeCP from the terminal.",
+  "version": "0.4.0",
+  "description": "BladeCP CLI: sign in, manage servers, domains, apps and WordPress, migrate cPanel backups, run partner tools and reach every Customer API route from the terminal.",
   "keywords": [
     "bladecp",
     "cli",
     "migration",
     "cpanel",
     "hosting",
-    "backup-analyzer"
+    "backup-analyzer",
+    "domains",
+    "wordpress",
+    "partner",
+    "api-client"
   ],
   "homepage": "https://developers.bladecp.com/cli",
   "bugs": {

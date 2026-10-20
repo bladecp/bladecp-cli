@@ -6,6 +6,24 @@ import type { Ctx } from '../context.js';
 import type { Kit } from './kit.js';
 import type { Key } from './prompt.js';
 
+/**
+ * The title of a step broken to the width of the terminal: live lines are
+ * cut, never wrapped, so a long question would lose its end (and, once
+ * answered, the answer). `tail` (the answer) follows the last line when it
+ * fits, or takes a line of its own.
+ */
+function stepLines(ctx: Ctx, k: Kit, glyph: string, title: string, tail = ''): string[] {
+  const columns = ctx.out.errColumns;
+  const room = Math.max(16, (Number.isFinite(columns) ? columns : 80) - 6);
+  const parts = k.wrap(title, room, '');
+  if (tail) {
+    const last = parts.length - 1;
+    if (ctx.out.width(`${parts[last]} ${tail}`) <= room) parts[last] = `${parts[last]} ${tail}`;
+    else parts.push(tail);
+  }
+  return parts.map((line, i) => (i === 0 ? `  ${glyph}  ${line}` : `     ${line}`));
+}
+
 export interface SelectOptions {
   title: string;
   /** Composed lines, one per option. */
@@ -21,7 +39,7 @@ export async function select(ctx: Ctx, k: Kit, options: SelectOptions): Promise<
   let index = Math.max(0, Math.min(options.items.length - 1, options.initial ?? 0));
   const draw = () =>
     ctx.out.live([
-      `  ${k.violet(k.glyph.active)}  ${options.title}`,
+      ...stepLines(ctx, k, k.violet(k.glyph.active), options.title),
       ...options.items.map((item, i) =>
         i === index
           ? k.railLine(`${k.violet(k.glyph.bullet)} ${item}`)
@@ -46,7 +64,7 @@ export async function select(ctx: Ctx, k: Kit, options: SelectOptions): Promise<
     prompter.close();
   }
   ctx.out.live([
-    `  ${k.ok(k.glyph.done)}  ${options.title}`,
+    ...stepLines(ctx, k, k.ok(k.glyph.done), options.title),
     k.railLine(options.chosen ? options.chosen(index) : (options.items[index] ?? '')),
     k.railLine(),
   ]);
@@ -73,7 +91,7 @@ export async function confirmStep(ctx: Ctx, k: Kit, options: ConfirmOptions): Pr
   const noText = t('ui.no');
   const draw = () =>
     ctx.out.live([
-      `  ${k.violet(k.glyph.active)}  ${options.title}`,
+      ...stepLines(ctx, k, k.violet(k.glyph.active), options.title),
       ...(options.detail ?? []).map((line) => k.railLine(line)),
       k.railLine(
         yes
@@ -110,7 +128,13 @@ export async function confirmStep(ctx: Ctx, k: Kit, options: ConfirmOptions): Pr
   const answer = yes ? yesText : noText;
   const tail = options.after ? options.after(yes) : '';
   ctx.out.live([
-    `  ${yes ? k.ok(k.glyph.done) : k.faint(k.glyph.done)}  ${options.title} ${k.muted(answer)}`,
+    ...stepLines(
+      ctx,
+      k,
+      yes ? k.ok(k.glyph.done) : k.faint(k.glyph.done),
+      options.title,
+      k.muted(answer),
+    ),
     ...(tail ? [k.railLine(tail)] : []),
     ...(options.tail === false ? [] : [k.railLine()]),
   ]);

@@ -1,4 +1,4 @@
-import { assertApiKeyFormat, resolveAuth, storedFor } from '../auth/credentials.js';
+import { assertApiKeyFormat, cleanApiKey, resolveAuth, storedFor } from '../auth/credentials.js';
 import { startLoopbackServer } from '../auth/loopback.js';
 import { createPkce, randomState } from '../auth/pkce.js';
 import {
@@ -25,6 +25,22 @@ const LOGIN_TIMEOUT_MS = 5 * 60 * 1000;
 export interface LoginFlags {
   token?: string | undefined;
   noBrowser?: boolean | undefined;
+}
+
+/**
+ * `--token -`: from a pipe, everything until the end; on a terminal, the
+ * first line, so Enter is enough after pasting (no Ctrl+D).
+ */
+async function readKeyFromStdin(ctx: Ctx): Promise<string> {
+  if (!ctx.stdin.isTTY) return readAllStdin(ctx);
+  ctx.out.info(ctx.out.t('login.pasteKey'));
+  let text = '';
+  for await (const chunk of ctx.stdin) {
+    text += typeof chunk === 'string' ? chunk : (chunk as Buffer).toString('utf8');
+    const end = text.indexOf('\n');
+    if (end !== -1) return text.slice(0, end);
+  }
+  return text;
 }
 
 async function readAllStdin(ctx: Ctx): Promise<string> {
@@ -64,6 +80,21 @@ const SCOPE_KEYS: Record<string, MessageKey> = {
   'provisions:read': 'scope.provisionsRead',
   'migrations:read': 'scope.migrationsRead',
   'migrations:write': 'scope.migrationsWrite',
+  'provisions:write': 'scope.provisionsWrite',
+  'provisions:lifecycle': 'scope.provisionsLifecycle',
+  'provisions:sso': 'scope.provisionsSso',
+  'domains:write': 'scope.domainsWrite',
+  'wordpress:write': 'scope.wordpressWrite',
+  'partner:read': 'scope.partnerRead',
+  'components:read': 'scope.componentsRead',
+  'webhooks:read': 'scope.webhooksRead',
+  'webhooks:write': 'scope.webhooksWrite',
+  'apps:read': 'scope.appsRead',
+  'apps:install': 'scope.appsInstall',
+  'vibe:read': 'scope.vibeRead',
+  'vibe:write': 'scope.vibeWrite',
+  'vibe:lifecycle': 'scope.vibeLifecycle',
+  'vibe:sso': 'scope.vibeSso',
 };
 
 /** Permissions of a key in words; unknown scopes as the API sent them. */
@@ -117,11 +148,18 @@ function accountLines(ctx: Ctx, k: Kit, result: LoginResult): string[] {
     `  ${k.ruler(t('next.title'))}`,
     ...twoColumns(
       ctx.out,
-      [
-        ['bladecp migrate <backup.tar.gz>', t('next.migrate')],
-        ['bladecp servers', t('next.servers')],
-        ['bladecp --help', t('next.help')],
-      ],
+      // A partner key starts with the partner tools; any other key with migrations.
+      result.scopes.includes('partner:read')
+        ? [
+            ['bladecp partner servers', t('next.partnerServers')],
+            ['bladecp partner plans', t('next.partnerPlans')],
+            ['bladecp partner --help', t('next.partnerHelp')],
+          ]
+        : [
+            ['bladecp migrate <backup.tar.gz>', t('next.migrate')],
+            ['bladecp servers', t('next.servers')],
+            ['bladecp --help', t('next.help')],
+          ],
       {
         width: k.width + 2,
         paintLeft: k.accent,
@@ -185,8 +223,8 @@ export async function loginCommand(ctx: Ctx, flags: LoginFlags): Promise<number>
   const rich = richFlow(ctx);
   // 1. Explicit key.
   if (flags.token !== undefined) {
-    const raw = flags.token === '-' ? await readAllStdin(ctx) : flags.token;
-    const apiKey = raw.trim();
+    const raw = flags.token === '-' ? await readKeyFromStdin(ctx) : flags.token;
+    const apiKey = cleanApiKey(raw);
     ctx.out.addSecret(apiKey);
     assertApiKeyFormat(apiKey, 'token');
     if (rich) {

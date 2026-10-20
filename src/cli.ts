@@ -1,5 +1,6 @@
 import {
   assertUuidArg,
+  COMMANDS,
   type CommandSpec,
   isGroup,
   type OptionValues,
@@ -11,6 +12,7 @@ import {
 import { loginCommand, logoutCommand, whoamiCommand } from './commands/account.js';
 import { analyzeCommand } from './commands/analyze.js';
 import { configGetCommand, configListCommand, configSetCommand } from './commands/config.js';
+import { HANDLERS } from './commands/handlers.js';
 import { homeCommand } from './commands/home.js';
 import { migrateCommand } from './commands/migrate.js';
 import {
@@ -124,6 +126,12 @@ async function dispatch(
       return configGetCommand(ctx, args[0]!);
     case 'config.set':
       return configSetCommand(ctx, args[0]!, args[1]!);
+    default: {
+      // The command groups of src/commands/specs/ (each with its handlers).
+      const handler = HANDLERS[spec.id];
+      if (!handler) throw new Error(`No handler for the command ${spec.id}`);
+      return handler(ctx, { spec, args, values });
+    }
   }
 }
 
@@ -352,12 +360,14 @@ export async function run(argv: string[], deps: Deps): Promise<number> {
     const resolved = resolveCommand(positionals);
     const home = resolved.kind === 'help' && positionals.length === 0 && !values.help;
     if ((resolved.kind === 'help' || values.help) && !(home && out.rich && !pre.json)) {
-      // `bladecp migrations --help` is the help of the whole group.
+      // `bladecp migrations --help` is the help of the whole group (unless
+      // the words are also a command of their own, as `bladecp api` is).
       const group =
         resolved.kind === 'help'
           ? resolved.group
-          : positionals.length === 1 && isGroup(positionals[0])
-            ? positionals[0]
+          : isGroup(positionals) &&
+              !COMMANDS.some((s) => s.path.join(' ') === positionals.join(' '))
+            ? positionals.join(' ')
             : undefined;
       const topic = group
         ? undefined

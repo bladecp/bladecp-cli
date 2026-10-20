@@ -125,6 +125,7 @@ const SERVER_STATUS_KEYS: Record<string, MessageKey> = {
   deleted: 'serverStatus.deleted',
   terminated: 'serverStatus.terminated',
   cancelled: 'serverStatus.cancelled',
+  deleting: 'serverStatus.deleting',
 };
 
 /** Translated server status; an unknown status is shown as the API sent it. */

@@ -95,6 +95,22 @@ An error while watching is one JSON line as well, so every line parses. When a
 phase passes its usual time, one extra line carries `data.slowPhase` (and one
 more when it is time to contact support).
 
+## Any route with `bladecp api`
+
+Every command answers `--json`. For a route without a command of its own, use
+`bladecp api`: it sends the request with the key in use and prints the answer.
+The path must be a Customer API route (`/customer/...`); a body (`--data` or
+`--input <file>`, `-` for stdin) makes it a POST unless `-X` says otherwise.
+With `--json`, the answer comes inside the envelope.
+
+```sh
+bladecp api /customer/me --json
+bladecp api -X PATCH /customer/webhook-endpoints/<id> --input endpoint.json --json
+bladecp api list --json   # every route, its scopes and the command that covers it
+```
+
+A partner command run with a customer key stops with `partner_only` (exit code 4).
+
 ## Exit codes
 
 | Code | Name | Meaning |

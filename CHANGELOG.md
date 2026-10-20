@@ -4,6 +4,51 @@ All notable changes to the BladeCP CLI are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project uses
 [Semantic Versioning](https://semver.org/).
 
+## [0.4.0] - 2026-10-19
+
+The CLI now reaches the whole Customer API. The `--json` envelope, the exit
+codes and the error codes of 0.3 keep their meaning; this release only adds
+to them.
+
+### Added
+
+- Sites: `bladecp domains list|add|remove|check`, `bladecp apps
+  list|show|install`, `bladecp wordpress status|dashboard|task` and
+  `bladecp wordpress update core|plugin|theme` (with `--wait`), and
+  `bladecp components list`. The key from `bladecp login` changes domains,
+  apps and WordPress on your own servers; a partner adds `--external-id` to
+  the WordPress commands to name the service of its billing system.
+- Partner tools, for keys with the `partner:read` scope: `bladecp partner
+  plans|locations|options|branding`, `bladecp partner servers
+  list|create|plan|options|suspend|unsuspend|cancel|delete|open`,
+  `bladecp partner vibe find|show|create|plan|suspend|reactivate|resume|
+  terminate|open`, `bladecp partner marketplace summary|orders|commissions|
+  statements|statement|invoices`, `bladecp partner webhooks
+  list|show|create|update|pause|resume|delete|rotate-secret|deliveries|replay`
+  and `bladecp partner migrations list|show|review|approve|cancel|retry|
+  billing-queue|billing-link|claim-url`. A partner command run with a
+  customer key stops with the new error code `partner_only` (exit code 4).
+- `bladecp api <path>` sends one request to any Customer API route with the key
+  in use and prints the answer; `bladecp api list` shows every route and the
+  command that covers it.
+- On a terminal, `bladecp` alone also shows the partner tools when the key is a
+  partner key.
+- New options: `--status`, `--limit`, `--page`, `--external-id`, `--name`,
+  `--email`, `--url`, `--event`, `--option`, `--wait`, `-X/--method`,
+  `--data`, `--input`, `--app-version`, `--component`, `--contract`, `--now`,
+  `--reason-category`, `--email-verification`, `--endpoint`,
+  `--installation`, `--client` and `--company`, each on the commands that use
+  it.
+
+### Changed
+
+- `bladecp --help` lists the new groups (Sites, Partners, Automation) in one
+  line each; `bladecp <group> --help` lists their commands. Commands can have
+  three words, such as `bladecp partner servers create`.
+- On a narrow terminal, a question breaks its title into lines instead of
+  cutting it, so the answer stays visible.
+- A suspended status reads in amber: it can be undone.
+
 ## [0.3.2] - 2026-10-18
 
 ### Changed

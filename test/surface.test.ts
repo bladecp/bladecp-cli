@@ -1,6 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 
-import { COMMANDS, OPTION_HELP } from '../src/args.js';
+import { COMMANDS, OPTION_HELP, TOPICS } from '../src/args.js';
 import { LIVE_KEY, type MockApi, startMockApi } from './helpers/mock-api.js';
 import { parseJson, type RunOptions, runCli, tempDir } from './helpers/run.js';
 
@@ -41,10 +41,22 @@ describe('help for every command', () => {
     });
   }
 
-  it('the global help lists every command and the exit codes', async () => {
+  it('the global help lists every command or its group, and the exit codes', async () => {
     const result = await cli(['--help']);
     expect(result.code).toBe(0);
-    for (const spec of COMMANDS) expect(result.stdout).toContain(spec.path.join(' '));
+    for (const spec of COMMANDS) {
+      // A command inside a group (for example `domains list`) is listed by
+      // the group in the global help, and by itself in the group's help.
+      const topic = TOPICS.find((t) => t.path.every((word, i) => spec.path[i] === word));
+      if (!topic) {
+        expect(result.stdout).toContain(spec.path.join(' '));
+        continue;
+      }
+      expect(result.stdout).toContain(topic.path[0]!);
+      const group = await cli([...spec.path.slice(0, -1), '--help']);
+      expect(group.code, spec.id).toBe(0);
+      expect(group.stdout, spec.id).toContain(spec.path.at(-1)!);
+    }
     expect(result.stdout).toContain('130 interrupted');
   });
 

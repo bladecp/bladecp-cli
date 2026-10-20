@@ -1,9 +1,23 @@
 import { parseArgs } from 'node:util';
 
+import { GROUP_OPTIONS, GROUPS } from './commands/specs/index.js';
 import { CliError, ExitCode } from './errors.js';
 import type { MessageKey } from './i18n/index.js';
 
-export const OPTIONS = {
+/**
+ * An option a command group adds (src/commands/specs/): how it is parsed and
+ * how the help writes and explains it.
+ */
+export interface OptionDef {
+  type: 'boolean' | 'string';
+  short?: string;
+  /** Can be given more than once; the command receives every value. */
+  multiple?: boolean;
+  syntax: string;
+  key: MessageKey;
+}
+
+const BASE_OPTIONS = {
   json: { type: 'boolean' },
   'api-url': { type: 'string' },
   lang: { type: 'string' },
@@ -24,10 +38,39 @@ export const OPTIONS = {
   all: { type: 'boolean', short: 'a' },
   check: { type: 'boolean' },
   prices: { type: 'boolean' },
+  // Shared by the command groups (filters, pages, bodies, waiting).
+  status: { type: 'string' },
+  limit: { type: 'string' },
+  page: { type: 'string' },
+  'external-id': { type: 'string' },
+  name: { type: 'string' },
+  email: { type: 'string' },
+  url: { type: 'string' },
+  event: { type: 'string', multiple: true },
+  option: { type: 'string', multiple: true },
+  wait: { type: 'boolean' },
 } as const;
 
-export type OptionName = keyof typeof OPTIONS;
-export type OptionValues = Partial<Record<OptionName, string | boolean>>;
+export type OptionName = keyof typeof BASE_OPTIONS | keyof typeof GROUP_OPTIONS;
+export type OptionValues = Partial<Record<OptionName, string | boolean | string[]>>;
+
+/** Every option, as `util.parseArgs` reads them. */
+export const OPTIONS: Record<
+  OptionName,
+  { type: 'boolean' | 'string'; short?: string; multiple?: boolean }
+> = {
+  ...BASE_OPTIONS,
+  ...Object.fromEntries(
+    Object.entries(GROUP_OPTIONS as Record<string, OptionDef>).map(([name, def]) => [
+      name,
+      {
+        type: def.type,
+        ...(def.short ? { short: def.short } : {}),
+        ...(def.multiple ? { multiple: true } : {}),
+      },
+    ]),
+  ),
+} as Record<OptionName, { type: 'boolean' | 'string'; short?: string; multiple?: boolean }>;
 
 export const GLOBAL_OPTIONS: readonly OptionName[] = [
   'json',
@@ -39,7 +82,8 @@ export const GLOBAL_OPTIONS: readonly OptionName[] = [
   'version',
 ];
 
-export type CommandId =
+/** The commands of the first versions; the groups added later use plain string IDs. */
+export type BaseCommandId =
   | 'login'
   | 'logout'
   | 'whoami'
@@ -59,22 +103,80 @@ export type CommandId =
   | 'config.get'
   | 'config.set';
 
-export type HelpGroup = 'account' | 'servers' | 'migrations' | 'cli';
+export type CommandId = BaseCommandId | (string & {});
+
+export type HelpGroup =
+  | 'account'
+  | 'servers'
+  | 'sites'
+  | 'migrations'
+  | 'partner'
+  | 'automation'
+  | 'cli';
+
+/** Sections of `bladecp --help`, in order. */
+export const HELP_GROUPS: readonly HelpGroup[] = [
+  'account',
+  'servers',
+  'sites',
+  'migrations',
+  'partner',
+  'automation',
+  'cli',
+];
 
 export interface CommandSpec {
   id: CommandId;
-  path: string[];
-  args: string[];
-  options: OptionName[];
+  path: readonly string[];
+  args: readonly string[];
+  /** How many of the last `args` may be left out. */
+  optionalArgs?: number;
+  options: readonly OptionName[];
   usage: string;
   summary: MessageKey;
   /** Section of `bladecp --help` the command is listed in. */
   group: HelpGroup;
   /** Commands that run without a key. */
   public?: boolean;
+  /** Commands for BladeCP partners (keys with the partner:read scope). */
+  partner?: boolean;
+  /** What an option means for this command, when it differs from the shared text. */
+  optionHelp?: Partial<Record<OptionName, MessageKey>>;
 }
 
-export const COMMANDS: CommandSpec[] = [
+/**
+ * A group of commands shown as one line in the help of its parent (for
+ * example `domains` in `bladecp --help`, or `partner servers` in
+ * `bladecp partner --help`), with its own help listing the commands.
+ */
+export interface Topic {
+  path: readonly string[];
+  summary: MessageKey;
+  group: HelpGroup;
+  partner?: boolean;
+}
+
+/** Help text beyond the usage line: a longer description, notes, examples. */
+export interface HelpExtras {
+  desc?: MessageKey;
+  args?: [string, MessageKey][];
+  flow?: MessageKey[];
+  examples?: [string, MessageKey][];
+  exits?: [number, MessageKey][];
+  notes?: MessageKey[];
+  seeAlso?: string[];
+}
+
+/** One command group of src/commands/specs/: its commands, topics and help. */
+export interface GroupSpec {
+  commands: CommandSpec[];
+  topics?: Topic[];
+  extras?: Record<string, HelpExtras>;
+  /** `bladecp <group>` alone runs this command (key: the group path with spaces). */
+  defaults?: Record<string, string>;
+}
+
+const BASE_COMMANDS: CommandSpec[] = [
   {
     id: 'login',
     path: ['login'],
@@ -247,12 +349,25 @@ export const COMMANDS: CommandSpec[] = [
   },
 ];
 
+export const COMMANDS: CommandSpec[] = [
+  ...BASE_COMMANDS,
+  ...GROUPS.flatMap((group) => group.commands),
+];
+
+export const TOPICS: Topic[] = GROUPS.flatMap((group) => group.topics ?? []);
+
+export const GROUP_EXTRAS: Record<string, HelpExtras> = Object.assign(
+  {},
+  ...GROUPS.map((group) => group.extras ?? {}),
+);
+
 /** `bladecp servers` alone means `bladecp servers list`. */
 export const GROUP_DEFAULTS: Record<string, CommandId> = {
   servers: 'servers.list',
   destinations: 'destinations.list',
   migrations: 'migrations.list',
   config: 'config.list',
+  ...Object.assign({}, ...GROUPS.map((group) => group.defaults ?? {})),
 };
 
 /** How a positional argument is written in help and usage lines. */
@@ -260,7 +375,15 @@ export function argumentSyntax(name: string): string {
   return name === 'backup' ? '<backup.tar.gz>' : `<${name}>`;
 }
 
-export const OPTION_HELP: Record<OptionName, { syntax: string; key: MessageKey }> = {
+/** The arguments of a command as the help writes them (`[<name>]` when optional). */
+export function argumentsSyntax(spec: CommandSpec): string[] {
+  const optional = spec.optionalArgs ?? 0;
+  return spec.args.map((name, i) =>
+    i >= spec.args.length - optional ? `[${argumentSyntax(name)}]` : argumentSyntax(name),
+  );
+}
+
+const BASE_OPTION_HELP: Record<keyof typeof BASE_OPTIONS, { syntax: string; key: MessageKey }> = {
   json: { syntax: '--json', key: 'option.json' },
   'api-url': { syntax: '--api-url <url>', key: 'option.apiUrl' },
   lang: { syntax: '--lang <en|pt-BR|es>', key: 'option.lang' },
@@ -281,10 +404,30 @@ export const OPTION_HELP: Record<OptionName, { syntax: string; key: MessageKey }
   all: { syntax: '-a, --all', key: 'option.all' },
   check: { syntax: '--check', key: 'option.check' },
   prices: { syntax: '--prices', key: 'option.prices' },
+  status: { syntax: '--status <status>', key: 'option.status' },
+  limit: { syntax: '--limit <n>', key: 'option.limit' },
+  page: { syntax: '--page <n>', key: 'option.page' },
+  'external-id': { syntax: '--external-id <id>', key: 'option.externalId' },
+  name: { syntax: '--name <name>', key: 'option.name' },
+  email: { syntax: '--email <email>', key: 'option.email' },
+  url: { syntax: '--url <url>', key: 'option.url' },
+  event: { syntax: '--event <type>', key: 'option.event' },
+  option: { syntax: '--option <id>=<value>', key: 'option.option' },
+  wait: { syntax: '--wait', key: 'option.wait' },
 };
 
+export const OPTION_HELP: Record<OptionName, { syntax: string; key: MessageKey }> = {
+  ...BASE_OPTION_HELP,
+  ...Object.fromEntries(
+    Object.entries(GROUP_OPTIONS as Record<string, OptionDef>).map(([name, def]) => [
+      name,
+      { syntax: def.syntax, key: def.key },
+    ]),
+  ),
+} as Record<OptionName, { syntax: string; key: MessageKey }>;
+
 /** `--yes` means something a little different on each command. */
-export const YES_HELP: Partial<Record<CommandId, MessageKey>> = {
+export const YES_HELP: Partial<Record<BaseCommandId, MessageKey>> = {
   'migrations.approve': 'option.yesConfirm',
   'migrations.cancel': 'option.yesConfirm',
   update: 'option.yesUpdate',
@@ -357,6 +500,7 @@ export function parseCli(argv: string[]): ParsedArgs {
   const repeated: ParsedArgs['repeated'] = [];
   for (const token of parsed.tokens) {
     if (token.kind !== 'option' || !token.name) continue;
+    if (OPTIONS[token.name as OptionName]?.multiple) continue;
     const count = (seen.get(token.name) ?? 0) + 1;
     seen.set(token.name, count);
     if (count === 2) {
@@ -371,47 +515,66 @@ export type Resolved =
   | { kind: 'help'; topic?: CommandSpec | undefined; group?: string | undefined }
   | { kind: 'command'; spec: CommandSpec; args: string[] };
 
-export function isGroup(name: string | undefined): boolean {
-  return Boolean(name) && COMMANDS.some((spec) => spec.path.length > 1 && spec.path[0] === name);
+const startsWith = (path: readonly string[], prefix: readonly string[]) =>
+  prefix.length <= path.length && prefix.every((segment, i) => path[i] === segment);
+
+/**
+ * A group is a path that longer commands start with: `servers`, `partner`,
+ * `partner servers`, `wordpress update`. Takes the path as words or as one
+ * string with spaces.
+ */
+export function isGroup(path: string | readonly string[] | undefined): boolean {
+  if (path === undefined) return false;
+  const words = typeof path === 'string' ? path.split(' ') : path;
+  if (words.length === 0 || words.some((word) => !word)) return false;
+  return COMMANDS.some((spec) => spec.path.length > words.length && startsWith(spec.path, words));
 }
 
 export function resolveCommand(positionals: string[]): Resolved {
   if (positionals.length === 0) return { kind: 'help' };
-  const [first, second] = positionals;
-  if (first === 'help') {
+  if (positionals[0] === 'help') {
     const rest = positionals.slice(1);
     if (rest.length === 0) return { kind: 'help' };
-    // `bladecp help migrations` is the help of the whole group.
-    if (rest.length === 1 && isGroup(rest[0])) return { kind: 'help', group: rest[0] };
+    // `bladecp help migrations` is the help of the whole group (unless the
+    // words are also a command of their own, as `bladecp api` is).
+    const exact = COMMANDS.some((spec) => spec.path.join(' ') === rest.join(' '));
+    if (isGroup(rest) && !exact) return { kind: 'help', group: rest.join(' ') };
     const inner = resolveCommand(rest);
     if (inner.kind === 'command') return { kind: 'help', topic: inner.spec };
     return inner;
   }
-  const specs = COMMANDS.filter((spec) => spec.path[0] === first);
-  if (specs.length === 0) {
+  // The longest command whose words start the line, and the longest group.
+  let best: CommandSpec | undefined;
+  for (const spec of COMMANDS) {
+    if (startsWith(positionals, spec.path) && (!best || spec.path.length > best.path.length))
+      best = spec;
+  }
+  let groupLength = 0;
+  for (let n = 1; n <= positionals.length; n += 1) {
+    if (isGroup(positionals.slice(0, n))) groupLength = n;
+  }
+  if (best && best.path.length >= groupLength) {
+    return { kind: 'command', spec: best, args: positionals.slice(best.path.length) };
+  }
+  if (groupLength === 0) {
     throw new CliError(
       'error.unknownCommand',
-      { command: first ?? '' },
+      { command: positionals[0] ?? '' },
       { exitCode: ExitCode.USAGE, code: 'usage' },
     );
   }
-  const single = specs.find((spec) => spec.path.length === 1);
-  if (single) return { kind: 'command', spec: single, args: positionals.slice(1) };
-  if (second === undefined) {
-    const fallback = GROUP_DEFAULTS[first!];
+  const group = positionals.slice(0, groupLength).join(' ');
+  if (positionals.length === groupLength) {
+    const fallback = GROUP_DEFAULTS[group];
     const spec = COMMANDS.find((s) => s.id === fallback);
     if (spec) return { kind: 'command', spec, args: [] };
-    return { kind: 'help', group: first };
+    return { kind: 'help', group };
   }
-  const spec = specs.find((s) => s.path[1] === second);
-  if (!spec) {
-    throw new CliError(
-      'error.unknownCommand',
-      { command: `${first} ${second}` },
-      { exitCode: ExitCode.USAGE, code: 'usage' },
-    );
-  }
-  return { kind: 'command', spec, args: positionals.slice(2) };
+  throw new CliError(
+    'error.unknownCommand',
+    { command: positionals.slice(0, groupLength + 1).join(' ') },
+    { exitCode: ExitCode.USAGE, code: 'usage' },
+  );
 }
 
 /** Rejects options that do not belong to the command and wrong argument counts. */
@@ -431,7 +594,7 @@ export function validateInvocation(spec: CommandSpec, values: OptionValues, args
       );
     }
   }
-  if (args.length < spec.args.length) {
+  if (args.length < spec.args.length - (spec.optionalArgs ?? 0)) {
     throw new CliError(
       'error.missingArgument',
       { argument: `<${spec.args[args.length]}>` },
